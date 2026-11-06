@@ -1,0 +1,52 @@
+/* ---- 站内搜索（顶部检索条） ---- */
+.srch{font-family:inherit;color:#16202b}
+.srch-in{position:relative}
+.srch-box{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #dbe3ec;
+  border-radius:12px;padding:0 12px 0 14px;height:46px;box-shadow:0 1px 2px rgba(11,37,69,.05);
+  transition:border-color .15s,box-shadow .15s}
+.srch-box:focus-within{border-color:#0b5fa5;box-shadow:0 0 0 3px rgba(11,95,165,.10)}
+.srch-ico{flex:0 0 18px;width:18px;height:18px;color:#8a99a8}
+.srch-input{flex:1;min-width:0;border:0;outline:0;background:transparent;height:100%;
+  font-size:14.5px;font-family:inherit;color:#16202b}
+.srch-input::placeholder{color:#9aa8b6}
+.srch-input::-webkit-search-cancel-button{display:none}
+.srch-kbd{font-size:11px;color:#8a99a8;border:1px solid #dbe3ec;border-radius:5px;
+  padding:1px 6px;background:#f7fafc;line-height:1.5}
+.srch-clear{display:none;border:0;background:#eef1f6;color:#5b6b7e;width:22px;height:22px;
+  border-radius:50%;cursor:pointer;font-size:15px;line-height:1;padding:0;flex:0 0 22px}
+.srch-clear:hover{background:#e2e7ef;color:#15233b}
+.srch.on .srch-clear{display:block}
+.srch-stat{font-size:12.5px;color:#6b7a8c;padding:7px 2px 0;line-height:1.5}
+.srch-stat:empty{display:none}
+.srch-panel{display:none;position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:90;
+  background:#fff;border:1px solid #dbe3ec;border-radius:12px;box-shadow:0 16px 44px rgba(11,37,69,.16);
+  max-height:min(64vh,480px);overflow:auto;overscroll-behavior:contain}
+.srch.on .srch-panel.has{display:block}
+.srch-sum{padding:9px 16px;font-size:12.5px;color:#6b7a8c;border-bottom:1px solid #eef1f6;
+  background:#fbfcfe;position:sticky;top:0;z-index:1}
+.srch-item{display:block;padding:10px 16px;border-bottom:1px solid #f2f5f9;text-decoration:none;
+  color:inherit;cursor:pointer}
+.srch-item:last-child{border-bottom:0}
+.srch-item:hover,.srch-item.cur{background:#f2f7fd}
+.srch-item.cur{box-shadow:inset 3px 0 0 #0b5fa5}
+.srch-meta{display:flex;align-items:center;gap:8px;font-size:11.5px;color:#7b8899;margin-bottom:2px;
+  white-space:nowrap;overflow:hidden}
+.srch-id{font-family:Consolas,"SFMono-Regular",monospace;font-weight:700;color:#0a4ea3}
+.srch-tag{background:#eef3fb;color:#42556e;border-radius:4px;padding:0 6px}
+.srch-issue{background:#0b2545;color:#fff;border-radius:10px;padding:0 8px;font-weight:700}
+.srch-sub{overflow:hidden;text-overflow:ellipsis}
+.srch-tit{font-size:14px;font-weight:600;color:#15233b;line-height:1.45}
+.srch-snip{font-size:12.5px;color:#5b6b7e;margin-top:3px;line-height:1.55}
+.srch-snip em,.srch-tit em,.srch-sum em{font-style:normal;background:#fff1a8;color:#111;border-radius:2px;padding:0 1px}
+.srch-empty{padding:16px 16px;font-size:13px;color:#7b8899;line-height:1.7}
+.srch-empty b{color:#0a4ea3}
+mark.srch-mark{background:#fff1a8;color:#111;padding:0 1px;border-radius:2px}
+@keyframes srchFlash{0%{box-shadow:0 0 0 0 rgba(11,95,165,0)}12%{box-shadow:0 0 0 4px rgba(11,95,165,.42)}100%{box-shadow:0 0 0 0 rgba(11,95,165,0)}}
+.srch-flash{animation:srchFlash 1.9s ease}
+.srch-page{margin:0 0 14px}
+.srch-arch{max-width:1080px;margin:16px auto 0;padding:0 20px}
+@media(max-width:640px){
+  .srch-kbd{display:none}
+  .srch-box{height:44px}
+  .srch-input{font-size:16px}
+}

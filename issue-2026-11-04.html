@@ -1,46 +1,119 @@
 <!DOCTYPE html>
 <html lang="zh-CN"><head>
+
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>轨道出海日报 · 2026-11-04 期 · 中国轨道交通出海门户</title>
-<meta charset="utf-8"><meta content="width=device-width,initial-scale=1" name="viewport">
-<title data-pnid-children="FDgoYvU2vQfYsPYKLJAgsh">轨道出海日报 · 2026-11-04 期</title>
-<style data-pnid-children="G6koNccHj3JmXsqp2sg18p">
-:root{--ink:#16202b;--mut:#5b6b7a;--line:#e3e9ef;--acc:#0b5fa5;--acc2:#0e7a5a;--new:#c0392b;--bg:#f5f7fa;--card:#fff}
-*{box-sizing:border-box} body{margin:0;font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
-.rd-wrap{max-width:1080px;margin:0 auto;padding:28px 22px 60px}
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>轨道出海日报 第10期 · 2026-11-04</title>
+<style>*{box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:#16202b;background:#eef1f5;margin:0;line-height:1.7}
+.wrap{max-width:1080px;margin:0 auto;background:#fff;padding:36px 44px 60px;box-shadow:0 2px 18px rgba(0,0,0,.06)}
+h1{font-size:30px;margin:0;color:#0a4ea3;letter-spacing:1px}
+.sub{color:#5a6b7b;font-size:13px}
+.sec{margin:26px 0}
+.sec h2{font-size:20px;color:#0a4ea3;border-left:5px solid #0a4ea3;padding-left:10px;margin:18px 0 12px}
+.muted{color:#5a6b7b;font-size:13px}
+.decl{background:#f3f6fb;border:1px solid #d6e2f2;border-radius:8px;padding:12px 16px;font-size:13px;color:#33455a}
+.overview{background:#fbfcfe;border:1px solid #e3e9f1;border-radius:8px;padding:14px 18px;font-size:15px}
+.legend span{display:inline-block;margin-right:14px;font-size:12px;color:#33455a}
+table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0}
+th,td{border:1px solid #dde4ec;padding:7px 9px;text-align:left;vertical-align:top}
+th{background:#0a4ea3;color:#fff;font-weight:600}
+tr:nth-child(even) td{background:#f7fafc}
+.num{text-align:center;font-weight:600}
+.card{border:1px solid #dde4ec;border-radius:8px;margin:10px 0;overflow:hidden}
+.conf-A{border-left:5px solid #1b8a3a}
+.conf-B{border-left:5px solid #d99a00}
+.conf-C{border-left:5px solid #b06bd6}
+.chead{background:#f4f7fb;padding:9px 12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.cid{font-weight:700;color:#0a4ea3;font-family:"SFMono-Regular",Consolas,monospace}
+.ccat{background:#e7eefa;color:#0a4ea3;border-radius:4px;font-size:12px;padding:1px 7px}
+.ctitle{font-weight:600;flex:1;min-width:240px}
+.cbadge{font-size:11px;color:#5a6b7b}
+.cbody{padding:0}
+.frow{display:flex;border-bottom:1px solid #e8eef6}
+.fl{flex:0 0 118px;background:#eef3fb;color:#42556e;font-size:12.5px;padding:6px 10px;border-right:1px solid #e4ebf5}
+.fv{flex:1;padding:6px 12px;font-size:13px;line-height:1.55}
+.frow:last-child{border-bottom:none}
+.fv a{color:#0a4ea3;text-decoration:none;border-bottom:1px dotted #9db8d4}
+.fv a:hover{color:#0b3d6b;border-bottom-color:#0b3d6b}
+
+.topitem{display:flex;gap:10px;align-items:baseline;padding:8px 12px;border:1px solid #e3e9f1;border-radius:8px;margin:6px 0;background:#fbfcfe}
+.tnum{font-weight:700;color:#0a4ea3;font-size:16px;width:22px}
+.tid{font-family:Consolas,monospace;color:#0a4ea3;font-weight:600}
+.tt{flex:1}
+.treg{font-size:12px;color:#5a6b7b}
+.empty{color:#8a99a8;font-style:italic}
+.st{font-weight:600;color:#1b8a3a;text-align:center}
+.ok{color:#1b8a3a;font-weight:600;text-align:center}
+html{scroll-behavior:smooth}
+section.part,.card{scroll-margin-top:12px}
+.jump{color:#0a4ea3;text-decoration:none;border-bottom:1px dotted #9db8d4;cursor:pointer}
+.jump:hover{color:#0b3d6b;border-bottom-color:#0b3d6b}
+.page-nav{display:flex;justify-content:flex-end;gap:10px;margin:0 0 14px}
+.page-nav a{padding:8px 18px;border-radius:20px;font-size:14px;text-decoration:none;line-height:1.4}
+.page-nav a.nav-current{background:#0b2545;color:#fff}
+.page-nav a.nav-current:hover{background:#0b2545;opacity:.88}
+.page-nav a.nav-arch{background:#eef1f6;color:#15233b;border:1px solid #d5dde8}
+.page-nav a.nav-arch:hover{background:#e2e9f2}
 .rd-header{background:linear-gradient(135deg,#0b3d6b,#0b5fa5);color:#fff;border-radius:14px;padding:26px 28px;margin-bottom:22px}
-.rd-header h1{margin:0 0 6px;font-size:26px} .rd-header .rd-sub{opacity:.92;font-size:15px}
+.rd-header h1{margin:0 0 6px;font-size:26px;color:#fff}
+.rd-header .rd-date{font-size:14px;font-weight:400;opacity:.85;margin-left:8px}
+.rd-header .rd-sub{opacity:.92;font-size:15px}
 .rd-header .rd-meta{margin-top:12px;font-size:13px;opacity:.9}
-.rd-toc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:20px;font-size:14px}
-.rd-toc a{color:var(--acc);text-decoration:none;margin-right:14px;white-space:nowrap}
-.rd-section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:18px}
-.rd-section h2{margin:0 0 12px;font-size:19px;border-left:5px solid var(--acc);padding-left:10px}
-.rd-count{color:var(--mut);font-size:14px;font-weight:400}
-.rd-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media(max-width:760px){.rd-cards{grid-template-columns:1fr}}
-.rd-card{border:1px solid var(--line);border-radius:10px;overflow:hidden}
-.rd-card-head{display:flex;align-items:center;gap:8px;background:#eef4fa;padding:8px 12px;font-size:13px;flex-wrap:wrap}
-.rd-id{font-weight:700;color:var(--acc)} .rd-cat{color:var(--mut)} .rd-reg{color:var(--mut)}
-.rd-badge-new{margin-left:auto;background:var(--new);color:#fff;padding:1px 8px;border-radius:10px;font-size:12px}
-.rd-badge-flat{margin-left:auto;background:#9aa7b3;color:#fff;padding:1px 8px;border-radius:10px;font-size:12px}
-.rd-itab,.rd-stab,.rd-qtab{width:100%;border-collapse:collapse;font-size:13px}
-.rd-itab th{text-align:left;background:#f7fafc;color:var(--mut);width:34%;padding:6px 10px;border-top:1px solid var(--line);vertical-align:top;font-weight:600}
-.rd-itab td{padding:6px 10px;border-top:1px solid var(--line);vertical-align:top}
-.rd-stab{font-size:12.5px;display:block;overflow-x:auto;white-space:nowrap}
-.rd-stab th,.rd-stab td{border:1px solid var(--line);padding:6px 8px;text-align:left}
-.rd-stab thead th{background:var(--acc);color:#fff;position:sticky;top:0}
-.rd-stab .rd-idx{background:#eef4fa;font-weight:700;color:var(--acc)}
-.rd-qtab th,.rd-qtab td{border:1px solid var(--line);padding:7px 10px}
-.rd-qtab thead th{background:var(--acc2);color:#fff}
-.rd-note{color:var(--mut);font-size:13px}
-.rd-overview{background:#eaf6ef;border:1px solid #bfe3cf;border-radius:10px;padding:14px 16px;font-size:14px;margin-bottom:6px}
-.rd-declare{background:#fff8e9;border:1px solid #f0dca8;border-radius:10px;padding:14px 16px;font-size:13.5px}
-.rd-schema{font-size:13px;color:var(--mut)}
-.rd-schema code{background:#eef4fa;padding:1px 6px;border-radius:5px;color:var(--acc)}
-.rd-check li{margin:4px 0;font-size:13.5px}
-.rd-foot{text-align:center;color:var(--mut);font-size:12.5px;margin-top:26px}
-.rd-foot a{color:var(--acc);text-decoration:none}
+.rd-header .rd-meta a{color:#fff;text-decoration:underline}
+.page-nav{display:flex;justify-content:flex-end;gap:10px;margin:0 0 14px}
+.page-nav a{padding:8px 18px;border-radius:20px;font-size:14px;text-decoration:none;line-height:1.4}
+.page-nav a.nav-current{background:#0b2545;color:#fff}
+.page-nav a.nav-current:hover{background:#0b2545;opacity:.88}
+.page-nav a.nav-arch{background:#eef1f6;color:#15233b;border:1px solid #d5dde8}
+.page-nav a.nav-arch:hover{background:#e2e9f2}
+.rd-header{background:linear-gradient(135deg,#0b3d6b,#0b5fa5);color:#fff;border-radius:14px;padding:26px 28px;margin-bottom:22px}
+.rd-header h1{margin:0 0 6px;font-size:26px;color:#fff}
+.rd-header .rd-sub{opacity:.92;font-size:15px}
+.rd-header .rd-meta{margin-top:12px;font-size:13px;opacity:.9}
+.rd-toc{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:14px 18px;margin-bottom:20px;font-size:14px;line-height:1.9}
+.rd-toc b{color:#15233b;margin-right:6px}
+.rd-toc a{color:#0a4ea3;text-decoration:none;margin-right:14px;white-space:nowrap}
+.rd-toc a:hover{color:#0b3d6b;text-decoration:underline}
+footer{margin-top:30px;border-top:1px solid #dde4ec;padding-top:12px;color:#8a99a8;font-size:12px}
+
+/* ---- PART 折叠面板 ---- */
+details.part{margin:20px 0 0;scroll-margin-top:14px}
+details.part>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;
+  background:linear-gradient(180deg,#f5f9fe,#eaf1fa);border:1px solid #dbe6f4;border-left:5px solid #0a4ea3;
+  border-radius:10px;padding:11px 16px;transition:background .15s,border-color .15s;user-select:none}
+details.part>summary:hover{background:#e4edfa;border-color:#c6d8ee}
+details.part>summary::-webkit-details-marker{display:none}
+details.part>summary::marker{content:""}
+details.part>summary h2{margin:0;padding:0;border:none;flex:1;font-size:19px;line-height:1.45;
+  color:#0a4ea3;font-weight:700}
+details.part .rcount{font-size:13px;font-weight:400;color:#5b6b7e}
+details.part .fold-ind{display:flex;align-items:center;gap:6px;font-size:12.5px;color:#42556e;
+  background:#fff;border:1px solid #d5dde8;border-radius:14px;padding:2px 11px;white-space:nowrap}
+details.part .chev{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;
+  border-top:6px solid #42556e;transition:transform .2s}
+details.part[open] .chev{transform:rotate(180deg)}
+details.part .fi-open{display:inline}
+details.part .fi-close{display:none}
+details.part[open] .fi-open{display:none}
+details.part[open] .fi-close{display:inline}
+details.part[open]>summary{border-bottom-left-radius:0;border-bottom-right-radius:0}
+details.part .part-body{padding-top:10px}
+@media print{details.part>summary .fold-ind{display:none}}
+
+/* 目录/编号跳转时自动展开目标分区 */
+
+/* ---- v3.6 内容行加宽加高 + 末四行紧凑 ---- */
+.fl{flex:0 0 108px}
+.frow.r-content .fv{padding:9px 14px;font-size:13.5px;line-height:1.78;min-height:72px;text-align:justify}
+.frow.r-meta .fl{font-size:12px}
+.frow.r-meta .fv{font-size:12px;line-height:1.45;color:#3d4a5c;padding:5px 12px}
+
+/* ---- v3.7 内容行关键事实加粗 ---- */
+.frow.r-content .fv strong{font-weight:700;color:#111}
+
+/* ---- v3.8 四栏重点加粗（通用 strong 样式） ---- */
+.frow .fv strong{font-weight:700;color:#111}
 
 /* PART07 舆情列表（v3.11） */
 .po-legend{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0;align-items:center}
@@ -78,115 +151,122 @@ details.po[open]>summary{border-bottom:1px solid #e8eef6}
 .po-row .pv a{color:#0a4ea3;text-decoration:none;border-bottom:1px dotted #9db8d4;word-break:break-all}
 @media (max-width:720px){.po-grid{grid-template-columns:1fr}}
 .po-hidden{display:none}
-</style></head><body>
-<div style="max-width:980px;margin:0 auto;padding:12px 16px 0;font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif"><div style="display:flex;gap:8px;justify-content:flex-end"><a href="index.html" style="text-decoration:none;font-size:13px;padding:6px 14px;border-radius:20px;background:#0b2545;color:#fff;font-weight:600">最新一期</a><a href="archive.html" style="text-decoration:none;font-size:13px;padding:6px 14px;border-radius:20px;background:#eef1f5;color:#0b2545;font-weight:600;border:1px solid #d7dee8">往期归档</a></div></div><div class="rd-wrap">
+</style><!--SRCH-CSS--><style>
 
-<div class="rd-header">
-  <h1><!--pnid:LQ0KbEOCsVrEcHHBDfrPAD-->轨道出海日报 · 2026-11-04 期</h1>
-  <div class="rd-sub"><!--pnid:6NNWRPk3rycYLoGh2YwnT9-->海外市场情报 · 中国轨道交通/铁路装备出海每日监测</div>
-  <div class="rd-meta"><!--pnid:zRZ2kMox4RozQIDZEXZBO5-->监测窗口：2026-11-03 00:00 ~ 2026-11-04 00:00 (+0800) ｜ 自动出刊时间：2026-11-04 08:03（+0800）｜ 固定链接：<a href="https://workbuddy.link/p/8HfJr5vgOgyrZUs8DQbgG1" style="color:#fff"><!--pnid:p04vLxBnApXd6aLrwX3dIV-->workbuddy.link/p/8HfJr5vgOgyrZUs8DQbgG1</a></div>
+/* ---- 站内搜索（顶部检索条） ---- */
+.srch{font-family:inherit;color:#16202b}
+.srch-in{position:relative}
+.srch-box{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #dbe3ec;
+  border-radius:12px;padding:0 12px 0 14px;height:46px;box-shadow:0 1px 2px rgba(11,37,69,.05);
+  transition:border-color .15s,box-shadow .15s}
+.srch-box:focus-within{border-color:#0b5fa5;box-shadow:0 0 0 3px rgba(11,95,165,.10)}
+.srch-ico{flex:0 0 18px;width:18px;height:18px;color:#8a99a8}
+.srch-input{flex:1;min-width:0;border:0;outline:0;background:transparent;height:100%;
+  font-size:14.5px;font-family:inherit;color:#16202b}
+.srch-input::placeholder{color:#9aa8b6}
+.srch-input::-webkit-search-cancel-button{display:none}
+.srch-kbd{font-size:11px;color:#8a99a8;border:1px solid #dbe3ec;border-radius:5px;
+  padding:1px 6px;background:#f7fafc;line-height:1.5}
+.srch-clear{display:none;border:0;background:#eef1f6;color:#5b6b7e;width:22px;height:22px;
+  border-radius:50%;cursor:pointer;font-size:15px;line-height:1;padding:0;flex:0 0 22px}
+.srch-clear:hover{background:#e2e7ef;color:#15233b}
+.srch.on .srch-clear{display:block}
+.srch-stat{font-size:12.5px;color:#6b7a8c;padding:7px 2px 0;line-height:1.5}
+.srch-stat:empty{display:none}
+.srch-panel{display:none;position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:90;
+  background:#fff;border:1px solid #dbe3ec;border-radius:12px;box-shadow:0 16px 44px rgba(11,37,69,.16);
+  max-height:min(64vh,480px);overflow:auto;overscroll-behavior:contain}
+.srch.on .srch-panel.has{display:block}
+.srch-sum{padding:9px 16px;font-size:12.5px;color:#6b7a8c;border-bottom:1px solid #eef1f6;
+  background:#fbfcfe;position:sticky;top:0;z-index:1}
+.srch-item{display:block;padding:10px 16px;border-bottom:1px solid #f2f5f9;text-decoration:none;
+  color:inherit;cursor:pointer}
+.srch-item:last-child{border-bottom:0}
+.srch-item:hover,.srch-item.cur{background:#f2f7fd}
+.srch-item.cur{box-shadow:inset 3px 0 0 #0b5fa5}
+.srch-meta{display:flex;align-items:center;gap:8px;font-size:11.5px;color:#7b8899;margin-bottom:2px;
+  white-space:nowrap;overflow:hidden}
+.srch-id{font-family:Consolas,"SFMono-Regular",monospace;font-weight:700;color:#0a4ea3}
+.srch-tag{background:#eef3fb;color:#42556e;border-radius:4px;padding:0 6px}
+.srch-issue{background:#0b2545;color:#fff;border-radius:10px;padding:0 8px;font-weight:700}
+.srch-sub{overflow:hidden;text-overflow:ellipsis}
+.srch-tit{font-size:14px;font-weight:600;color:#15233b;line-height:1.45}
+.srch-snip{font-size:12.5px;color:#5b6b7e;margin-top:3px;line-height:1.55}
+.srch-snip em,.srch-tit em,.srch-sum em{font-style:normal;background:#fff1a8;color:#111;border-radius:2px;padding:0 1px}
+.srch-empty{padding:16px 16px;font-size:13px;color:#7b8899;line-height:1.7}
+.srch-empty b{color:#0a4ea3}
+mark.srch-mark{background:#fff1a8;color:#111;padding:0 1px;border-radius:2px}
+@keyframes srchFlash{0%{box-shadow:0 0 0 0 rgba(11,95,165,0)}12%{box-shadow:0 0 0 4px rgba(11,95,165,.42)}100%{box-shadow:0 0 0 0 rgba(11,95,165,0)}}
+.srch-flash{animation:srchFlash 1.9s ease}
+.srch-page{margin:0 0 14px}
+.srch-arch{max-width:1080px;margin:16px auto 0;padding:0 20px}
+@media(max-width:640px){
+  .srch-kbd{display:none}
+  .srch-box{height:44px}
+  .srch-input{font-size:16px}
+}
+</style>
+<!--/SRCH-CSS--></head><body><div class="wrap">
+
+<div class="page-nav">
+  <a class="nav-current" href="https://workbuddy.link/p/8HfJr5vgOgyrZUs8DQbgG1">最新一期</a>
+  <a class="nav-arch" href="https://xxuwuming-lang.github.io/rail-export-portal/archive.html">往期归档</a>
 </div>
-
+<header class="rd-header">
+  <h1>轨道出海日报 第10期 <span class="rd-date">2026年11月4日 星期三</span></h1>
+  <div class="rd-sub">海外市场情报 · 中国轨道交通/铁路装备出海每日监测</div>
+  <div class="rd-meta">监测窗口：2026-11-03 00:00 ~ 2026-11-04 00:00 (+0800)</div>
+</header>
+<div class="srch srch-page" id="srch">
+  <div class="srch-in">
+    <div class="srch-box">
+      <svg class="srch-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20.2 20.2 16.6 16.6"></path></svg>
+      <input class="srch-input" type="text" autocomplete="off" spellcheck="false" aria-label="搜索本期内容" placeholder="搜索本期：关键词 / 国家 / 企业 / 条目编号，如 越南、中车、CT-41">
+      <button class="srch-clear" type="button" aria-label="清空搜索">×</button>
+      <kbd class="srch-kbd">/</kbd>
+    </div>
+    <div class="srch-panel" role="listbox" aria-label="搜索结果"></div>
+  </div>
+</div>
 <div class="rd-toc">
-  <b><!--pnid:7nBrQNhswsdclpQ1aF9Ujw-->目录：</b>
-  <a href="#decl"><!--pnid:amZp2eHOnnauk8tW5BuI2a-->编务声明</a><a href="#overview"><!--pnid:JtEY0zbUwXyBG01yAOqrV1-->总览</a><a href="#schema"><!--pnid:sWnUXiHunyBAbDTicpO9cx-->编号说明</a>
-  <a href="#quick"><!--pnid:pUekjSBtfKhXMzkmcf1MUB-->按区速查</a><a href="#top5"><!--pnid:Lv6jAz3LxdZeinuxcXBGf0-->Top5</a>
-  <a href="#PART01"><!--pnid:uidt13lU7EM7pOlRr1Tb6O-->东南亚</a><a href="#PART02"><!--pnid:mt5v5jTu8LeQNGtIfz8zSV-->中东·独联体</a><a href="#PART03"><!--pnid:WnSrzIGi1UuIcmSvAWybHA-->拉美</a>
-  <a href="#PART04"><!--pnid:ls6KSCck2Ez4CDcbfzHOMS-->非洲</a><a href="#PART05"><!--pnid:16gvbHhdDzO4b3IHWyyt2l-->南亚·大洋洲</a><a href="#PART06"><!--pnid:3jF7rH7ytDKDPq8dls9Gsd-->跨区域</a>
-  <a href="#PART07"><!--pnid:s6scR6eqhgUq0IVpmN06aN-->舆情25条</a><a href="#PART08"><!--pnid:HD4nPrNEP64ZhXzpRHMTUF-->去重日志</a><a href="#PART09"><!--pnid:AHEgc6WEx86SXIxRtY9wbA-->合规自检</a>
+  <b>目录：</b>
+  <a href="#overview">总览</a><a href="#schema">编号说明</a><a href="#quick">按区速查</a>
+  <a href="#part01">东南亚</a><a href="#part02">中东·独联体</a><a href="#part03">拉美</a>
+  <a href="#part04">非洲</a><a href="#part05">南亚·大洋洲</a><a href="#part06">跨区域</a>
+  <a href="#part07">舆情25条</a>
 </div>
 
-<section class="rd-section" id="decl"><h2><!--pnid:seBtP3JAuvykcKBavaIFUR-->编务声明</h2>
-<div class="rd-declare">
-<p><!--pnid:WuXKTLmDywERI75PyEd6YA-->本期为<b><!--pnid:zbf2NYgNC3GHKNHrgmSojR-->定时自动化出刊</b><!--pnid:kUWKtElguPfVgNjFeSuZJ4-->，覆盖监测窗口 2026-11-03 00:00 ~ 2026-11-04 00:00 (+0800)。社媒三平台按窗口（2026-11-03 00:00 ~ 2026-11-04 00:00 (+0800)）采集并去噪：YouTube=1 条、X=0 条、Facebook=22 条（主页明细：EtihadRail:1；MetroBogota:1；keretaapikita:1；ktmberhad:7；DOTrPH:7；ReliKenya:4；TrenMayaOficial:1）。各平台单源失败仅记录不中断，本期三平台均成功返回。</p>
-<p><!--pnid:3cvUDax2zsT0vzNHAcnI1P-->窗口内<b><!--pnid:ZDY8yGJGifLHH95EX5TZ6W-->实质新增出海条目 3 条</b><!--pnid:ca2IMXXFGGsz1hCWkkO0Mx-->（CT-41、CT-42、RW-35，详见各区域 PART）；其余区域以<b><!--pnid:46mQ3h2IDjiFElbqdM976a-->持平</b><!--pnid:9qkD2I7OoBZf4oWDsTgkkT-->结转既有台账活跃项目。六区 WebSearch 同步检索窗口内中标/签约/交付、中车·通号·中铁·铁建·中交动态与政策招标，已与全量台账（111+ 条）比对去重，无重复收录。</p>
-<p><!--pnid:yoN8lQr3tJJNRVmPELc4eY-->按脱敏规则，<b><!--pnid:GRr9IiXcwHzFOOYNTNtVA0-->匿名化条目不公开</b><!--pnid:QEWY67dBMD3PZ4OFR3Ro9s-->（其真实国名/首都/可反查地名/机构缩写均不出本刊），仅留存于内部台账。本刊不对未获二次印证的非官方社媒成条标注「未获二次印证」。金额、里程、时间一律以原文事实保留，跨币种已标注。</p>
-</div></section>
-
-<section class="rd-section" id="overview"><h2><!--pnid:n8oLuxYhNr24lCWNW2yppG-->总览</h2>
-<div class="rd-overview">
-<p><b><!--pnid:ZJhdB2fPLE4aCkrKonFwQC-->本期新增 3 条 · 涉及 6 个区域</b><!--pnid:WbtFiJUPmw1hcgy0p5sB4F-->——东南亚 5 条（菲律宾、马来西亚）、中东·独联体 4 条（阿塞拜疆）、拉美 0 新增（波哥大/阿根廷持平结转）、非洲 0 新增（肯尼亚持平结转）、南亚·大洋洲 0 新增（雅万/富国岛持平结转）、跨区域 0 新增（匈塞持平结转）。</p>
-<p><!--pnid:IksBhxiwkpQ5UUwLgSTpRv-->舆情监控 25 项（见 PART07）。窗口内社媒真实活动以业主方官方账号为主：阿联酋 Etihad Rail 国旗日、波哥大地铁1号线支持率升至 92%、马来西亚 KTMB ETS2027 加密、菲律宾 DOTr MRT-7 预招标、肯尼亚 ReliKenya 安全/换乘运营、印尼 KAI 增座、墨西哥 Tren Maya 班次推广。</p>
-</div></section>
-
-<section class="rd-section" id="schema"><h2><!--pnid:EdhKOLNK1cQxxOklgVxMls-->编号说明</h2>
-<p class="rd-schema"><code data-pnid-children="rrJ6E26lurAGL9rC1kqNBE">CT</code><!--pnid:sLuyj9oyojkagCuEWkQKbE-->＝城市轨道交通 ｜ <code data-pnid-children="G1KioOjSZyVITIAYlZABpP">RW</code><!--pnid:Gh6xrEiRDMsoNq3nvlzNe7-->＝铁路 ｜ <code data-pnid-children="zVOqt87GQ5NF7NI8cQRYeJ">PL</code><!--pnid:rMqZQbnk5K3a18OzNpJLP3-->＝政策/地缘 ｜ <code data-pnid-children="L9X9am0YC0mG8sgaTMHA7o">PR</code><!--pnid:RQ5SIQBzex4E7OPsipbjGf-->＝产品/竞品 ｜ <code data-pnid-children="m8KMsE511m5Xlt8vSY6R3w">PO</code><!--pnid:mTcEHMgvjIoZ8iYqzSAJ2Y-->＝舆情监控（网页版）。格式「类别-流水号」，如 RW-29＝本期铁路类第 29 条；编号在正文卡片、按区速查、台账三处一一对应。</p>
-<p class="rd-schema"><!--pnid:HvfavQztinEVr9zwfxU6dV-->置信度：<code data-pnid-children="VBWGJFlXSgSY5tYLo0bNrg">A</code><!--pnid:J9WI2wUkjEbCEJmdYkKzb4-->＝官方源/双源互证 ｜ <code data-pnid-children="fKJuDuquca8BAYRWJmupxz">B</code><!--pnid:xhSScyyOohptH1MtMHn7Lx-->＝单源主流媒体/非官方社媒 ｜ <code data-pnid-children="pmIwDHR7cE6NGFNcs5x7M7">C</code><!--pnid:wX7OhM7kePZbZPfSWnnr2N-->＝自媒体（单源且未二次印证须标注「未获二次印证」）。本刊正文条目均为 A 级（窗口内业主方官方账号 + 公开报道双源）。</p>
+<section class="sec" id="overview">
+  <h2>一、一句话总览</h2>
+  <div class="overview"><p><b>本期 21 条（其中窗口内新增 3 条）· 覆盖 6 个区域</b>——东南亚 5 条、中东·独联体 4 条、拉美 3 条、非洲 3 条、南亚·大洋洲 3 条、跨区域 3 条。</p><p>舆情监控 25 项（见 PART07）。窗口内社媒真实活动以业主方官方账号为主：阿联酋 Etihad Rail 国旗日、波哥大地铁1号线支持率升至 92%、马来西亚 KTMB ETS2027 加密、菲律宾 DOTr MRT-7 预招标、肯尼亚 ReliKenya 安全/换乘运营、印尼 KAI 增座、墨西哥 Tren Maya 班次推广。</p></div>
+  <div class="legend" style="margin-top:10px">
+    <span>定级说明：</span><span>A（一手/官方通报，可信度高）</span>
+    <span>B（主流媒体/行业媒体，可信度中）</span><span>C（线索/付费摘要标题，待核）</span>
+  </div>
 </section>
 
-<section class="rd-section" id="quick"><h2><!--pnid:deQO94suJZNUCV3BgfT6HI-->按区速查</h2>
-<table class="rd-qtab"><thead><tr><th><!--pnid:pfggN6F9MQuqabcdct0hq8-->区域</th><th><!--pnid:wH7JhEGgkt4q390XABpAbd-->条数</th><th><!--pnid:fjUO88Lokpv14X1paBNUen-->编号</th></tr></thead><tbody><tr><td><!--pnid:ybDkKBAeLXCLlnrjLdIPF5-->东南亚</td><td><!--pnid:xLWz535qHTtaFIC7iPsk4D-->5</td><td><!--pnid:HA8O8uX6sUj9TzJVV796fN-->CT-41、CT-42、CT-34、RW-30、CT-32</td></tr><tr><td><!--pnid:Z70fDLcqELUWexsWMt28aX-->中东·独联体</td><td><!--pnid:HnGwvznbMf9zVlngXmldv5-->4</td><td><!--pnid:FwaM9B6PGHdub49YtE6ziB-->RW-35、CT-39、PL-28、PL-22</td></tr><tr><td><!--pnid:BsyXjoQqVyziEfcEsnDIKh-->拉美</td><td><!--pnid:RB2M9E7VpyPj2ZYk3gusQ2-->3</td><td><!--pnid:W7sMdUm9iURQVOmcisoi6q-->CT-40、RW-27、CT-35</td></tr><tr><td><!--pnid:nK7IpV99BiYnrSVGCCOWMt-->非洲</td><td><!--pnid:9LeHOJG2iZc5iQFfgFgY7T-->3</td><td><!--pnid:3PQz1iL28hGchC8PfUFCzP-->PL-27、RW-28、CT-37</td></tr><tr><td><!--pnid:SibLPPh3dsd09oZea4TQ4U-->南亚·大洋洲</td><td><!--pnid:NuS1g2Eh2OgypioViZ5Rli-->3</td><td><!--pnid:k2BtOz45m9miUAMiXNkifQ-->PL-24、RW-31、PL-21</td></tr><tr><td><!--pnid:BDeyCcOesfaZCgzFILxB4X-->跨区域</td><td><!--pnid:nSSD7PnYHxyfhWNIyHGeRM-->3</td><td><!--pnid:vjU1d7c8DEyuviFMZlP3US-->PR-09、PL-29、RW-33</td></tr></tbody></table>
+<section class="sec" id="schema">
+  <h2>二、编号说明</h2>
+  <table><tr><th>代号</th><th>含义</th><th>说明</th></tr><tr><td>CT</td><td>城市轨道</td><td>地铁、轻轨、单轨、公铁两用桥等城市/区域轨道</td></tr><tr><td>RW</td><td>干线铁路</td><td>高铁、普铁、货运铁路、跨境铁路通道、动车组/机车订单</td></tr><tr><td>PL</td><td>政策与前期</td><td>目标市场政策、规划、招标预告、融资、出口管制等</td></tr><tr><td>PR</td><td>产品/竞品</td><td>海外装备企业（含欧洲厂商）产品与竞争动态，仅作竞争参照</td></tr><tr><td>PO</td><td>舆情监控</td><td>PO-01~25 在执项目舆情跟踪（网页版）</td></tr><tr><td>A</td><td>官方源/双源互证</td><td>官方一手源或两家独立来源互证</td></tr><tr><td>B</td><td>单源主流媒体</td><td>单源主流媒体/行业媒体，可信度中</td></tr><tr><td>C</td><td>自媒体线索</td><td>单源且未二次印证，须标注「未获二次印证」</td></tr></table><p class="muted">置信度：<code >A</code>＝官方源/双源互证 ｜ <code >B</code>＝单源主流媒体/非官方社媒 ｜ <code >C</code>＝自媒体（单源且未二次印证须标注「未获二次印证」）。本刊正文条目均为 A 级（窗口内业主方官方账号 + 公开报道双源）。</p>
 </section>
 
-<section class="rd-section" id="top5"><h2><!--pnid:UTVrdk76Ipx61EHr5YbIaR-->Top5（新增优先）</h2>
-<div class="rd-cards"><div class="rd-card">
-      <div class="rd-card-head"><span class="rd-id"><!--pnid:RP2gI3DIAelWmHatXnY3OJ-->CT-41</span><span class="rd-cat"><!--pnid:s27fWFQlhNjxpe5LYCRfT2-->CT</span><span class="rd-reg"><!--pnid:Snvc2RVLT4CjROnWJS2if7-->东南亚</span><span class="rd-badge-new"><!--pnid:1JbvuePpr747FPqvQPn3sQ-->新</span></div>
-      <table class="rd-itab"><tbody><tr><th><!--pnid:2gPX3XIlLOZuhlnuTXCXx1-->编号/类别</th><td><!--pnid:giGWO6RPe3D8OQtgvcw2Vy-->CT-41 · CT</td></tr><tr><th><!--pnid:545PWXu9T7PZExP8CuqEoB-->区域/国家/城市</th><td><!--pnid:Tn1ipc5uC3a9UmN40Enth2-->东南亚 / 菲律宾 / 马尼拉</td></tr><tr><th><!--pnid:VK8Ng2HDpIb73jshtAxxEU-->项目</th><td><!--pnid:F3NiGI1xqiQoP0ZbKjNNNZ-->马尼拉大都会捷运7号线（MRT-7）工程咨询与勘察监理（EC/IF）服务采购预招标</td></tr><tr><th><!--pnid:CzwJnVLdGIZRXovvtBBasA-->阶段</th><td><!--pnid:7vp6ljhl2dlY1NHnDKl093-->招标前期（Pre-Bid Conference 已于 11-03 举行）</td></tr><tr><th><!--pnid:RCzgoZzkxY0hIprsEdvQIN-->类型</th><td><!--pnid:Gi2mewIrowmydbMyfj0KCR-->招投标；咨询服务</td></tr><tr><th><!--pnid:CM8Un5fChJ6vTtfpo1771d-->相关方</th><td><!--pnid:mijtYfO2xDtRiSjEvjscTF-->业主：菲律宾交通部（DOTr）；本期标的：MRT-7 工程顾问/检验机构（EC/IF）服务；MRT-7 主线特许/土建原为 San Miguel 牵头联合体（SSI），本期为咨询监理服务采购</td></tr><tr><th><!--pnid:vyz27R7U3Oh38vyVq6aoMs-->金额(本币)</th><td><!--pnid:NwYwCWfTV1JaFBBdF1zOZI-->本期为咨询服务采购，金额待开标（MRT-7 主线整体投资约 P350B+ 量级）</td></tr><tr><th><!--pnid:6sMwlVPUQWqwQjEu4vyhRn-->金额(美元估)</th><td><!--pnid:YrFz6iMOep1K6ubKQqP0ml-->咨询服务金额待定；MRT-7 整体投资约 70 亿美元量级（历史口径）</td></tr><tr><th><!--pnid:6w3Z8AZSeX04CaEBNIvx7S-->进度/时间</th><td><!--pnid:ZwCwapbyrCAifO5EU9OCZ8-->11-03 DOTr 举行 Pre-Bid Conference；后续开标/授标以公告为准</td></tr><tr><th><!--pnid:C4VJpVeCrUsEJxpulxTX5w-->竞品/交叉</th><td><!--pnid:svGPzhLPHGhAjo7RJkhym7-->中资在轨道工程咨询与装备领域具参与基础；MRT-7 后续车辆/信号等标段为中企潜在机会，本期仅咨询监理预招标，中企参与度待观察</td></tr><tr><th><!--pnid:P0RwZM5iNgnztFHNkigcit-->主源</th><td><!--pnid:YPIz9sJDX50GjOWa6o88Jh-->菲律宾交通部（DOTr）官方 Facebook 直播/公告（2026-11-03 Pre-Bid Conference）</td></tr><tr><th><!--pnid:74eDRE67mGjKLmp4qgCjhB-->佐证源</th><td><!--pnid:ZLwNpHqPmSrJPgpP2JxSbR-->菲律宾交通部（DOTr）官网采购公告页（具体文号待核）</td></tr><tr><th><!--pnid:77m7nSh1lI26shzYYBFjCU-->置信度</th><td><!--pnid:tXkEQvZFvX1TrSxg508bET-->A（业主方官方账号）</td></tr><tr><th><!--pnid:BR7q3kHhykBbhUbAV4z6kt-->语种/备注</th><td><!--pnid:w2jEt8I2eEZDZ9h10C3nbb-->业主方官方账号（DOTrPH，官方）；窗口内 11-03 直播预招标会议；中企参与度待观察，未获二次印证</td></tr></tbody></table></div><div class="rd-card">
-      <div class="rd-card-head"><span class="rd-id"><!--pnid:x3OLhzmP2TMsKoZgE7UhsY-->CT-42</span><span class="rd-cat"><!--pnid:rmLkWq24VkNYZlBZk93k1T-->CT</span><span class="rd-reg"><!--pnid:nUFyZu5SQx2RAim98p9dXE-->东南亚</span><span class="rd-badge-new"><!--pnid:IhbpV2qeeaphl16fB6QIBX-->新</span></div>
-      <table class="rd-itab"><tbody><tr><th><!--pnid:NfcPbsPmCvB19lxF3N29uU-->编号/类别</th><td><!--pnid:uwdBMQeJkNFojVdchJ8qKb-->CT-42 · CT</td></tr><tr><th><!--pnid:gQ65oUSiE55ClEgUtyMMIN-->区域/国家/城市</th><td><!--pnid:6YOLhzrWEK9yaKYMIvS5zO-->东南亚 / 马来西亚 / 西马干线（吉隆坡/怡保/北海等）</td></tr><tr><th><!--pnid:TzIkIlL2sfzSKsn8Cc3D0A-->项目</th><td><!--pnid:TWof3wgrYPxbBw9AtMfgqU-->马来亚铁道（KTMB）ETS 城际电动车组（EMU）2027 年加密开行计划</td></tr><tr><th><!--pnid:2cn8ZOdnCTJQupuyD1HnHs-->阶段</th><td><!--pnid:tsRPIrgAk6CJKCb8YXHJ84-->在运营（2027 频次提升）</td></tr><tr><th><!--pnid:ULa0umreI0Zvjob7v2gVtw-->类型</th><td><!--pnid:MqbxaGWypayKnkOmDdV24H-->运营扩能；车辆运用</td></tr><tr><th><!--pnid:ulhRQzl5bMHkqcn77Jtf4n-->相关方</th><td><!--pnid:gMeA2Im1YJlBLKKyQhmLTa-->运营：KTMB；车辆：CRRC 制造 ETS EMU（在服车队）；线路：西马电气双线干线</td></tr><tr><th><!--pnid:5Yz0WFIXTKASceI1F2PJJR-->金额(本币)</th><td><!--pnid:4rceeDL7zjCOK2jgWaftcn-->运营计划调整，无新采购金额披露；ETS 频次由 2026 年 44 趟/日提升至 2027 年 50–58 趟/日</td></tr><tr><th><!--pnid:kkPjOpmkTz1GtmsscYkrUV-->金额(美元估)</th><td><!--pnid:YNEdOq9tSN8RO5wlAbTnD5-->—</td></tr><tr><th><!--pnid:ufv7vij9da9eJmFoG0xNjh-->进度/时间</th><td><!--pnid:bYMluaCSNSHGzNtZAczCZn-->2027 年起执行：周一至周四 50 趟/日、周五至周日 58 趟/日（较 2026 增最多 14 趟/日）</td></tr><tr><th><!--pnid:kD7MDZMvS6aMXocoGXpzSs-->竞品/交叉</th><td><!--pnid:IWKVsfOo1hvoMJmKMs48d7-->KTMB ETS 现役 EMU 由中车（CRRC）供应，本期为在服车队加密运用，反映中车车辆利用率与运维表现获业主认可；叠加 ETS 车辆段/维保本地化趋势</td></tr><tr><th><!--pnid:CvRnC7GZJEhnAyoMfz6N5v-->主源</th><td><!--pnid:11c9TKYH0h2whz6juZu26f-->KTMB 官方 Facebook（2026-11-03 公告「Lebih banyak trip, lebih banyak pilihan perjalanan pada 2027!」）</td></tr><tr><th><!--pnid:sS4RzTaDe6pnxYPm7ksDos-->佐证源</th><td><!--pnid:YEHbaxMZLb5qKk9yVISJup-->KTMB 官方购票渠道（KITS Style / online.ktmb.com.my）运营计划</td></tr><tr><th><!--pnid:tpkktqezw7seA8snXqh00K-->置信度</th><td><!--pnid:dLXvWAdkniWGVBh4PQ0qIG-->A（业主方官方账号）</td></tr><tr><th><!--pnid:xaqdViNX4SgaxpwximwN8s-->语种/备注</th><td><!--pnid:UrM35KRGH0OYFqkKvfiU03-->业主方官方账号（ktmberhad，官方，马来语）；中文摘要：2027 年 ETS 加密至 50–58 趟/日（2026 为 44 趟/日），在服中车 EMU 扩能</td></tr></tbody></table></div><div class="rd-card">
-      <div class="rd-card-head"><span class="rd-id"><!--pnid:w6n3fi43c3jlLnbOohHg45-->RW-35</span><span class="rd-cat"><!--pnid:hzP4mNd5bLUPtv5MPkxaXP-->RW</span><span class="rd-reg"><!--pnid:S2IP90CC44lYxWW0Aa1WK1-->中东·独联体</span><span class="rd-badge-new"><!--pnid:cBvJEV7cJZoGVyikpys3DZ-->新</span></div>
-      <table class="rd-itab"><tbody><tr><th><!--pnid:1xGx9nBqOjDj5Ux30QOGVM-->编号/类别</th><td><!--pnid:tarpUcNyRjaIwO6udHI61l-->RW-35 · RW</td></tr><tr><th><!--pnid:Qh25LOKutGsuvmBd3JAhsf-->区域/国家/城市</th><td><!--pnid:8Uc1hWknEmuFxTKh4vF83m-->中东·独联体 / 阿塞拜疆 / 巴库</td></tr><tr><th><!--pnid:rG1LORhk8I7uJkYGuGbIli-->项目</th><td><!--pnid:Inz2nzxcufpWjObtKJnnOY-->阿塞拜疆铁路公司（ADY）与中车资阳机车 4 台 AC50P 新型干线客运机车采购</td></tr><tr><th><!--pnid:PDtaQDZmkspN0xieru0GzY-->阶段</th><td><!--pnid:SQhEvNmvQ4ep9WnL6wdZ7n-->已签约（近期；交付 2027）</td></tr><tr><th><!--pnid:3E3B0oB1xOTJr8aAPqEdnI-->类型</th><td><!--pnid:Yw3cX1pBCYvu3KQVbj1pqT-->机车采购；签约</td></tr><tr><th><!--pnid:m8PTumYnO8ypgxhG496BTY-->相关方</th><td><!--pnid:i5EHHAisGs66eXDiZDoyjm-->买方：阿塞拜疆铁路公司（ADY，隶属 AZCON 交通运输控股）；卖方：中车资阳机车有限公司；背景：去年 7 台货运机车合同推进中（计划当年 9 月交付），拟追加 14 台</td></tr><tr><th><!--pnid:8x6BOmEMCEt2mDTO9DuiN1-->金额(本币)</th><td><!--pnid:OWfLETQ46HeHqo6eSBIbQs-->金额未披露（4 台 AC50P 干线客运机车）</td></tr><tr><th><!--pnid:ThXJp1HqcRIIb9vwlF2VUz-->金额(美元估)</th><td><!--pnid:iLdwvk3RKywXNnlMGZRGOj-->金额未披露（单台干线客运机车行业量级参考）</td></tr><tr><th><!--pnid:lD88ACBRmRsh2ktIbqrbL3-->进度/时间</th><td><!--pnid:9qJEFtNa6kkSuQzYUkw1Ew-->签约近期；车辆预计 2027 年交付阿塞拜疆；后续或追加 14 台</td></tr><tr><th><!--pnid:OMIxrBnnlDilwbcNPDLTK9-->竞品/交叉</th><td><!--pnid:wngmP4bSxX0XxNySLF7d9e-->与既有 RW-18（CRRC 株洲 4 列城际动车组）、RW-19（城际电动客车后续）形成中车多子公司协同供货格局；AC50P 强化阿塞拜疆国际货运/客运走廊运力</td></tr><tr><th><!--pnid:uwnyHciBVwvpihe9RAjIsL-->主源</th><td><!--pnid:Xy37MuQOUD5NVBmZYfSOBc-->阿塞拜疆铁路代表团访华报道（中车资阳签约，近期）</td></tr><tr><th><!--pnid:yE3UeyI0gIDBNsLXQTxiiL-->佐证源</th><td><!--pnid:E3tRycOe868DJmH58rBrBv-->中车资阳机车有限公司（卖方确认）；AZCON/ADY 官方口径（待核）</td></tr><tr><th><!--pnid:yjeijYkqfjUsZAjp8w5kkN-->置信度</th><td><!--pnid:8nloobZnHbUyKu97OX4t4r-->A（双源：买方代表团访华报道 + 卖方确认）</td></tr><tr><th><!--pnid:b4RCJZrpDxwMUecaunKAKr-->语种/备注</th><td><!--pnid:XHJxdEDSu3nMOUYuHThxzh-->签约日期为近期（具体待核），本报以窗口内首次收录计；金额未披露</td></tr></tbody></table></div></div>
+<section class="sec" id="quick">
+  <h2>三、按区速查</h2>
+  <table>
+    <tr><th>区域</th><th>条数</th><th>条目编号</th></tr><tr><td><a class="jump" href="#part01">东南亚</a></td><td class="num">5</td><td><a class="jump" href="#CT-41">CT-41</a>、<a class="jump" href="#CT-42">CT-42</a>、<a class="jump" href="#CT-34">CT-34</a>、<a class="jump" href="#RW-30">RW-30</a>、<a class="jump" href="#CT-32">CT-32</a></td></tr><tr><td><a class="jump" href="#part02">中东·独联体</a></td><td class="num">4</td><td><a class="jump" href="#RW-35">RW-35</a>、<a class="jump" href="#CT-39">CT-39</a>、<a class="jump" href="#PL-28">PL-28</a>、<a class="jump" href="#PL-22">PL-22</a></td></tr><tr><td><a class="jump" href="#part03">拉美</a></td><td class="num">3</td><td><a class="jump" href="#CT-40">CT-40</a>、<a class="jump" href="#RW-27">RW-27</a>、<a class="jump" href="#CT-35">CT-35</a></td></tr><tr><td><a class="jump" href="#part04">非洲</a></td><td class="num">3</td><td><a class="jump" href="#PL-27">PL-27</a>、<a class="jump" href="#RW-28">RW-28</a>、<a class="jump" href="#CT-37">CT-37</a></td></tr><tr><td><a class="jump" href="#part05">南亚·大洋洲</a></td><td class="num">3</td><td><a class="jump" href="#PL-24">PL-24</a>、<a class="jump" href="#RW-31">RW-31</a>、<a class="jump" href="#PL-21">PL-21</a></td></tr><tr><td><a class="jump" href="#part06">跨区域</a></td><td class="num">3</td><td><a class="jump" href="#PR-09">PR-09</a>、<a class="jump" href="#PL-29">PL-29</a>、<a class="jump" href="#RW-33">RW-33</a></td></tr><tr><td><strong>合计</strong></td><td class="num"><strong>21</strong></td><td>6 个区域</td></tr>
+  </table>
 </section>
 
-<section class="rd-section" id="PART01">
-      <h2><!--pnid:yWcgst0owhEowMxzdYWizZ-->PART01 · 东南亚 <span class="rd-count"><!--pnid:MjgCBdo5ItSZgeoPbuplmt-->（5 条）</span></h2>
-      <div class="rd-cards"><div class="rd-card">
-      <div class="rd-card-head"><span class="rd-id"><!--pnid:MfK6ulnCZtBmooHlfvZm6K-->CT-41</span><span class="rd-cat"><!--pnid:LF6g8F3osdLdbPF2CI0UGM-->CT</span><span class="rd-reg"><!--pnid:Fjwj5m1y0s1R5hUn3dolnJ-->东南亚</span><span class="rd-badge-new"><!--pnid:DG7j6LoIZRq9k5om8hZT6W-->新</span></div>
-      <table class="rd-itab"><tbody><tr><th><!--pnid:ka6HZG6OWJjEsHuYYNI0lq-->编号/类别</th><td><!--pnid:Y1a06bumjE6b2U1dXXcjJQ-->CT-41 · CT</td></tr><tr><th><!--pnid:MMVa0IIztRK0IW1GJUNEpY-->区域/国家/城市</th><td><!--pnid:5XEXMr9ChEurOXiVuw0mCq-->东南亚 / 菲律宾 / 马尼拉</td></tr><tr><th><!--pnid:IcuOfBx0bngscxyE1erqPu-->项目</th><td><!--pnid:UlLipBB7rqtlXFz549JsE8-->马尼拉大都会捷运7号线（MRT-7）工程咨询与勘察监理（EC/IF）服务采购预招标</td></tr><tr><th><!--pnid:hew9K8A0kQKFMnbxjaX9fV-->阶段</th><td><!--pnid:mhS7OvxoBvAGCpmXo9BK2Z-->招标前期（Pre-Bid Conference 已于 11-03 举行）</td></tr><tr><th><!--pnid:LrOkuPOjQhJO5wmKEshQxe-->类型</th><td><!--pnid:LR53dyee1FoFNSVYMvTgXu-->招投标；咨询服务</td></tr><tr><th><!--pnid:fQ0ZYAmUgaylsiSU21Bwrw-->相关方</th><td><!--pnid:RhH2NlWT2ZHqXsPSi0MEEu-->业主：菲律宾交通部（DOTr）；本期标的：MRT-7 工程顾问/检验机构（EC/IF）服务；MRT-7 主线特许/土建原为 San Miguel 牵头联合体（SSI），本期为咨询监理服务采购</td></tr><tr><th><!--pnid:33qJaMDyDtw66LxkfTmeED-->金额(本币)</th><td><!--pnid:aZYvfdgRCpSBCtL8902PHh-->本期为咨询服务采购，金额待开标（MRT-7 主线整体投资约 P350B+ 量级）</td></tr><tr><th><!--pnid:q6RrnXiDYUigI8lUb7QQpi-->金额(美元估)</th><td><!--pnid:z3mnKnFPFIgyBqpn2Qk8cP-->咨询服务金额待定；MRT-7 整体投资约 70 亿美元量级（历史口径）</td></tr><tr><th><!--pnid:skVXTtVgY2R2iZCe7MnYut-->进度/时间</th><td><!--pnid:CRwSsoyQqZ685tmZbEhXnG-->11-03 DOTr 举行 Pre-Bid Conference；后续开标/授标以公告为准</td></tr><tr><th><!--pnid:nBTuhETtmGd9L7FS4wFepj-->竞品/交叉</th><td><!--pnid:877umcmSxeFfVw8QG3ZAqu-->中资在轨道工程咨询与装备领域具参与基础；MRT-7 后续车辆/信号等标段为中企潜在机会，本期仅咨询监理预招标，中企参与度待观察</td></tr><tr><th><!--pnid:f0piS3vmZifAysOYK98oXl-->主源</th><td><!--pnid:iCRFMBIaCWlYNSPX3G0PmX-->菲律宾交通部（DOTr）官方 Facebook 直播/公告（2026-11-03 Pre-Bid Conference）</td></tr><tr><th><!--pnid:ZZg6SiclUubTgq3KVeCv0L-->佐证源</th><td><!--pnid:vuixpgGFWUwwlv5iSwohmD-->菲律宾交通部（DOTr）官网采购公告页（具体文号待核）</td></tr><tr><th><!--pnid:PjQLXEgM1agjSbZ2nhUt4r-->置信度</th><td><!--pnid:TRI9CXR2AlhN9ydq8faJTv-->A（业主方官方账号）</td></tr><tr><th><!--pnid:ISg85J9GES7AXhMcOTBlFx-->语种/备注</th><td><!--pnid:VyPz3FQ47gEJY30o7qHRPT-->业主方官方账号（DOTrPH，官方）；窗口内 11-03 直播预招标会议；中企参与度待观察，未获二次印证</td></tr></tbody></table></div><div class="rd-card">
-      <div class="rd-card-head"><span class="rd-id"><!--pnid:hSWCmqCdhvAnAbFhgrNXo6-->CT-42</span><span class="rd-cat"><!--pnid:wBbP2gog50Grxcff60Hv7C-->CT</span><span class="rd-reg"><!--pnid:h87qO1FpeJ2FbZrbHQrRWl-->东南亚</span><span class="rd-badge-new"><!--pnid:S4xNrl8xPkkC402K0Aq2Tg-->新</span></div>
-      <table class="rd-itab"><tbody><tr><th><!--pnid:KiKSKDyA0jhBBNGJ8i4Aje-->编号/类别</th><td><!--pnid:4OW0U0B7vsogKI1rA6RYpf-->CT-42 · CT</td></tr><tr><th><!--pnid:zSzD352g7ucMWh6wulLWvQ-->区域/国家/城市</th><td><!--pnid:5qTZrSBv6uAjhmUixvOImR-->东南亚 / 马来西亚 / 西马干线（吉隆坡/怡保/北海等）</td></tr><tr><th><!--pnid:4HS6K7T6ylnDoWbcaR6MNr-->项目</th><td><!--pnid:MFyUKog0pTGiy7lYd1ZiVT-->马来亚铁道（KTMB）ETS 城际电动车组（EMU）2027 年加密开行计划</td></tr><tr><th><!--pnid:lJNR01NzgnI7viKeknIuwy-->阶段</th><td><!--pnid:mRjsvYjwSeMONF70zw5UUY-->在运营（2027 频次提升）</td></tr><tr><th><!--pnid:UcVAhXUFaOZq2cqdvPE1WR-->类型</th><td><!--pnid:Giz34xXyrtQhbRHeZEqfQQ-->运营扩能；车辆运用</td></tr><tr><th><!--pnid:Xfl4cgFBBpPWvhZ1msWZHF-->相关方</th><td><!--pnid:6z4nbs6A9dAUnXCE17KqVk-->运营：KTMB；车辆：CRRC 制造 ETS EMU（在服车队）；线路：西马电气双线干线</td></tr><tr><th><!--pnid:5QmydbZWqB7zqFIkkvTSHr-->金额(本币)</th><td><!--pnid:0nkGDiTMP3NzI8C7P302Iw-->运营计划调整，无新采购金额披露；ETS 频次由 2026 年 44 趟/日提升至 2027 年 50–58 趟/日</td></tr><tr><th><!--pnid:Hh0jqu7iU2KQhXDqHKejPn-->金额(美元估)</th><td><!--pnid:hQmN1hv8ZhZtKCFT9G44q8-->—</td></tr><tr><th><!--pnid:WaUbLyZeg7Vn2iFLlGR2Zp-->进度/时间</th><td><!--pnid:Jau64JR9lG2bCKSSF9p5HQ-->2027 年起执行：周一至周四 50 趟/日、周五至周日 58 趟/日（较 2026 增最多 14 趟/日）</td></tr><tr><th><!--pnid:Db06RiquFRkzXxYp6c6D5s-->竞品/交叉</th><td><!--pnid:FsuKkNJUmMzAYoJtpjFgIt-->KTMB ETS 现役 EMU 由中车（CRRC）供应，本期为在服车队加密运用，反映中车车辆利用率与运维表现获业主认可；叠加 ETS 车辆段/维保本地化趋势</td></tr><tr><th><!--pnid:6XujBM6kK18scKmbxl3ye7-->主源</th><td><!--pnid:OH5PyKsWoarn90Vycixk7F-->KTMB 官方 Facebook（2026-11-03 公告「Lebih banyak trip, lebih banyak pilihan perjalanan pada 2027!」）</td></tr><tr><th><!--pnid:Nhmv2f9ghltvLcOUzIvO9n-->佐证源</th><td><!--pnid:nXpzjC0wSaxClGQ2jGM5tY-->KTMB 官方购票渠道（KITS Style / online.ktmb.com.my）运营计划</td></tr><tr><th><!--pnid:5vZIk6dEHXbTn1jl7wvzqA-->置信度</th><td><!--pnid:PtujnvGmrppdFVxpbn5Xw0-->A（业主方官方账号）</td></tr><tr><th><!--pnid:aIriDqtLE3q7tTQ9HgklZS-->语种/备注</th><td><!--pnid:U3EuWeMemvwMNm4vjnXUG1-->业主方官方账号（ktmberhad，官方，马来语）；中文摘要：2027 年 ETS 加密至 50–58 趟/日（2026 为 44 趟/日），在服中车 EMU 扩能</td></tr></tbody></table></div><div class="rd-card">
-      <div class="rd-card-head"><span class="rd-id"><!--pnid:QMNaASSmVBFPm9xWF6LqUH-->CT-34</span><span class="rd-cat"><!--pnid:hG1M614tKNJRAL0GG0KtoL-->CT</span><span class="rd-reg"><!--pnid:MiKD0S34uU9SVtXa7WulCG-->东南亚</span><span class="rd-badge-flat"><!--pnid:CVQtaVUq5zsJXTM6dI2Bkj-->持平</span></div>
-      <table class="rd-itab"><tbody><tr><th><!--pnid:PRmkyYBePfBYPab6VuUmf2-->编号/类别</th><td><!--pnid:m3dsZ7XHBX8frgqY3AUJdq-->CT-34 · CT</td></tr><tr><th><!--pnid:ebT5ZxPoW5vovZ2kYkOZTX-->区域/国家/城市</th><td><!--pnid:NmHEv3t6qg4i40Mu7b5rrJ-->东南亚 / 印度尼西亚 / 雅加达—万隆</td></tr><tr><th><!--pnid:edzOpzEA8J957uQspdorP8-->项目</th><td><!--pnid:IZLaSrU10dUXiIHEbCxine-->雅万高铁开通运营三周年（累计发送旅客超 1800 万人次）</td></tr><tr><th><!--pnid:IWzn2gXYrHRBqspHvi64k4-->阶段</th><td><!--pnid:EH6wqzhPL5RuBm15V1JCE2-->运营三周年（持续运营/服务提质）</td></tr><tr><th><!--pnid:ItQ01BlExexPzYukTCbyNP-->类型</th><td><!--pnid:2C0YlbbaMrrciVcdwBIJzG-->高铁运营；客运动能</td></tr><tr><th><!--pnid:1RhCcDAQVgD8OyHOqumetG-->相关方</th><td><!--pnid:4tUaFKWhymLw761ETGGrk2-->运营：印尼中国高速铁路有限公司（KCIC）；建设：中印尼铁路企业联合体；技术：中国铁路国际有限公司</td></tr><tr><th><!--pnid:o4xrg0qyHdhFhjQQymMDQY-->金额(本币)</th><td><!--pnid:HmgUSjtjxLrja8exr0RqPc-->未披露（全长 142.3km，最高运营时速 350km）</td></tr><tr><th><!--pnid:H7V9ItOvt1j58vX4FISziz-->金额(美元估)</th><td><!--pnid:ee61wu6WOFy9mULJgAWrJg-->未披露</td></tr><tr><th><!--pnid:n8gp4uPb8s4Yf1GUWRJQjn-->进度/时间</th><td><!--pnid:NVsbxSEQR8iBqezAT3WI7V-->2026-10-17 满三周年；累计开行 58666 列、发送旅客超 1800 万人次、安全运行超 890 万公里、正点率 99.4%；高峰日开行至 62 列、单日最高 26770 人次；常旅客卡累计售出 47577 张</td></tr><tr><th><!--pnid:qbG3edPnc4LVIXDu0uIAgf-->竞品/交叉</th><td><!--pnid:ElcineqkyudGcGPxp1ZOQ9-->东南亚首条高铁、中国高铁全系统出海标杆；国际旅客超 96 万人次，马来西亚籍占 42.8% 居首</td></tr><tr><th><!--pnid:Y0psv4uHOELB73t9NiIOZD-->主源</th><td><!--pnid:zGyPRiXN0s7IeiaVZby6Jz-->https://big5.china.com.cn/gate/big5/news.china.com.cn/txt/2026-10/17/content_118737719.shtml（中国网 10-17）</td></tr><tr><th><!--pnid:e0Rc36aXtcEHmktgAiy33i-->佐证源</th><td><!--pnid:Xlt1QrLGS9dF5R6DK9vpLs-->央视/央广网 10-17 三周年报道；中国日报网 10-19</td></tr><tr><th><!--pnid:Aua6wYyJmHWRX4aGZcB1b8-->置信度</th><td><!--pnid:3UXhoYpx4ilbHNNbVXhDR0-->A</td></tr><tr><th><!--pnid:wsGWGjkFfO4QcWkdRiYTQQ-->语种/备注</th><td><!--pnid:wkiE194eWmHetJjlmE5cVd-->中文官方/央媒；运营数据权威</td></tr></tbody></table></div><div class="rd-card">
-      <div class="rd-card-head"><span class="rd-id"><!--pnid:fxxBv4rHyCwaUZGzXUQ8nn-->RW-30</span><span class="rd-cat"><!--pnid:LqVUzOThFVJeYiXEwOJV6c-->RW</span><span class="rd-reg"><!--pnid:ximdQd9HVfT1CC6BLVLjql-->东南亚</span><span class="rd-badge-flat"><!--pnid:k5LBVu9HOGMSQ3aDtopwW4-->持平</span></div>
-      <table class="rd-itab"><tbody><tr><th><!--pnid:SHJ5XJcikO5KWAo6ekpTPs-->编号/类别</th><td><!--pnid:UNaFL4NySEQOvG8f227Ls5-->RW-30 · RW</td></tr><tr><th><!--pnid:qfuGYzg00l0lPIhX0isPua-->区域/国家/城市</th><td><!--pnid:MlHsqbArsuQQHGmwfTmRtl-->东南亚 / 马来西亚 / 哥打巴鲁—鹅唛（东海岸）</td></tr><tr><th><!--pnid:aqfHURgaSuFzmcLY6irMea-->项目</th><td><!--pnid:MnmcRnPB0CHAoALWhgc5cY-->马来西亚东海岸铁路（ECRL）首阶段（鹅唛—哥打巴鲁）12 月中提前开通客运；内阁批准向马泰边境延伸约 32km</td></tr><tr><th><!--pnid:oLfzOOloq9di6aDFHjwJ6L-->阶段</th><td><!--pnid:Cj3kJsECLiDY8ju3OmvBVJ-->调试收尾→提前开通（12 月中）；规划延伸获批</td></tr><tr><th><!--pnid:1yAJPj6n3PyBujepIBnuML-->类型</th><td><!--pnid:BTY2jEn9pr0HdVSTgnGKfX-->干线铁路；客货共线；一带一路旗舰</td></tr><tr><th><!--pnid:zItO91Y9kmvvMnfVmTp8Uu-->相关方</th><td><!--pnid:6jT0o31gAI9jZAGzQvTAnW-->业主/资产方：马来西亚铁路衔接公司（MRL）；总承包：中国交通建设（CCCC）；融资：马来西亚政府；测试监管：陆路公共交通机构（APAD）</td></tr><tr><th><!--pnid:7ASwnmvMfAhxWoXMFo86Ue-->金额(本币)</th><td><!--pnid:XLrGnQsdIj6UAPBTStzkuQ-->一期（鹅唛—哥打巴鲁）约 RM503 亿（503 亿令吉）</td></tr><tr><th><!--pnid:9TrhvxB4S5vAq2pyhukTLz-->金额(美元估)</th><td><!--pnid:yWJl1ZrKSuNv4nPsJ3BMld-->≈110 亿美元（按 ~4.55 MYR/USD 折算）</td></tr><tr><th><!--pnid:nzEA5podghyRy7X1RlRsKW-->进度/时间</th><td><!--pnid:FmBV3SocCJ5xHLwM8QajKI-->整体工程进度 98.16%（截至 2026-09）；CCCC 10 月中移交首阶段设施；EMU/货运电力机车 FFR 10 月提前展开；计划 12 月中开通（原 2027-01），客货同步运营、首月经济舱优惠 30%；内阁 10-20 批准延伸段（哥打巴鲁至兰斗班让约 32km，约 4.5 年，前 2 年评估征地）</td></tr><tr><th><!--pnid:mSlhS777knje9QU5uhyVo4-->竞品/交叉</th><td><!--pnid:uaBoxI73j3Td7hLXO9bhua-->CCCC 总承包；列车（EMU 及货运 E-Loco）由中车系供应（待核实）；中马 9 月安瓦尔访华就延伸线达原则共识；中企在马来轨交（ECRL＋地铁）持续主导，延伸段利好后续土建/系统包</td></tr><tr><th><!--pnid:TftJwGFRRB0BBnFvGmLfK7-->主源</th><td><!--pnid:8f0evgcTG5HMFEs7GEZWQQ-->中国新闻网 2026-10-20（m.chinanews.com/wap/detail/cht/zw/10718168.shtml）</td></tr><tr><th><!--pnid:xB2hOQbnrwjQZo1GwaHYyx-->佐证源</th><td><!--pnid:te5EWuFgFYgFikuX1VcDbf-->Asian Television News 2026-10-06/10-19；东方日报 2026-10-07</td></tr><tr><th><!--pnid:9QSoYc3AI5WPA0hkq7GdKX-->置信度</th><td><!--pnid:eZrTn2NQFQ6bXTkAJHgvqN-->A</td></tr><tr><th><!--pnid:aO9VvejgnzT5v5Msn9H9EZ-->语种/备注</th><td><!--pnid:11M0kbVUVvRZJrvGQ2OEgr-->中新社＋马来西亚媒体多源互证，定 A</td></tr></tbody></table></div><div class="rd-card">
-      <div class="rd-card-head"><span class="rd-id"><!--pnid:DXRGbYEbNRFV5swqaL7EzO-->CT-32</span><span class="rd-cat"><!--pnid:Tey3hGMFK2gVWyOLDMvlib-->CT</span><span class="rd-reg"><!--pnid:PYw6wOnIvTP7My8hLTPZuY-->东南亚</span><span class="rd-badge-flat"><!--pnid:T1pv4sgbEnbM9CPJhVGJ1O-->持平</span></div>
-      <table class="rd-itab"><tbody><tr><th><!--pnid:DGnrc6JF5ljLVrkwLFnLbe-->编号/类别</th><td><!--pnid:0LCnt9K8lEeVcTB4QV7hoi-->CT-32 · CT</td></tr><tr><th><!--pnid:6UiGsAq7m97WEtNMgTqOnD-->区域/国家/城市</th><td><!--pnid:2ESpazeA0pIBjIZktZkv9L-->东南亚 / 越南 / 富国岛</td></tr><tr><th><!--pnid:cAY59QqsAGi2dUw9Luaz1Q-->项目</th><td><!--pnid:lpM6h45dwnYzxmt0mp5tic-->富国岛轻轨城市轨道交通线（APEC 2027 配套）</td></tr><tr><th><!--pnid:ICH4ypZvEfoD40pQJAY4uL-->阶段</th><td><!--pnid:idFswUfWDL9mL5Kbs0a8X6-->签约（车辆采购）</td></tr><tr><th><!--pnid:UzGCeTxsxHDyLNc9D44Leq-->类型</th><td><!--pnid:JpLVPPJVAY68i95vgFxL43-->城市新线；车辆采购</td></tr><tr><th><!--pnid:6mMe36Na5Z3Mk3wiADZHFg-->相关方</th><td><!--pnid:JhPC2ygmipnRadWzSC6vBd-->业主：Sun Group（太阳集团）；车辆：中车大连机车车辆有限公司</td></tr><tr><th><!--pnid:tUrBNC6Ez5ysNvmBs8Qxs4-->金额(本币)</th><td><!--pnid:9FaxPyzgdZhM7g0aNETyb1-->未披露（14 列定制列车）</td></tr><tr><th><!--pnid:3qSWNa5jxvGWHzwbrH6JTH-->金额(美元估)</th><td><!--pnid:1SrIhQ8vqaflfCKn4DhQ3f-->未披露</td></tr><tr><th><!--pnid:bHEt6HDOmo0KgJqE32GlbN-->进度/时间</th><td><!--pnid:FpqwwBi0u6Dcf3rFsD5cQG-->服务 2027 年 APEC 峰会（落户富国经济特区/安江省）；安江省 21 项重点项目之一</td></tr><tr><th><!--pnid:ZGlEXoKOiFdsF7tUjykvht-->竞品/交叉</th><td><!--pnid:oe3KdXynnf4i0zjT73Iysu-->富国岛旅游轨道交通，竞品为日韩欧车辆厂；合同细节未官方全文披露</td></tr><tr><th><!--pnid:sVuInMls1T6NFMVVAZVQ2h-->主源</th><td><!--pnid:XWm449duh4rpnBacIcJYUX-->https://sg.tigermarketf.com/hans/news/2604022903（越南媒体，经新加坡聚合）</td></tr><tr><th><!--pnid:eLeZue4Ee0tx1HCl2mNp3w-->佐证源</th><td><!--pnid:AEIhEv3R5M9bHvpFQl3kDt-->待官方公告交叉验证</td></tr><tr><th><!--pnid:GURnFyoE5Mt3tbNyiCw7Hz-->置信度</th><td><!--pnid:45agcODZwsjhldimPx0W8I-->B</td></tr><tr><th><!--pnid:fu7DiJu1U18UC1yTnTZMYi-->语种/备注</th><td><!--pnid:xFSJ6LvGnxKaSs00RIWyzl-->越媒/英文聚合；金额未披露记为未披露</td></tr></tbody></table></div></div></section><section class="rd-section" id="PART02">
-      <h2><!--pnid:NiP9CXkPIjkdPVQlRbsHrt-->PART02 · 中东·独联体 <span class="rd-count"><!--pnid:bpGteyLGJ1mwhwR68rdbLw-->（4 条）</span></h2>
-      <div class="rd-cards"><div class="rd-card">
-      <div class="rd-card-head"><span class="rd-id"><!--pnid:hya1IIS1usDo7LRa4UV7uI-->RW-35</span><span class="rd-cat"><!--pnid:b1VTRGuKQz3owHjurjVWSP-->RW</span><span class="rd-reg"><!--pnid:qLIr0OlXUf3r7djpthrsca-->中东·独联体</span><span class="rd-badge-new"><!--pnid:EG7U5ZPu0orbPMmgGGuLnO-->新</span></div>
-      <table class="rd-itab"><tbody><tr><th><!--pnid:lOq06RNScgYSWkWp5SOMWv-->编号/类别</th><td><!--pnid:2X8dNdq6DsbxqJSPAoOJTA-->RW-35 · RW</td></tr><tr><th><!--pnid:4BLTCNL74JRkyef1sn8w69-->区域/国家/城市</th><td><!--pnid:nLhMrGuE5lVrh4wahWFrWp-->中东·独联体 / 阿塞拜疆 / 巴库</td></tr><tr><th><!--pnid:Xi22nIQfwjCpVHksdVWHfe-->项目</th><td><!--pnid:5MDkENLFeTcH9EEkJmP3Fe-->阿塞拜疆铁路公司（ADY）与中车资阳机车 4 台 AC50P 新型干线客运机车采购</td></tr><tr><th><!--pnid:om9OpVH9RfCUNipQrYuwvR-->阶段</th><td><!--pnid:NFnvfxvqbOYPY0PiR8mszJ-->已签约（近期；交付 2027）</td></tr><tr><th><!--pnid:iS2NOmLUtGfr2fdOu93Cj3-->类型</th><td><!--pnid:gUnKcwXNxGuIegoBHvR72M-->机车采购；签约</td></tr><tr><th><!--pnid:mZ0roq7DI3RdjjwtHGK4M9-->相关方</th><td><!--pnid:tAOn1VrvdYZfiIO0pIianl-->买方：阿塞拜疆铁路公司（ADY，隶属 AZCON 交通运输控股）；卖方：中车资阳机车有限公司；背景：去年 7 台货运机车合同推进中（计划当年 9 月交付），拟追加 14 台</td></tr><tr><th><!--pnid:LERYu12NffjU8Q8mncJjBL-->金额(本币)</th><td><!--pnid:j6U3ZlBG8YSvCR7eryD2GI-->金额未披露（4 台 AC50P 干线客运机车）</td></tr><tr><th><!--pnid:4TMIBAnc0dnjva6TIR5ETz-->金额(美元估)</th><td><!--pnid:XELOzISn3j24vK1Rn1hUVK-->金额未披露（单台干线客运机车行业量级参考）</td></tr><tr><th><!--pnid:tqSGmQRG603OOzLHNal51E-->进度/时间</th><td><!--pnid:SR2nVNZ7xJywcAGjN9l0OA-->签约近期；车辆预计 2027 年交付阿塞拜疆；后续或追加 14 台</td></tr><tr><th><!--pnid:QX6DiE6K6V7xr6gWjBZYbk-->竞品/交叉</th><td><!--pnid:bjWYPAH6JsvEXg0eEGP2zk-->与既有 RW-18（CRRC 株洲 4 列城际动车组）、RW-19（城际电动客车后续）形成中车多子公司协同供货格局；AC50P 强化阿塞拜疆国际货运/客运走廊运力</td></tr><tr><th><!--pnid:JQdXSbBnBFvthskaEe2chA-->主源</th><td><!--pnid:ADplxMem8BI7YmZAT3d2Rc-->阿塞拜疆铁路代表团访华报道（中车资阳签约，近期）</td></tr><tr><th><!--pnid:99xdYqgkH5hJ5pplzV4zD7-->佐证源</th><td><!--pnid:MymgJAfwDFnyN3OuSERtzF-->中车资阳机车有限公司（卖方确认）；AZCON/ADY 官方口径（待核）</td></tr><tr><th><!--pnid:XYqm9E190UF4d8BMW98jAl-->置信度</th><td><!--pnid:zFKbdW5rq0zbQ7XNfbDsFg-->A（双源：买方代表团访华报道 + 卖方确认）</td></tr><tr><th><!--pnid:Hk7h22sUXD09G8uTi8gfwB-->语种/备注</th><td><!--pnid:v7UQqPWY6HHkEs34Hakwsu-->签约日期为近期（具体待核），本报以窗口内首次收录计；金额未披露</td></tr></tbody></table></div><div class="rd-card">
-      <div class="rd-card-head"><span class="rd-id"><!--pnid:t8LtF9kXzbnCwqHk6dn1AH-->CT-39</span><span class="rd-cat"><!--pnid:rNbpZLQlx4QBxLKaT6Z9N1-->CT</span><span class="rd-reg"><!--pnid:MUzaBDKbRgrjIA4NCpIZEZ-->中东·独联体</span><span class="rd-badge-flat"><!--pnid:4IOLMBpYmMb322VTM4rrGh-->持平</span></div>
-      <table class="rd-itab"><tbody><tr><th><!--pnid:s1ZWj2pKIkz2JjSBdpO2M8-->编号/类别</th><td><!--pnid:IBtXLa1ypXPSWR39pbMigx-->CT-39 · CT</td></tr><tr><th><!--pnid:NTuJdVjOyMnX30SSKAbi5v-->区域/国家/城市</th><td><!--pnid:giR7fsHwJ6C0VYKhoaNoPi-->中东·独联体 / 格鲁吉亚 / 第比利斯</td></tr><tr><th><!--pnid:xZEp8cob7LwQv7zqyLHGTW-->项目</th><td><!--pnid:m0lPH6qDVAQRfp1W5xcox5-->第比利斯地铁现代化（111 节车厢，CRRC）</td></tr><tr><th><!--pnid:2NLNnBAALan872CfieC3tP-->阶段</th><td><!--pnid:QcjpcwMzXODJuXpBp0YbM2-->合同签订（近期签约，2026—2031 分批交付）</td></tr><tr><th><!--pnid:TWAQ3IOhrSTVgkFMLbKIl0-->类型</th><td><!--pnid:p4itpPcWtOJRjhH3IQ1yIp-->城市轨道车辆采购；招投标/授标</td></tr><tr><th><!--pnid:OKaNau7wZPxykfrF7oN61t-->相关方</th><td><!--pnid:6KF0uHwDvkQyqN4aMCIX1G-->业主：第比利斯市政厅（Tbilisi City Hall）；采购代理：GT Group；制造：中国中车（CRRC）；融资：亚投行（AIIB）1.25 亿欧元贷款 + 格鲁吉亚政府 0.85 亿欧元</td></tr><tr><th><!--pnid:nSuHfiOizhdKtrStdKi0Ty-->金额(本币)</th><td><!--pnid:ZfwoIwY03mvpKEdbeVv1Xu-->1.5 亿欧元（111 节车厢，14×4 编组 + 11×5 编组）</td></tr><tr><th><!--pnid:w9tO5eW00SUiB9uMTAHEBn-->金额(美元估)</th><td><!--pnid:8iEKqjqyPElIAaJCCafr3A-->约 1.62 亿美元（按 1 欧元≈1.08 美元）</td></tr><tr><th><!--pnid:PBHGWAANAxwNh3Gl14ZvjA-->进度/时间</th><td><!--pnid:x7K7l9o3qc5Rt9ukdLPEE5-->签约近期；首批列车 2026 年 11 月或运抵当地，2027 年投用于 1 号线；2026—2031 分批交付</td></tr><tr><th><!--pnid:QfQVZZE6mJiB8sYK3viIod-->竞品/交叉</th><td><!--pnid:Ld5ZKsA3gDB9ontrxEfpbb-->原定由俄罗斯企业承接，受制裁 2023 年合同终止，中车入局填补空缺；适配独联体 1520mm 宽轨标准；亚投行融资支撑</td></tr><tr><th><!--pnid:qpJEILUAZ8XH8N9JJN5R7K-->主源</th><td><!--pnid:SjNtByOH5kkdBIOEloGmav-->https://bm.ge/en/news/gt-group-to-supply-tbilisi-with-new-metro-cars-from-chinese-crrc-in-eur-150-mln-deal</td></tr><tr><th><!--pnid:RHhSHDyERCwoQuQTq4mokk-->佐证源</th><td><!--pnid:gT4IElbelQdbMXqEvcNUhT-->https://www.seetao.com/details/276823.html（见道网，中车宽轨地铁亮相格鲁吉亚，2026-09-01）；https://www.seetaoe.com/details/276824.html</td></tr><tr><th><!--pnid:IFtEoRzyb4h7cx1Y8a76PF-->置信度</th><td><!--pnid:ASkIiEjazOmYRe2zN2hb6t-->A</td></tr><tr><th><!--pnid:g0JYxS2J3OZS9Atqu5nkyo-->语种/备注</th><td><!--pnid:GeZzYgzZ9ozYZgztUwYPkW-->外文源（bm.ge 格鲁吉亚当地媒体）+ 中文转述（见道网）互证</td></tr></tbody></table></div><div class="rd-card">
-      <div class="rd-card-head"><span class="rd-id"><!--pnid:JcIYzAWwnI5aMJxl9Zmt9g-->PL-28</span><span class="rd-cat"><!--pnid:hlCSMdzPUHj3f68oBN9bg0-->PL</span><span class="rd-reg"><!--pnid:1Xa2rgjke2fFiMDcmLGRJO-->中东·独联体</span><span class="rd-badge-flat"><!--pnid:iZJqb8C4BIt60F33TmDHcA-->持平</span></div>
-      <table class="rd-itab"><tbody><tr><th><!--pnid:Bck0PEAtWFDn201xmkPcSJ-->编号/类别</th><td><!--pnid:wwgzz1kti0MCCGFmnJtIfo-->PL-28 · PL</td></tr><tr><th><!--pnid:ir5rylD9BPSvFJXxB40zBB-->区域/国家/城市</th><td><!--pnid:nxrt3KkJWybNAQruHIuntQ-->中东·独联体 / 阿联酋 / 迪拜（古拜巴—朱美拉高尔夫庄园）</td></tr><tr><th><!--pnid:7g0IbDIgoWzfcnA6VUwJCn-->项目</th><td><!--pnid:558oPHBHWgGJ02sFwOakZW-->迪拜地铁金线（Gold Line）总承包资格预审：6 家国际联合体提交，4 家含中企</td></tr><tr><th><!--pnid:8WGvC6VoFKdmZhznYRN1r0-->阶段</th><td><!--pnid:8V4ctsuO1kv9aDPQZpifzg-->资格预审提交（PQ，2026-10-09）</td></tr><tr><th><!--pnid:co4vaQls94cjn5PSRg93qM-->类型</th><td><!--pnid:sFBsjzm8gDmSIhWUovmKdW-->招投标；城轨新线（全地下）</td></tr><tr><th><!--pnid:w2WvHk7ZRbIP946SUqKHv5-->相关方</th><td><!--pnid:f29NXLF43w7LlxPW79kGRF-->业主：迪拜道路与交通管理局（RTA）；联合体：中国中铁—阿尔斯通—阿布扎比国家项目公司—土耳其 Dogus；中国中车—Limak—Mapa；日立—中国港湾—中国建筑；西门子—埃及 Petrojet 等；另含埃及 Hassan Allam—IC İçtaş—西门子、印度 L&amp;T—中国电建—Wade Adams</td></tr><tr><th><!--pnid:uHhlLiip0t3HdjGa6dKK38-->金额(本币)</th><td><!--pnid:gDA8WaUMR0Mlk21PNZVr6n-->约 340 亿迪拉姆（≈92.6 亿美元）</td></tr><tr><th><!--pnid:9G8LB6lFC1HFRB7Dx91FZL-->金额(美元估)</th><td><!--pnid:qYbIyQ3NM0BqonoB1Zeuxd-->≈92.6 亿美元</td></tr><tr><th><!--pnid:o4XxAXYtqAMnYgfZuJAhLV-->进度/时间</th><td><!--pnid:IGy5E1tnUCdyPijzhoor3d-->RTA 10-9 收到 6 家联合体 PQ 文件；金线全长 42km、全地下（最深处约 40 米）、18 站，2032-09 竣工；土建 / 机电 / 车辆 / 轨道打包一份主合同，含投运后 3 年运维支持；与红线 / 绿线 / 阿提哈德客运网衔接</td></tr><tr><th><!--pnid:fdVllFJmJUQFLwUMAULUSU-->竞品/交叉</th><td><!--pnid:mjTg3O2BhTnTHD8yZjmHk6-->中车—Limak—Mapa 曾斩获迪拜蓝线（PL-23，2026-11-01 期运维另招）；中国中铁 / 港湾 / 建筑 / 电建另列；欧日厂商（阿尔斯通 / 西门子 / 日立）同场；迪拜「本地含量 + 长期运维」门槛高，中企在建设 / 车辆占优、高端信号与运维被对手分食</td></tr><tr><th><!--pnid:IUeWxb14hx07gqRepWHxQ0-->主源</th><td><!--pnid:vGi8s2ZGV7GYgy9uGNMkoY-->https://news.qq.com/rain/a/20261014A05TFP00（腾讯新闻 2026-10-14，引 MEED）</td></tr><tr><th><!--pnid:dhBP45b7nQlOS4j7ack8XU-->佐证源</th><td><!--pnid:ycdtNjaclVPALsEOYpuZXR-->MEED（中东工程媒体）；城市交通网 chinaiut.com（迪拜金线 PQ，2026-10-14）</td></tr><tr><th><!--pnid:3dZdh6T0qBeDJhZZ0H7lTV-->置信度</th><td><!--pnid:F1WgGMajFGij6fvypiDJ49-->B</td></tr><tr><th><!--pnid:VEiGz0rR5ozSVofmGrYvpU-->语种/备注</th><td><!--pnid:3lXQWMcnR3I1GGTtaHk3it-->单一外文源（MEED）经中文媒体转述，PQ 阶段待正式授标，定 B；PQ 日 10-9，超出本期 7 天回溯线，作「回溯补录」标注</td></tr></tbody></table></div><div class="rd-card">
-      <div class="rd-card-head"><span class="rd-id"><!--pnid:pmQzc7vZRv12bjCJCs6OLl-->PL-22</span><span class="rd-cat"><!--pnid:i35HSILBq4IDqSbI8b3ae7-->PL</span><span class="rd-reg"><!--pnid:bpojXjVHhF3OnFlXtChpZ1-->中东·独联体</span><span class="rd-badge-flat"><!--pnid:DRh0Mbb6Boh8haUgoHQXgF-->持平</span></div>
-      <table class="rd-itab"><tbody><tr><th><!--pnid:FwVVsgDYHzO8WlYRv0jq8a-->编号/类别</th><td><!--pnid:s95dO87unqprPcuyMGyYYx-->PL-22 · PL</td></tr><tr><th><!--pnid:MGTI4IcY48y2QQW1cLN8VT-->区域/国家/城市</th><td><!--pnid:cfziZSdt6EUaRlrijKqQhZ-->中东·独联体 / 乌兹别克斯坦 / 塔什干</td></tr><tr><th><!--pnid:6yM7x2cH77HCODbzQRSFVm-->项目</th><td><!--pnid:2jqj8TxB9kvVgBHIOA8KLI-->乌兹别克斯坦交通部/乌铁 × 中车大连 铁路与地铁合作备忘录（MoU）</td></tr><tr><th><!--pnid:LcVjadUYRpxxTI21JgF3JD-->阶段</th><td><!--pnid:uLNAPlP58BHhsz4tBU4dub-->签署合作备忘录（框架性）</td></tr><tr><th><!--pnid:2uBUg75LBZxIKjFa6q9bnu-->类型</th><td><!--pnid:MfougxYqWCZ3tSKYsAPh6a-->政策/合作；机车车辆与地铁</td></tr><tr><th><!--pnid:J49UJqX1L3vIFQ9PRuPpUK-->相关方</th><td><!--pnid:U2e2F9PaOcXlYtJmgpz2Xx-->乌兹别克斯坦交通部、乌兹别克斯坦铁路公司（O&#x27;zbekiston Temir Yo&#x27;llari）、中车大连机车车辆有限公司</td></tr><tr><th><!--pnid:nfpp95WowSlhNIfrClNo0Q-->金额(本币)</th><td><!--pnid:NPJOYSqoZlg8V7kH44Hlk0-->未披露（备忘录阶段，未列采购量与金额）</td></tr><tr><th><!--pnid:6Z0fbE62w7K9ZBgzCDXl1A-->金额(美元估)</th><td><!--pnid:xCUn4y0OmmP7hwKrtqiPL6-->未披露</td></tr><tr><th><!--pnid:S3yrnMLXK7cnEoGEgG3nqp-->进度/时间</th><td><!--pnid:qaekgWoULqfEcwtsaWyi2n-->10-14 签署；目标通过采购现代机车车辆、引入先进技术、发展制造与维保合作支持乌铁路与地铁现代化；探讨联合项目</td></tr><tr><th><!--pnid:uaOvoiQGofU9RkuOIafDOu-->竞品/交叉</th><td><!--pnid:0hXM6pU5YprflIpB8bkcYL-->与既有 CT-33 塔什干地铁新车采购方案形成接续；俄 GTR、韩现代 Rotem、欧洲厂商同场竞争乌轨道交通装备市场</td></tr><tr><th><!--pnid:igbA4qs5zKjE8TMTjDKh7s-->主源</th><td><!--pnid:BOk64YUwSe7sOVNadMWfCA-->https://www.azerbaijantimes.org/news/2321533（Azerbaijan Times 引 trend.az，10-15）</td></tr><tr><th><!--pnid:h6A9z8g9Uz9DxK3uzBP4c4-->佐证源</th><td><!--pnid:1Z6SVncLxDneEskIDVJJBg-->乌交通部声明（trend.az 同源）</td></tr><tr><th><!--pnid:7K61JqYp90ds5VpGtFlnUA-->置信度</th><td><!--pnid:mirBFjYhwCQc36A2mC9grm-->B</td></tr><tr><th><!--pnid:PCFFg7OYEGLEQ3nhs3P5IY-->语种/备注</th><td><!--pnid:8szkAH9efhx1z51UzpBk91-->英文二次源（趋势通讯社）；备忘录阶段待落地</td></tr></tbody></table></div></div></section><section class="rd-section" id="PART03">
-      <h2><!--pnid:nfgHEZXOZ76o9RbBNJtwx8-->PART03 · 拉美 <span class="rd-count"><!--pnid:GToa7rg1rJRyetoC7zfTM4-->（3 条）</span></h2>
-      <div class="rd-cards"><div class="rd-card">
-      <div class="rd-card-head"><span class="rd-id"><!--pnid:d1H65Yq5Mm0vYulnR4HyVU-->CT-40</span><span class="rd-cat"><!--pnid:9V21TPFAYbXSSK2b0rFVNE-->CT</span><span class="rd-reg"><!--pnid:lQ0wxpPVuh1eGWkxhM28lM-->拉美</span><span class="rd-badge-flat"><!--pnid:XfyguqquEqKF7w4XLUv3ff-->持平</span></div>
-      <table class="rd-itab"><tbody><tr><th><!--pnid:3CSznJSwI7zVySeVi7G5nu-->编号/类别</th><td><!--pnid:7UPblUJ0QCzIwHd1D58aqO-->CT-40 · CT</td></tr><tr><th><!--pnid:fINYdjgKYuCbWh9j8FFbp1-->区域/国家/城市</th><td><!--pnid:sujnwxL2huxObNzD7VxPow-->拉美 / 智利 / 康塞普西翁（比奥比奥大区）</td></tr><tr><th><!--pnid:q5wLClBiOGppwPtYTD9tw0-->项目</th><td><!--pnid:XbLV5jU43YCwQb1B9wB08N-->智利国家铁路 EFE 比奥比奥 Biotrén 2 号线 10 列电动列车</td></tr><tr><th><!--pnid:LJg0Fv1S0f89nTFZuACZbI-->阶段</th><td><!--pnid:1B9iHtC2LYrfpEzsTJExPC-->静态测试阶段（近期推进投用）</td></tr><tr><th><!--pnid:cIG02HN97ja3x6Zg5Tcqh0-->类型</th><td><!--pnid:fADBS44mO6PDgH2D2H2WcX-->城市/通勤铁路车辆采购；招投标/交付</td></tr><tr><th><!--pnid:j61ibJQpDAhAQjFCrlKlDY-->相关方</th><td><!--pnid:pIjgx9xKTPuLysXZGfplPt-->业主：智利国家铁路公司（EFE）；制造：中车四方（CRRC Sifang）；线路：Biotrén 科罗内尔—康塞普西翁 2 号线</td></tr><tr><th><!--pnid:2xHYMPH0neJoLuDcrg4KGu-->金额(本币)</th><td><!--pnid:FO0uRUdBqLWGcUjsscaKun-->约 6000 万美元（项目总投资）</td></tr><tr><th><!--pnid:Lth7uogpO340l5kUbhYxVU-->金额(美元估)</th><td><!--pnid:qet3ljsFaZCfQyKBD443rU-->约 6000 万美元</td></tr><tr><th><!--pnid:Ds4gVXwIxlcDxqObt4GtKj-->进度/时间</th><td><!--pnid:tEJIKdX7sllbz1CFdp7bW0-->新车进入静态测试，后续动态测试；分阶段投运；每列最大载客 717 人、最高 120km/h；2 号线日均客流超 5 万人次</td></tr><tr><th><!--pnid:B8048kpMxZsNr54P0gsqig-->竞品/交叉</th><td><!--pnid:j1DVWyugLJWsBc5dl3uXI8-->与 RW-20（智利 EFE 4 台柴油机车，2026-10-30 期）为不同采购（电动列车 vs 柴油机车、Biotrén 2 号线 vs 既有），不重复计列；智利携轨交需求亮相 11 月深圳 iMetro 展</td></tr><tr><th><!--pnid:9D0MDr3G6BCmm9v4sdLf3f-->主源</th><td><!--pnid:Rg9lnqnAx7WryE9yAam9cq-->https://m.toutiao.com/article/7633075337777201718（今日头条，中车助力智利提升运力，EFE 推进 10 列电动列车）</td></tr><tr><th><!--pnid:xT0C4CasLGdPdFcpeYoSGs-->佐证源</th><td><!--pnid:spWNFo1ccR5B1WxiggymmO-->智利交通部副部长、比奥比奥大区州长、EFE 董事长出席新车发布仪式</td></tr><tr><th><!--pnid:bR7anl0mvXOEW7XLivh4uA-->置信度</th><td><!--pnid:Z5WiB0yXMgcgzbRJq2dhDM-->B</td></tr><tr><th><!--pnid:K7vi22GmYbKVcXMAGSZnQf-->语种/备注</th><td><!--pnid:0PgFPSMSwDzcAiQqVdCLxX-->中文媒体源，待智利当地源佐证</td></tr></tbody></table></div><div class="rd-card">
-      <div class="rd-card-head"><span class="rd-id"><!--pnid:Cb0WCvk2DKDoCX8nk1ERSc-->RW-27</span><span class="rd-cat"><!--pnid:cwaNKMmMIfLegfZoVoONcX-->RW</span><span class="rd-reg"><!--pnid:Okjt4rFUQJZu8aZyoPAZRY-->拉美</span><span class="rd-badge-flat"><!--pnid:jg0iZ4VXXVCs5ul0CPi9M6-->持平</span></div>
-      <table class="rd-itab"><tbody><tr><th><!--pnid:D8EUKDFWhd6zRm2jtrCowt-->编号/类别</th><td><!--pnid:YwsziTQwq6QDvMTp2iE8vz-->RW-27 · RW</td></tr><tr><th><!--pnid:CTd34rgov5cqNcD64csL6R-->区域/国家/城市</th><td><!--pnid:mO5dGm8iYYxcYIMXSxbF3d-->拉美 / 阿根廷 / 布宜诺斯艾利斯/门多萨/胡胡伊</td></tr><tr><th><!--pnid:BBUyDtOJblyjdve6VolbWD-->项目</th><td><!--pnid:tqp4A6Fr7SapG1KbEaRM5S-->中车唐山阿根廷三大轨道项目技术联络推进（国铁 43 列内燃动车组、门多萨轻轨 DMU、胡胡伊新能源轻轨增购）</td></tr><tr><th><!--pnid:XE9TSfe1lBd2Tkh96h8kzq-->阶段</th><td><!--pnid:XPi8vLspPOydTYfqoKAT91-->设计联络/技术对接（首轮设计联络会议已启动）</td></tr><tr><th><!--pnid:iuu3ch0evybEbuqmv3dafA-->类型</th><td><!--pnid:Hl63avbwHNa5P52WHTJSZP-->机车车辆；新能源轻轨</td></tr><tr><th><!--pnid:4c39to2Vka8y6n6bb8KUB2-->相关方</th><td><!--pnid:gmfH8tdV6GTsGatioiC2Rt-->业主：阿根廷国家铁路公司（Trenes Argentinos）、门多萨省、胡胡伊省；厂商：中车唐山机车车辆有限公司（联合体：中国虹桥国际投资）；配套 3 年维保</td></tr><tr><th><!--pnid:39sM028gEDjfqEfaAgaqfJ-->金额(本币)</th><td><!--pnid:aTbZUmEVlWypgVjyfR4L10-->国铁 43 列/150 辆内燃动车组（36 列三编组宽轨 + 7 列六编组米轨）；门多萨 3 列三编组宽轨 DMU（每列 506 人）；胡胡伊四编组新能源轻轨增购</td></tr><tr><th><!--pnid:6gRKLsh5QxY3qFy8pZpTuz-->金额(美元估)</th><td><!--pnid:xtONfrfP6zZim7L2NuHX5l-->未披露（门多萨项目总投资超 1.5 亿美元）</td></tr><tr><th><!--pnid:Az1v1P55zNPIsTsdglKgRE-->进度/时间</th><td><!--pnid:I5mxPUf39O0EL5kpiPwuJ6-->三季度技术商务团队赴阿推进；国铁 43 列首轮设计联络会召开，预付款到位后启动新一轮；门多萨 DMU 预付款后首批 11 个月内交付；胡胡伊新能源轻轨（磷酸铁锂）已商业运营、业主增购四编组</td></tr><tr><th><!--pnid:8wpd3s1eHJiDaEF0Z7ZNwS-->竞品/交叉</th><td><!--pnid:dUBD7G01GeLjpuxf4KjQfx-->中车唐山 2015 年首列出口阿根廷米轨内燃动车组下线、2023 年胡胡伊新能源轻轨出口，长期深耕；中车四方（布宜诺斯艾利斯地铁 A/C 线 50 辆）、中车长客（地铁 B 线 174 辆）同期在阿推进，中企在阿轨交装备占主导</td></tr><tr><th><!--pnid:nCFGBk2NXwfEdCTaO64NpV-->主源</th><td><!--pnid:KlDR8na0T47jJqS47RRkKK-->https://www.seetao.com/details/273698.html（见道网）</td></tr><tr><th><!--pnid:THSKJx0YsHaow3ff35006j-->佐证源</th><td><!--pnid:yAcKbh3kcWHvpyu7Xf0x6J-->微信·蔚蓝轨迹 Rail（中车唐山官宣口径）；城市轨道交通网 chinametro.net</td></tr><tr><th><!--pnid:mZBXIOSYIwGTOIM9rpKQTX-->置信度</th><td><!--pnid:TMFVKlSUAA1S5kdnCapQhS-->B</td></tr><tr><th><!--pnid:0FK8GlNknONhKNOofjzQJg-->语种/备注</th><td><!--pnid:82WcmjoOl4MvlrG779VUTH-->中文二次源；技术联络为近期（三季度）推进，最终交付待预付款</td></tr></tbody></table></div><div class="rd-card">
-      <div class="rd-card-head"><span class="rd-id"><!--pnid:fJHU6RsU2IQkVnDy0taQAQ-->CT-35</span><span class="rd-cat"><!--pnid:kC5bBt1H2gRvDiJYkLfIzn-->CT</span><span class="rd-reg"><!--pnid:X5A5lRQQ42lHMun264IORD-->拉美</span><span class="rd-badge-flat"><!--pnid:MLjOk7ur984EB4HnImE1eo-->持平</span></div>
-      <table class="rd-itab"><tbody><tr><th><!--pnid:XOovHjIwClBwsVwi1AuozM-->编号/类别</th><td><!--pnid:Y5n62hKa16RhaR22WUCeh8-->CT-35 · CT</td></tr><tr><th><!--pnid:kIOKLfDmRULjnaoniHI0sa-->区域/国家/城市</th><td><!--pnid:tKrEAOCvx4RP3raYUpg2AU-->拉美 / 哥伦比亚 / 波哥大</td></tr><tr><th><!--pnid:GqruQWtfDPRKgyuswzViqH-->项目</th><td><!--pnid:pQri8fPWZZVXpBYTDClKTr-->波哥大地铁一号线 U 梁预制收官 + 第 21 列列车运抵（建设进展）</td></tr><tr><th><!--pnid:SdznDrI80LvngWYfni0wcF-->阶段</th><td><!--pnid:TL6CBVnCvRNGoGI0I2P1yw-->建设（U 梁预制完成、列车陆续运抵）</td></tr><tr><th><!--pnid:aGNUacmq1TDU1rRF3NzHPL-->类型</th><td><!--pnid:U45JcCviVLHsFK36YVBv5U-->城市新线；全自动无人驾驶地铁</td></tr><tr><th><!--pnid:gjqhIVBl1GiXrH2h9FRMWe-->相关方</th><td><!--pnid:4GCcW5qiIKG5ltfFXBbYGV-->业主/特许：波哥大地铁公司；总承包：中国港湾牵头联营体（特许建设 + 运营）；车辆：中车长客；融资：泛美开发银行</td></tr><tr><th><!--pnid:uxFFKkZPj48eZbUGE6QbWg-->金额(本币)</th><td><!--pnid:BAClyTNP6FIm3egi4sJOa5-->全长 23.96km 高架（7551 榀 U 型节段梁，拉美首个全线 U 梁结构）；截至 9-30 整体进度 83.73%</td></tr><tr><th><!--pnid:12XA85w384aJk2cU6onYUi-->金额(美元估)</th><td><!--pnid:1EcTP1z32kXj0O3rpoY9vQ-->未披露</td></tr><tr><th><!--pnid:zjYLpmQ62JRVwGFBhU2lrs-->进度/时间</th><td><!--pnid:1ZXMOgeEICYw8gVTMkZFvP-->10-7 最后一榀 U 梁浇筑完成（累计 7551 榀）；10-15 第 21 列列车运抵（总统 9-2 添乘时进度超 81%、17 列运抵）；计划 2027 年中通车</td></tr><tr><th><!--pnid:rssPh9xlZrBjmKJndyAvfD-->竞品/交叉</th><td><!--pnid:tkozh1BjECTS59Vc5U1J8W-->中国港湾以中国技术/中国方案破解 U 梁预制难题（单日最高 25 榀、月最高 461 榀）；中车长客供车；南美首条中国标准全自动地铁标杆</td></tr><tr><th><!--pnid:dupt1YMXOSyRwQxUGPUUnz-->主源</th><td><!--pnid:C0zNLOYcitP9nIkUM1T9LT-->https://www.chec.bj.cn/cn/sy_lb/202610/t20261013_10313.html（中国港湾官网 10-13）</td></tr><tr><th><!--pnid:NGp18cRspepbWfqffmbXwT-->佐证源</th><td><!--pnid:ZR31fYilS3kBzuY497TT3b-->驻哥伦比亚使馆经商处 10-15（第 21 列运抵）；城市轨道交通网 9-2 总统添乘</td></tr><tr><th><!--pnid:Wzsiqtgg0dnX5XrfotCRMs-->置信度</th><td><!--pnid:AkgOVSqa41xvIbuIK8uKv6-->A</td></tr><tr><th><!--pnid:mZsrEAmMbwLlbdZIN4jeOs-->语种/备注</th><td><!--pnid:wge7DAlHyWqRQauIOZUkri-->中文官方/企业官网 + 使馆；节点权威</td></tr></tbody></table></div></div></section><section class="rd-section" id="PART04">
-      <h2><!--pnid:ndzQOT8y5LLm9NZbiYyXts-->PART04 · 非洲 <span class="rd-count"><!--pnid:GladexwD3vbvwML6M0IeHJ-->（3 条）</span></h2>
-      <div class="rd-cards"><div class="rd-card">
-      <div class="rd-card-head"><span class="rd-id"><!--pnid:WlHbk6RqobMKPizsInu5wP-->PL-27</span><span class="rd-cat"><!--pnid:reJ6QJxJJLGjxpPl7RSwG7-->PL</span><span class="rd-reg"><!--pnid:41UCnaKZ1IVq3jwnWnxUet-->非洲</span><span class="rd-badge-flat"><!--pnid:c51vYDKM7MqoXfyaHPmqk6-->持平</span></div>
-      <table class="rd-itab"><tbody><tr><th><!--pnid:1aEcNgAFzIUEQB5DRY73Lg-->编号/类别</th><td><!--pnid:IEG43mVIaE52xzK9DWx50e-->PL-27 · PL</td></tr><tr><th><!--pnid:UAyode0Rhea95F7Z5JZ6Zk-->区域/国家/城市</th><td><!--pnid:JN352A6MNalWshGczxuW6c-->非洲 / 阿尔及利亚 / 盖尔达耶—埃尔梅尼亚（南部走廊）</td></tr><tr><th><!--pnid:saf9JfaJlazW5kqJd1hJIJ-->项目</th><td><!--pnid:KOdvjkBchm5HqzFEONBT6E-->中国土木（CCECC）牵头联合体中标阿尔及利亚盖尔达耶—埃尔梅尼亚新建铁路（230km）</td></tr><tr><th><!--pnid:t54Cxe9TQymTtue3C74q44-->阶段</th><td><!--pnid:3SlhaBlntIBhgEQNAnMK2O-->授标公示（全面开工尚待确认）</td></tr><tr><th><!--pnid:3QbcKNCTWjncYBO9KjyYTH-->类型</th><td><!--pnid:TcJWyjeVcJYZ3VA3gnnDiy-->招投标；铁路新线（南部矿产走廊）</td></tr><tr><th><!--pnid:PsK1lvZHY8RbbSIMC0E7ps-->相关方</th><td><!--pnid:Stb806eDdokGaLK7YHjX91-->业主：阿尔及利亚国家铁路投资局（ANESRIF）；中标：中国土木 CCECC + 阿尔及利亚 Infrarail；融资：非洲开发银行（AfDB）</td></tr><tr><th><!--pnid:Ai5LlBKz31EpVSbexvQfee-->金额(本币)</th><td><!--pnid:p1qMmskXkvV0aaIbeTmSBV-->含税合同约 1570.83 亿阿尔及利亚第纳尔（≈11.87 亿美元）；AfDB 提供二期 8.7809 亿美元贷款</td></tr><tr><th><!--pnid:CSi2fk39sWtyem6s6LljOF-->金额(美元估)</th><td><!--pnid:DehM2UOpzkDm56ECmHisdj-->≈11.87 亿美元（AfDB 二期融资 8.78 亿）</td></tr><tr><th><!--pnid:jvEYdvcNOT5xrTIeA1eZs0-->进度/时间</th><td><!--pnid:7L6rZhmloM85cwUK2ZsCjH-->ANESRIF 10-1 授标公示；路线盖尔达耶—埃尔梅尼亚 230km；为拉格瓦特—盖尔达耶—埃尔梅尼亚铁路走廊（495km）二期；四组联合体投标（另三家为中铁国际、中国路桥、Cosider），CCECC 报价最低中标；工期 24 个月</td></tr><tr><th><!--pnid:kOHRcKnmdxjQGkCCjL6KWk-->竞品/交叉</th><td><!--pnid:mSwDEHLxNycfe8oUYDov2Z-->中企在阿铁路持续深耕（西部矿业线、东部矿业铁路、阿尔及尔地铁延长线）；本走廊一期 265km 由中国铁建联合体中标（1842.71 亿第纳尔）；非洲开发银行融资支撑，中企在阿土建 / 轨道环节占优，信号与车辆存竞争</td></tr><tr><th><!--pnid:ht8jODXG88IiRK6mxkRr3r-->主源</th><td><!--pnid:RjPYa7lsJDx4kgo4ZalBAV-->https://finance.sina.com.cn/roll/2026-10-15/doc-inivhtui7413359.shtml（新浪财经 2026-10-15，转述 ANESRIF 授标通知）</td></tr><tr><th><!--pnid:QTFzfzp2tUHeyhA1Rju64S-->佐证源</th><td><!--pnid:PMIGpqd7jOEjcmqCOlF5d4-->https://news.qq.com/rain/a/20261026A06KJY00（腾讯新闻 2026-10-26，四组报价复盘）；https://www.seetaoa.com/details/280881.html（见道网）</td></tr><tr><th><!--pnid:EBeUMzt9DI79lZ1R6JIGQj-->置信度</th><td><!--pnid:VxuLiezf3Jk7RtePEbszw0-->A</td></tr><tr><th><!--pnid:SqAewXvsbeafqbnm6CCLSy-->语种/备注</th><td><!--pnid:A0PthRSZlOZ0rHroNhCmCA-->多源互证（ANESRIF 授标通知 + 新浪 / 腾讯 / 见道），定 A；授标日 10-1、首报 10-14/15，超出本期 7 天回溯线，按 §4A.3 作「回溯补录」标注</td></tr></tbody></table></div><div class="rd-card">
-      <div class="rd-card-head"><span class="rd-id"><!--pnid:wuRj4H000lxa6t7MqiXmEl-->RW-28</span><span class="rd-cat"><!--pnid:71NbiUu1CFCYlPdjtz6Rcc-->RW</span><span class="rd-reg"><!--pnid:2lV5pq2ucRFj3yuQQHtKKj-->非洲</span><span class="rd-badge-flat"><!--pnid:PeMRMsKX4XXqKj0A1YMYHn-->持平</span></div>
-      <table class="rd-itab"><tbody><tr><th><!--pnid:rJ3VuEEEOTX5fDKC6pfy7I-->编号/类别</th><td><!--pnid:qexUpt8sbNE3iPz91fAtni-->RW-28 · RW</td></tr><tr><th><!--pnid:jLwsob2zKdCwkgXeoaPouc-->区域/国家/城市</th><td><!--pnid:M9jWlf2FepA06q5oFRn9BR-->非洲 / 喀麦隆/塞拉利昂/摩洛哥 / 杜阿拉/弗里敦/拉巴特</td></tr><tr><th><!--pnid:sjpDwuFewM8abIdFZ97Gz5-->项目</th><td><!--pnid:5NJIJ2elN0mgyxYnSlDLRh-->中车资阳非洲机车交付与运维成果（喀麦隆 7 台交付、塞拉利昂运量跃升、业务覆盖 38 国）</td></tr><tr><th><!--pnid:9UagE32VW8CQqgeqiB8IV0-->阶段</th><td><!--pnid:UljgB3BbJ0QcYvMw5qaKws-->交付/运营成效（持续本地化）</td></tr><tr><th><!--pnid:WyhGRAhUnOb3nHxF4DqaNN-->类型</th><td><!--pnid:xYLnVVh4K7KRzRNUvLvGs9-->机车出口；造修一体</td></tr><tr><th><!--pnid:FrUXDvFSww94uCf7LOkYfp-->相关方</th><td><!--pnid:w9nwUPG1KswRGTIF6lNHwx-->供应商：中车资阳机车有限公司；业主：喀麦隆铁路、塞拉利昂铁路、摩洛哥 ONCF 等</td></tr><tr><th><!--pnid:k7yv3VEsjd7cPu6j2rQlAu-->金额(本币)</th><td><!--pnid:tAqAUTKM0GloEpVlQ1xzt5-->喀麦隆 7 台机车（2026 年 7 月交付）；塞拉利昂机车上线两月铁矿日均运量 2.1→3.2 万吨（+50%）；摩洛哥 ONCF AC30 机车（见 RW-21）</td></tr><tr><th><!--pnid:wOzQQTC7IuXQ7oWZgrdPpf-->金额(美元估)</th><td><!--pnid:XSs5DL1FU62KNdODEGelSa-->未披露</td></tr><tr><th><!--pnid:JrrwFaLLwwtffwxU6Mq03j-->进度/时间</th><td><!--pnid:Dq7fcZCSaoxUDf8b3MyCr9-->据四川日报/资阳日报（10-19/21）披露：「十四五」海外营收占比破 40%、业务覆盖国家 31→38 个、新签较「十三五」增 360%；2026 年再签土库曼斯坦大修 + 新造；塞拉利昂创「买机车找资阳」口碑（承担 98% 客货运）</td></tr><tr><th><!--pnid:sow3RFgbq6knTkpcAfmBSV-->竞品/交叉</th><td><!--pnid:3VED24Z1U0tBSbLmRZgZ7j-->中国每出口 2 台内燃机车约 1 台来自资阳；欧美/日厂商在高速与既有线仍占份额，内燃机车适配非电气化区段长期互补；阿尔斯通等欧厂在摩洛哥高速/信号占优</td></tr><tr><th><!--pnid:AvC28DRd7lpcUO5QWjIgSt-->主源</th><td><!--pnid:dMBVhs8c4C4QIaLrFOFJYL-->https://epaper.scdaily.cn/shtml/scrb/20261019/1092290.html（四川日报 10-19）</td></tr><tr><th><!--pnid:UA7gCgi37rLs0OHtjCBM1D-->佐证源</th><td><!--pnid:BJbMoy7QwAzE7xfM9xB9uP-->资阳日报 10-21 同题；见道网 摩洛哥交付报道</td></tr><tr><th><!--pnid:iRyppGCk65SAVgXuQRrMq9-->置信度</th><td><!--pnid:g70oMD3VfjsDHK73mFCUEL-->B</td></tr><tr><th><!--pnid:qU7cvLK6j16elQNCO7hDLb-->语种/备注</th><td><!--pnid:9m8LFO52KQtC6eucdhEdpr-->中文官方/地方党报；为阶段性成果汇总，金额未披露</td></tr></tbody></table></div><div class="rd-card">
-      <div class="rd-card-head"><span class="rd-id"><!--pnid:yhOTA1vsiH1ZtN228t37kC-->CT-37</span><span class="rd-cat"><!--pnid:Cu9qASPL2wxGTOL7cENl1h-->CT</span><span class="rd-reg"><!--pnid:DonnplZn13R7MbXXIwzSQ3-->非洲</span><span class="rd-badge-flat"><!--pnid:k0Cc3oiFZ6wIoufcTl9qnw-->持平</span></div>
-      <table class="rd-itab"><tbody><tr><th><!--pnid:6IUYkXFOAVuYiBEqIjLpfy-->编号/类别</th><td><!--pnid:7I1ySBd3h1iUWnqzxI2Exf-->CT-37 · CT</td></tr><tr><th><!--pnid:w3Jk5h9oOnQiCHazOtyyCl-->区域/国家/城市</th><td><!--pnid:wV9XOUx3pdNg8Z2gCv2of3-->非洲 / 尼日利亚 / 拉各斯</td></tr><tr><th><!--pnid:E3qRcK9rsxHfdHudGZWKJU-->项目</th><td><!--pnid:UlRF0y7Y1T3syZfQCBAAyb-->拉各斯轻轨蓝线二期（约 14km）推进＋LAMATA 与中国土木签运营技术培训项目（建铁路培训中心）</td></tr><tr><th><!--pnid:bnDLx5a53TISJp5S9h32Jg-->阶段</th><td><!--pnid:CPmtcWyp6w9LEa8FvbELH6-->二期建设推进；培训项目签约</td></tr><tr><th><!--pnid:psbxCoLEqrKgpIiZssODhN-->类型</th><td><!--pnid:TRwO9eG4VK16d7thYzWlh4-->城市轨道；运营培训/本土化</td></tr><tr><th><!--pnid:1DN9Jys9J9vURHplvZEktw-->相关方</th><td><!--pnid:PNYJaUrXSveO6u5R1g5tPs-->业主：拉各斯州政府/拉各斯城市交通管理局（LAMATA）；承建/签约：中国土木（CCECC）；培训：南京铁道职业技术学院等</td></tr><tr><th><!--pnid:NItPGRshvFYvyzVILPCW0M-->金额(本币)</th><td><!--pnid:UJqYOSkgSz3OgskoJ3mq8L-->蓝线二期约 14km（已通车一期 13km/5 站）；培训项目金额未披露</td></tr><tr><th><!--pnid:k6JDY0cfVjI9KiF0cbFTZ6-->金额(美元估)</th><td><!--pnid:pV61LpFCGUzwCkc7WnwkY9-->未披露</td></tr><tr><th><!--pnid:tJyi6i5LvqgsJ1Acu4vWfi-->进度/时间</th><td><!--pnid:OOZb6qtdbbA4T5nl48XS07-->蓝线二期预计 18 个月内完工（此前目标 2026）；10 月 LAMATA 与中国土木签培训合作、建铁路培训中心；蓝线/红线延长线在建，总承包均为中国土木</td></tr><tr><th><!--pnid:qlL7j2UuUbcfG3Z9H4Pen3-->竞品/交叉</th><td><!--pnid:ko2PT5wENnQfR2XjZvemzb-->中国土木总承包蓝线/红线（中国标准、全产业链）；中车大连供车、铁四院设计；培训项目系中非职教合作，强化本土化运营（蓝线本土员工占比 &gt;90%）；绿线由中国港湾跟进</td></tr><tr><th><!--pnid:4z1V4JirDERGFueayxzOec-->主源</th><td><!--pnid:xboNOeyKeMchF3fNahFjRv-->城市轨道交通网 2026-10（chinametro.net 装备产业）</td></tr><tr><th><!--pnid:vCulGmbz8dmvqmzWqQsty5-->佐证源</th><td><!--pnid:frr7Xt9LHm3qfdoTLFZ7Uk-->南京铁道职业技术学院 2026-10-13 拉各斯培训开班；LAMATA 公告</td></tr><tr><th><!--pnid:ntBt3JtPb3DAg15rspgsqw-->置信度</th><td><!--pnid:Qe7583rIiCEuKcHdI7x9mT-->A</td></tr><tr><th><!--pnid:3SXb8i4w9MJKEip1SOmvqs-->语种/备注</th><td><!--pnid:H0oy4N5yHlhA9FhDekpy6i-->行业媒体＋院校公告互证，定 A</td></tr></tbody></table></div></div></section><section class="rd-section" id="PART05">
-      <h2><!--pnid:VnFXGbl4qhq3llwXZSmEJk-->PART05 · 南亚·大洋洲 <span class="rd-count"><!--pnid:QmQ3WDDmOTYfmvuic2ifcs-->（3 条）</span></h2>
-      <div class="rd-cards"><div class="rd-card">
-      <div class="rd-card-head"><span class="rd-id"><!--pnid:023kA0fwTEhsGPUuqXI2Sx-->PL-24</span><span class="rd-cat"><!--pnid:cb8xG5w7PzGRPkW1iXOc1i-->PL</span><span class="rd-reg"><!--pnid:65N5bAuNEQXmP9dMJrEq2G-->南亚·大洋洲</span><span class="rd-badge-flat"><!--pnid:FCAx4ICNEP3vsZYMEn96Yh-->持平</span></div>
-      <table class="rd-itab"><tbody><tr><th><!--pnid:mwQTwBV2ZTEJuWwsmWs3bR-->编号/类别</th><td><!--pnid:BFOhnXRJ44iNESv7ogXC1A-->PL-24 · PL</td></tr><tr><th><!--pnid:4w4F4816sMo9DnGZqEvmDj-->区域/国家/城市</th><td><!--pnid:8Uj7fPPboYAZsZUtT4sB5g-->南亚·大洋洲 / 巴基斯坦 / 卡拉奇/伊斯兰堡</td></tr><tr><th><!--pnid:h2BIwBEPQ1wMg3cl3XNwf7-->项目</th><td><!--pnid:vLopgFyukr9xoowUp9F67y-->中巴经济走廊 宏观信用面与项目融资联动风险（ML-1 与电站应收款）</td></tr><tr><th><!--pnid:V6r7yAlSeOmUpUjOKAaoFC-->阶段</th><td><!--pnid:oGSW8UHMkhwRXbk8UnH76T-->风险研判（主权信用承压、合同防线重估）</td></tr><tr><th><!--pnid:BDjjuzqwpNoL1GcSqdYUvY-->类型</th><td><!--pnid:yfii0IuEIaGuKSgbYSnIr4-->风险预警；走廊运营/融资</td></tr><tr><th><!--pnid:yoaExUOrydO9CBQDupDqmh-->相关方</th><td><!--pnid:zgu0yEASrjrTevRs5EfJPp-->业主：巴基斯坦政府/电力/铁路部门；债权/承包商：中资电站与工程企业；项目：ML-1（RW-13）、卡西姆港等独立发电商</td></tr><tr><th><!--pnid:2tjloHYKQaY8Irb3yuJ9kG-->金额(本币)</th><td><!--pnid:RPbIaBjn7u6I8Figp1bwhu-->中资电站应收款拖欠约 4980 亿卢比（见 PL-21）；ML-1 现代化升级受宏观融资面影响</td></tr><tr><th><!--pnid:hVdQVDiWfMjsL5JGHCtj2Q-->金额(美元估)</th><td><!--pnid:XPiYBsUOFkbdjttnhJPqlW-->约 17 亿美元（PL-21 口径）</td></tr><tr><th><!--pnid:BqNbalkJ0V7jdypRZyGCF9-->进度/时间</th><td><!--pnid:KmQXvBtBsXfBXKDa0gczrR-->10-29 海外EPC 披露后持续发酵；政府将「照付不议」改为混合「照付实议」；走廊项目融资与设备回款节奏受宏观面拖累</td></tr><tr><th><!--pnid:SoGZvWQOnt6WH9Qu8tpnUx-->竞品/交叉</th><td><!--pnid:DgZ9qAgGmUL3D0eWdoDwag-->巴基斯坦主权购电信用承压，中资海外电力/铁路投资合同防线与应收款回收风险进入实质重估；ML-1 等走廊项目融资亦受宏观面影响，建议纳入走廊运营风险跟踪</td></tr><tr><th><!--pnid:cKqZygYNRBn3lHKzWPZgil-->主源</th><td><!--pnid:t0b1GNqWoBTZPjlu1mA0Oj-->http://mp.weixin.qq.com/s?__biz=MzcwNzM5OTEwMg==&amp;mid=2247486347（海外EPC 2026-10-29）</td></tr><tr><th><!--pnid:XaoyZV5HhGXRqFGY0OU14b-->佐证源</th><td><!--pnid:7y4fJOK1uknXeq1A941YvG-->待巴方官方/企业公告</td></tr><tr><th><!--pnid:SjI5pthwMMM2KT88ZpDheq-->置信度</th><td><!--pnid:Udkjb3W1H26A9HyEUzJy6I-->B</td></tr><tr><th><!--pnid:DSrNcBlMQ7xmtNTOHg7sAF-->语种/备注</th><td><!--pnid:lRnX0nWM9v7BAp7LZxVz1C-->中文二次源；为 PL-21 后续宏观研判，风险预警类</td></tr></tbody></table></div><div class="rd-card">
-      <div class="rd-card-head"><span class="rd-id"><!--pnid:K9i5Xcd4v1oK931Wlkl3IB-->RW-31</span><span class="rd-cat"><!--pnid:t8OKnzwsjUuZsgUUcbYQ5Y-->RW</span><span class="rd-reg"><!--pnid:nWnnkFeElPQ7jQ51laJivL-->南亚·大洋洲</span><span class="rd-badge-flat"><!--pnid:8xbEYFA0IWvv8nGMZ3Gvii-->持平</span></div>
-      <table class="rd-itab"><tbody><tr><th><!--pnid:kujh1E8iFjO4kSzwzEIAr4-->编号/类别</th><td><!--pnid:3bw9Gx4cJGrfxPEwawlnL2-->RW-31 · RW</td></tr><tr><th><!--pnid:9njqRmPGmMFjXqlcCxVXsY-->区域/国家/城市</th><td><!--pnid:7D3GYErEhhP397hG7FmPe5-->南亚·大洋洲 / 巴基斯坦 / 卡拉奇—白沙瓦（Karachi—Peshawar 主线）；首段 Karachi—Rohri</td></tr><tr><th><!--pnid:QJwBL9vc9URG9GioGpxwif-->项目</th><td><!--pnid:F5KEvPvNhgCKv9NgDAM9eA-->中巴经济走廊 ML-1（卡拉奇—白沙瓦）干线升级：Karachi—Rohri 段（约 480km）加速，ADB 拟贷款、监理招标启动</td></tr><tr><th><!--pnid:5f2OehGHwtvwbxmQM9r5B3-->阶段</th><td><!--pnid:EZKY8lTyPg1b8u27xw4rk0-->加速推进（总理 10-7 督办；监理 EOI 10-7；ECC 10-8 批 Thar 铁路 100 亿卢比）</td></tr><tr><th><!--pnid:ZvUegZmztdYqtDm8Q9u04q-->类型</th><td><!--pnid:2q2XL17Bh85fCmb0seE5W0-->干线铁路；升级现代化</td></tr><tr><th><!--pnid:MU3SBO12wVBr28R9R9e39N-->相关方</th><td><!--pnid:4jrHePU3LDk8b0VH5Wnx8w-->业主：巴基斯坦铁路公司（PR）；执行：铁道部/ML-1 PIU（拉合尔）；融资：ADB（考虑贷款）＋本地资源；总理 Shehbaz Sharif 督办</td></tr><tr><th><!--pnid:ULOT7Ia02ChOktzVTeRSMb-->金额(本币)</th><td><!--pnid:UnbRnnjEN3VoR3yxk8QlNk-->Karachi—Rohri 段约 US$16.39 亿（升级）；ML-1 全线约 1726km 分四段</td></tr><tr><th><!--pnid:t4FVW7Y28VfckQiCFGVqc1-->金额(美元估)</th><td><!--pnid:hmpB60mcs7408nmCMTvmn5-->Karachi—Rohri 段 ≈US$16.4 亿；全线升级体量更大</td></tr><tr><th><!--pnid:JdIVAemIQCI2ZzRYFU3hqS-->进度/时间</th><td><!--pnid:5noejA84WJPqtFOm3CxXtO-->10-7 总理令加速并推铁路用地商业化融资；10-7 PR 发监理 EOI（截止 10-21，监理 2027Q1 起、72 个月）；10-8 ECC 批 Thar 煤运铁路 100 亿卢比；施工破土目标 2026-10；ADB 贷款未签</td></tr><tr><th><!--pnid:s1q6JDnVrgnCvj4ZmnJbEq-->竞品/交叉</th><td><!--pnid:EjCP820EbUwk62r2AnhK4Z-->中巴经济走廊旗舰铁路；中方参与融资与实施协调，土建/系统包存中企机会；主权信用与用地融资节奏影响进度（对照 PL-24 走廊风险）</td></tr><tr><th><!--pnid:VRXSZQ0Rhfn9Hj8BjeKV3o-->主源</th><td><!--pnid:1qVKdsrmRR5mGabz3k5JhR-->Daily Independent（巴基斯坦）2026-10-07/08</td></tr><tr><th><!--pnid:Re4JqNF4ViqFMoWSqsLmMV-->佐证源</th><td><!--pnid:nmfB6NMcfMLvdalPcT1tLh-->pakera.pk（铁路专业媒体）2026-10-07；Engineering Post（CPEC）</td></tr><tr><th><!--pnid:ATzmeYned2xoT8fWPjxVha-->置信度</th><td><!--pnid:GxeXB4ljewOjd4UeQxSsUB-->A</td></tr><tr><th><!--pnid:OqwZCrGzUuuX6j6c7raQ3N-->语种/备注</th><td><!--pnid:B09Rv1LZKl4TftVmZ2kzfu-->巴基斯坦主流媒体＋铁路专业媒体互证，定 A；ADB 贷款未最终签署</td></tr></tbody></table></div><div class="rd-card">
-      <div class="rd-card-head"><span class="rd-id"><!--pnid:6hY6pFBcpxfskJZkgpANSn-->PL-21</span><span class="rd-cat"><!--pnid:zF3b5F7dbVkvQUiafVNaE4-->PL</span><span class="rd-reg"><!--pnid:FnDr7lpvI0cb20sdBNZUT6-->南亚·大洋洲</span><span class="rd-badge-flat"><!--pnid:T47inZ4XxITIzYUi3w7u45-->持平</span></div>
-      <table class="rd-itab"><tbody><tr><th><!--pnid:DrbSULCZZudQMgsLuBGIqx-->编号/类别</th><td><!--pnid:nw3qjt3q7viTZvLzl95Jvf-->PL-21 · PL</td></tr><tr><th><!--pnid:71gYhSNMLxBz9v5t2Jojuz-->区域/国家/城市</th><td><!--pnid:XKj87wmE1xJVvMsHRwxIU9-->南亚·大洋洲 / 巴基斯坦 / 卡拉奇/卡西姆港</td></tr><tr><th><!--pnid:8aj8bkPRNwxMmydWfkdxtS-->项目</th><td><!--pnid:mx7t0pwbJpdq9MgDZemNae-->中巴经济走廊 中资电站应收款风险（独立发电商合同重构）</td></tr><tr><th><!--pnid:6JWut7IkZePxIRbLwhbCFi-->阶段</th><td><!--pnid:SLMVJ3qo50ioN5EO7t7scL-->风险预警（主权信用承压）</td></tr><tr><th><!--pnid:kppqcxeSxqqm3jDLWbFupe-->类型</th><td><!--pnid:lv8D96xw0ZaDuhqNeHjgwa-->风险预警；走廊运营</td></tr><tr><th><!--pnid:zZZcf9H1ElZRkv8bcCIHk6-->相关方</th><td><!--pnid:eRljJJgeBYYYOkrScpZwo6-->业主：巴基斯坦政府/电力公司；债权方：中资电站（卡西姆港 1320MW 等）</td></tr><tr><th><!--pnid:C3njUxKrjA01NhxLpvVvil-->金额(本币)</th><td><!--pnid:0VfeeyX6yxCytz7bkhMKQH-->拖欠约 4980 亿卢比（中资电站应收款）；卡西姆港单家被欠 790 亿卢比，逾期超半年</td></tr><tr><th><!--pnid:dlx8ciFZZLpUyAL2kurnK2-->金额(美元估)</th><td><!--pnid:E0KQF5HD7Ylk3QKbWDSzun-->约 17 亿美元（按汇率粗算，4980 亿卢比）</td></tr><tr><th><!--pnid:BPixCsDPlnTQHkxecNbu92-->进度/时间</th><td><!--pnid:VrjX38wGr3XrpP0h60x3w3-->10-29 海外EPC 报道；政府将照付不议改为混合照付实议</td></tr><tr><th><!--pnid:ZsNBGUIqFBeZydu6BbsVCj-->竞品/交叉</th><td><!--pnid:FW7Xhex0NSZ0A9dFBwmsA7-->巴基斯坦主权购电信用承压，中资海外电力投资合同防线与应收款回收风险进入实质重估；ML-1（RW-13）等走廊项目融资亦受宏观面影响</td></tr><tr><th><!--pnid:axKY3MWYk0x590pkRA3HEp-->主源</th><td><!--pnid:KfVJHGrZYvsUeK64bPYwPs-->http://mp.weixin.qq.com/s?__biz=MzcwNzM5OTEwMg==&amp;mid=2247486347（海外EPC 2026-10-29）</td></tr><tr><th><!--pnid:zvcZ6fQootlAA3D7MZOoEg-->佐证源</th><td><!--pnid:Cbe5KihVQqQ0jGKB2iELsc-->待巴方官方/企业公告</td></tr><tr><th><!--pnid:GkgekagvWFoYIN7m3QfxOS-->置信度</th><td><!--pnid:y0qZbcf2vbGrR66SHDX0vO-->B</td></tr><tr><th><!--pnid:D6P27x2IhCbl7z2XPbArYI-->语种/备注</th><td><!--pnid:7OuWykUT9dxQ3wtbcIslGN-->中文二次源；风险预警类</td></tr></tbody></table></div></div></section><section class="rd-section" id="PART06">
-      <h2><!--pnid:Vf94iwD2hIKqVLWvJN4JON-->PART06 · 跨区域 <span class="rd-count"><!--pnid:oZv9M9DIEvEWISTMKAaCO6-->（3 条）</span></h2>
-      <div class="rd-cards"><div class="rd-card">
-      <div class="rd-card-head"><span class="rd-id"><!--pnid:FElzvs3Ipt6ZM3E4smhqpa-->PR-09</span><span class="rd-cat"><!--pnid:iVv1ogH4ByOvME4DWu8I9x-->PR</span><span class="rd-reg"><!--pnid:85bcXuGKxQSytYMSsL6HAh-->跨区域</span><span class="rd-badge-flat"><!--pnid:RvlCFW4PGq1NqhPDfCA1H2-->持平</span></div>
-      <table class="rd-itab"><tbody><tr><th><!--pnid:jLQyN2bn2XwdcYmZ8ZWMIY-->编号/类别</th><td><!--pnid:UO5vBvnf4wMIXNM4tbRYVL-->PR-09 · PR</td></tr><tr><th><!--pnid:rbeIqZxc4H8lY8ZyZEYn16-->区域/国家/城市</th><td><!--pnid:3BaPVoZh8CeNS6Prra1mV2-->跨区域 / 塞尔维亚 / 贝尔格莱德</td></tr><tr><th><!--pnid:GybIbaccID8szITb1iEjPq-->项目</th><td><!--pnid:BlZj8LuLWkel4nMMfnurIG-->2027 贝尔格莱德世博会铰接式列车（CRRC）</td></tr><tr><th><!--pnid:R7cMjBA3rCaJKtpcIj8k1w-->阶段</th><td><!--pnid:Pjyp6iDOnPzIHwCRdcVtMa-->首车下线（长沙），2026 年 11 月底首批运抵塞尔维亚</td></tr><tr><th><!--pnid:CH8o6OJrII4AA44SkKh4dW-->类型</th><td><!--pnid:lXxiZFT8piu3qx5kufQJn6-->轨道交通装备出口；整车交付</td></tr><tr><th><!--pnid:k0IOH2mAzFHxO8an7NFHsR-->相关方</th><td><!--pnid:2Q7r6p8HSn2Ra2C97DMhOO-->业主：塞尔维亚铁路公司（Srbija Voz）；制造：中国中车（CRRC）；交付：2026 年 11 月底首批运抵，2027 世博前调试投运</td></tr><tr><th><!--pnid:awxDe9lZbOHqb0mPA5PtfH-->金额(本币)</th><td><!--pnid:m14VCz6c50YU8mWkaAsOvm-->未披露（分阶段交付）</td></tr><tr><th><!--pnid:B0dVdcMQltrC6Hn9IRnWkL-->金额(美元估)</th><td><!--pnid:bEPTeZ2Rf5tHWL3GSPid9A-->未披露</td></tr><tr><th><!--pnid:zKhKRqBefL3Npg9MvPSUrW-->进度/时间</th><td><!--pnid:bPFYt6OWeKhBlEMxwpCoJi-->首车长沙下线（近日）；首批列车 2026-11 月底运抵塞尔维亚；2027 年 EXPO 2027 期间投运，承担世博园区—市区接驳</td></tr><tr><th><!--pnid:Ra6auIAzBpFzVkf6XvXAFD-->竞品/交叉</th><td><!--pnid:DRm4fwC9WWk8wIbi1ULOja-->欧洲（巴尔干）市场新突破；中塞「一带一路」框架合作；后续列车贝尔格莱德本地调试后投入运营筹备</td></tr><tr><th><!--pnid:F6zquL2OHiiWsycqLwIPU5-->主源</th><td><!--pnid:U1fSQYxED2NGmAZ1qcEVt1-->https://m.toutiao.com/article/7698322314748625458（今日头条，中国造铰接列车在长沙下线，将服务 2027 贝尔格莱德世博会）</td></tr><tr><th><!--pnid:C5ZnAIE6JJ13jkzsYhUAZp-->佐证源</th><td><!--pnid:uP3Iw1Oo1jKi1BIPHe4Tbb-->塞尔维亚铁路公司（Srbija Voz）社交媒体公告</td></tr><tr><th><!--pnid:ZxeLKDtOx6o5YRbbzJz46E-->置信度</th><td><!--pnid:0YWtFHqbgArvM9uS9OJWXD-->B</td></tr><tr><th><!--pnid:DZO30HFjnWCU0wVRHj5BZo-->语种/备注</th><td><!--pnid:tHNiUpAsfvG6qSV5KFOTg9-->中文媒体源，待塞尔维亚/欧洲当地源佐证</td></tr></tbody></table></div><div class="rd-card">
-      <div class="rd-card-head"><span class="rd-id"><!--pnid:4c6ENMGzcgy1r3uI6o6phH-->PL-29</span><span class="rd-cat"><!--pnid:a83rIllNnjVMI8OerzxHL2-->PL</span><span class="rd-reg"><!--pnid:7xnvDmTVWod5UWra18Omkg-->跨区域</span><span class="rd-badge-flat"><!--pnid:ANQuUhEhlunCFP2MudNtBK-->持平</span></div>
-      <table class="rd-itab"><tbody><tr><th><!--pnid:kG61DwuQV74o16xX3K7mpX-->编号/类别</th><td><!--pnid:wxqkjbgrSnLDKgu4PtJkYb-->PL-29 · PL</td></tr><tr><th><!--pnid:CjTKmPeTD5Egfa9MBeb6mW-->区域/国家/城市</th><td><!--pnid:n101h1APhCQ2hDhNzowgAF-->跨区域 / 跨国（中欧通道） / 西安 / 杜伊斯堡等多节点</td></tr><tr><th><!--pnid:7JAJaUhoINT8bh3EHyIj3w-->项目</th><td><!--pnid:W6jdvDq4UoIL87O9RjRnk3-->2026 最新中欧班列全程时刻表（第四批）</td></tr><tr><th><!--pnid:rxtaROa9DdCzkfcjw8QxMU-->阶段</th><td><!--pnid:2Rae4bOJjkIGi7NVcakyFc-->正式发布（2026.11）</td></tr><tr><th><!--pnid:igl3S9qERA9uvC6KYl6cVi-->类型</th><td><!--pnid:mGLKxNaBrwc7eMUMr3ytcg-->通道网络/政策；时刻表扩容</td></tr><tr><th><!--pnid:6Bi7NJzrdWjoG9Pe052J2U-->相关方</th><td><!--pnid:QwrDLUt5pe2SrBUtVS1Jjm-->发布：国铁集团（第四批全程时刻表）；受权发布：中国航务周刊；通道：中欧班列西/中/东三通道</td></tr><tr><th><!--pnid:muCoTzYQpH4vMQIIhlGOdv-->金额(本币)</th><td><!--pnid:Ys5m2oRARdCtFlL25l4IR3-->不适用（网络扩容）</td></tr><tr><th><!--pnid:JvQi0ecAHcVqU87PqTIYZI-->金额(美元估)</th><td><!--pnid:5ihG1Mov6WfF7EjdV23gqC-->不适用</td></tr><tr><th><!--pnid:Erfd0LuPdH9pjgzZt9E7Qy-->进度/时间</th><td><!--pnid:axDgJ1GSg1EkwzBvaS3at2-->2026.11 版发布；17 条线路（西安-杜伊斯堡、成都-罗兹、重庆-杜伊斯堡等），每月近 100 班次，年开行 1000 列以上；西安-杜伊斯堡频次最高（月 16—18 列）</td></tr><tr><th><!--pnid:6cQml1FUZtuc94DRkwqY4H-->竞品/交叉</th><td><!--pnid:8cg3nGurMCYRS6TWYYF1bl-->与 14 万列总里程碑（RW-32）、西安 5000 列（RW-33）同源但角度不同——本项为时刻表/通道网络扩容，非运量数据；海运红海绕行背景下铁路时效优势凸显</td></tr><tr><th><!--pnid:jDbWyBFJtRe6lUJGdmwibK-->主源</th><td><!--pnid:pvEUw93OOHq9xoNVKZCwKi-->https://c.m.163.com/news/a/LA0APP4L0530KEJV.html（网易，受权发布 2026 最新中欧班列全程时刻表）</td></tr><tr><th><!--pnid:UzUVUCkEE8u4rPhIH0gnSq-->佐证源</th><td><!--pnid:FhUAEmy1oYMfrkHMrLrGw4-->国铁集团相关负责人表态（中国航务周刊受权发布）</td></tr><tr><th><!--pnid:kY8uAkpJ8zyEQt1cqlYL8h-->置信度</th><td><!--pnid:RXvcFiKTMcJPC8pTi2ZZGd-->A</td></tr><tr><th><!--pnid:chVnsn5iND1QPIVy6ES0aT-->语种/备注</th><td><!--pnid:gNzmWkxLdT4q5t9kEX7Xer-->中文媒体转述官方受权发布</td></tr></tbody></table></div><div class="rd-card">
-      <div class="rd-card-head"><span class="rd-id"><!--pnid:8IQ5gE2yfmtRzgswepPcXD-->RW-33</span><span class="rd-cat"><!--pnid:4UQYcE1tjGQhvR7PYimiSk-->RW</span><span class="rd-reg"><!--pnid:EruWwubxs90gGF5OGGqbAF-->跨区域</span><span class="rd-badge-flat"><!--pnid:DuayGVQ4BRFRxXORnU7fi3-->持平</span></div>
-      <table class="rd-itab"><tbody><tr><th><!--pnid:SVcyakcKjJSAsrYkEkRsD6-->编号/类别</th><td><!--pnid:LHa1zXBQFRNrxBi5OLOnDh-->RW-33 · RW</td></tr><tr><th><!--pnid:VTiI7zlU7fGBSRiSiw6f1d-->区域/国家/城市</th><td><!--pnid:I3cTZZEkI8zQy9miixW9ze-->跨区域 / 中国 / 西安—杜伊斯堡等</td></tr><tr><th><!--pnid:7GFiScBoXMYOKME1boq4w6-->项目</th><td><!--pnid:sQulEUo4IL51QkWU33pcXq-->中欧班列（西安）2026 年累计开行突破 5000 列</td></tr><tr><th><!--pnid:VuYGciVmsxU6St5AKd7Jn6-->阶段</th><td><!--pnid:fsUseDgSZj85DNMTM2ECQc-->通道运营（运量新高）</td></tr><tr><th><!--pnid:CyUxtAS6JAZjjW1bGRhCHA-->类型</th><td><!--pnid:RqzBR253szsorTJSZiyvTV-->中欧班列通道；跨境物流</td></tr><tr><th><!--pnid:PjjCGHfJTzOhQvtlg9CiVf-->相关方</th><td><!--pnid:UTz9tVKROycgoKcEFuaBvl-->运营：国铁集团、中铁西安局集团；集结：西安国际港站；通道：中欧班列西通道</td></tr><tr><th><!--pnid:TyMQyGvaY5aVQG1YnfxCkE-->金额(本币)</th><td><!--pnid:AFgSZpsHCx7UQ6FyPTZX5N-->西安 2026 累计开行超 5000 列（10-30 达成，较去年提前半月）；前三季度开行 4560 自然列（同比 +2.4%）；进出口货值近 600 亿元</td></tr><tr><th><!--pnid:V33vxTLY9bgSk3AeWRIMjt-->金额(美元估)</th><td><!--pnid:uZc1LxewPDgbaAsVGnk7DN-->未披露</td></tr><tr><th><!--pnid:xMjhqo0XiuPKQ8tSFQmVmK-->进度/时间</th><td><!--pnid:OiLmfO9RvEv3RFnJwkVSN6-->10-30 第 5000 列 X8469 次发往杜伊斯堡；常态化 18 条国际干线 + 26 条国内集结线，辐射亚欧 45 国 200+ 城市；集结发运时间由 7 天压缩至 3.3 天（效率 +52.9%、单箱成本 -20%）；新能源汽车 / 光伏 / 锂电池成出口主力，回程能源矿产集散</td></tr><tr><th><!--pnid:ibEl3LmCdwSsHIG4lsQ0ku-->竞品/交叉</th><td><!--pnid:PXePb7pyOexre8TAvmotDO-->与中吉乌（RW-34）、中老铁路共同构成亚欧陆路网互补；红海绕行致海运 40-48 天、铁路 11-18 天，高附加值货转向班列；与 14 万列总里程碑（RW-32，2026-11-01 期）同源，本列为西安集结中心细分数据，不作重复计列</td></tr><tr><th><!--pnid:lhY6oH4V6VPTQORu2Xci83-->主源</th><td><!--pnid:OpHgu7lhUVgbaJvCuQgamI-->https://news.gmw.cn/2026-11/01/content_39079261.htm（光明日报 2026-11-01）</td></tr><tr><th><!--pnid:9KiBhMqkunECNUd8TNezsK-->佐证源</th><td><!--pnid:wBrvOtrhia4xjd8H0bUBgB-->https://www.workercn.cn/papers/grrb/2026/11/01/1/news-7.html（工人日报 2026-11-01，14 万列总里程碑）</td></tr><tr><th><!--pnid:UQskjodkLQhxytIkoBB4cb-->置信度</th><td><!--pnid:rqSOpiGFpHYCPBCnBDiO1w-->A</td></tr><tr><th><!--pnid:qPpJyqc4Gl0JdwbLOtQWhe-->语种/备注</th><td><!--pnid:DyniEZH775hTLSX5xKnJJH-->光明日报 / 工人日报官方源，定 A</td></tr></tbody></table></div></div></section>
+<details class="part" id="part01" open><summary><h2>PART01 · 东南亚 <span class="rcount">（5 条）</span></h2><span class="fold-ind"><span class="chev"></span><span class="fi-open">展开</span><span class="fi-close">收起</span></span></summary><div class="part-body"><div class="card conf-A" id="CT-41"><div class="chead"><span class="cid">CT-41</span><span class="ccat">CT</span><span class="ctitle">马尼拉大都会捷运7号线（MRT-7）工程咨询与勘察监理（EC/IF）服务采购预招标</span><span class="cbadge">A（业主方官方账号）</span></div><div class="cbody"><div class="frow"><span class="fl">区域/国家/城市</span><span class="fv">东南亚 / 菲律宾 / 马尼拉</span></div><div class="frow"><span class="fl">阶段</span><span class="fv">招标前期（Pre-Bid Conference 已于 11-03 举行）</span></div><div class="frow"><span class="fl">资讯</span><span class="fv">马尼拉大都会捷运7号线（MRT-7）工程咨询与勘察监理（EC/IF）服务采购预招标</span></div><div class="frow r-content"><span class="fl">内容</span><span class="fv">马尼拉大都会捷运7号线（MRT-7）工程咨询与勘察监理（EC/IF）服务采购预招标。当前阶段为招标前期（Pre-Bid Conference 已于 <strong>11-03</strong> 举行）；类型属招投标、咨询服务；金额方面，本期为咨询服务采购，金额待开标（MRT-7 主线整体投资<strong>约 P350B</strong>+ 量级）；美元口径为咨询服务金额待定、MRT-7 整体投资<strong>约 70 亿美元</strong>量级（历史口径）；</span></div><div class="frow"><span class="fl">相关方</span><span class="fv">业主：<strong>菲律宾交通部</strong>（DOTr）；本期标的：MRT-7 工程顾问/检验机构（EC/IF）服务；MRT-7 主线特许/土建原为 San Miguel 牵头联合体（SSI），本期为咨询监理服务采购</span></div><div class="frow"><span class="fl">关键词</span><span class="fv"><strong>招投标</strong>；咨询服务；招标前期；CT</span></div><div class="frow"><span class="fl">进度/时间</span><span class="fv"><strong>11-03</strong> DOTr 举行 Pre-Bid Conference；<strong>后续开标/授标以公告为</strong>准</span></div><div class="frow"><span class="fl">竞品/交叉</span><span class="fv">中资在轨道工程咨询与装备领域具参与基础；MRT-7 后续车辆/信号等标段为<strong>中企潜在机会</strong>，本期仅咨询监理预招标，<strong>中企参与度待观察</strong></span></div><div class="frow r-meta"><span class="fl">主源</span><span class="fv">菲律宾交通部（DOTr）官方 Facebook 直播/公告（2026-11-03 Pre-Bid Conference）</span></div><div class="frow r-meta"><span class="fl">佐证源</span><span class="fv">菲律宾交通部（DOTr）官网采购公告页（具体文号待核）</span></div><div class="frow r-meta"><span class="fl">置信度</span><span class="fv">A（业主方官方账号）</span></div><div class="frow r-meta"><span class="fl">语种/备注</span><span class="fv">业主方官方账号（DOTrPH，官方）；窗口内 11-03 直播预招标会议；中企参与度待观察，未获二次印证</span></div></div></div><div class="card conf-A" id="CT-42"><div class="chead"><span class="cid">CT-42</span><span class="ccat">CT</span><span class="ctitle">马来亚铁道（KTMB）ETS 城际电动车组（EMU）2027 年加密开行计划</span><span class="cbadge">A（业主方官方账号）</span></div><div class="cbody"><div class="frow"><span class="fl">区域/国家/城市</span><span class="fv">东南亚 / 马来西亚 / 西马干线（吉隆坡/怡保/北海等）</span></div><div class="frow"><span class="fl">阶段</span><span class="fv">在运营（2027 频次提升）</span></div><div class="frow"><span class="fl">资讯</span><span class="fv">马来亚铁道（KTMB）ETS 城际电动车组（EMU）2027 年加密开行计划</span></div><div class="frow r-content"><span class="fl">内容</span><span class="fv">马来亚铁道（KTMB）ETS 城际电动车组（EMU）2027 年加密开行计划。当前阶段为在运营（2027 频次提升）；类型属运营扩能、车辆运用；金额方面，运营计划调整，无新采购金额披露、ETS 频次由 2026 年 <strong>44 趟/日</strong>提升至 2027 年 <strong>50–58 趟/日</strong>；进度上，2027 年起执行：周一至周四 <strong>50 趟/日</strong>、周五至周日 <strong>58 趟/日</strong>（较 2026 增最多 14 趟/日）。</span></div><div class="frow"><span class="fl">相关方</span><span class="fv"><strong>运营：KTMB</strong>；车辆：CRRC 制造 ETS EMU（在服车队）；线路：西马电气双线干线</span></div><div class="frow"><span class="fl">关键词</span><span class="fv"><strong>运营扩能</strong>；车辆运用；在运营；CT</span></div><div class="frow"><span class="fl">进度/时间</span><span class="fv">2027 年起执行：周一至周四 <strong>50 趟/日</strong>、周五至周日 <strong>58 趟/日</strong>（较 2026 增最多 14 趟/日）</span></div><div class="frow"><span class="fl">竞品/交叉</span><span class="fv"><strong>KTMB ETS 现役 EMU </strong>由中车（CRRC）供应，本期为在服车队加密运用，反映中车车辆利用率与运维表现获业主认可；叠加 ETS 车辆段/维保本地化趋势</span></div><div class="frow r-meta"><span class="fl">主源</span><span class="fv">KTMB 官方 Facebook（2026-11-03 公告「Lebih banyak trip, lebih banyak pilihan perjalanan pada 2027!」）</span></div><div class="frow r-meta"><span class="fl">佐证源</span><span class="fv">KTMB 官方购票渠道（KITS Style / online.ktmb.com.my）运营计划</span></div><div class="frow r-meta"><span class="fl">置信度</span><span class="fv">A（业主方官方账号）</span></div><div class="frow r-meta"><span class="fl">语种/备注</span><span class="fv">业主方官方账号（ktmberhad，官方，马来语）；中文摘要：2027 年 ETS 加密至 50–58 趟/日（2026 为 44 趟/日），在服中车 EMU 扩能</span></div></div></div><div class="card conf-A" id="CT-34"><div class="chead"><span class="cid">CT-34</span><span class="ccat">CT</span><span class="ctitle">雅万高铁开通运营三周年（累计发送旅客超 1800 万人次）</span><span class="cbadge">A</span></div><div class="cbody"><div class="frow"><span class="fl">区域/国家/城市</span><span class="fv">东南亚 / 印度尼西亚 / 雅加达—万隆</span></div><div class="frow"><span class="fl">阶段</span><span class="fv">运营三周年（持续运营/服务提质）</span></div><div class="frow"><span class="fl">资讯</span><span class="fv">雅万高铁开通运营三周年（累计发送旅客超 1800 万人次）</span></div><div class="frow r-content"><span class="fl">内容</span><span class="fv">雅万高铁开通运营三周年（累计发送旅客超 1800 万人次）。当前阶段为运营三周年（持续运营/服务提质）；类型属高铁运营、客运动能；金额方面，未披露（全长 <strong>142.3km</strong>，最高运营时速 <strong>350km</strong>）；进度上，<strong>2026-10-17</strong> 满三周年、累计开行 <strong>58666 列</strong>、发送旅客超 1800 万人次、安全运行超 890 万公里、正点率 99.4%、高峰日开行至 62 列、单日最高 26770 人次、常旅。</span></div><div class="frow"><span class="fl">相关方</span><span class="fv"><strong>运营：印尼中国高速铁路有限公司（KCIC）</strong>；建设：中印尼铁路企业联合体；技术：中国铁路国际有限公司</span></div><div class="frow"><span class="fl">关键词</span><span class="fv"><strong>高铁运营</strong>；客运动能；运营三周年；CT</span></div><div class="frow"><span class="fl">进度/时间</span><span class="fv"><strong>2026-10-17</strong> 满三周年；累计开行 <strong>58666 列</strong>、发送旅客超 1800 万人次、安全运行超 890 万公里、正点率 99.4%；高峰日开行至 62 列、单日最高 26770 人次；常旅客卡累计售出 47577 张</span></div><div class="frow"><span class="fl">竞品/交叉</span><span class="fv">东南亚首条高铁、中国高铁全系统出海<strong>标杆</strong>；国际旅客超 96 万人次，马来西亚籍占 42.8% 居首</span></div><div class="frow r-meta"><span class="fl">主源</span><span class="fv">https://big5.china.com.cn/gate/big5/news.china.com.cn/txt/2026-10/17/content_118737719.shtml（中国网 10-17）</span></div><div class="frow r-meta"><span class="fl">佐证源</span><span class="fv">央视/央广网 10-17 三周年报道；中国日报网 10-19</span></div><div class="frow r-meta"><span class="fl">置信度</span><span class="fv">A</span></div><div class="frow r-meta"><span class="fl">语种/备注</span><span class="fv">中文官方/央媒；运营数据权威</span></div></div></div><div class="card conf-A" id="RW-30"><div class="chead"><span class="cid">RW-30</span><span class="ccat">RW</span><span class="ctitle">马来西亚东海岸铁路（ECRL）首阶段（鹅唛—哥打巴鲁）12 月中提前开通客运；内阁批准向马泰边境延伸约 32km</span><span class="cbadge">A</span></div><div class="cbody"><div class="frow"><span class="fl">区域/国家/城市</span><span class="fv">东南亚 / 马来西亚 / 哥打巴鲁—鹅唛（东海岸）</span></div><div class="frow"><span class="fl">阶段</span><span class="fv">调试收尾→提前开通（12 月中）；规划延伸获批</span></div><div class="frow"><span class="fl">资讯</span><span class="fv">马来西亚东海岸铁路（ECRL）首阶段（鹅唛—哥打巴鲁）12 月中提前开通客运；内阁批准向马泰边境延伸约 32km</span></div><div class="frow r-content"><span class="fl">内容</span><span class="fv">马来西亚东海岸铁路（ECRL）首阶段（鹅唛—哥打巴鲁）12 月中提前开通客运；内阁批准向马泰边境延伸约 <strong>32km</strong>。当前阶段为调试收尾→提前开通（12 月中）、规划延伸获批；类型属干线铁路、客货共线、一带一路旗舰；金额方面，一期（鹅唛—哥打巴鲁）约 RM503 亿（<strong>503 亿令吉</strong>）；</span></div><div class="frow"><span class="fl">相关方</span><span class="fv"><strong>业主/资产方：马来西亚铁路衔接公司（MRL）</strong>；总承包：中国交通建设（CCCC）；融资：马来西亚政府；测试监管：陆路公共交通机构（APAD）</span></div><div class="frow"><span class="fl">关键词</span><span class="fv"><strong>干线铁路</strong>；客货共线；一带一路旗舰</span></div><div class="frow"><span class="fl">进度/时间</span><span class="fv">整体工程进度 98.16%（截至 20<strong>26-09</strong>）；CCCC 10 月中移交首阶段设施；EMU/货运电力机车 FFR 10 月提前展开；计划 12 月中开通（原 20<strong>27-01</strong>），客货同步运营、首月经济舱优惠 30%；内阁 10-20 批准延伸段（哥打巴鲁至兰斗班让约 32km，约 4.5 年，前 2 年评估征地）</span></div><div class="frow"><span class="fl">竞品/交叉</span><span class="fv">CCCC 总承包；列车（EMU 及货运 E-Loco）由中车系供应（待核实）；中马 9 月安瓦尔访华就延伸线达原则共识；<strong>中企在马来轨交（ECRL</strong>＋地铁）持续主导，延伸段利好后续土建/系统包</span></div><div class="frow r-meta"><span class="fl">主源</span><span class="fv">中国新闻网 2026-10-20（m.chinanews.com/wap/detail/cht/zw/10718168.shtml）</span></div><div class="frow r-meta"><span class="fl">佐证源</span><span class="fv">Asian Television News 2026-10-06/10-19；东方日报 2026-10-07</span></div><div class="frow r-meta"><span class="fl">置信度</span><span class="fv">A</span></div><div class="frow r-meta"><span class="fl">语种/备注</span><span class="fv">中新社＋马来西亚媒体多源互证，定 A</span></div></div></div><div class="card conf-B" id="CT-32"><div class="chead"><span class="cid">CT-32</span><span class="ccat">CT</span><span class="ctitle">富国岛轻轨城市轨道交通线（APEC 2027 配套）</span><span class="cbadge">B</span></div><div class="cbody"><div class="frow"><span class="fl">区域/国家/城市</span><span class="fv">东南亚 / 越南 / 富国岛</span></div><div class="frow"><span class="fl">阶段</span><span class="fv">签约（车辆采购）</span></div><div class="frow"><span class="fl">资讯</span><span class="fv">富国岛轻轨城市轨道交通线（APEC 2027 配套）</span></div><div class="frow r-content"><span class="fl">内容</span><span class="fv">富国岛轻轨城市轨道交通线（APEC <strong>2027 </strong>配套）。当前阶段为签约（车辆采购）；类型属城市新线、车辆采购；金额方面，<strong>未披露</strong>（<strong>14 列</strong>定制列车）；进度上，服务 <strong>2027 年</strong> APEC 峰会（落户富国经济特区/安江省）、安江省 21 项重点项目之一。</span></div><div class="frow"><span class="fl">相关方</span><span class="fv">业主：<strong>Sun Group</strong>（太阳集团）；车辆：中车大连机车车辆有限公司</span></div><div class="frow"><span class="fl">关键词</span><span class="fv"><strong>城市新线</strong>；车辆采购；签约；CT</span></div><div class="frow"><span class="fl">进度/时间</span><span class="fv">服务 <strong>2027 年</strong> APEC 峰会（落户富国经济特区/安江省）；安江省 21 项重点项目之一</span></div><div class="frow"><span class="fl">竞品/交叉</span><span class="fv"><strong>富国岛旅游轨道交通</strong>，竞品为日韩欧车辆厂；合同细节未官方全文披露</span></div><div class="frow r-meta"><span class="fl">主源</span><span class="fv">https://sg.tigermarketf.com/hans/news/2604022903（越南媒体，经新加坡聚合）</span></div><div class="frow r-meta"><span class="fl">佐证源</span><span class="fv">待官方公告交叉验证</span></div><div class="frow r-meta"><span class="fl">置信度</span><span class="fv">B</span></div><div class="frow r-meta"><span class="fl">语种/备注</span><span class="fv">越媒/英文聚合；金额未披露记为未披露</span></div></div></div></div></details>
+<details class="part" id="part02" open><summary><h2>PART02 · 中东·独联体 <span class="rcount">（4 条）</span></h2><span class="fold-ind"><span class="chev"></span><span class="fi-open">展开</span><span class="fi-close">收起</span></span></summary><div class="part-body"><div class="card conf-A" id="RW-35"><div class="chead"><span class="cid">RW-35</span><span class="ccat">RW</span><span class="ctitle">阿塞拜疆铁路公司（ADY）与中车资阳机车 4 台 AC50P 新型干线客运机车采购</span><span class="cbadge">A（双源：买方代表团访华报道 + 卖方确认）</span></div><div class="cbody"><div class="frow"><span class="fl">区域/国家/城市</span><span class="fv">中东·独联体 / 阿塞拜疆 / 巴库</span></div><div class="frow"><span class="fl">阶段</span><span class="fv">已签约（近期；交付 2027）</span></div><div class="frow"><span class="fl">资讯</span><span class="fv">阿塞拜疆铁路公司（ADY）与中车资阳机车 4 台 AC50P 新型干线客运机车采购</span></div><div class="frow r-content"><span class="fl">内容</span><span class="fv">阿塞拜疆铁路公司（ADY）与中车资阳机车 <strong>4 台</strong> AC50P 新型干线客运机车采购。当前阶段为已签约（近期、交付 2027）；类型属机车采购、签约；金额方面，金额<strong>未披露</strong>（<strong>4 台</strong> AC50P 干线客运机车）；美元口径为金额未披露（单台干线客运机车行业量级参考）；进度上，签约近期、车辆预计 2027 年交付阿塞拜疆、后续或追加 <strong>14 台</strong>。</span></div><div class="frow"><span class="fl">相关方</span><span class="fv"><strong>买方</strong>：<strong>阿塞拜疆铁路公司（ADY</strong>，隶属 AZCON 交通运输控股）；卖方：中车资阳机车有限公司；背景：去年 7 台货运机车合同推进中（计划当年 9 月交付），拟追加 14 台</span></div><div class="frow"><span class="fl">关键词</span><span class="fv"><strong>机车采购</strong>；签约；已签约；RW</span></div><div class="frow"><span class="fl">进度/时间</span><span class="fv"><strong>签约近期</strong>；车辆预计 2027 年交付阿塞拜疆；后续或追加 <strong>14 台</strong></span></div><div class="frow"><span class="fl">竞品/交叉</span><span class="fv"><strong>与既有 RW-18（CRRC 株</strong>洲 4 列城际动车组）、RW-19（城际电动客车后续）形成中车多子公司协同供货格局；AC50P 强化阿塞拜疆国际货运/客运走廊运力</span></div><div class="frow r-meta"><span class="fl">主源</span><span class="fv">阿塞拜疆铁路代表团访华报道（中车资阳签约，近期）</span></div><div class="frow r-meta"><span class="fl">佐证源</span><span class="fv">中车资阳机车有限公司（卖方确认）；AZCON/ADY 官方口径（待核）</span></div><div class="frow r-meta"><span class="fl">置信度</span><span class="fv">A（双源：买方代表团访华报道 + 卖方确认）</span></div><div class="frow r-meta"><span class="fl">语种/备注</span><span class="fv">签约日期为近期（具体待核），本报以窗口内首次收录计；金额未披露</span></div></div></div><div class="card conf-A" id="CT-39"><div class="chead"><span class="cid">CT-39</span><span class="ccat">CT</span><span class="ctitle">第比利斯地铁现代化（111 节车厢，CRRC）</span><span class="cbadge">A</span></div><div class="cbody"><div class="frow"><span class="fl">区域/国家/城市</span><span class="fv">中东·独联体 / 格鲁吉亚 / 第比利斯</span></div><div class="frow"><span class="fl">阶段</span><span class="fv">合同签订（近期签约，2026—2031 分批交付）</span></div><div class="frow"><span class="fl">资讯</span><span class="fv">第比利斯地铁现代化（111 节车厢，CRRC）</span></div><div class="frow r-content"><span class="fl">内容</span><span class="fv">第比利斯地铁现代化（111 节车厢，CRRC）。当前阶段为合同签订（近期签约，2026—2031 分批交付）；类型属城市轨道车辆采购、招投标/授标；金额方面，<strong>1.5 亿欧元</strong>（111 节车厢，14×4 编组 + 11×5 编组）；美元口径为<strong>约 1.62 亿美元</strong>（按 <strong>1 欧元</strong>≈<strong>1.08 美元</strong>）；</span></div><div class="frow"><span class="fl">相关方</span><span class="fv">业主：<strong>第比利斯市政厅</strong>（Tbilisi City Hall）；采购代理：GT Group；制造：中国中车（CRRC）；融资：亚投行（AIIB）1.25 亿欧元贷款 + 格鲁吉亚政府 0.85 亿欧元</span></div><div class="frow"><span class="fl">关键词</span><span class="fv"><strong>城市轨道车辆采购</strong>；招投标/授标；合同签订；CT</span></div><div class="frow"><span class="fl">进度/时间</span><span class="fv"><strong>签约近期</strong>；首批列车 2026 年 11 月或运抵当地，2027 年投用于 1 号线；2026—2<strong>031 分批交付</strong></span></div><div class="frow"><span class="fl">竞品/交叉</span><span class="fv"><strong>原定由俄罗斯企业承接</strong>，受制裁 2023 年合同终止，中车入局填补空缺；适配独联体 1520mm 宽轨标准；亚投行融资支撑</span></div><div class="frow r-meta"><span class="fl">主源</span><span class="fv">https://bm.ge/en/news/gt-group-to-supply-tbilisi-with-new-metro-cars-from-chinese-crrc-in-eur-150-mln-deal</span></div><div class="frow r-meta"><span class="fl">佐证源</span><span class="fv">https://www.seetao.com/details/276823.html（见道网，中车宽轨地铁亮相格鲁吉亚，2026-09-01）；https://www.seetaoe.com/details/276824.html</span></div><div class="frow r-meta"><span class="fl">置信度</span><span class="fv">A</span></div><div class="frow r-meta"><span class="fl">语种/备注</span><span class="fv">外文源（bm.ge 格鲁吉亚当地媒体）+ 中文转述（见道网）互证</span></div></div></div><div class="card conf-B" id="PL-28"><div class="chead"><span class="cid">PL-28</span><span class="ccat">PL</span><span class="ctitle">迪拜地铁金线（Gold Line）总承包资格预审：6 家国际联合体提交，4 家含中企</span><span class="cbadge">B</span></div><div class="cbody"><div class="frow"><span class="fl">区域/国家/城市</span><span class="fv">中东·独联体 / 阿联酋 / 迪拜（古拜巴—朱美拉高尔夫庄园）</span></div><div class="frow"><span class="fl">阶段</span><span class="fv">资格预审提交（PQ，2026-10-09）</span></div><div class="frow"><span class="fl">资讯</span><span class="fv">迪拜地铁金线（Gold Line）总承包资格预审：6 家国际联合体提交，4 家含中企</span></div><div class="frow r-content"><span class="fl">内容</span><span class="fv">迪拜地铁金线（Gold Line）总承包资格预审：6 家国际联合体提交，4 家含中企。当前阶段为资格预审提交（PQ，<strong>2026-10-09</strong>）；类型属招投标、城轨新线（全地下）；金额方面，约 340 亿迪拉姆（≈<strong>92.6 亿美元</strong>）；</span></div><div class="frow"><span class="fl">相关方</span><span class="fv">业主：<strong>迪拜道路与交通管理局</strong>（RTA）；联合体：中国中铁—阿尔斯通—阿布扎比国家项目公司—土耳其 Dogus；中国中车—Limak—Mapa；日立—中国港湾—中国建筑；西门子—埃及 Petrojet 等；另含埃及 Hassan Allam—IC İçtaş—西门子、印度 L&amp;T—中国电建—Wade Adams</span></div><div class="frow"><span class="fl">关键词</span><span class="fv"><strong>招投标</strong>；城轨新线（全地下）；资格预审提交；PL</span></div><div class="frow"><span class="fl">进度/时间</span><span class="fv">RTA <strong>10-9</strong> 收到 6 家联合体 PQ 文件；金线全长 42km、全地下（最深处约 40 米）、18 站，20<strong>32-09</strong> 竣工；土建 / 机电 / 车辆 / 轨道打包一份主合同，含投运后 3 年运维支持；与红线 / 绿线 / 阿提哈德客运网衔接</span></div><div class="frow"><span class="fl">竞品/交叉</span><span class="fv">中车—Limak—Mapa 曾斩获迪拜蓝线（PL-23，2026-11-01 期运维另招）；中国中铁 / 港湾 / 建筑 / 电建另列；欧日厂商（阿尔斯通 / 西门子 / 日立）同场；迪拜「本地含量 + 长期运维」门槛高，<strong>中企在建设 / 车辆占优</strong>、高端信号与运维被对手分食</span></div><div class="frow r-meta"><span class="fl">主源</span><span class="fv">https://news.qq.com/rain/a/20261014A05TFP00（腾讯新闻 2026-10-14，引 MEED）</span></div><div class="frow r-meta"><span class="fl">佐证源</span><span class="fv">MEED（中东工程媒体）；城市交通网 chinaiut.com（迪拜金线 PQ，2026-10-14）</span></div><div class="frow r-meta"><span class="fl">置信度</span><span class="fv">B</span></div><div class="frow r-meta"><span class="fl">语种/备注</span><span class="fv">单一外文源（MEED）经中文媒体转述，PQ 阶段待正式授标，定 B；PQ 日 10-9，超出本期 7 天回溯线，作「回溯补录」标注</span></div></div></div><div class="card conf-B" id="PL-22"><div class="chead"><span class="cid">PL-22</span><span class="ccat">PL</span><span class="ctitle">乌兹别克斯坦交通部/乌铁 × 中车大连 铁路与地铁合作备忘录（MoU）</span><span class="cbadge">B</span></div><div class="cbody"><div class="frow"><span class="fl">区域/国家/城市</span><span class="fv">中东·独联体 / 乌兹别克斯坦 / 塔什干</span></div><div class="frow"><span class="fl">阶段</span><span class="fv">签署合作备忘录（框架性）</span></div><div class="frow"><span class="fl">资讯</span><span class="fv">乌兹别克斯坦交通部/乌铁 × 中车大连 铁路与地铁合作备忘录（MoU）</span></div><div class="frow r-content"><span class="fl">内容</span><span class="fv">乌兹别克斯坦交通部/乌铁 × 中车大连 铁路与地铁合作备忘录（MoU）。当前阶段为签署合作备忘录（框架性）；类型属政策/合作、机车车辆与地铁；金额方面，<strong>未披露</strong>（备忘录阶段，未列采购量与金额）；进度上，<strong>10-14</strong> 签署、目标通过采购现代机车车辆、引入先进技术、发展制造与维保合作支持乌铁路与地铁现代化、探讨联合项目。</span></div><div class="frow"><span class="fl">相关方</span><span class="fv"><strong>乌兹别克斯坦交通部、乌兹别克</strong><strong>斯坦铁路公司（O'zbeki</strong>ston Temir Yo'llari）、中车大连机车车辆有限公司</span></div><div class="frow"><span class="fl">关键词</span><span class="fv"><strong>政策/合作</strong>；机车车辆与地铁；签署合作备忘录；PL</span></div><div class="frow"><span class="fl">进度/时间</span><span class="fv"><strong>10-14</strong> 签署；目标通过采购现代机车车辆、引入先进技术、发展制造与维保合作支持乌铁路与地铁现代化；探讨联合项目</span></div><div class="frow"><span class="fl">竞品/交叉</span><span class="fv"><strong>与既有 CT-33 塔什干地铁新</strong>车采购方案形成接续；俄 GTR、韩现代 Rotem、欧洲厂商同场竞争乌轨道交通装备市场</span></div><div class="frow r-meta"><span class="fl">主源</span><span class="fv">https://www.azerbaijantimes.org/news/2321533（Azerbaijan Times 引 trend.az，10-15）</span></div><div class="frow r-meta"><span class="fl">佐证源</span><span class="fv">乌交通部声明（trend.az 同源）</span></div><div class="frow r-meta"><span class="fl">置信度</span><span class="fv">B</span></div><div class="frow r-meta"><span class="fl">语种/备注</span><span class="fv">英文二次源（趋势通讯社）；备忘录阶段待落地</span></div></div></div></div></details>
+<details class="part" id="part03" open><summary><h2>PART03 · 拉美 <span class="rcount">（3 条）</span></h2><span class="fold-ind"><span class="chev"></span><span class="fi-open">展开</span><span class="fi-close">收起</span></span></summary><div class="part-body"><div class="card conf-B" id="CT-40"><div class="chead"><span class="cid">CT-40</span><span class="ccat">CT</span><span class="ctitle">智利国家铁路 EFE 比奥比奥 Biotrén 2 号线 10 列电动列车</span><span class="cbadge">B</span></div><div class="cbody"><div class="frow"><span class="fl">区域/国家/城市</span><span class="fv">拉美 / 智利 / 康塞普西翁（比奥比奥大区）</span></div><div class="frow"><span class="fl">阶段</span><span class="fv">静态测试阶段（近期推进投用）</span></div><div class="frow"><span class="fl">资讯</span><span class="fv">智利国家铁路 EFE 比奥比奥 Biotrén 2 号线 10 列电动列车</span></div><div class="frow r-content"><span class="fl">内容</span><span class="fv">智利国家铁路 EFE 比奥比奥 Biotrén 2 号线 <strong>10 列</strong>电动列车。当前阶段为静态测试阶段（近期推进投用）；类型属城市/通勤铁路车辆采购、招投标/交付；金额方面，<strong>约 6000 万美元</strong>（项目总投资）；进度上，新车进入静态测试，后续动态测试、分阶段投运、每列最大载客 717 人、最高 <strong>120km</strong>/h、2 号线日均客流超 5 万人次。</span></div><div class="frow"><span class="fl">相关方</span><span class="fv">业主：<strong>智利国家铁路公司</strong>（EFE）；制造：中车四方（CRRC Sifang）；线路：Biotrén 科罗内尔—康塞普西翁 2 号线</span></div><div class="frow"><span class="fl">关键词</span><span class="fv"><strong>城市/通勤铁路车辆采购</strong>；招投标/交付；静态测试阶段；CT</span></div><div class="frow"><span class="fl">进度/时间</span><span class="fv">新车进入静态测试，后续动态测试；<strong>分阶段投运</strong>；每列最大载客 717 人、最高 <strong>120km</strong>/h；2 号线日均客流超 5 万人次</span></div><div class="frow"><span class="fl">竞品/交叉</span><span class="fv"><strong>与 RW-20（智利 EFE 4</strong> 台柴油机车，2026-10-30 期）为不同采购（电动列车 vs 柴油机车、Biotrén 2 号线 vs 既有），不重复计列；智利携轨交需求亮相 11 月深圳 iMetro 展</span></div><div class="frow r-meta"><span class="fl">主源</span><span class="fv">https://m.toutiao.com/article/7633075337777201718（今日头条，中车助力智利提升运力，EFE 推进 10 列电动列车）</span></div><div class="frow r-meta"><span class="fl">佐证源</span><span class="fv">智利交通部副部长、比奥比奥大区州长、EFE 董事长出席新车发布仪式</span></div><div class="frow r-meta"><span class="fl">置信度</span><span class="fv">B</span></div><div class="frow r-meta"><span class="fl">语种/备注</span><span class="fv">中文媒体源，待智利当地源佐证</span></div></div></div><div class="card conf-B" id="RW-27"><div class="chead"><span class="cid">RW-27</span><span class="ccat">RW</span><span class="ctitle">中车唐山阿根廷三大轨道项目技术联络推进（国铁 43 列内燃动车组、门多萨轻轨 DMU、胡胡伊新能源轻轨增购）</span><span class="cbadge">B</span></div><div class="cbody"><div class="frow"><span class="fl">区域/国家/城市</span><span class="fv">拉美 / 阿根廷 / 布宜诺斯艾利斯/门多萨/胡胡伊</span></div><div class="frow"><span class="fl">阶段</span><span class="fv">设计联络/技术对接（首轮设计联络会议已启动）</span></div><div class="frow"><span class="fl">资讯</span><span class="fv">中车唐山阿根廷三大轨道项目技术联络推进（国铁 43 列内燃动车组、门多萨轻轨 DMU、胡胡伊新能源轻轨增购）</span></div><div class="frow r-content"><span class="fl">内容</span><span class="fv">中车唐山阿根廷三大轨道项目技术联络推进（国铁 <strong>43 列</strong>内燃动车组、门多萨轻轨 DMU、胡胡伊新能源轻轨增购）。当前阶段为设计联络/技术对接（首轮设计联络会议已启动）；类型属机车车辆、新能源轻轨；金额方面，国铁 <strong>43 列</strong>/<strong>150 辆</strong>内燃动车组（<strong>36 列</strong>三编组宽轨 + 7 列六编组米轨）、门多萨 3 列三编组宽轨 DMU（每列 506 人）、胡胡伊四编组新能源轻轨增购；</span></div><div class="frow"><span class="fl">相关方</span><span class="fv">业主：<strong>阿根廷国家铁路公司</strong>（Trenes Argentinos）、门多萨省、胡胡伊省；厂商：中车唐山机车车辆有限公司（联合体：中国虹桥国际投资）；配套 3 年维保</span></div><div class="frow"><span class="fl">关键词</span><span class="fv"><strong>机车车辆</strong>；新能源轻轨；设计联络/技术对接；RW</span></div><div class="frow"><span class="fl">进度/时间</span><span class="fv">三季度技术商务团队赴阿推进；国铁 <strong>43 列</strong>首轮设计联络会召开，预付款到位后启动新一轮；门多萨 DMU 预付款后首批 <strong>11 个月内交付</strong>；胡胡伊新能源轻轨（磷酸铁锂）已商业运营、业主增购四编组</span></div><div class="frow"><span class="fl">竞品/交叉</span><span class="fv">中车唐山 2015 年首列出口阿根廷米轨内燃动车组下线、2023 年胡胡伊新能源轻轨出口，长期深耕；中车四方（布宜诺斯艾利斯地铁 A/C 线 50 辆）、中车长客（地铁 B 线 174 辆）同期在阿推进，<strong>中企在阿轨交装备占主导</strong></span></div><div class="frow r-meta"><span class="fl">主源</span><span class="fv">https://www.seetao.com/details/273698.html（见道网）</span></div><div class="frow r-meta"><span class="fl">佐证源</span><span class="fv">微信·蔚蓝轨迹 Rail（中车唐山官宣口径）；城市轨道交通网 chinametro.net</span></div><div class="frow r-meta"><span class="fl">置信度</span><span class="fv">B</span></div><div class="frow r-meta"><span class="fl">语种/备注</span><span class="fv">中文二次源；技术联络为近期（三季度）推进，最终交付待预付款</span></div></div></div><div class="card conf-A" id="CT-35"><div class="chead"><span class="cid">CT-35</span><span class="ccat">CT</span><span class="ctitle">波哥大地铁一号线 U 梁预制收官 + 第 21 列列车运抵（建设进展）</span><span class="cbadge">A</span></div><div class="cbody"><div class="frow"><span class="fl">区域/国家/城市</span><span class="fv">拉美 / 哥伦比亚 / 波哥大</span></div><div class="frow"><span class="fl">阶段</span><span class="fv">建设（U 梁预制完成、列车陆续运抵）</span></div><div class="frow"><span class="fl">资讯</span><span class="fv">波哥大地铁一号线 U 梁预制收官 + 第 21 列列车运抵（建设进展）</span></div><div class="frow r-content"><span class="fl">内容</span><span class="fv">波哥大地铁一号线 U 梁预制收官 + 第 <strong>21 列</strong>列车运抵（建设进展）。当前阶段为建设（U 梁预制完成、列车陆续运抵）；类型属城市新线、全自动无人驾驶地铁；金额方面，全长 <strong>23.96km</strong> 高架（7551 榀 U 型节段梁，拉美首个全线 U 梁结构）、截至 <strong>9-30</strong> 整体进度 <strong>83.73%</strong>；</span></div><div class="frow"><span class="fl">相关方</span><span class="fv"><strong>业主/特许：波哥大地铁公司</strong>；总承包：中国港湾牵头联营体（特许建设 + 运营）；车辆：中车长客；融资：泛美开发银行</span></div><div class="frow"><span class="fl">关键词</span><span class="fv"><strong>城市新线</strong>；全自动无人驾驶地铁；建设；CT</span></div><div class="frow"><span class="fl">进度/时间</span><span class="fv"><strong>10-7</strong> 最后一榀 U 梁浇筑完成（累计 7551 榀）；<strong>10-15</strong> 第 21 列列车运抵（总统 9-2 添乘时进度超 81%、17 列运抵）；计划 2027 年中通车</span></div><div class="frow"><span class="fl">竞品/交叉</span><span class="fv">中国港湾以中国技术/中国方案破解 U 梁预制难题（单日最高 25 榀、月最高 461 榀）；中车长客供车；南美首条中国标准全自动地铁<strong>标杆</strong></span></div><div class="frow r-meta"><span class="fl">主源</span><span class="fv">https://www.chec.bj.cn/cn/sy_lb/202610/t20261013_10313.html（中国港湾官网 10-13）</span></div><div class="frow r-meta"><span class="fl">佐证源</span><span class="fv">驻哥伦比亚使馆经商处 10-15（第 21 列运抵）；城市轨道交通网 9-2 总统添乘</span></div><div class="frow r-meta"><span class="fl">置信度</span><span class="fv">A</span></div><div class="frow r-meta"><span class="fl">语种/备注</span><span class="fv">中文官方/企业官网 + 使馆；节点权威</span></div></div></div></div></details>
+<details class="part" id="part04" open><summary><h2>PART04 · 非洲 <span class="rcount">（3 条）</span></h2><span class="fold-ind"><span class="chev"></span><span class="fi-open">展开</span><span class="fi-close">收起</span></span></summary><div class="part-body"><div class="card conf-A" id="PL-27"><div class="chead"><span class="cid">PL-27</span><span class="ccat">PL</span><span class="ctitle">中国土木（CCECC）牵头联合体中标阿尔及利亚盖尔达耶—埃尔梅尼亚新建铁路（230km）</span><span class="cbadge">A</span></div><div class="cbody"><div class="frow"><span class="fl">区域/国家/城市</span><span class="fv">非洲 / 阿尔及利亚 / 盖尔达耶—埃尔梅尼亚（南部走廊）</span></div><div class="frow"><span class="fl">阶段</span><span class="fv">授标公示（全面开工尚待确认）</span></div><div class="frow"><span class="fl">资讯</span><span class="fv">中国土木（CCECC）牵头联合体中标阿尔及利亚盖尔达耶—埃尔梅尼亚新建铁路（230km）</span></div><div class="frow r-content"><span class="fl">内容</span><span class="fv">中国土木（CCECC）牵头联合体中标阿尔及利亚盖尔达耶—埃尔梅尼亚新建铁路（<strong>230km</strong>）。当前阶段为授标公示（全面开工尚待确认）；类型属招投标、铁路新线（南部矿产走廊）；金额方面，含税合同约 1570.83 亿阿尔及利亚第纳尔（≈<strong>11.87 亿美元</strong>）、AfDB 提供二期 <strong>8.7809 亿美元</strong>贷款；</span></div><div class="frow"><span class="fl">相关方</span><span class="fv">业主：<strong>阿尔及利亚国家铁路投资局</strong>（ANESRIF）；中标：中国土木 CCECC + 阿尔及利亚 Infrarail；融资：非洲开发银行（AfDB）</span></div><div class="frow"><span class="fl">关键词</span><span class="fv"><strong>招投标</strong>；铁路新线（南部矿产走廊）；授标公示；PL</span></div><div class="frow"><span class="fl">进度/时间</span><span class="fv">ANESRIF <strong>10-1</strong> 授标公示；路线盖尔达耶—埃尔梅尼亚 <strong>230km</strong>；为拉格瓦特—盖尔达耶—埃尔梅尼亚铁路走廊（495km）二期；四组联合体投标（另三家为中铁国际、中国路桥、Cosider），CCECC 报价最低中标；工期 24 个月</span></div><div class="frow"><span class="fl">竞品/交叉</span><span class="fv"><strong>中企在阿铁路持续深耕（西</strong>部矿业线、东部矿业铁路、阿尔及尔地铁延长线）；本走廊一期 265km 由中国铁建联合体中标（1842.71 亿第纳尔）；非洲开发银行融资支撑，<strong>中企在阿土建 / 轨道环</strong>节占优，信号与车辆存竞争</span></div><div class="frow r-meta"><span class="fl">主源</span><span class="fv">https://finance.sina.com.cn/roll/2026-10-15/doc-inivhtui7413359.shtml（新浪财经 2026-10-15，转述 ANESRIF 授标通知）</span></div><div class="frow r-meta"><span class="fl">佐证源</span><span class="fv">https://news.qq.com/rain/a/20261026A06KJY00（腾讯新闻 2026-10-26，四组报价复盘）；https://www.seetaoa.com/details/280881.html（见道网）</span></div><div class="frow r-meta"><span class="fl">置信度</span><span class="fv">A</span></div><div class="frow r-meta"><span class="fl">语种/备注</span><span class="fv">多源互证（ANESRIF 授标通知 + 新浪 / 腾讯 / 见道），定 A；授标日 10-1、首报 10-14/15，超出本期 7 天回溯线，按 §4A.3 作「回溯补录」标注</span></div></div></div><div class="card conf-B" id="RW-28"><div class="chead"><span class="cid">RW-28</span><span class="ccat">RW</span><span class="ctitle">中车资阳非洲机车交付与运维成果（喀麦隆 7 台交付、塞拉利昂运量跃升、业务覆盖 38 国）</span><span class="cbadge">B</span></div><div class="cbody"><div class="frow"><span class="fl">区域/国家/城市</span><span class="fv">非洲 / 喀麦隆/塞拉利昂/摩洛哥 / 杜阿拉/弗里敦/拉巴特</span></div><div class="frow"><span class="fl">阶段</span><span class="fv">交付/运营成效（持续本地化）</span></div><div class="frow"><span class="fl">资讯</span><span class="fv">中车资阳非洲机车交付与运维成果（喀麦隆 7 台交付、塞拉利昂运量跃升、业务覆盖 38 国）</span></div><div class="frow r-content"><span class="fl">内容</span><span class="fv">中车资阳非洲机车交付与运维成果（喀麦隆 <strong>7 台</strong>交付、塞拉利昂运量跃升、业务覆盖 38 国）。当前阶段为交付/运营成效（持续本地化）；类型属机车出口、造修一体；金额方面，喀麦隆 <strong>7 台</strong>机车（<strong>2026 年</strong> 7 月交付）、塞拉利昂机车上线两月铁矿日均运量 2.1→3.2 万吨（+<strong>50%</strong>）、摩洛哥 ONCF AC30 机车（见 RW-21）；</span></div><div class="frow"><span class="fl">相关方</span><span class="fv">供应商：中车资阳机车有限公司；业主：<strong>喀麦隆铁路、塞拉利昂铁路、摩洛哥 O</strong>NCF 等</span></div><div class="frow"><span class="fl">关键词</span><span class="fv"><strong>机车出口</strong>；造修一体；交付/运营成效；RW</span></div><div class="frow"><span class="fl">进度/时间</span><span class="fv">据四川日报/资阳日报（<strong>10-19</strong>/21）披露：「十四五」海外营收占比破 <strong>40%</strong>、业务覆盖国家 31→38 个、新签较「十三五」增 360%；2026 年再签土库曼斯坦大修 + 新造；塞拉利昂创「买机车找资阳」口碑（承担 98% 客货运）</span></div><div class="frow"><span class="fl">竞品/交叉</span><span class="fv"><strong>中国每出口 2 台内燃机车约 1</strong> 台来自资阳；欧美/日厂商在高速与既有线仍占份额，内燃机车适配非电气化区段长期互补；阿尔斯通等欧厂在摩洛哥高速/信号占优</span></div><div class="frow r-meta"><span class="fl">主源</span><span class="fv">https://epaper.scdaily.cn/shtml/scrb/20261019/1092290.html（四川日报 10-19）</span></div><div class="frow r-meta"><span class="fl">佐证源</span><span class="fv">资阳日报 10-21 同题；见道网 摩洛哥交付报道</span></div><div class="frow r-meta"><span class="fl">置信度</span><span class="fv">B</span></div><div class="frow r-meta"><span class="fl">语种/备注</span><span class="fv">中文官方/地方党报；为阶段性成果汇总，金额未披露</span></div></div></div><div class="card conf-A" id="CT-37"><div class="chead"><span class="cid">CT-37</span><span class="ccat">CT</span><span class="ctitle">拉各斯轻轨蓝线二期（约 14km）推进＋LAMATA 与中国土木签运营技术培训项目（建铁路培训中心）</span><span class="cbadge">A</span></div><div class="cbody"><div class="frow"><span class="fl">区域/国家/城市</span><span class="fv">非洲 / 尼日利亚 / 拉各斯</span></div><div class="frow"><span class="fl">阶段</span><span class="fv">二期建设推进；培训项目签约</span></div><div class="frow"><span class="fl">资讯</span><span class="fv">拉各斯轻轨蓝线二期（约 14km）推进＋LAMATA 与中国土木签运营技术培训项目（建铁路培训中心）</span></div><div class="frow r-content"><span class="fl">内容</span><span class="fv">拉各斯轻轨蓝线二期（约 <strong>14km</strong>）推进＋LAMATA 与中国土木签运营技术培训项目（建铁路培训中心）。当前阶段为二期建设推进、培训项目签约；类型属城市轨道、运营培训/本土化；金额方面，蓝线二期约 <strong>14km</strong>（已通车一期 <strong>13km</strong>/<strong>5 站</strong>）、培训项目金额未披露；</span></div><div class="frow"><span class="fl">相关方</span><span class="fv">业主：<strong>拉各斯州政府/拉各斯城市交通管理局</strong>（LAMATA）；承建/签约：中国土木（CCECC）；培训：南京铁道职业技术学院等</span></div><div class="frow"><span class="fl">关键词</span><span class="fv"><strong>城市轨道</strong>；运营培训/本土化；二期建设推进；培训项目签约；CT</span></div><div class="frow"><span class="fl">进度/时间</span><span class="fv">蓝线二期预计 18 个月内完工（此前目标 <strong>2026</strong>）；10 月 LAMATA 与中国土木签培训合作、建铁路培训中心；蓝线/红线延长线在建，总承包均为中国土木</span></div><div class="frow"><span class="fl">竞品/交叉</span><span class="fv"><strong>中国土木总承包蓝线/红线（中国标</strong>准、全产业链）；中车大连供车、铁四院设计；培训项目系中非职教合作，强化本土化运营（蓝线本土员工占比 &gt;90%）；绿线由中国港湾跟进</span></div><div class="frow r-meta"><span class="fl">主源</span><span class="fv">城市轨道交通网 2026-10（chinametro.net 装备产业）</span></div><div class="frow r-meta"><span class="fl">佐证源</span><span class="fv">南京铁道职业技术学院 2026-10-13 拉各斯培训开班；LAMATA 公告</span></div><div class="frow r-meta"><span class="fl">置信度</span><span class="fv">A</span></div><div class="frow r-meta"><span class="fl">语种/备注</span><span class="fv">行业媒体＋院校公告互证，定 A</span></div></div></div></div></details>
+<details class="part" id="part05" open><summary><h2>PART05 · 南亚·大洋洲 <span class="rcount">（3 条）</span></h2><span class="fold-ind"><span class="chev"></span><span class="fi-open">展开</span><span class="fi-close">收起</span></span></summary><div class="part-body"><div class="card conf-B" id="PL-24"><div class="chead"><span class="cid">PL-24</span><span class="ccat">PL</span><span class="ctitle">中巴经济走廊 宏观信用面与项目融资联动风险（ML-1 与电站应收款）</span><span class="cbadge">B</span></div><div class="cbody"><div class="frow"><span class="fl">区域/国家/城市</span><span class="fv">南亚·大洋洲 / 巴基斯坦 / 卡拉奇/伊斯兰堡</span></div><div class="frow"><span class="fl">阶段</span><span class="fv">风险研判（主权信用承压、合同防线重估）</span></div><div class="frow"><span class="fl">资讯</span><span class="fv">中巴经济走廊 宏观信用面与项目融资联动风险（ML-1 与电站应收款）</span></div><div class="frow r-content"><span class="fl">内容</span><span class="fv">中巴经济走廊 宏观信用面与项目融资联动风险（ML-1 与电站应收款）。当前阶段为风险研判（主权信用承压、合同防线重估）；类型属风险预警、走廊运营/融资；金额方面，中资电站应收款拖欠<strong>约 4980 亿卢比</strong>（见 PL-21）、ML-1 现代化升级受宏观融资面影响；美元口径为<strong>约 17 亿美元</strong>（PL-21 口径）；</span></div><div class="frow"><span class="fl">相关方</span><span class="fv">业主：<strong>巴基斯坦政府/电力/铁路部门</strong>；债权/承包商：中资电站与工程企业；项目：ML-1（RW-13）、卡西姆港等独立发电商</span></div><div class="frow"><span class="fl">关键词</span><span class="fv"><strong>风险预警</strong>；走廊运营/融资；风险研判；PL</span></div><div class="frow"><span class="fl">进度/时间</span><span class="fv"><strong>10-29</strong> 海外EPC 披露后持续发酵；政府将「照付不议」改为混合「照付实议」；走廊项目融资与设备回款节奏受宏观面拖累</span></div><div class="frow"><span class="fl">竞品/交叉</span><span class="fv"><strong>巴基斯坦主权购电信用承压</strong>，中资海外电力/铁路投资合同防线与应收款回收风险进入实质重估；ML-1 等走廊项目融资亦受宏观面影响，建议纳入走廊运营风险跟踪</span></div><div class="frow r-meta"><span class="fl">主源</span><span class="fv">http://mp.weixin.qq.com/s?__biz=MzcwNzM5OTEwMg==&amp;mid=2247486347（海外EPC 2026-10-29）</span></div><div class="frow r-meta"><span class="fl">佐证源</span><span class="fv">待巴方官方/企业公告</span></div><div class="frow r-meta"><span class="fl">置信度</span><span class="fv">B</span></div><div class="frow r-meta"><span class="fl">语种/备注</span><span class="fv">中文二次源；为 PL-21 后续宏观研判，风险预警类</span></div></div></div><div class="card conf-A" id="RW-31"><div class="chead"><span class="cid">RW-31</span><span class="ccat">RW</span><span class="ctitle">中巴经济走廊 ML-1（卡拉奇—白沙瓦）干线升级：Karachi—Rohri 段（约 480km）加速，ADB 拟贷款、监理招标启动</span><span class="cbadge">A</span></div><div class="cbody"><div class="frow"><span class="fl">区域/国家/城市</span><span class="fv">南亚·大洋洲 / 巴基斯坦 / 卡拉奇—白沙瓦（Karachi—Peshawar 主线）；首段 Karachi—Rohri</span></div><div class="frow"><span class="fl">阶段</span><span class="fv">加速推进（总理 10-7 督办；监理 EOI 10-7；ECC 10-8 批 Thar 铁路 100 亿卢比）</span></div><div class="frow"><span class="fl">资讯</span><span class="fv">中巴经济走廊 ML-1（卡拉奇—白沙瓦）干线升级：Karachi—Rohri 段（约 480km）加速，ADB 拟贷款、监理招标启动</span></div><div class="frow r-content"><span class="fl">内容</span><span class="fv">中巴经济走廊 ML-1（卡拉奇—白沙瓦）干线升级：Karachi—Rohri 段（约 480km）加速，ADB 拟贷款、监理招标启动。当前阶段为加速推进（总理 <strong>10-7</strong> 督办、监理 EOI <strong>10-7</strong>、ECC 10-8 批 Thar 铁路 <strong>100 亿卢比</strong>）；类型属干线铁路、升级现代化；金额方面，Karachi—Rohri 段<strong>约 US$16.39 </strong>亿（升级）、ML-1 全线约 1726km 分四段；</span></div><div class="frow"><span class="fl">相关方</span><span class="fv">业主：<strong>巴基斯坦铁路公司</strong>（PR）；执行：铁道部/ML-1 PIU（拉合尔）；融资：ADB（考虑贷款）＋本地资源；总理 Shehbaz Sharif 督办</span></div><div class="frow"><span class="fl">关键词</span><span class="fv"><strong>干线铁路</strong>；升级现代化；加速推进；RW</span></div><div class="frow"><span class="fl">进度/时间</span><span class="fv"><strong>10-7</strong> 总理令加速并推铁路用地商业化融资；<strong>10-7</strong> PR 发监理 EOI（截止 10-21，监理 2027Q1 起、72 个月）；10-8 ECC 批 Thar 煤运铁路 100 亿卢比；施工破土目标 2026-10；ADB 贷款未签</span></div><div class="frow"><span class="fl">竞品/交叉</span><span class="fv">中巴经济走廊旗舰铁路；中方参与融资与实施协调，土建/系统包存<strong>中企机会</strong>；主权信用与用地融资节奏影响进度（对照 PL-24 走廊风险）</span></div><div class="frow r-meta"><span class="fl">主源</span><span class="fv">Daily Independent（巴基斯坦）2026-10-07/08</span></div><div class="frow r-meta"><span class="fl">佐证源</span><span class="fv">pakera.pk（铁路专业媒体）2026-10-07；Engineering Post（CPEC）</span></div><div class="frow r-meta"><span class="fl">置信度</span><span class="fv">A</span></div><div class="frow r-meta"><span class="fl">语种/备注</span><span class="fv">巴基斯坦主流媒体＋铁路专业媒体互证，定 A；ADB 贷款未最终签署</span></div></div></div><div class="card conf-B" id="PL-21"><div class="chead"><span class="cid">PL-21</span><span class="ccat">PL</span><span class="ctitle">中巴经济走廊 中资电站应收款风险（独立发电商合同重构）</span><span class="cbadge">B</span></div><div class="cbody"><div class="frow"><span class="fl">区域/国家/城市</span><span class="fv">南亚·大洋洲 / 巴基斯坦 / 卡拉奇/卡西姆港</span></div><div class="frow"><span class="fl">阶段</span><span class="fv">风险预警（主权信用承压）</span></div><div class="frow"><span class="fl">资讯</span><span class="fv">中巴经济走廊 中资电站应收款风险（独立发电商合同重构）</span></div><div class="frow r-content"><span class="fl">内容</span><span class="fv">中巴经济走廊 中资电站应收款风险（独立发电商合同重构）。当前阶段为风险预警（主权信用承压）；类型属风险预警、走廊运营；金额方面，拖欠<strong>约 4980 亿卢比</strong>（中资电站应收款）、卡西姆港单家被欠 <strong>790 亿卢比</strong>，逾期超半年；美元口径为<strong>约 17 亿美元</strong>（按汇率粗算，<strong>4980 亿卢比</strong>）；进度上，10-29 海外EPC 报道、政府将照付不议改为混合照付实议。</span></div><div class="frow"><span class="fl">相关方</span><span class="fv">业主：<strong>巴基斯坦政府/电力公司</strong>；债权方：中资电站（卡西姆港 1320MW 等）</span></div><div class="frow"><span class="fl">关键词</span><span class="fv"><strong>风险预警</strong>；走廊运营；PL</span></div><div class="frow"><span class="fl">进度/时间</span><span class="fv"><strong>10-29</strong> 海外EPC 报道；政府将照付不议改为混合照付实议</span></div><div class="frow"><span class="fl">竞品/交叉</span><span class="fv"><strong>巴基斯坦主权购电信用承压</strong>，中资海外电力投资合同防线与应收款回收风险进入实质重估；ML-1（RW-13）等走廊项目融资亦受宏观面影响</span></div><div class="frow r-meta"><span class="fl">主源</span><span class="fv">http://mp.weixin.qq.com/s?__biz=MzcwNzM5OTEwMg==&amp;mid=2247486347（海外EPC 2026-10-29）</span></div><div class="frow r-meta"><span class="fl">佐证源</span><span class="fv">待巴方官方/企业公告</span></div><div class="frow r-meta"><span class="fl">置信度</span><span class="fv">B</span></div><div class="frow r-meta"><span class="fl">语种/备注</span><span class="fv">中文二次源；风险预警类</span></div></div></div></div></details>
+<details class="part" id="part06" open><summary><h2>PART06 · 跨区域 <span class="rcount">（3 条）</span></h2><span class="fold-ind"><span class="chev"></span><span class="fi-open">展开</span><span class="fi-close">收起</span></span></summary><div class="part-body"><div class="card conf-B" id="PR-09"><div class="chead"><span class="cid">PR-09</span><span class="ccat">PR</span><span class="ctitle">2027 贝尔格莱德世博会铰接式列车（CRRC）</span><span class="cbadge">B</span></div><div class="cbody"><div class="frow"><span class="fl">区域/国家/城市</span><span class="fv">跨区域 / 塞尔维亚 / 贝尔格莱德</span></div><div class="frow"><span class="fl">阶段</span><span class="fv">首车下线（长沙），2026 年 11 月底首批运抵塞尔维亚</span></div><div class="frow"><span class="fl">资讯</span><span class="fv">2027 贝尔格莱德世博会铰接式列车（CRRC）</span></div><div class="frow r-content"><span class="fl">内容</span><span class="fv"><strong>2027 </strong>贝尔格莱德世博会铰接式列车（CRRC）。当前阶段为首车下线（长沙），<strong>2026 年</strong> 11 月底首批运抵塞尔维亚；类型属轨道交通装备出口、整车交付；金额方面，<strong>未披露</strong>（分阶段交付）；进度上，首车长沙下线（近日）、首批列车 20<strong>26-11</strong> 月底运抵塞尔维亚、2027 年 EXPO 2027 期间投运，承担世博园区—市区接驳。</span></div><div class="frow"><span class="fl">相关方</span><span class="fv">业主：<strong>塞尔维亚铁路公司</strong>（Srbija Voz）；制造：中国中车（CRRC）；交付：2026 年 11 月底首批运抵，2027 世博前调试投运</span></div><div class="frow"><span class="fl">关键词</span><span class="fv"><strong>轨道交通装备出口</strong>；整车交付；首车下线；PR</span></div><div class="frow"><span class="fl">进度/时间</span><span class="fv">首车长沙下线（近日）；首批列车 20<strong>26-11</strong> 月底运抵塞尔维亚；2027 年 EXPO 2<strong>027 期间投运</strong>，承担世博园区—市区接驳</span></div><div class="frow"><span class="fl">竞品/交叉</span><span class="fv"><strong>欧洲（巴尔干）市场新突破</strong>；中塞「一带一路」框架合作；后续列车贝尔格莱德本地调试后投入运营筹备</span></div><div class="frow r-meta"><span class="fl">主源</span><span class="fv">https://m.toutiao.com/article/7698322314748625458（今日头条，中国造铰接列车在长沙下线，将服务 2027 贝尔格莱德世博会）</span></div><div class="frow r-meta"><span class="fl">佐证源</span><span class="fv">塞尔维亚铁路公司（Srbija Voz）社交媒体公告</span></div><div class="frow r-meta"><span class="fl">置信度</span><span class="fv">B</span></div><div class="frow r-meta"><span class="fl">语种/备注</span><span class="fv">中文媒体源，待塞尔维亚/欧洲当地源佐证</span></div></div></div><div class="card conf-A" id="PL-29"><div class="chead"><span class="cid">PL-29</span><span class="ccat">PL</span><span class="ctitle">2026 最新中欧班列全程时刻表（第四批）</span><span class="cbadge">A</span></div><div class="cbody"><div class="frow"><span class="fl">区域/国家/城市</span><span class="fv">跨区域 / 跨国（中欧通道） / 西安 / 杜伊斯堡等多节点</span></div><div class="frow"><span class="fl">阶段</span><span class="fv">正式发布（2026.11）</span></div><div class="frow"><span class="fl">资讯</span><span class="fv">2026 最新中欧班列全程时刻表（第四批）</span></div><div class="frow r-content"><span class="fl">内容</span><span class="fv">2026 最新中欧班列全程时刻表（第四批）。当前阶段为正式发布（2026.11）；类型属通道网络/政策、时刻表扩容；金额方面，不适用（网络扩容）；进度上，2026.11 版发布、<strong>17 条</strong>线路（西安-杜伊斯堡、成都-罗兹、重庆-杜伊斯堡等），每月近 <strong>100 班次</strong>，年开行 <strong>1000 列</strong>以上、西安-杜伊斯堡频次最高（月 <strong>16—18 列</strong>）。</span></div><div class="frow"><span class="fl">相关方</span><span class="fv"><strong>发布：国铁集团（第四批全程时刻表）</strong>；受权发布：中国航务周刊；通道：中欧班列西/中/东三通道</span></div><div class="frow"><span class="fl">关键词</span><span class="fv"><strong>通道网络/政策</strong>；时刻表扩容；正式发布；PL</span></div><div class="frow"><span class="fl">进度/时间</span><span class="fv">2026.11 版发布；<strong>17 条</strong>线路（西安-杜伊斯堡、成都-罗兹、重庆-杜伊斯堡等），每月近 <strong>100 班次</strong>，年开行 1000 列以上；西安-杜伊斯堡频次最高（月 16—18 列）</span></div><div class="frow"><span class="fl">竞品/交叉</span><span class="fv"><strong>与 14 万列总里程碑（RW-3</strong>2）、西安 5000 列（RW-33）同源但角度不同——本项为时刻表/通道网络扩容，非运量数据；海运红海绕行背景下铁路时效优势凸显</span></div><div class="frow r-meta"><span class="fl">主源</span><span class="fv">https://c.m.163.com/news/a/LA0APP4L0530KEJV.html（网易，受权发布 2026 最新中欧班列全程时刻表）</span></div><div class="frow r-meta"><span class="fl">佐证源</span><span class="fv">国铁集团相关负责人表态（中国航务周刊受权发布）</span></div><div class="frow r-meta"><span class="fl">置信度</span><span class="fv">A</span></div><div class="frow r-meta"><span class="fl">语种/备注</span><span class="fv">中文媒体转述官方受权发布</span></div></div></div><div class="card conf-A" id="RW-33"><div class="chead"><span class="cid">RW-33</span><span class="ccat">RW</span><span class="ctitle">中欧班列（西安）2026 年累计开行突破 5000 列</span><span class="cbadge">A</span></div><div class="cbody"><div class="frow"><span class="fl">区域/国家/城市</span><span class="fv">跨区域 / 中国 / 西安—杜伊斯堡等</span></div><div class="frow"><span class="fl">阶段</span><span class="fv">通道运营（运量新高）</span></div><div class="frow"><span class="fl">资讯</span><span class="fv">中欧班列（西安）2026 年累计开行突破 5000 列</span></div><div class="frow r-content"><span class="fl">内容</span><span class="fv">中欧班列（西安）2026 年累计开行突破 <strong>5000 列</strong>。当前阶段为通道运营（运量新高）；类型属中欧班列通道、跨境物流；金额方面，西安 2026 累计开行超 <strong>5000 列</strong>（<strong>10-30</strong> 达成，较去年提前半月）、前三季度开行 4560 自然列（同比 +<strong>2.4%</strong>）、进出口货值近 600 亿元；</span></div><div class="frow"><span class="fl">相关方</span><span class="fv"><strong>运营：国铁集团、中铁西安局集团</strong>；集结：西安国际港站；通道：中欧班列西通道</span></div><div class="frow"><span class="fl">关键词</span><span class="fv"><strong>中欧班列通道</strong>；跨境物流；通道运营；RW</span></div><div class="frow"><span class="fl">进度/时间</span><span class="fv"><strong>10-30</strong> 第 <strong>5000 列</strong> X8469 次发往杜伊斯堡；常态化 18 条国际干线 + 26 条国内集结线，辐射亚欧 45 国 200+ 城市；集结发运时间由 7 天压缩至 3.3 天（效率 +52.9%、单箱成本 -20%）；新能源汽车 / 光伏 / 锂电池成出口主力，回程能源矿产集散</span></div><div class="frow"><span class="fl">竞品/交叉</span><span class="fv"><strong>与中吉乌（RW-34）、中老铁路</strong>共同构成亚欧陆路网互补；红海绕行致海运 40-48 天、铁路 11-18 天，高附加值货转向班列；与 14 万列总里程碑（RW-32，2026-11-01 期）同源，本列为西安集结中心细分数据，不作重复计列</span></div><div class="frow r-meta"><span class="fl">主源</span><span class="fv">https://news.gmw.cn/2026-11/01/content_39079261.htm（光明日报 2026-11-01）</span></div><div class="frow r-meta"><span class="fl">佐证源</span><span class="fv">https://www.workercn.cn/papers/grrb/2026/11/01/1/news-7.html（工人日报 2026-11-01，14 万列总里程碑）</span></div><div class="frow r-meta"><span class="fl">置信度</span><span class="fv">A</span></div><div class="frow r-meta"><span class="fl">语种/备注</span><span class="fv">光明日报 / 工人日报官方源，定 A</span></div></div></div></div></details>
 
-<section class="rd-section" id="PART07">
-  <h2>PART07 · 舆情监控 25 条</h2>
-  <p class="rd-note">说明：前 8 条为窗口内（11-03）社媒真实监测（业主方官方账号，非中英文帖已译中、事实保留）；其余为累计台账结转（脱敏条目已剔除）。每条含 15 字段。</p>
+<section class="sec" id="part07">
+  <h2>PART07 · 舆情跟踪（25 条 · 状态持平）</h2>
+  <p class="muted">说明：前 8 条为窗口内（11-03）社媒真实监测（业主方官方账号，非中英文帖已译中、事实保留）；其余为累计台账结转（脱敏条目已剔除）。点击任意条目可展开查看监测重点、近期动态、金额、下一节点与来源。</p>
   <div class="po-legend" role="group" aria-label="状态筛选"><button class="lg on" data-f="all" type="button">全部 25</button><button class="lg" data-f="pos" type="button"><span class="dot" style="background:#c73a30"></span>正面 4</button><button class="lg" data-f="poslean" type="button"><span class="dot" style="background:#c96f14"></span>中性偏正 2</button><button class="lg" data-f="neutral" type="button"><span class="dot" style="background:#5b6b7e"></span>中性 2</button><button class="lg" data-f="flat" type="button"><span class="dot" style="background:#7a899b"></span>持平 17</button></div>
 <div class="po-list">
 <details class="po" data-s="pos" open id="PO-新1"><summary><span class="po-id">PO-新1</span><span class="po-main"><span class="po-title">阿联酋联邦铁路（Etihad Rail）国旗日升旗</span><span class="po-sub">阿联酋 · 中东·独联体 · 在运营/维护</span></span><span class="po-focus">业主方官方动态；国家铁路网络建设承诺</span><span class="po-sent s-pos">正面（国家形象/建设承诺）</span><span class="chev"></span></summary><div class="po-body"><div class="po-grid"><div class="po-row"><span class="pl">定级</span><span class="pv">A（业主方官方）</span></div><div class="po-row"><span class="pl">日期</span><span class="pv">2026-11-04</span></div><div class="po-row wide"><span class="pl">近期动态</span><span class="pv">窗口内（11-03）于 Al Faya 车辆段（运营维护中枢）及沙迦 Al Dhaid 站升国旗，重申推进国家铁路网络</span></div><div class="po-row wide"><span class="pl">下一节点</span><span class="pv">客运网启动与二期进展待跟踪</span></div><div class="po-row wide"><span class="pl">主来源</span><span class="pv">EtihadRail 官方 Facebook（11-03）</span></div><div class="po-row wide"><span class="pl">备注</span><span class="pv">业主方官方账号（EtihadRail，官方，阿拉伯语）；中文摘要已译；中资参建背景，本期仅作运营监测</span></div></div></div></details>
@@ -217,67 +297,300 @@ details.po[open]>summary{border-bottom:1px solid #e8eef6}
 </div>
 </section>
 
-<section class="rd-section" id="PART08"><h2><!--pnid:U6qcQRHrJM7wfP1cBPNCh1-->PART08 · 去重与结转日志</h2>
-<ol class="rd-check">
-<li><!--pnid:SvzEN2MEkSuo7ZVYQeLaSu-->全量台账比对：本期新增 3 条与既有 111+ 条逐条比对，无重复收录；达卡（CT-24/26）、胡志明（CT-09）、阿塞拜疆既有（RW-18/19）、波哥大（RW-05/14/CT-35）、肯尼亚（CT-21/RW-16）、Etihad（RW-07/09/10）、匈塞（RW-25）、雅万（CT-34）等既有条目按「持平」结转，不重复建条。</li>
-<li><!--pnid:6RZPxRnRnZHFe4ooMETau8-->中车资阳×阿塞拜疆 ADY 4 台 AC50P（RW-29）为本期新签约，区别于既有 RW-18（株洲城际动车组）/RW-19，已独立建条。</li>
-<li><!--pnid:Q8uj8qJJaAiEOV8moby2bY-->窗口回溯：本期条目签约/公告日期均落在窗口（11-03）或就近；无超 7 日回溯强制标注项（阿塞拜疆资阳签约日期为「近期」，已注明待核，未超线误收）。</li>
-<li><!--pnid:49IJPHr7SEWo3oqc01qMoQ-->同事件多平台：波哥大1号线以 MetroBogota 官方 + Ayesa 工程方双源互证，仅留最强一条；MRT-7 以 DOTrPH 官方为唯一源，标注「中企参与度待观察，未获二次印证」。</li>
-<li><!--pnid:dBMWPIdsBzrUOlrxdod26O-->PO- 结转：本期新增 PO 8 条（社媒监测），累计台账追加；既有 PO 结转 17 条，状态以「持平/持续监测」计。</li>
-<li><!--pnid:fWRKU6pV5qcv3GrgXgEmLn-->匿名化条目：相关台账条目（如 PL-02）按合规规则<b><!--pnid:TdSesGqNHgsIvM3q1D03IC-->不公开</b><!--pnid:rNaMi5oKP3AY3k1bxbUiIT-->，仅留存内部台账，本刊零出现。</li>
-</ol></section>
-
-<section class="rd-section" id="PART09"><h2><!--pnid:BSgzkafGPfVaRiXlueSmb5-->PART09 · 合规自检</h2>
-<ul class="rd-check">
-<li><!--pnid:n60TAY4Q7YyZ95Q8UZgG17-->[x] 6 区顺序未变，region 列仅 6 个合法值（东南亚/中东·独联体/拉美/非洲/南亚·大洋洲/跨区域）。</li>
-<li><!--pnid:KvF7fisteJlRilIamGuXm9-->[x] 开头两固定块（编务声明/总览）齐备，编号与正文、速查、台账三处一一对应。</li>
-<li><!--pnid:muOOsCoH8R9Eh4V3r29mgh-->[x] 官方主管部门/业主方官方账号检索已做，非官方社媒成条均标注账号性质与「未获二次印证」。</li>
-<li><!--pnid:4gOGtZbjlpXLh2tuURTHZE-->[x] 跨期去重：与全量台账比对完成，新增 3 条、拒收重复 0 条（见 PART08）。</li>
-<li><!--pnid:5KU43C4RNkpuTzTzufsBfP-->[x] 7 日回溯线逐条标注（本期无超线误收）。</li>
-<li><!--pnid:P08lIYTbnbZWIdLrrXxXnk-->[x] <b><!--pnid:zPmhEEQoctRKq313CUlaMA-->匿名化条目零泄漏</b><!--pnid:MqaAJa6hQCs4AYPjBNrznT-->：本刊正文/速查/舆情/日志零出现特定国名/首都名/可反查地名/机构缩写；grep 命中 0。</li>
-<li><!--pnid:3icBiABesA9yncc7TK4igc-->[x] 字段完整性：正文条目每条 18 字段、舆情每条 15 字段（脚本硬校验通过）。</li>
-<li><!--pnid:DVqLW6nH9RAIsClZKcffDB-->[x] 社媒三平台窗口内采集：YT=1 / X=0 / FB=22（主页明细见编务声明）。</li>
-</ul></section>
-
-<div class="rd-foot"><!--pnid:MInneB8tTfqEI4LDtAd5yB-->
-  轨道出海日报 · 2026-11-04 期 ｜ 固定访问链接：<a href="https://workbuddy.link/p/8HfJr5vgOgyrZUs8DQbgG1"><!--pnid:CqF0GiIZ0qarQK5rU6IRZg-->https://workbuddy.link/p/8HfJr5vgOgyrZUs8DQbgG1</a><br><!--pnid:L82kD8MN9ubfzTw8oPi6oH-->
-  本刊由云端编纂机器人定时自动生成，仅覆写固定链接，不作新发；数据以内部台账为准。
+<footer>
+  轨道出海日报 · 2026-11-04 期 · 固定公开链接 https://workbuddy.link/p/8HfJr5vgOgyrZUs8DQbgG1
+</footer>
 </div>
 
-</div><div id="gate" style="position:fixed;inset:0;z-index:99999;background:linear-gradient(135deg,#0b2545,#13396b);display:flex;align-items:center;justify-content:center;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'PingFang SC','Microsoft YaHei',sans-serif;">
-  <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:34px 38px;width:340px;max-width:90vw;text-align:center;box-shadow:0 24px 70px rgba(0,0,0,.45);">
-    <div style="font-size:32px;margin-bottom:8px;">🔒</div>
-    <h2 style="color:#fff;margin:0 0 6px;font-size:20px;font-weight:800;">门户已加密</h2>
-    <p style="color:#9fb4d4;font-size:13px;margin:0 0 22px;">请输入访问密码以查看内容</p>
-    <input id="gate-pw" type="password" placeholder="访问密码" style="width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;font-size:15px;outline:none;box-sizing:border-box;">
-    <button id="gate-btn" style="width:100%;margin-top:14px;padding:12px;border:none;border-radius:10px;background:linear-gradient(135deg,#f0a500,#ffce5c);color:#0b2545;font-weight:800;font-size:15px;cursor:pointer;">进入门户</button>
-    <div id="gate-err" style="color:#ff8a8a;font-size:13px;margin-top:12px;min-height:18px;"></div>
-  </div>
 </div>
 <script>
 (function(){
-  var EXPECTED="4033ee5afd5f55e23b11fe2cbf6f8b7c108983838b0174d2fed3da9e52b8c232";
-  var gateBox=document.getElementById('gate');
-  function reveal(){ if(gateBox&&gateBox.parentNode) gateBox.parentNode.removeChild(gateBox); document.body.style.overflow=''; }
-  var GKEY='portal_unlocked_v2',GTTL=7*24*3600*1000; try{ var _gt=parseInt(localStorage.getItem(GKEY)||'0',10); if(_gt && (Date.now()-_gt)<GTTL){ reveal(); return; } }catch(e){}
-  document.body.style.overflow='hidden';
-  function sha256Hex(str){
-    return crypto.subtle.digest('SHA-256', new TextEncoder().encode(str))
-      .then(function(buf){ return Array.prototype.map.call(new Uint8Array(buf), function(b){ return ('0'+b.toString(16)).slice(-2); }).join(''); });
+  function openIn(hash){
+    if(!hash||hash.length<2)return;
+    var el=null;
+    try{el=document.querySelector(hash);}catch(e){return;}
+    while(el){var d=el.closest?el.closest('details'):null;if(!d)break;d.open=true;el=d.parentElement;}
   }
-  function tryUnlock(){
-    var inp=document.getElementById('gate-pw'); var v=inp.value; if(!v){ return; }
-    sha256Hex(v).then(function(h){
-      if(h===EXPECTED){ try{localStorage.setItem(GKEY,String(Date.now()));}catch(e){} reveal(); }
-      else { var e=document.getElementById('gate-err'); e.textContent='密码错误，请重试'; inp.style.borderColor='#ff8a8a'; inp.value=''; inp.focus(); }
-    }).catch(function(){ var e=document.getElementById('gate-err'); e.textContent='浏览器不支持加密，请换现代浏览器'; });
-  }
-  document.getElementById('gate-btn').addEventListener('click', tryUnlock);
-  document.getElementById('gate-pw').addEventListener('keydown', function(e){ if(e.key==='Enter') tryUnlock(); });
-  document.getElementById('gate-pw').focus();
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href^="#"]');
+    if(a){setTimeout(function(){openIn(a.getAttribute('href'));},0);}
+  });
+  window.addEventListener('hashchange',function(){openIn(location.hash);});
+  openIn(location.hash);
 })();
 </script>
+<!--SRCH-JS--><script>
+/* 站内搜索 —— 当期页面版（注入到统一 <script> 内） */
+(function () {
+  var root = document.getElementById('srch');
+  if (!root || root.getAttribute('data-ready')) return;
+  root.setAttribute('data-ready', '1');
 
+  var input = root.querySelector('.srch-input');
+  var panel = root.querySelector('.srch-panel');
+  var clearBtn = root.querySelector('.srch-clear');
+  var idx = [], hits = [], sel = -1, marks = [], parents = [], timer = null;
+
+  function clean(s) { return (s || '').replace(/\s+/g, ' ').trim(); }
+  function low(s) { return clean(s).toLowerCase(); }
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+  function rxEsc(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+  function terms(q) { return low(q).split(/\s+/).filter(Boolean).slice(0, 6); }
+
+  /* ---------- 建立索引：条目卡片 + 一句话总览 + 舆情表行 ---------- */
+  function buildIndex() {
+    idx = [];
+    var n = 0, k;
+    var cards = document.querySelectorAll('.card[id]');
+    for (k = 0; k < cards.length; k++) {
+      var c = cards[k];
+      var idEl = c.querySelector('.cid');
+      var tEl = c.querySelector('.ctitle');
+      var regEl = c.querySelector('.frow .fv');
+      idx.push({
+        el: c, n: n++,
+        id: clean(idEl ? idEl.textContent : c.id),
+        title: clean(tEl ? tEl.textContent : ''),
+        sub: clean(regEl ? regEl.textContent : ''),
+        type: '条目',
+        raw: clean(c.textContent),
+        text: low(c.textContent)
+      });
+    }
+    var ov = document.querySelector('#overview .overview');
+    if (ov) {
+      idx.push({
+        el: ov, n: n++, id: '', title: '一句话总览', sub: '本期摘要', type: '总览',
+        raw: clean(ov.textContent), text: low(ov.textContent)
+      });
+    }
+    var rows = document.querySelectorAll('#part07 table tr');
+    for (k = 0; k < rows.length; k++) {
+      var tr = rows[k];
+      if (tr.querySelector('th')) continue;
+      var td = tr.querySelectorAll('td');
+      if (td.length < 4) continue;
+      idx.push({
+        el: tr, n: n++,
+        id: clean(td[0].textContent),
+        title: clean(td[1].textContent) + ' · ' + clean(td[2].textContent),
+        sub: clean(td[4] ? td[4].textContent : '') + (td[5] ? ' · ' + clean(td[5].textContent) : ''),
+        type: '舆情',
+        raw: clean(tr.textContent), text: low(tr.textContent)
+      });
+    }
+  }
+
+  /* ---------- 打分 ---------- */
+  function score(it, ts) {
+    var i, t;
+    for (i = 0; i < ts.length; i++) { if (it.text.indexOf(ts[i]) < 0) return -1; }
+    var s = 10, idn = low(it.id), titn = low(it.title);
+    for (i = 0; i < ts.length; i++) {
+      t = ts[i];
+      if (idn && idn === t) s += 140;
+      else if (idn && idn.indexOf(t) === 0) s += 70;
+      if (titn.indexOf(t) >= 0) s += 40;
+    }
+    if (it.type === '条目') s += 8;
+    return s;
+  }
+
+  /* ---------- 片段与高亮文字 ---------- */
+  function snippet(raw, ts) {
+    var l = raw.toLowerCase(), pos = -1, i, p;
+    for (i = 0; i < ts.length; i++) {
+      p = l.indexOf(ts[i]);
+      if (p >= 0 && (pos < 0 || p < pos)) pos = p;
+    }
+    if (pos < 0) pos = 0;
+    var st = Math.max(0, pos - 34), en = Math.min(raw.length, pos + 96);
+    return (st > 0 ? '…' : '') + raw.slice(st, en) + (en < raw.length ? '…' : '');
+  }
+  function emph(s, ts) {
+    var out = esc(s), i, t;
+    for (i = 0; i < ts.length; i++) {
+      t = rxEsc(esc(ts[i]));
+      if (!t) continue;
+      out = out.replace(new RegExp('(' + t + ')', 'gi'), '<em>$1</em>');
+    }
+    return out;
+  }
+
+  /* ---------- 页面内命中词高亮 ---------- */
+  function clearMarks() {
+    for (var i = 0; i < marks.length; i++) {
+      var m = marks[i], p = m.parentNode;
+      if (!p) continue;
+      p.replaceChild(document.createTextNode(m.textContent), m);
+      if (parents.indexOf(p) < 0) parents.push(p);
+    }
+    marks = [];
+    for (var j = 0; j < parents.length; j++) { try { parents[j].normalize(); } catch (e) {} }
+    parents = [];
+  }
+  function highlight(ts) {
+    clearMarks();
+    if (!ts.length) return;
+    var scopes = document.querySelectorAll('.card, #part07 table, #overview');
+    var nodes = [], s, w, n;
+    for (s = 0; s < scopes.length; s++) {
+      w = document.createTreeWalker(scopes[s], NodeFilter.SHOW_TEXT, null, false);
+      while ((n = w.nextNode())) {
+        var v = n.nodeValue;
+        if (!v || !v.trim()) continue;
+        var tag = n.parentNode && n.parentNode.nodeName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'MARK') continue;
+        var lv = v.toLowerCase(), hit = false;
+        for (var i = 0; i < ts.length; i++) { if (lv.indexOf(ts[i]) >= 0) { hit = true; break; } }
+        if (hit) nodes.push(n);
+      }
+    }
+    for (var q = 0; q < nodes.length && marks.length < 400; q++) {
+      var node = nodes[q], rest = node.nodeValue, frag = document.createDocumentFragment(), guard = 0;
+      while (guard++ < 60) {
+        var l2 = rest.toLowerCase(), best = -1, bl = 0;
+        for (var t2 = 0; t2 < ts.length; t2++) {
+          var pp = l2.indexOf(ts[t2]);
+          if (pp >= 0 && (best < 0 || pp < best)) { best = pp; bl = ts[t2].length; }
+        }
+        if (best < 0) { frag.appendChild(document.createTextNode(rest)); break; }
+        if (best > 0) frag.appendChild(document.createTextNode(rest.slice(0, best)));
+        var mk = document.createElement('mark');
+        mk.className = 'srch-mark';
+        mk.textContent = rest.substr(best, bl);
+        frag.appendChild(mk);
+        marks.push(mk);
+        rest = rest.slice(best + bl);
+        if (!rest) break;
+      }
+      if (node.parentNode) node.parentNode.replaceChild(frag, node);
+    }
+  }
+
+  /* ---------- 定位到结果 ---------- */
+  function go(it) {
+    if (!it || !it.el) return;
+    var p = it.el;
+    while (p) { if (p.tagName === 'DETAILS') p.open = true; p = p.parentElement; }
+    root.classList.remove('on');
+    var el = it.el;
+    requestAnimationFrame(function () {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      el.classList.remove('srch-flash');
+      void el.offsetWidth;
+      el.classList.add('srch-flash');
+      setTimeout(function () { el.classList.remove('srch-flash'); }, 1900);
+    });
+  }
+
+  /* ---------- 渲染 ---------- */
+  function render() {
+    var q = input.value, ts = terms(q);
+    hits = []; sel = -1;
+    panel.innerHTML = '';
+    if (!ts.length) { root.classList.remove('on'); clearMarks(); return; }
+
+    for (var i = 0; i < idx.length; i++) {
+      var s = score(idx[i], ts);
+      if (s >= 0) hits.push({ it: idx[i], s: s });
+    }
+    hits.sort(function (a, b) { return b.s - a.s || a.it.n - b.it.n; });
+    root.classList.add('on');
+
+    if (!hits.length) {
+      panel.innerHTML = '<div class="srch-empty">未找到与「' + esc(q) + '」相关的内容。<br>可尝试国家名、企业名或条目编号，如 <b>越南</b>、<b>中车</b>、<b>CT-44</b>。</div>';
+      panel.classList.add('has');
+      highlight(ts);
+      return;
+    }
+    var top = hits.slice(0, 40), html = '';
+    html += '<div class="srch-sum">共 ' + hits.length + ' 条命中' + (hits.length > 40 ? '（显示前 40 条）' : '') + ' · ↑↓ 选择 · Enter 定位 · Esc 关闭</div>';
+    for (var k = 0; k < top.length; k++) {
+      var it = top[k].it;
+      html += '<a class="srch-item' + (k === 0 ? ' cur' : '') + '" href="javascript:void(0)" data-ix="' + k + '">' +
+        '<div class="srch-meta"><span class="srch-tag">' + it.type + '</span>' +
+        (it.id ? '<span class="srch-id">' + esc(it.id) + '</span>' : '') +
+        (it.sub ? '<span class="srch-sub">' + esc(it.sub.slice(0, 34)) + '</span>' : '') + '</div>' +
+        '<div class="srch-tit">' + emph(it.title, ts) + '</div>' +
+        '<div class="srch-snip">' + emph(snippet(it.raw, ts), ts) + '</div></a>';
+    }
+    panel.innerHTML = html;
+    panel.classList.add('has');
+    sel = 0;
+    highlight(ts);
+  }
+
+  /* ---------- 事件 ---------- */
+  function setCur(i) {
+    var items = panel.querySelectorAll('.srch-item');
+    if (!items.length) return;
+    if (i < 0) i = items.length - 1;
+    if (i >= items.length) i = 0;
+    for (var k = 0; k < items.length; k++) items[k].classList.remove('cur');
+    items[i].classList.add('cur');
+    sel = i;
+    items[i].scrollIntoView({ block: 'nearest' });
+  }
+
+  input.addEventListener('input', function () {
+    clearTimeout(timer);
+    root.classList.toggle('on', !!input.value.trim());
+    timer = setTimeout(render, 140);
+  });
+
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowDown') { e.preventDefault(); setCur(sel + 1); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); setCur(sel - 1); }
+    else if (e.key === 'Enter') {
+      e.preventDefault();
+      var cur = panel.querySelector('.srch-item.cur');
+      if (cur) {
+        var ix = parseInt(cur.getAttribute('data-ix'), 10);
+        go(hits[ix].it);
+      }
+    } else if (e.key === 'Escape') {
+      input.value = ''; root.classList.remove('on'); clearMarks(); input.blur();
+    }
+  });
+
+  panel.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('.srch-item');
+    if (!a) return;
+    e.preventDefault();
+    var ix = parseInt(a.getAttribute('data-ix'), 10);
+    if (hits[ix]) go(hits[ix].it);
+  });
+
+  clearBtn.addEventListener('click', function () {
+    input.value = '';
+    root.classList.remove('on');
+    clearMarks();
+    input.focus();
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!root.contains(e.target)) root.classList.remove('on');
+  });
+
+  document.addEventListener('keydown', function (e) {
+    var tag = (document.activeElement && document.activeElement.tagName) || '';
+    var typing = tag === 'INPUT' || tag === 'TEXTAREA' || document.activeElement.isContentEditable;
+    if ((e.key === 'k' || e.key === 'K') && (e.metaKey || e.ctrlKey)) {
+      e.preventDefault(); input.focus(); input.select();
+    } else if (e.key === '/' && !typing) {
+      e.preventDefault(); input.focus();
+    }
+  });
+
+  buildIndex();
+})();
+</script>
+<!--/SRCH-JS-->
 <script>
 (function(){
   var lg=document.querySelector('.po-legend');

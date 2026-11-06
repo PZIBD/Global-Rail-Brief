@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<!-- saved from url=(0166)http://127.0.0.1:12222/static-html/4208a91ed5a72dbd/%E5%9F%8E%E8%BD%A8%E7%BA%BF%E8%B7%AF%E6%A6%82%E7%AE%97%E5%AE%8C%E6%95%B4%E8%A1%A8-%E7%BD%91%E9%A1%B5%E7%89%88.html -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中国城轨工程初步设计概算造价表（46条线路）</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "Microsoft YaHei", "PingFang SC", "Segoe UI", sans-serif;
+    background: #f5f6f8;
+    color: #1a1a1a;
+    line-height: 1.6;
+    padding: 24px 16px;
+  }
+  .container { max-width: 1200px; margin: 0 auto; }
+  header {
+    background: #fff;
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  h1 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+  .subtitle { color: #888; font-size: 14px; margin-bottom: 16px; }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .chip {
+    background: #eef1f6;
+    color: #444;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+  .toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    background: #fff;
+    border-radius: 10px;
+    padding: 14px 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .search {
+    flex: 1;
+    min-width: 220px;
+    padding: 9px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+  }
+  .search:focus { border-color: #3b82f6; }
+  .toolbar label { font-size: 13px; color: #555; }
+  .toolbar select {
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 13px;
+    background: #fff;
+    outline: none;
+  }
+  .count { font-size: 13px; color: #888; margin-left: auto; }
+  .table-wrap {
+    background: #fff;
+    border-radius: 10px;
+    overflow-x: auto;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 980px; }
+  thead th {
+    background: #f8f9fb;
+    color: #333;
+    font-weight: 600;
+    text-align: center;
+    padding: 12px 10px;
+    border-bottom: 2px solid #e5e7eb;
+    white-space: nowrap;
+    position: sticky;
+    top: 0;
+  }
+  tbody td {
+    padding: 10px 10px;
+    border-bottom: 1px solid #f0f1f3;
+    text-align: center;
+    vertical-align: middle;
+  }
+  tbody tr:hover { background: #fafbfc; }
+  td.name { text-align: left; font-weight: 500; white-space: normal; }
+  td.price { color: #c0392b; font-weight: 600; }
+  td.fushi { text-align: left; color: #555; font-size: 12px; white-space: normal; }
+  td.link-cell { text-align: left; }
+  td.link-cell a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-size: 12px;
+    word-break: break-all;
+  }
+  td.link-cell a:hover { text-decoration: underline; }
+  .idx { color: #999; font-size: 12px; }
+  footer {
+    margin-top: 16px;
+    font-size: 12px;
+    color: #999;
+    text-align: center;
+    padding: 16px;
+  }
+  .no-result { display: none; padding: 40px; text-align: center; color: #999; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>中国城轨工程初步设计概算造价表</h1>
+    <div class="subtitle">46 条线路样本 · 按折合单价（亿元/km）从低到高排列</div>
+    <div class="meta">
+      <span class="chip">信源：各省市发改委初步设计概算批复</span>
+      <span class="chip">口径：概算总额 ÷ 线路全长</span>
+      <span class="chip">站间距 = 长度 ÷（车站数 − 1）</span>
+      <span class="chip">汇率：1 美元 ≈ 6.72 元（2026-11-06）</span>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <input class="search" id="searchInput" type="text" placeholder="搜索线路名，如：成都、上海、6 号线…">
+    <label>敷设方式
+      <select id="fushiFilter">
+        <option value="">全部</option>
+        <option value="全地下">全地下</option>
+        <option value="地下为主">地下为主</option>
+        <option value="高架">含高架</option>
+      </select>
+    </label>
+    <span class="count" id="count">共 46 条</span>
+  </div>
+
+  <div class="table-wrap">
+    <table id="dataTable">
+      <thead>
+        <tr>
+          <th>序号</th>
+          <th>线路</th>
+          <th>概算（亿元）</th>
+          <th>长度（km）</th>
+          <th>时速（km/h）</th>
+          <th>站间距（km）</th>
+          <th>敷设方式</th>
+          <th>亿元/km</th>
+          <th>批复依据</th>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+    <tr>
+      <td class="idx">1</td>
+      <td class="name">成都 资阳线 S3（160 km/h）</td>
+      <td>129.03</td>
+      <td>38.7</td>
+      <td>160</td>
+      <td>6.45</td>
+      <td class="fushi">高架 60.7% + 地下 26.9%</td>
+      <td class="price">3.33</td>
+      <td class="link-cell"><a href="https://cbgc.scol.com.cn/news/467028" target="_blank" rel="noopener">https://cbgc.scol.com.cn/news/467028</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">2</td>
+      <td class="name">温州 市域 S2 线一期（140 km/h）</td>
+      <td>261.53</td>
+      <td>63.63</td>
+      <td>140</td>
+      <td>3.35</td>
+      <td class="fushi">高架 52.6% + 隧道 4.9% + 地下 4.6%</td>
+      <td class="price">4.11</td>
+      <td class="link-cell"><a href="https://www.yueqing.gov.cn/art/2018/3/19/art_1458357_16257665.html" target="_blank" rel="noopener">https://www.yueqing.gov.cn/art/2018/3/19/art_1458357_16257665.html</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">3</td>
+      <td class="name">成都/德阳 市域 S11 线（160 km/h）</td>
+      <td>305.41</td>
+      <td>70.87</td>
+      <td>160</td>
+      <td>5.06</td>
+      <td class="fushi">高架 64% + 地下 33.6%</td>
+      <td class="price">4.31</td>
+      <td class="link-cell"><a href="https://static.cdsb.com/micropub/Articles/202303/2f55ead7dd0f4b3a42810d29c41e1f11.html" target="_blank" rel="noopener">https://static.cdsb.com/micropub/Articles/202303/2f55ead7dd0f4b3a42810d29c41e1f11.html</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">4</td>
+      <td class="name">武汉 11 号线三期葛店段（100 km/h）</td>
+      <td>16.33</td>
+      <td>3.7</td>
+      <td>100</td>
+      <td>—</td>
+      <td class="fushi">全地下</td>
+      <td class="price">4.41</td>
+      <td class="link-cell"><a href="https://fgw.hubei.gov.cn/fbjd/xxgkml/xkfw/xzxkjg/xmspqk/201906/t20190618_3758316.shtml" target="_blank" rel="noopener">https://fgw.hubei.gov.cn/fbjd/xxgkml/xkfw/xzxkjg/xmspqk/201906/t20190618_3758316.shtml</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">5</td>
+      <td class="name">南京/句容 宁句城际（120 km/h）</td>
+      <td>207.99</td>
+      <td>43.7</td>
+      <td>120</td>
+      <td>3.64</td>
+      <td class="fushi">高架 27.29 km + 地下 16.41 km</td>
+      <td class="price">4.76</td>
+      <td class="link-cell"><a href="http://fzggw.jiangsu.gov.cn/attach/-1/2103261924536163311.pdf" target="_blank" rel="noopener">http://fzggw.jiangsu.gov.cn/attach/-1/2103261924536163311.pdf</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">6</td>
+      <td class="name">合肥 8 号线一期先行段（100 km/h）</td>
+      <td>36.00</td>
+      <td>7.3</td>
+      <td>100</td>
+      <td>1.83</td>
+      <td class="fushi">全地下（5 站土建）</td>
+      <td class="price">4.93</td>
+      <td class="link-cell"><a href="https://fzggw.ah.gov.cn/ywdt/mtjj/145415381.html" target="_blank" rel="noopener">https://fzggw.ah.gov.cn/ywdt/mtjj/145415381.html</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">7</td>
+      <td class="name">贵阳 S1 线一期（100 km/h）</td>
+      <td>172.52</td>
+      <td>30.32</td>
+      <td>100</td>
+      <td>2.53</td>
+      <td class="fushi">地下 22.64 km + 高架 7.68 km</td>
+      <td class="price">5.69</td>
+      <td class="link-cell"><a href="https://www.ndrc.gov.cn/fggz/zcssfz/dffz/201807/t20180727_1147869.html" target="_blank" rel="noopener">https://www.ndrc.gov.cn/fggz/zcssfz/dffz/201807/t20180727_1147869.html</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">8</td>
+      <td class="name">西安 15 号线一期（100 km/h）</td>
+      <td>118.89</td>
+      <td>19.459</td>
+      <td>100</td>
+      <td>1.62</td>
+      <td class="fushi">全地下</td>
+      <td class="price">6.11</td>
+      <td class="link-cell"><a href="http://www.sse.com.cn/disclosure/bond/announcement/corporate/c/2021-11-10/4339580345146005198840980.pdf" target="_blank" rel="noopener">http://www.sse.com.cn/disclosure/bond/announcement/corporate/c/2021-11-10/4339580345146005198840980.pdf</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">9</td>
+      <td class="name">福州 滨海快线 F1（140 km/h）</td>
+      <td>383.89</td>
+      <td>62.4</td>
+      <td>140</td>
+      <td>5.20</td>
+      <td class="fushi">地下 + 高架（高架约 1/4）</td>
+      <td class="price">6.15</td>
+      <td class="link-cell"><a href="https://fjnews.fjsen.com/wap/2020-04/10/content_30259399.htm" target="_blank" rel="noopener">https://fjnews.fjsen.com/wap/2020-04/10/content_30259399.htm</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">10</td>
+      <td class="name">福州 6 号线（100 km/h）</td>
+      <td>253.92</td>
+      <td>40.869</td>
+      <td>100</td>
+      <td>2.27</td>
+      <td class="fushi">地下为主</td>
+      <td class="price">6.21</td>
+      <td class="link-cell"><a href="https://fgw.fujian.gov.cn/zfxxgkzl/zfxxgkml/yzdgkdqtxx/201710/t20171013_809345.htm" target="_blank" rel="noopener">https://fgw.fujian.gov.cn/zfxxgkzl/zfxxgkml/yzdgkdqtxx/201710/t20171013_809345.htm</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">11</td>
+      <td class="name">沈阳 1 号线东延线（80 km/h）</td>
+      <td>101.48</td>
+      <td>16.15</td>
+      <td>80</td>
+      <td>1.79</td>
+      <td class="fushi">全地下</td>
+      <td class="price">6.28</td>
+      <td class="link-cell"><a href="https://www.lntb.gov.cn/fileUpload/ruanjian/2023120616574536396.pdf" target="_blank" rel="noopener">https://www.lntb.gov.cn/fileUpload/ruanjian/2023120616574536396.pdf</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">12</td>
+      <td class="name">长沙 6 号线东延段（80 km/h）</td>
+      <td>27.99</td>
+      <td>4.22</td>
+      <td>80</td>
+      <td>—</td>
+      <td class="fushi">全地下</td>
+      <td class="price">6.63</td>
+      <td class="link-cell"><a href="https://fgw.hunan.gov.cn/fgw/xxgk_70899/xzzfgs11/shgk11/sp11/202012/t20201208_29287903.html" target="_blank" rel="noopener">https://fgw.hunan.gov.cn/fgw/xxgk_70899/xzzfgs11/shgk11/sp11/202012/t20201208_29287903.html</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">13</td>
+      <td class="name">沈阳 3 号线一期（80 km/h）</td>
+      <td>282.28</td>
+      <td>41.28</td>
+      <td>80</td>
+      <td>1.42</td>
+      <td class="fushi">地下 24.78 km + 高架 16.5 km</td>
+      <td class="price">6.84</td>
+      <td class="link-cell"><a href="https://www.lntb.gov.cn/fileUpload/ruanjian/2023120616574536396.pdf" target="_blank" rel="noopener">https://www.lntb.gov.cn/fileUpload/ruanjian/2023120616574536396.pdf</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">14</td>
+      <td class="name">南京 S8 线南延（100 km/h）</td>
+      <td>14.39</td>
+      <td>2.07</td>
+      <td>100</td>
+      <td>2.07</td>
+      <td class="fushi">全地下</td>
+      <td class="price">6.95</td>
+      <td class="link-cell"><a href="https://njna.nanjing.gov.cn/njsjbxqglwyh/201811/t20181120_1224317.html" target="_blank" rel="noopener">https://njna.nanjing.gov.cn/njsjbxqglwyh/201811/t20181120_1224317.html</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">15</td>
+      <td class="name">南宁 6 号线一期（80 km/h）</td>
+      <td>194.28</td>
+      <td>27.9</td>
+      <td>80</td>
+      <td>1.40</td>
+      <td class="fushi">全地下</td>
+      <td class="price">6.96</td>
+      <td class="link-cell"><a href="http://flfgk.zhpt.yjglt.gxzf.gov.cn:5995/guifan/b0c2efee5bf34d210b18b529f1fabf7dbdfb.html" target="_blank" rel="noopener">http://flfgk.zhpt.yjglt.gxzf.gov.cn:5995/guifan/b0c2efee5bf34d210b18b529f1fabf7dbdfb.html</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">16</td>
+      <td class="name">绍兴 1 号线（主线+支线）（100 km/h）</td>
+      <td>238.73</td>
+      <td>34.1</td>
+      <td>100</td>
+      <td>1.55</td>
+      <td class="fushi">地下为主</td>
+      <td class="price">7.00</td>
+      <td class="link-cell"><a href="https://fzggw.zj.gov.cn/art/2019/10/31/art_1599553_39650178.html" target="_blank" rel="noopener">https://fzggw.zj.gov.cn/art/2019/10/31/art_1599553_39650178.html</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">17</td>
+      <td class="name">沈阳 2 号线南延（两段）（80 km/h）</td>
+      <td>100.40</td>
+      <td>13.7</td>
+      <td>80</td>
+      <td>2.28</td>
+      <td class="fushi">全地下</td>
+      <td class="price">7.33</td>
+      <td class="link-cell"><a href="https://fgw.shenyang.gov.cn/zwgk/fdzdgknr/zdxmpzhss/xmsp/202208/t20220801_3640083.html" target="_blank" rel="noopener">https://fgw.shenyang.gov.cn/zwgk/fdzdgknr/zdxmpzhss/xmsp/202208/t20220801_3640083.html</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">18</td>
+      <td class="name">合肥 6 号线一期（100 km/h）</td>
+      <td>204.00</td>
+      <td>27.5</td>
+      <td>100</td>
+      <td>1.72</td>
+      <td class="fushi">全地下</td>
+      <td class="price">7.42</td>
+      <td class="link-cell"><a href="https://fzggw.ah.gov.cn/ywdt/mtjj/145415381.html" target="_blank" rel="noopener">https://fzggw.ah.gov.cn/ywdt/mtjj/145415381.html</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">19</td>
+      <td class="name">沈阳 6 号线一期（80 km/h）</td>
+      <td>262.39</td>
+      <td>35.25</td>
+      <td>80</td>
+      <td>1.22</td>
+      <td class="fushi">地下 27.0 km + 高架 7.76 km</td>
+      <td class="price">7.44</td>
+      <td class="link-cell"><a href="https://fgw.shenyang.gov.cn/zwgk/fdzdgknr/zdxmpzhss/xmsp/202208/t20220801_3630351.html" target="_blank" rel="noopener">https://fgw.shenyang.gov.cn/zwgk/fdzdgknr/zdxmpzhss/xmsp/202208/t20220801_3630351.html</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">20</td>
+      <td class="name">贵阳 3 号线一期（100 km/h）</td>
+      <td>322.31</td>
+      <td>43.03</td>
+      <td>100</td>
+      <td>1.54</td>
+      <td class="fushi">地下 41.67 km + 高架 1.36 km</td>
+      <td class="price">7.49</td>
+      <td class="link-cell"><a href="https://www.gyurt.com/n125/20240417/i18089.html" target="_blank" rel="noopener">https://www.gyurt.com/n125/20240417/i18089.html</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">21</td>
+      <td class="name">南昌 3 号线（80 km/h）</td>
+      <td>215.85</td>
+      <td>28.5</td>
+      <td>80</td>
+      <td>1.36</td>
+      <td class="fushi">全地下</td>
+      <td class="price">7.57</td>
+      <td class="link-cell"><a href="https://static.sse.com.cn/disclosure/bond/announcement/corporate/c/3582739957763055.pdf" target="_blank" rel="noopener">https://static.sse.com.cn/disclosure/bond/announcement/corporate/c/3582739957763055.pdf</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">22</td>
+      <td class="name">郑州 14 号线一期（100 km/h）</td>
+      <td>56.78</td>
+      <td>7.455</td>
+      <td>100</td>
+      <td>1.49</td>
+      <td class="fushi">全地下</td>
+      <td class="price">7.62</td>
+      <td class="link-cell"><a href="https://fgw.henan.gov.cn/2019/09-20/955065.html" target="_blank" rel="noopener">https://fgw.henan.gov.cn/2019/09-20/955065.html</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">23</td>
+      <td class="name">长沙 6 号线（80 km/h）</td>
+      <td>369.43</td>
+      <td>48.11</td>
+      <td>80</td>
+      <td>1.46</td>
+      <td class="fushi">全地下</td>
+      <td class="price">7.68</td>
+      <td class="link-cell"><a href="https://www.changsha.gov.cn/szf/ywdt/zwdt/202110/t20211001_10241590.html" target="_blank" rel="noopener">https://www.changsha.gov.cn/szf/ywdt/zwdt/202110/t20211001_10241590.html</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">24</td>
+      <td class="name">厦门 6 号线林埭西段（80 km/h）</td>
+      <td>144.33</td>
+      <td>18.55</td>
+      <td>80</td>
+      <td>1.55</td>
+      <td class="fushi">全地下</td>
+      <td class="price">7.78</td>
+      <td class="link-cell"><a href="https://dpc.xm.gov.cn/xxgk/xxgkml/xzsp/fxzxksp/202111/t20211119_2602042.htm" target="_blank" rel="noopener">https://dpc.xm.gov.cn/xxgk/xxgkml/xzsp/fxzxksp/202111/t20211119_2602042.htm</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">25</td>
+      <td class="name">南昌 4 号线一期（80 km/h）</td>
+      <td>308.30</td>
+      <td>39.6</td>
+      <td>80</td>
+      <td>1.41</td>
+      <td class="fushi">地下 32.9 km + 高架 7.1 km</td>
+      <td class="price">7.79</td>
+      <td class="link-cell"><a href="http://www.lhratings.com/reports/B1589-ZTPJ07101-GZ2020.pdf" target="_blank" rel="noopener">http://www.lhratings.com/reports/B1589-ZTPJ07101-GZ2020.pdf</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">26</td>
+      <td class="name">无锡 4 号线一期（80 km/h）</td>
+      <td>191.12</td>
+      <td>24.54</td>
+      <td>80</td>
+      <td>1.44</td>
+      <td class="fushi">全地下</td>
+      <td class="price">7.79</td>
+      <td class="link-cell"><a href="https://www.wuxi.gov.cn/doc/2017/01/09/1234926.shtml" target="_blank" rel="noopener">https://www.wuxi.gov.cn/doc/2017/01/09/1234926.shtml</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">27</td>
+      <td class="name">石家庄 4 号线一期（80 km/h）</td>
+      <td>174.70</td>
+      <td>22.43</td>
+      <td>80</td>
+      <td>1.18</td>
+      <td class="fushi">全地下</td>
+      <td class="price">7.79</td>
+      <td class="link-cell"><a href="https://szj.hebei.gov.cn/hbjyzx/jydt/001002/001002002/001002002001/20231030/cc613379-438a-4edf-8104-b700126f0a1a.html" target="_blank" rel="noopener">https://szj.hebei.gov.cn/hbjyzx/jydt/001002/001002002/001002002001/20231030/cc613379-438a-4edf-8104-b700126f0a1a.html</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">28</td>
+      <td class="name">福州 5 号线一期（80 km/h）</td>
+      <td>216.21</td>
+      <td>27.7</td>
+      <td>80</td>
+      <td>1.46</td>
+      <td class="fushi">地下为主</td>
+      <td class="price">7.81</td>
+      <td class="link-cell"><a href="https://fgw.fujian.gov.cn/zfxxgkzl/zfxxgkml/yzdgkdqtxx/201908/t20190801_4957369.htm" target="_blank" rel="noopener">https://fgw.fujian.gov.cn/zfxxgkzl/zfxxgkml/yzdgkdqtxx/201908/t20190801_4957369.htm</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">29</td>
+      <td class="name">合肥 7 号线一期（80 km/h）</td>
+      <td>147.00</td>
+      <td>18.80</td>
+      <td>80</td>
+      <td>1.25</td>
+      <td class="fushi">全地下</td>
+      <td class="price">7.82</td>
+      <td class="link-cell"><a href="https://fzggw.ah.gov.cn/ywdt/mtjj/145415381.html" target="_blank" rel="noopener">https://fzggw.ah.gov.cn/ywdt/mtjj/145415381.html</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">30</td>
+      <td class="name">南京 10 号线二期（80 km/h）</td>
+      <td>105.03</td>
+      <td>13.33</td>
+      <td>80</td>
+      <td>1.48</td>
+      <td class="fushi">全地下</td>
+      <td class="price">7.88</td>
+      <td class="link-cell"><a href="https://www.njmetro.com.cn/njdtweb/portal/article-detail.do?rowId=4028838771158f9601713dbc1a9d002c&amp;tag=flyDialog" target="_blank" rel="noopener">https://www.njmetro.com.cn/njdtweb/portal/article-detail.do?rowId=4028838771158f9601713dbc1a9d002c&amp;tag=flyDialog</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">31</td>
+      <td class="name">宁波 5 号线一期（80 km/h）</td>
+      <td>223.12</td>
+      <td>27.945</td>
+      <td>80</td>
+      <td>1.33</td>
+      <td class="fushi">全地下</td>
+      <td class="price">7.98</td>
+      <td class="link-cell"><a href="https://zjjcmspublic.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/jcms_files/jcms1/web3504/site/attach/0/5cf73cfefb2d4b529835cc67d89d57ef.pdf" target="_blank" rel="noopener">https://zjjcmspublic.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/jcms_files/jcms1/web3504/site/attach/0/5cf73cfefb2d4b529835cc67d89d57ef.pdf</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">32</td>
+      <td class="name">洛阳 2 号线一期（80 km/h）</td>
+      <td>148.32</td>
+      <td>18.216</td>
+      <td>80</td>
+      <td>1.30</td>
+      <td class="fushi">全地下</td>
+      <td class="price">8.14</td>
+      <td class="link-cell"><a href="https://fgw.henan.gov.cn/2019/07-09/932882.html" target="_blank" rel="noopener">https://fgw.henan.gov.cn/2019/07-09/932882.html</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">33</td>
+      <td class="name">洛阳 1 号线（80 km/h）</td>
+      <td>182.71</td>
+      <td>22.403</td>
+      <td>80</td>
+      <td>1.32</td>
+      <td class="fushi">全地下</td>
+      <td class="price">8.16</td>
+      <td class="link-cell"><a href="https://fgw.henan.gov.cn/2017/11-01/707482.html" target="_blank" rel="noopener">https://fgw.henan.gov.cn/2017/11-01/707482.html</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">34</td>
+      <td class="name">南宁 5 号线一期（80 km/h）</td>
+      <td>164.99</td>
+      <td>20.2</td>
+      <td>80</td>
+      <td>1.26</td>
+      <td class="fushi">全地下</td>
+      <td class="price">8.17</td>
+      <td class="link-cell"><a href="https://fgw.nanning.gov.cn/zwxxdt/tzgg/W020180816752920336416.pdf" target="_blank" rel="noopener">https://fgw.nanning.gov.cn/zwxxdt/tzgg/W020180816752920336416.pdf</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">35</td>
+      <td class="name">北京 17 号线（100 km/h）</td>
+      <td>426.61</td>
+      <td>49.97</td>
+      <td>100</td>
+      <td>2.50</td>
+      <td class="fushi">全地下</td>
+      <td class="price">8.54</td>
+      <td class="link-cell"><a href="https://static.sse.com.cn/disclosure/bond/announcement/corporate/c/new/2023-05-31/152985_20230531_FPOD.pdf" target="_blank" rel="noopener">https://static.sse.com.cn/disclosure/bond/announcement/corporate/c/new/2023-05-31/152985_20230531_FPOD.pdf</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">36</td>
+      <td class="name">西安 10 号线一期（100 km/h）</td>
+      <td>294.99</td>
+      <td>34.418</td>
+      <td>100</td>
+      <td>2.15</td>
+      <td class="fushi">地下 11.9 km + 高架 22.5 km</td>
+      <td class="price">8.57</td>
+      <td class="link-cell"><a href="https://xaepb.xa.gov.cn/web_files/xaepb/file/2025/01/15/202501151422099160330.pdf" target="_blank" rel="noopener">https://xaepb.xa.gov.cn/web_files/xaepb/file/2025/01/15/202501151422099160330.pdf</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">37</td>
+      <td class="name">厦门 6 号线角美延伸段（80 km/h）</td>
+      <td>84.07</td>
+      <td>9.8</td>
+      <td>80</td>
+      <td>1.63</td>
+      <td class="fushi">全地下</td>
+      <td class="price">8.58</td>
+      <td class="link-cell"><a href="https://fgw.fujian.gov.cn/zfxxgkzl/zfxxgkml/yzdgkdqtxx/201912/t20191220_5165595.htm" target="_blank" rel="noopener">https://fgw.fujian.gov.cn/zfxxgkzl/zfxxgkml/yzdgkdqtxx/201912/t20191220_5165595.htm</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">38</td>
+      <td class="name">昆明 5 号线（80 km/h）</td>
+      <td>228.48</td>
+      <td>26.45</td>
+      <td>80</td>
+      <td>1.26</td>
+      <td class="fushi">地下为主</td>
+      <td class="price">8.64</td>
+      <td class="link-cell"><a href="https://www.crcc.cn/col1592/art/2020/art_1592_3058951.html" target="_blank" rel="noopener">https://www.crcc.cn/col1592/art/2020/art_1592_3058951.html</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">39</td>
+      <td class="name">上海 21 号线一期（100 km/h）</td>
+      <td>244.40</td>
+      <td>28.0</td>
+      <td>100</td>
+      <td>1.65</td>
+      <td class="fushi">全地下</td>
+      <td class="price">8.73</td>
+      <td class="link-cell"><a href="https://www.shanghai.gov.cn/gwk/search/content/2a95a4fe34e44d8091fc4c0dbab34588" target="_blank" rel="noopener">https://www.shanghai.gov.cn/gwk/search/content/2a95a4fe34e44d8091fc4c0dbab34588</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">40</td>
+      <td class="name">石家庄 5 号线一期（80 km/h）</td>
+      <td>176.50</td>
+      <td>19.9</td>
+      <td>80</td>
+      <td>1.11</td>
+      <td class="fushi">全地下</td>
+      <td class="price">8.87</td>
+      <td class="link-cell"><a href="https://www.sjzsggzyjyzx.org.cn/jyxxgczb/82487.jhtml" target="_blank" rel="noopener">https://www.sjzsggzyjyzx.org.cn/jyxxgczb/82487.jhtml</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">41</td>
+      <td class="name">上海 23 号线一期（80 km/h）</td>
+      <td>257.23</td>
+      <td>28.0</td>
+      <td>80</td>
+      <td>1.33</td>
+      <td class="fushi">全地下</td>
+      <td class="price">9.19</td>
+      <td class="link-cell"><a href="https://zjw.sh.gov.cn/cmsres/21/216e313227ff4cd8a02d98217238af52/26fb4780b2b82732b1fe708f30d4a32f.pdf" target="_blank" rel="noopener">https://zjw.sh.gov.cn/cmsres/21/216e313227ff4cd8a02d98217238af52/26fb4780b2b82732b1fe708f30d4a32f.pdf</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">42</td>
+      <td class="name">长春 1 号线南延（80 km/h）</td>
+      <td>66.54</td>
+      <td>6.963</td>
+      <td>80</td>
+      <td>1.39</td>
+      <td class="fushi">全地下</td>
+      <td class="price">9.56</td>
+      <td class="link-cell"><a href="https://xxgk.jl.gov.cn/zcbm/fgw/xxgkmlqy/202307/t20230707_8735282.html" target="_blank" rel="noopener">https://xxgk.jl.gov.cn/zcbm/fgw/xxgkmlqy/202307/t20230707_8735282.html</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">43</td>
+      <td class="name">天津 7 号线一期（80 km/h）</td>
+      <td>268.97</td>
+      <td>26.53</td>
+      <td>80</td>
+      <td>1.33</td>
+      <td class="fushi">全地下</td>
+      <td class="price">10.14</td>
+      <td class="link-cell"><a href="https://cs.com.cn/sylm/jsbd/201911/t20191103_5995289.html" target="_blank" rel="noopener">https://cs.com.cn/sylm/jsbd/201911/t20191103_5995289.html</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">44</td>
+      <td class="name">南京 6 号线（100 km/h）</td>
+      <td>293.16</td>
+      <td>28.04</td>
+      <td>100</td>
+      <td>1.65</td>
+      <td class="fushi">全地下</td>
+      <td class="price">10.46</td>
+      <td class="link-cell"><a href="http://www.rail-transit.com/shiping/show.php?itemid=544" target="_blank" rel="noopener">http://www.rail-transit.com/shiping/show.php?itemid=544</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">45</td>
+      <td class="name">北京 19 号线一期（120 km/h）</td>
+      <td>240.00</td>
+      <td>22.4</td>
+      <td>120</td>
+      <td>2.49</td>
+      <td class="fushi">全地下</td>
+      <td class="price">10.71</td>
+      <td class="link-cell"><a href="https://static.sse.com.cn/disclosure/bond/announcement/corporate/c/new/2023-05-31/152985_20230531_FPOD.pdf" target="_blank" rel="noopener">https://static.sse.com.cn/disclosure/bond/announcement/corporate/c/new/2023-05-31/152985_20230531_FPOD.pdf</a></td>
+    </tr>
+  
+    <tr>
+      <td class="idx">46</td>
+      <td class="name">天津 11 号线一期（80 km/h）</td>
+      <td>256.02</td>
+      <td>22.6</td>
+      <td>80</td>
+      <td>1.13</td>
+      <td class="fushi">全地下</td>
+      <td class="price">11.33</td>
+      <td class="link-cell"><a href="https://zfcxjs.tj.gov.cn/xwzx_70/zjdt/202010/t20201028_4007036.html" target="_blank" rel="noopener">https://zfcxjs.tj.gov.cn/xwzx_70/zjdt/202010/t20201028_4007036.html</a></td>
+    </tr>
+  </tbody>
+    </table>
+    <div class="no-result" id="noResult" style="display: none;">未找到匹配的线路</div>
+  </div>
+
+  <footer>
+    数据来源为各省市发改委公开的初步设计概算批复文件 · 由人工整理，仅供参考，具体以批复原文为准
+  </footer>
+</div>
+
+<script>
+const DATA = [
+["成都 资阳线 S3","129.03","38.7","160","6.45","3.33","高架 60.7% + 地下 26.9%","https://cbgc.scol.com.cn/news/467028"],
+["温州 市域 S2 线一期","261.53","63.63","140","3.35","4.11","高架 52.6% + 隧道 4.9% + 地下 4.6%","https://www.yueqing.gov.cn/art/2018/3/19/art_1458357_16257665.html"],
+["成都/德阳 市域 S11 线","305.41","70.87","160","5.06","4.31","高架 64% + 地下 33.6%","https://static.cdsb.com/micropub/Articles/202303/2f55ead7dd0f4b3a42810d29c41e1f11.html"],
+["武汉 11 号线三期葛店段","16.33","3.7","100","—","4.41","全地下","https://fgw.hubei.gov.cn/fbjd/xxgkml/xkfw/xzxkjg/xmspqk/201906/t20190618_3758316.shtml"],
+["南京/句容 宁句城际","207.99","43.7","120","3.64","4.76","高架 27.29 km + 地下 16.41 km","http://fzggw.jiangsu.gov.cn/attach/-1/2103261924536163311.pdf"],
+["合肥 8 号线一期先行段","36.00","7.3","100","1.83","4.93","全地下（5 站土建）","https://fzggw.ah.gov.cn/ywdt/mtjj/145415381.html"],
+["贵阳 S1 线一期","172.52","30.32","100","2.53","5.69","地下 22.64 km + 高架 7.68 km","https://www.ndrc.gov.cn/fggz/zcssfz/dffz/201807/t20180727_1147869.html"],
+["西安 15 号线一期","118.89","19.459","100","1.62","6.11","全地下","http://www.sse.com.cn/disclosure/bond/announcement/corporate/c/2021-11-10/4339580345146005198840980.pdf"],
+["福州 滨海快线 F1","383.89","62.4","140","5.20","6.15","地下 + 高架（高架约 1/4）","https://fjnews.fjsen.com/wap/2020-04/10/content_30259399.htm"],
+["福州 6 号线","253.92","40.869","100","2.27","6.21","地下为主","https://fgw.fujian.gov.cn/zfxxgkzl/zfxxgkml/yzdgkdqtxx/201710/t20171013_809345.htm"],
+["沈阳 1 号线东延线","101.48","16.15","80","1.79","6.28","全地下","https://www.lntb.gov.cn/fileUpload/ruanjian/2023120616574536396.pdf"],
+["长沙 6 号线东延段","27.99","4.22","80","—","6.63","全地下","https://fgw.hunan.gov.cn/fgw/xxgk_70899/xzzfgs11/shgk11/sp11/202012/t20201208_29287903.html"],
+["沈阳 3 号线一期","282.28","41.28","80","1.42","6.84","地下 24.78 km + 高架 16.5 km","https://www.lntb.gov.cn/fileUpload/ruanjian/2023120616574536396.pdf"],
+["南京 S8 线南延","14.39","2.07","100","2.07","6.95","全地下","https://njna.nanjing.gov.cn/njsjbxqglwyh/201811/t20181120_1224317.html"],
+["南宁 6 号线一期","194.28","27.9","80","1.40","6.96","全地下","http://flfgk.zhpt.yjglt.gxzf.gov.cn:5995/guifan/b0c2efee5bf34d210b18b529f1fabf7dbdfb.html"],
+["绍兴 1 号线（主线+支线）","238.73","34.1","100","1.55","7.00","地下为主","https://fzggw.zj.gov.cn/art/2019/10/31/art_1599553_39650178.html"],
+["沈阳 2 号线南延（两段）","100.40","13.7","80","2.28","7.33","全地下","https://fgw.shenyang.gov.cn/zwgk/fdzdgknr/zdxmpzhss/xmsp/202208/t20220801_3640083.html"],
+["合肥 6 号线一期","204.00","27.5","100","1.72","7.42","全地下","https://fzggw.ah.gov.cn/ywdt/mtjj/145415381.html"],
+["沈阳 6 号线一期","262.39","35.25","80","1.22","7.44","地下 27.0 km + 高架 7.76 km","https://fgw.shenyang.gov.cn/zwgk/fdzdgknr/zdxmpzhss/xmsp/202208/t20220801_3630351.html"],
+["贵阳 3 号线一期","322.31","43.03","100","1.54","7.49","地下 41.67 km + 高架 1.36 km","https://www.gyurt.com/n125/20240417/i18089.html"],
+["南昌 3 号线","215.85","28.5","80","1.36","7.57","全地下","https://static.sse.com.cn/disclosure/bond/announcement/corporate/c/3582739957763055.pdf"],
+["郑州 14 号线一期","56.78","7.455","100","1.49","7.62","全地下","https://fgw.henan.gov.cn/2019/09-20/955065.html"],
+["长沙 6 号线","369.43","48.11","80","1.46","7.68","全地下","https://www.changsha.gov.cn/szf/ywdt/zwdt/202110/t20211001_10241590.html"],
+["厦门 6 号线林埭西段","144.33","18.55","80","1.55","7.78","全地下","https://dpc.xm.gov.cn/xxgk/xxgkml/xzsp/fxzxksp/202111/t20211119_2602042.htm"],
+["南昌 4 号线一期","308.30","39.6","80","1.41","7.79","地下 32.9 km + 高架 7.1 km","http://www.lhratings.com/reports/B1589-ZTPJ07101-GZ2020.pdf"],
+["无锡 4 号线一期","191.12","24.54","80","1.44","7.79","全地下","https://www.wuxi.gov.cn/doc/2017/01/09/1234926.shtml"],
+["石家庄 4 号线一期","174.70","22.43","80","1.18","7.79","全地下","https://szj.hebei.gov.cn/hbjyzx/jydt/001002/001002002/001002002001/20231030/cc613379-438a-4edf-8104-b700126f0a1a.html"],
+["福州 5 号线一期","216.21","27.7","80","1.46","7.81","地下为主","https://fgw.fujian.gov.cn/zfxxgkzl/zfxxgkml/yzdgkdqtxx/201908/t20190801_4957369.htm"],
+["合肥 7 号线一期","147.00","18.80","80","1.25","7.82","全地下","https://fzggw.ah.gov.cn/ywdt/mtjj/145415381.html"],
+["南京 10 号线二期","105.03","13.33","80","1.48","7.88","全地下","https://www.njmetro.com.cn/njdtweb/portal/article-detail.do?rowId=4028838771158f9601713dbc1a9d002c&tag=flyDialog"],
+["宁波 5 号线一期","223.12","27.945","80","1.33","7.98","全地下","https://zjjcmspublic.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/jcms_files/jcms1/web3504/site/attach/0/5cf73cfefb2d4b529835cc67d89d57ef.pdf"],
+["洛阳 2 号线一期","148.32","18.216","80","1.30","8.14","全地下","https://fgw.henan.gov.cn/2019/07-09/932882.html"],
+["洛阳 1 号线","182.71","22.403","80","1.32","8.16","全地下","https://fgw.henan.gov.cn/2017/11-01/707482.html"],
+["南宁 5 号线一期","164.99","20.2","80","1.26","8.17","全地下","https://fgw.nanning.gov.cn/zwxxdt/tzgg/W020180816752920336416.pdf"],
+["北京 17 号线","426.61","49.97","100","2.50","8.54","全地下","https://static.sse.com.cn/disclosure/bond/announcement/corporate/c/new/2023-05-31/152985_20230531_FPOD.pdf"],
+["西安 10 号线一期","294.99","34.418","100","2.15","8.57","地下 11.9 km + 高架 22.5 km","https://xaepb.xa.gov.cn/web_files/xaepb/file/2025/01/15/202501151422099160330.pdf"],
+["厦门 6 号线角美延伸段","84.07","9.8","80","1.63","8.58","全地下","https://fgw.fujian.gov.cn/zfxxgkzl/zfxxgkml/yzdgkdqtxx/201912/t20191220_5165595.htm"],
+["昆明 5 号线","228.48","26.45","80","1.26","8.64","地下为主","https://www.crcc.cn/col1592/art/2020/art_1592_3058951.html"],
+["上海 21 号线一期","244.40","28.0","100","1.65","8.73","全地下","https://www.shanghai.gov.cn/gwk/search/content/2a95a4fe34e44d8091fc4c0dbab34588"],
+["石家庄 5 号线一期","176.50","19.9","80","1.11","8.87","全地下","https://www.sjzsggzyjyzx.org.cn/jyxxgczb/82487.jhtml"],
+["上海 23 号线一期","257.23","28.0","80","1.33","9.19","全地下","https://zjw.sh.gov.cn/cmsres/21/216e313227ff4cd8a02d98217238af52/26fb4780b2b82732b1fe708f30d4a32f.pdf"],
+["长春 1 号线南延","66.54","6.963","80","1.39","9.56","全地下","https://xxgk.jl.gov.cn/zcbm/fgw/xxgkmlqy/202307/t20230707_8735282.html"],
+["天津 7 号线一期","268.97","26.53","80","1.33","10.14","全地下","https://cs.com.cn/sylm/jsbd/201911/t20191103_5995289.html"],
+["南京 6 号线","293.16","28.04","100","1.65","10.46","全地下","http://www.rail-transit.com/shiping/show.php?itemid=544"],
+["北京 19 号线一期","240.00","22.4","120","2.49","10.71","全地下","https://static.sse.com.cn/disclosure/bond/announcement/corporate/c/new/2023-05-31/152985_20230531_FPOD.pdf"],
+["天津 11 号线一期","256.02","22.6","80","1.13","11.33","全地下","https://zfcxjs.tj.gov.cn/xwzx_70/zjdt/202010/t20201028_4007036.html"]
+];
+
+const tbody = document.getElementById('tbody');
+const searchInput = document.getElementById('searchInput');
+const fushiFilter = document.getElementById('fushiFilter');
+const countEl = document.getElementById('count');
+const noResult = document.getElementById('noResult');
+
+function render() {
+  const kw = searchInput.value.trim().toLowerCase();
+  const ff = fushiFilter.value;
+  const rows = DATA
+    .map((d, i) => ({ d, i: i + 1 }))
+    .filter(({ d }) => {
+      if (kw && !d[0].toLowerCase().includes(kw)) return false;
+      if (ff === '全地下' && d[6] !== '全地下') return false;
+      if (ff === '地下为主' && d[6] !== '地下为主') return false;
+      if (ff === '高架' && !d[6].includes('高架')) return false;
+      return true;
+    });
+
+  tbody.innerHTML = rows.map(({ d, i }) => `
+    <tr>
+      <td class="idx">${i}</td>
+      <td class="name">${d[0]}（${d[3]} km/h）</td>
+      <td>${d[1]}</td>
+      <td>${d[2]}</td>
+      <td>${d[3]}</td>
+      <td>${d[4]}</td>
+      <td class="fushi">${d[6]}</td>
+      <td class="price">${d[5]}</td>
+      <td class="link-cell"><a href="${d[7]}" target="_blank" rel="noopener">${d[7]}</a></td>
+    </tr>
+  `).join('');
+
+  countEl.textContent = `共 ${rows.length} 条`;
+  noResult.style.display = rows.length ? 'none' : 'block';
+}
+
+searchInput.addEventListener('input', render);
+fushiFilter.addEventListener('change', render);
+render();
+</script>
+
+
+</body></html>

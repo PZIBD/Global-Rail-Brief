@@ -1,4 +1,4 @@
-/* 站内搜索 —— 往期归档页版（含跨期全文检索） */
+/* 站内搜索 —— 往期归档页版（期次筛选 + 跳转检索汇总页） */
 (function () {
   var root = document.getElementById('srch');
   if (!root || root.getAttribute('data-ready')) return;
@@ -11,6 +11,7 @@
 
   var metas = [], entries = [], hits = [], sel = -1, timer = null;
   var loading = false, loaded = false, done = 0, failed = 0;
+  var PREVIEW_N = 8;
 
   function clean(s) { return (s || '').replace(/\s+/g, ' ').trim(); }
   function low(s) { return clean(s).toLowerCase(); }
@@ -24,6 +25,9 @@
   function allMatch(hay, ts) {
     for (var i = 0; i < ts.length; i++) { if (hay.indexOf(ts[i]) < 0) return false; }
     return true;
+  }
+  function sumUrl(q, anchor) {
+    return 'search.html?q=' + encodeURIComponent(q) + (anchor ? '#' + encodeURIComponent(anchor) : '');
   }
 
   /* ---------- 归档卡片元数据 ---------- */
@@ -45,7 +49,7 @@
     }
   }
 
-  /* ---------- 跨期索引 ---------- */
+  /* ---------- 跨期索引（用于预览摘要与计数） ---------- */
   function titleOf(el) {
     var t = el.querySelector('.ctitle');
     if (t) return clean(t.textContent);
@@ -71,62 +75,69 @@
   }
   function parseIssue(meta, html) {
     var doc = new DOMParser().parseFromString(html, 'text/html');
-    var out = [], i;
-    var nodes = doc.querySelectorAll('.card[id], .rd-card');
+    var out = [], i, seen = {};
+    var nodes = doc.querySelectorAll('.card[id], .rd-card, .item');
     for (i = 0; i < nodes.length; i++) {
-      var el = nodes[i];
-      var txt = clean(el.textContent);
-      if (txt.length < 24) continue;
-      var idEl = el.querySelector('.cid, .rd-id');
+      var eln = nodes[i];
+      var raw = clean(eln.textContent);
+      if (raw.length < 24) continue;
+      var idEl = eln.querySelector('.cid, .rd-id');
+      var id = clean(idEl ? idEl.textContent : '');
+      var h3 = eln.querySelector('h3');
+      var title = titleOf(eln);
+      var key = (meta.no || '') + '|' + (id || title.slice(0, 30));
+      if (seen[key]) continue;
+      seen[key] = 1;
       out.push({
         issue: meta.no, date: meta.date,
-        id: clean(idEl ? idEl.textContent : ''),
-        title: titleOf(el),
-        text: low(txt), raw: txt,
-        href: meta.href + (anchorOf(el) ? '#' + encodeURIComponent(anchorOf(el)) : '')
+        id: id,
+        title: title, text: low(raw), raw: raw
       });
     }
-    if (!out.length) {
-      var items = doc.querySelectorAll('.item');
-      for (i = 0; i < items.length; i++) {
-        var it = items[i];
-        var h3 = it.querySelector('h3');
-        var d = it.querySelector('.d, p');
-        var t2 = clean(d ? d.textContent : it.textContent);
-        if (t2.length < 24) continue;
-        out.push({
-          issue: meta.no, date: meta.date, id: '',
-          title: clean(h3 ? h3.textContent : '') || t2.slice(0, 40),
-          text: low(t2), raw: t2,
-          href: meta.href + (anchorOf(it) ? '#' + encodeURIComponent(anchorOf(it)) : '')
-        });
-      }
+    for (i = 0; i < out.length; i++) entries.push(out[i]);
+  }
+  function indexFromJson(idx) {
+    var its = idx && idx.items, i;
+    if (!its || !its.length) return false;
+    var seen = {};
+    for (i = 0; i < its.length; i++) {
+      var it = its[i];
+      var raw = it.su || it.ti || '';
+      var hay = low([it.no, it.d, it.id, it.p, it.reg, it.st, it.ti, it.su, it.pa, it.kw, it.pg, it.cp, it.s1, it.s2, it.cf].join(' '));
+      var k = (it.no || '') + '|' + (it.id || low(it.ti).slice(0, 30));
+      if (seen[k]) continue;
+      seen[k] = 1;
+      entries.push({
+        issue: it.no, date: it.d, id: it.id || '',
+        title: it.ti || raw.slice(0, 40),
+        text: hay, raw: raw
+      });
     }
-    if (!out.length) {
-      var body = clean(doc.body ? doc.body.textContent : '');
-      if (body.length > 40) {
-        out.push({
-          issue: meta.no, date: meta.date, id: '', title: meta.title,
-          text: low(body), raw: body.slice(0, 6000), href: meta.href
-        });
-      }
-    }
-    for (i = 0; i < out.length; i++) { out[i].d = out[i].date; entries.push(out[i]); }
+    return entries.length > 0;
   }
   function loadIndex() {
     if (loading || loaded) return;
     loading = true; done = 0; failed = 0;
-    renderStatus('正在载入往期全文… 0/' + metas.length);
-    metas.forEach(function (m) {
-      fetch(m.href, { cache: 'force-cache' })
-        .then(function (r) { return r.text(); })
-        .then(function (html) { parseIssue(m, html); })
-        .catch(function () { failed++; })
-        .then(function () {
-          done++;
-          if (done >= metas.length) { loading = false; loaded = true; render(); }
-          else renderStatus('正在载入往期全文… ' + done + '/' + metas.length);
-        });
+    fetch('search-index.json', { cache: 'no-cache' }).then(function (r) {
+      if (!r.ok) throw new Error('no index');
+      return r.json();
+    }).then(function (idx) {
+      if (!indexFromJson(idx)) throw new Error('empty index');
+      loading = false; loaded = true; render();
+    }).catch(function () {
+      done = 0; failed = 0;
+      renderStatus('正在载入往期全文… 0/' + metas.length);
+      metas.forEach(function (m) {
+        fetch(m.href, { cache: 'force-cache' })
+          .then(function (r) { return r.text(); })
+          .then(function (html) { parseIssue(m, html); })
+          .catch(function () { failed++; })
+          .then(function () {
+            done++;
+            if (done >= metas.length) { loading = false; loaded = true; render(); }
+            else renderStatus('正在载入往期全文… ' + done + '/' + metas.length);
+          });
+      });
     });
   }
 
@@ -157,6 +168,11 @@
     var q = input.value, ts = terms(q);
     hits = []; sel = -1;
     var i;
+    if (loaded) {
+      for (i = 0; i < entries.length; i++) {
+        if (allMatch(entries[i].text, ts)) hits.push(entries[i]);
+      }
+    }
 
     if (!ts.length) {
       for (i = 0; i < metas.length; i++) metas[i].el.style.display = '';
@@ -173,35 +189,35 @@
       if (ok) shown++;
     }
 
-    for (i = 0; i < entries.length; i++) {
-      if (allMatch(entries[i].text, ts)) hits.push(entries[i]);
-    }
-
     root.classList.add('on');
-    var head = '';
-    if (!loaded) {
-      head = '<div class="srch-empty">正在载入往期全文，稍候即可跨期检索条目…</div>';
-    } else if (!hits.length) {
-      head = '<div class="srch-empty">往期条目中未找到与「' + esc(q) + '」匹配的内容。</div>';
-    } else {
-      head = '<div class="srch-sum">往期条目命中 ' + hits.length + ' 条' + (hits.length > 60 ? '（显示前 60 条）' : '') + ' · 点击跳转到该期 · Esc 关闭</div>';
-    }
+    var html = '';
 
-    var html = head, top = hits.slice(0, 60);
-    for (var k = 0; k < top.length; k++) {
-      var e = top[k];
-      html += '<a class="srch-item' + (k === 0 ? ' cur' : '') + '" href="' + esc(e.href) + '" data-ix="' + k + '">' +
-        '<div class="srch-meta"><span class="srch-issue">' + esc(e.issue || '往期') + '</span>' +
-        '<span class="srch-date">' + esc(e.date) + '</span>' +
-        (e.id ? '<span class="srch-id">' + esc(e.id) + '</span>' : '') + '</div>' +
-        '<div class="srch-tit">' + emph(e.title, ts) + '</div>' +
-        '<div class="srch-snip">' + emph(snippet(e.raw, ts), ts) + '</div></a>';
+    if (!loaded) {
+      html = '<a class="srch-open" href="' + esc(sumUrl(q)) + '">打开汇总页「' + esc(q) + '」 →</a>' +
+        '<div class="srch-sum">正在载入往期全文，稍候即可看到条目命中数…</div>';
+    } else if (!hits.length) {
+      html = '<div class="srch-empty">往期条目中未找到与「' + esc(q) + '」匹配的内容。</div>';
+    } else {
+      html = '<a class="srch-open" href="' + esc(sumUrl(q)) + '">打开汇总页：「' + esc(q) + '」共 ' + hits.length +
+        ' 条命中，一页看完 →</a>' +
+        '<div class="srch-sum">期次命中 ' + shown + '/' + metas.length + ' 期 · 条目命中 ' + hits.length +
+        ' 条 · Enter 打开汇总页 · 下方为预览（前 ' + PREVIEW_N + ' 条）</div>';
+      var top = hits.slice(0, PREVIEW_N);
+      for (var k = 0; k < top.length; k++) {
+        var e = top[k];
+        html += '<a class="srch-item' + (k === 0 ? ' cur' : '') + '" href="' + esc(sumUrl(q, e.id)) + '" data-ix="' + k + '">' +
+          '<div class="srch-meta"><span class="srch-issue">' + esc(e.issue || '往期') + '</span>' +
+          '<span class="srch-date">' + esc(e.date) + '</span>' +
+          (e.id ? '<span class="srch-id">' + esc(e.id) + '</span>' : '') + '</div>' +
+          '<div class="srch-tit">' + emph(e.title, ts) + '</div>' +
+          '<div class="srch-snip">' + emph(snippet(e.raw, ts), ts) + '</div></a>';
+      }
     }
     panel.innerHTML = html;
     panel.classList.add('has');
     sel = hits.length ? 0 : -1;
 
-    renderStatus('期次命中 ' + shown + '/' + metas.length + ' 期 · 条目命中 ' + (loaded ? hits.length : '…') + ' 条' + (failed ? '（' + failed + ' 期未能载入）' : ''));
+    renderStatus('期次命中 ' + shown + '/' + metas.length + ' 期 · 条目命中 ' + (loaded ? hits.length : '…') + ' 条 · Enter 打开汇总页' + (failed ? '（' + failed + ' 期未能载入）' : ''));
   }
 
   function setCur(i) {
@@ -229,15 +245,16 @@
     if (e.key === 'ArrowDown') { e.preventDefault(); setCur(sel + 1); }
     else if (e.key === 'ArrowUp') { e.preventDefault(); setCur(sel - 1); }
     else if (e.key === 'Enter') {
+      e.preventDefault();
       var cur = panel.querySelector('.srch-item.cur');
-      if (cur) { e.preventDefault(); window.location.href = cur.getAttribute('href'); }
+      window.location.href = cur ? cur.getAttribute('href') : sumUrl(input.value);
     } else if (e.key === 'Escape') {
       input.value = ''; root.classList.remove('on'); render();
     }
   });
 
   panel.addEventListener('click', function (e) {
-    var a = e.target.closest && e.target.closest('.srch-item');
+    var a = e.target.closest && e.target.closest('.srch-item, .srch-open');
     if (!a) return;
     e.preventDefault();
     window.location.href = a.getAttribute('href');

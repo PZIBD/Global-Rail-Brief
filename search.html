@@ -1,0 +1,751 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>往期检索 · 轨道出海日报</title>
+<style>
+/* ---- 站内搜索（顶部检索条） ---- */
+.srch{font-family:inherit;color:#16202b}
+.srch-in{position:relative}
+.srch-box{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #dbe3ec;
+  border-radius:12px;padding:0 12px 0 14px;height:46px;box-shadow:0 1px 2px rgba(11,37,69,.05);
+  transition:border-color .15s,box-shadow .15s}
+.srch-box:focus-within{border-color:#0b5fa5;box-shadow:0 0 0 3px rgba(11,95,165,.10)}
+.srch-ico{flex:0 0 18px;width:18px;height:18px;color:#8a99a8}
+.srch-input{flex:1;min-width:0;border:0;outline:0;background:transparent;height:100%;
+  font-size:14.5px;font-family:inherit;color:#16202b}
+.srch-input::placeholder{color:#9aa8b6}
+.srch-input::-webkit-search-cancel-button{display:none}
+.srch-kbd{font-size:11px;color:#8a99a8;border:1px solid #dbe3ec;border-radius:5px;
+  padding:1px 6px;background:#f7fafc;line-height:1.5}
+.srch-clear{display:none;border:0;background:#eef1f6;color:#5b6b7e;width:22px;height:22px;
+  border-radius:50%;cursor:pointer;font-size:15px;line-height:1;padding:0;flex:0 0 22px}
+.srch-clear:hover{background:#e2e7ef;color:#15233b}
+.srch.on .srch-clear{display:block}
+.srch-stat{font-size:12.5px;color:#6b7a8c;padding:7px 2px 0;line-height:1.5}
+.srch-stat:empty{display:none}
+.srch-panel{display:none;position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:90;
+  background:#fff;border:1px solid #dbe3ec;border-radius:12px;box-shadow:0 16px 44px rgba(11,37,69,.16);
+  max-height:min(64vh,480px);overflow:auto;overscroll-behavior:contain}
+.srch.on .srch-panel.has{display:block}
+.srch-sum{padding:9px 16px;font-size:12.5px;color:#6b7a8c;border-bottom:1px solid #eef1f6;
+  background:#fbfcfe;position:sticky;top:0;z-index:1}
+.srch-item{display:block;padding:10px 16px;border-bottom:1px solid #f2f5f9;text-decoration:none;
+  color:inherit;cursor:pointer}
+.srch-item:last-child{border-bottom:0}
+.srch-item:hover,.srch-item.cur{background:#f2f7fd}
+.srch-item.cur{box-shadow:inset 3px 0 0 #0b5fa5}
+.srch-meta{display:flex;align-items:center;gap:8px;font-size:11.5px;color:#7b8899;margin-bottom:2px;
+  white-space:nowrap;overflow:hidden}
+.srch-id{font-family:Consolas,"SFMono-Regular",monospace;font-weight:700;color:#0a4ea3}
+.srch-tag{background:#eef3fb;color:#42556e;border-radius:4px;padding:0 6px}
+.srch-issue{background:#0b2545;color:#fff;border-radius:10px;padding:0 8px;font-weight:700}
+.srch-sub{overflow:hidden;text-overflow:ellipsis}
+.srch-tit{font-size:14px;font-weight:600;color:#15233b;line-height:1.45}
+.srch-snip{font-size:12.5px;color:#5b6b7e;margin-top:3px;line-height:1.55}
+.srch-snip em,.srch-tit em,.srch-sum em{font-style:normal;background:#fff1a8;color:#111;border-radius:2px;padding:0 1px}
+.srch-empty{padding:16px 16px;font-size:13px;color:#7b8899;line-height:1.7}
+.srch-empty b{color:#0a4ea3}
+mark.srch-mark{background:#fff1a8;color:#111;padding:0 1px;border-radius:2px}
+@keyframes srchFlash{0%{box-shadow:0 0 0 0 rgba(11,95,165,0)}12%{box-shadow:0 0 0 4px rgba(11,95,165,.42)}100%{box-shadow:0 0 0 0 rgba(11,95,165,0)}}
+.srch-flash{animation:srchFlash 1.9s ease}
+.srch-page{margin:0 0 14px}
+.srch-arch{max-width:1080px;margin:16px auto 0;padding:0 20px}
+@media(max-width:640px){
+  .srch-kbd{display:none}
+  .srch-box{height:44px}
+  .srch-input{font-size:16px}
+}
+
+</style>
+<style>
+
+:root{--navy:#0b2545;--blue:#1b6ec2;--ink:#15233b;--sub:#5b6b7e;--line:#e6ebf2;--bg:#eef1f6;--card:#fff;--amber:#f0a500}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);line-height:1.7;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif}
+a{color:var(--blue)}
+.topbar{position:sticky;top:0;z-index:60;background:rgba(11,37,69,.96);backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(255,255,255,.08)}
+.topbar .ib{max-width:1100px;margin:0 auto;padding:11px 20px;display:flex;align-items:center;gap:14px}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:700}
+.logo{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--amber),#ffce5c);
+  display:grid;place-items:center;color:var(--navy);font-weight:900;font-size:17px}
+.brand small{display:block;font-weight:400;font-size:10.5px;color:#9fb4d4;letter-spacing:2px}
+.nav{margin-left:auto;display:flex;gap:4px}
+.nav a{color:#cdddf2;text-decoration:none;font-size:13.5px;padding:6px 13px;border-radius:18px}
+.nav a:hover{background:rgba(255,255,255,.12);color:#fff}
+.nav a.on{background:#fff;color:var(--navy);font-weight:700}
+
+.wrap{max-width:1100px;margin:0 auto;padding:22px 20px 60px}
+.hero{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 22px 18px;
+  box-shadow:0 8px 22px rgba(11,37,69,.06)}
+.kicker{font-size:11.5px;letter-spacing:3px;color:#8a99a8;font-weight:700;text-transform:uppercase}
+h1.rt{margin:6px 0 0;font-size:27px;line-height:1.35;color:var(--navy);font-weight:800;letter-spacing:-.2px}
+h1.rt .res-num{font-size:16px;font-weight:700;color:#fff;background:var(--navy);border-radius:20px;
+  padding:3px 12px;margin-left:10px;vertical-align:6px;letter-spacing:0}
+.rsub{margin:7px 0 0;font-size:13.5px;color:var(--sub);line-height:1.7}
+.rsub b{color:var(--navy);font-size:15px}
+
+.barwrap{position:sticky;top:58px;z-index:50;margin:0 -20px;padding:12px 20px 9px;
+  background:linear-gradient(180deg,var(--bg) 82%,rgba(238,241,246,0))}
+.bar{max-width:1100px;margin:0 auto}
+.srch-box{height:50px;border-radius:13px;box-shadow:0 4px 14px rgba(11,37,69,.07)}
+.srch-input{font-size:15.5px}
+.srch-clear{display:none}
+.srch-kbd{font-size:11px}
+#res-note{display:none;font-size:12.5px;color:#8a6d00;background:#fff9e6;border:1px solid #f0e2b8;
+  border-radius:8px;padding:6px 12px;margin-top:8px}
+
+.facets{margin:14px 0 0}
+.fc-row{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:7px}
+.fc-l{font-size:12px;color:#8a99a8;font-weight:700;letter-spacing:1px;flex:0 0 40px}
+.fc{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--line);
+  border-radius:16px;padding:3px 11px;font-size:12.5px;color:#33465c;text-decoration:none}
+.fc b{color:var(--blue);font-size:12px}
+.fc:hover{border-color:#b9cde8;background:#f6faff;color:var(--navy)}
+
+.tools{display:none;align-items:center;gap:10px;flex-wrap:wrap;margin:16px 0 4px;
+  padding:9px 12px;background:#fff;border:1px solid var(--line);border-radius:12px}
+.tlab{font-size:12px;color:#8a99a8}
+.seg{display:inline-flex;border:1px solid #dbe3ec;border-radius:9px;overflow:hidden}
+.seg button{border:0;background:#fff;color:#4a5b70;font-size:12.5px;padding:5px 12px;cursor:pointer;
+  font-family:inherit;border-right:1px solid #eef1f6}
+.seg button:last-child{border-right:0}
+.seg button.on{background:var(--navy);color:#fff;font-weight:600}
+.tbtn{margin-left:auto;border:1px solid #dbe3ec;background:#fff;color:#33465c;border-radius:9px;
+  padding:5px 13px;font-size:12.5px;cursor:pointer;font-family:inherit}
+.tbtn:hover{border-color:#b9cde8;color:var(--navy);background:#f7fbff}
+.tbtn.primary{background:var(--navy);color:#fff;border-color:var(--navy)}
+.tbtn.primary:hover{background:#12355f;color:#fff}
+
+.grp{margin:26px 0 0}
+.grp-h{display:flex;align-items:baseline;gap:10px;margin:0 0 10px;padding:0 2px;
+  font-size:15px;font-weight:700;color:var(--navy);border:0}
+.grp-k{background:var(--navy);color:#fff;border-radius:6px;padding:2px 10px;font-size:13.5px;letter-spacing:.5px}
+.grp-d{color:#6b7a8c;font-weight:600;font-size:13px;font-variant-numeric:tabular-nums}
+.grp-c{margin-left:auto;font-size:12px;color:#8a99a8;font-weight:400}
+.grp-b{display:grid;gap:10px}
+
+.hit{background:#fff;border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:11px;
+  padding:13px 16px 12px;transition:box-shadow .18s,border-color .18s;scroll-margin-top:130px}
+.hit:hover{box-shadow:0 8px 20px rgba(11,37,69,.09);border-color:#cfdcea;border-left-color:var(--navy)}
+.hit-h{display:flex;align-items:flex-start;gap:9px}
+.hit-id{flex:0 0 auto;font-family:"SFMono-Regular",Consolas,monospace;font-size:11.5px;font-weight:700;
+  color:#0a4ea3;background:#eaf1fb;border-radius:5px;padding:1px 7px;margin-top:2px;letter-spacing:.3px}
+.hit-tit{font-size:15.5px;font-weight:650;color:var(--ink);text-decoration:none;line-height:1.5}
+.hit-tit:hover{color:#0a4ea3;text-decoration:underline;text-underline-offset:3px}
+.hit-meta{display:flex;gap:6px;flex-wrap:wrap;margin:7px 0 0}
+.chip{font-size:11.5px;color:#4a5b70;background:#f2f6fc;border:1px solid #e4ecf7;border-radius:5px;padding:0 7px;line-height:1.7}
+.chip-issue{background:var(--navy);color:#fff;border-color:var(--navy);font-weight:600}
+.hit-sum{margin:8px 0 0;font-size:13.8px;line-height:1.85;color:#3d4a5c;text-align:justify}
+.hit-f{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:9px;padding-top:8px;border-top:1px dashed #eef1f6}
+.hit-kw{display:flex;gap:5px;flex-wrap:wrap}
+.hit-kw i{font-style:normal;font-size:11.5px;color:#5b6b7e;background:#f7fafc;border:1px solid #e9eef5;
+  border-radius:4px;padding:0 7px}
+.hit-src{font-size:11.5px;color:#8a99a8;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:44%}
+.hit-go{margin-left:auto;font-size:12.5px;color:var(--blue);text-decoration:none;white-space:nowrap}
+.hit-go:hover{color:var(--navy);text-decoration:underline}
+mark{background:#fff1a8;color:#111;padding:0 1px;border-radius:2px}
+@keyframes hitFlash{0%{box-shadow:0 0 0 0 rgba(11,95,165,0)}14%{box-shadow:0 0 0 5px rgba(11,95,165,.35)}100%{box-shadow:0 0 0 0 rgba(11,95,165,0)}}
+.hit.flash{animation:hitFlash 2.2s ease;border-left-color:var(--amber)}
+
+.res-empty{background:#fff;border:1px dashed #cfdcea;border-radius:14px;padding:30px 22px;text-align:center;margin-top:22px}
+.re-t{font-size:15px;font-weight:700;color:var(--navy)}
+.re-p{margin:8px auto 0;max-width:640px;font-size:13.5px;color:var(--sub);line-height:1.8}
+.re-chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.re-chip{background:#f2f6fc;border:1px solid #dbe6f4;border-radius:16px;padding:5px 14px;font-size:13px;
+  color:#33465c;text-decoration:none}
+.re-chip:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+.foot{max-width:1100px;margin:34px auto 0;padding:20px;color:#8a98a8;font-size:12.5px;text-align:center;
+  border-top:1px solid var(--line)}
+.foot a{color:var(--blue);text-decoration:none}
+@media(max-width:700px){
+  h1.rt{font-size:22px}
+  .barwrap{top:54px}
+  .hit-src{display:none}
+  .hit-sum{font-size:13.4px}
+  .nav a{font-size:12.5px;padding:5px 10px}
+}
+@media print{
+  .topbar,.barwrap,.tools,.facets,.foot,#res-note,.hit-go{display:none!important}
+  body{background:#fff}
+  .wrap{padding:0}
+  .hero{border:0;box-shadow:none;padding:0 0 8px}
+  .hit{break-inside:avoid;box-shadow:none;page-break-inside:avoid}
+  .grp{break-inside:auto}
+  .grp-h{page-break-after:avoid}
+}
+
+</style>
+</head>
+<body>
+<nav class="topbar"><div class="ib">
+  <a class="brand" href="index.html"><span class="logo">轨</span><span>轨道出海日报<small>RAIL EXPORT INTELLIGENCE</small></span></a>
+  <div class="nav"><a href="index.html">最新一期</a><a href="archive.html">往期归档</a><a class="on" href="search.html">检索汇总</a></div>
+</div></nav>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="kicker" id="res-kicker">往期检索</div>
+    <h1 class="rt" id="res-tit">载入中…</h1>
+    <p class="rsub" id="res-sub"></p>
+  </div>
+
+  <div class="barwrap">
+    <form class="bar srch" id="res-form" role="search" onsubmit="return false">
+      <div class="srch-box">
+        <svg class="srch-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20.2 20.2 16.6 16.6"></path></svg>
+        <input class="srch-input" id="res-q" type="text" autocomplete="off" spellcheck="false" aria-label="检索往期内容" placeholder="检索往期全部条目：关键词 / 国家 / 企业 / 编号，如 越南、中车、CT-44">
+        <button class="srch-clear" id="res-clear" type="button" aria-label="清空">×</button>
+        <kbd class="srch-kbd">/</kbd>
+      </div>
+    </form>
+    <div id="res-note"></div>
+  </div>
+
+  <div class="facets" id="res-facets"></div>
+
+  <div class="tools" id="res-tools">
+    <span class="tlab">分组</span>
+    <div class="seg" id="seg-g"><button class="on" data-g="issue">按期次</button><button data-g="region">按区域</button></div>
+    <span class="tlab">显示</span>
+    <div class="seg" id="seg-d"><button class="on" data-d="full">摘要</button><button data-d="dense">标题</button></div>
+    <button class="tbtn" id="btn-print">打印 / 存 PDF</button>
+    <button class="tbtn primary" id="btn-copy">复制为 Markdown</button>
+  </div>
+
+  <div id="res-list"></div>
+  <div class="foot"><a href="archive.html">← 返回往期归档</a> · <a href="index.html">最新一期</a> · 轨道出海日报 检索汇总</div>
+</div>
+
+<script>
+/* 往期检索汇总页：把全部命中条目聚合成一页简报 */
+(function () {
+  'use strict';
+
+  var ARCH = 'archive.html', IDX = 'search-index.json';
+  var state = {
+    q: '', g: 'issue', dense: false,
+    issues: [], items: [], hits: [], loaded: false, building: false, buildMsg: ''
+  };
+
+  var el = {
+    root: document.getElementById('res'),
+    form: document.getElementById('res-form'),
+    input: document.getElementById('res-q'),
+    clear: document.getElementById('res-clear'),
+    kicker: document.getElementById('res-kicker'),
+    tit: document.getElementById('res-tit'),
+    sub: document.getElementById('res-sub'),
+    facets: document.getElementById('res-facets'),
+    tools: document.getElementById('res-tools'),
+    list: document.getElementById('res-list'),
+    note: document.getElementById('res-note')
+  };
+
+  /* ---------- 工具 ---------- */
+  function txt(s) { return (s || '').replace(/\s+/g, ' ').trim(); }
+  function low(s) { return txt(s).toLowerCase(); }
+  function esc(s) {
+    return String(s || '').replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+  function rxEsc(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+  function terms(q) { return low(q).split(/\s+/).filter(Boolean).slice(0, 8); }
+  function qs(k) {
+    var m = new RegExp('[?&]' + k + '=([^&#]*)').exec(location.search);
+    return m ? decodeURIComponent(m[1].replace(/\+/g, ' ')) : '';
+  }
+  function allMatch(hay, ts) {
+    for (var i = 0; i < ts.length; i++) { if (hay.indexOf(ts[i]) < 0) return false; }
+    return true;
+  }
+  function emph(s, ts) {
+    var out = esc(s), i, t;
+    for (i = 0; i < ts.length; i++) {
+      t = rxEsc(esc(ts[i]));
+      if (!t || t.length < 1) continue;
+      out = out.replace(new RegExp('(' + t + ')', 'gi'), '<mark>$1</mark>');
+    }
+    return out;
+  }
+
+  /* ---------- 读归档期次清单 ---------- */
+  function readArchive(html) {
+    var doc = new DOMParser().parseFromString(html, 'text/html');
+    var cards = doc.querySelectorAll('.wrap a.card'), out = [], i;
+    for (i = 0; i < cards.length; i++) {
+      var a = cards[i];
+      var no = a.querySelector('.no'), dt = a.querySelector('.dt');
+      var nos = txt(no ? no.textContent : '').replace(/\s+/g, '');
+      var date = txt(dt ? dt.textContent : '');
+      out.push({
+        no: nos, date: date,
+        href: a.getAttribute('href') || ('issue-' + date + '.html')
+      });
+    }
+    return out;
+  }
+
+  /* ---------- 从期次页现场解析（索引缺失时兜底） ---------- */
+  function partName(node) {
+    var p = node;
+    while (p && p.nodeType === 1) {
+      if (p.tagName === 'DETAILS' || p.tagName === 'SECTION') {
+        var h = p.querySelector('h2');
+        if (h) {
+          return txt(h.textContent).replace(/^PART\s*\d*\s*·?\s*/, '')
+            .replace(/[（(][^）)]*(条|新增|结转)[^）)]*[)）]/g, '').trim();
+        }
+      }
+      p = p.parentElement;
+    }
+    return '';
+  }
+  function rowsToMap(rootEl) {
+    var rows = rootEl.querySelectorAll('.frow'), map = {}, i;
+    for (i = 0; i < rows.length; i++) {
+      var fl = rows[i].querySelector('.fl'), fv = rows[i].querySelector('.fv');
+      if (!fl || !fv) continue;
+      var k = txt(fl.textContent);
+      if (k && !map[k]) map[k] = fv;
+    }
+    return map;
+  }
+  function val(map, k) { return map[k] ? txt(map[k].textContent) : ''; }
+  function hrefOf(map, k) {
+    var a = map[k] ? map[k].querySelector('a[href]') : null;
+    if (!a) return '';
+    var u = a.getAttribute('href') || '';
+    return (u && u.indexOf('#') !== 0 && !/\.md$/i.test(u)) ? u : '';
+  }
+  function dedupe(arr) {
+    var seen = {}, out = [], i;
+    for (i = 0; i < arr.length; i++) {
+      var it = arr[i], k = it.no + '|' + (it.id || txt(it.ti).slice(0, 40));
+      if (seen[k]) {
+        var a = seen[k], f;
+        for (f in it) { if (it[f] && !a[f]) a[f] = it[f]; }
+        continue;
+      }
+      seen[k] = it; out.push(it);
+    }
+    return out;
+  }
+  function parseIssue(html, meta) {
+    var doc = new DOMParser().parseFromString(html, 'text/html');
+    var out = [], i;
+
+    var cards = doc.querySelectorAll('div.card[id]');
+    if (cards.length) {
+      for (i = 0; i < cards.length; i++) {
+        var c = cards[i], map = rowsToMap(c);
+        var cid = txt((c.querySelector('.cid') || {}).textContent || '') || c.id;
+        var ti = txt((c.querySelector('.ctitle') || {}).textContent || '') || val(map, '资讯');
+        if (!ti) continue;
+        var reg = val(map, '区域/国家/城市');
+        out.push({
+          no: meta.no, d: meta.date, href: meta.href, id: cid,
+          p: partName(c) || reg.split('/')[0].trim(), reg: reg,
+          st: val(map, '阶段'), ti: ti, su: val(map, '内容'),
+          pa: val(map, '相关方'), kw: val(map, '关键词'), pg: val(map, '进度/时间'),
+          cf: val(map, '置信度'), s1: val(map, '主源'), u: hrefOf(map, '主源')
+        });
+      }
+      return dedupe(out);
+    }
+
+    var rdc = doc.querySelectorAll('.rd-card');
+    if (rdc.length) {
+      for (i = 0; i < rdc.length; i++) {
+        var r = rdc[i], trs = r.querySelectorAll('tr'), mp = {}, j;
+        for (j = 0; j < trs.length; j++) {
+          var th = trs[j].querySelector('th'), td = trs[j].querySelector('td');
+          if (th && td) mp[txt(th.textContent)] = td;
+        }
+        var title = val(mp, '项目');
+        if (!title) continue;
+        var rg = val(mp, '区域/国家/城市');
+        out.push({
+          no: meta.no, d: meta.date, href: meta.href,
+          id: txt((r.querySelector('.rd-id') || {}).textContent || ''),
+          p: rg ? rg.split('/')[0].trim() : partName(r), reg: rg,
+          st: val(mp, '阶段'), ti: title, su: val(mp, '相关方'),
+          pa: val(mp, '相关方'), kw: val(mp, '类型'), pg: val(mp, '进度/时间'),
+          cf: val(mp, '置信度'), s1: val(mp, '主源'), u: hrefOf(mp, '主源')
+        });
+      }
+      return dedupe(out);
+    }
+
+    var items = doc.querySelectorAll('.item');
+    for (i = 0; i < items.length; i++) {
+      var it = items[i];
+      var h3 = it.querySelector('h3'), dd = it.querySelector('.d');
+      if (!h3 || !dd) continue;
+      var sr = it.querySelector('.src'), a2 = sr ? sr.querySelector('a[href]') : null;
+      out.push({
+        no: meta.no, d: meta.date, href: meta.href, id: '',
+        p: partName(it), reg: '', st: '',
+        ti: txt(h3.textContent), su: txt(dd.textContent),
+        pa: '', kw: '', pg: '', cf: '',
+        s1: txt(sr ? sr.textContent : '').replace(/^🔗\s*(来源[:：])?\s*/, ''),
+        u: a2 ? a2.getAttribute('href') : ''
+      });
+    }
+    return dedupe(out);
+  }
+
+  function buildLive() {
+    state.building = true;
+    var total = state.issues.length, done = 0, acc = [];
+    setNote('正在载入往期全文… 0/' + total);
+    state.issues.forEach(function (m) {
+      fetch(m.href, { cache: 'force-cache' }).then(function (r) {
+        return r.text();
+      }).then(function (html) {
+        acc = acc.concat(parseIssue(html, m));
+      }).catch(function () { }).then(function () {
+        done++;
+        if (done >= total) {
+          state.items = acc; state.loaded = true; state.building = false;
+          setNote('');
+          render();
+        } else {
+          setNote('正在载入往期全文… ' + done + '/' + total);
+        }
+      });
+    });
+  }
+
+  /* ---------- 载入 ---------- */
+  function setNote(s) {
+    state.buildMsg = s;
+    if (el.note) { el.note.textContent = s; el.note.style.display = s ? 'block' : 'none'; }
+    else if (s) { render(); }
+  }
+
+  function boot() {
+    fetch(ARCH, { cache: 'no-cache' }).then(function (r) { return r.text(); }).then(function (h) {
+      state.issues = readArchive(h);
+      return fetch(IDX, { cache: 'no-cache' }).then(function (r) {
+        if (!r.ok) throw new Error('no index');
+        return r.json();
+      });
+    }).then(function (idx) {
+      var ok = idx && idx.items && idx.items.length &&
+        idx.issues && idx.issues.length === state.issues.length;
+      if (!ok) throw new Error('stale index');
+      state.items = idx.items;
+      state.loaded = true;
+      render();
+    }).catch(function () {
+      if (!state.issues.length) { setNote('期次清单加载失败，请刷新重试。'); return; }
+      buildLive();
+    });
+  }
+
+  /* ---------- 检索 ---------- */
+  var FACET_ORGS = ['中车株机', '中车长客', '中车四方', '中车大连', '中车资阳', '中车唐山', '中国中车', '中车',
+    '中国通号', '卡斯柯', '中国中铁', '中铁二局', '中铁大桥局', '中铁隧道局', '中国铁建', '中国土木',
+    '中国交建', '中国电建', '中国能建', '中国水电', '京投', '阿尔斯通', '西门子', '斯塔德勒',
+    '日立', '川崎', '现代Rotem', 'CAF', 'Talgo', 'Wabtec', 'Progress Rail'];
+
+  function search() {
+    var ts = terms(state.q), i;
+    if (!ts.length) { state.hits = []; return; }
+    var hits = [];
+    for (i = 0; i < state.items.length; i++) {
+      var it = state.items[i];
+      var hay = low([it.no, it.d, it.id, it.p, it.reg, it.st, it.ti, it.su, it.pa, it.kw, it.pg, it.s1, it.s2, it.cf, it.cp].join(' '));
+      if (!allMatch(hay, ts)) continue;
+      var score = 0, j;
+      for (j = 0; j < ts.length; j++) {
+        if (low(it.ti).indexOf(ts[j]) >= 0) score += 5;
+        if (low(it.id).indexOf(ts[j]) >= 0) score += 6;
+        if (low(it.kw).indexOf(ts[j]) >= 0) score += 3;
+        if (low(it.reg + ' ' + it.p).indexOf(ts[j]) >= 0) score += 2;
+      }
+      it._s = score;
+      hits.push(it);
+    }
+    hits.sort(function (a, b) {
+      if (b._s !== a._s) return b._s - a._s;
+      return a.d === b.d ? 0 : (a.d < b.d ? 1 : -1);
+    });
+    state.hits = hits;
+  }
+
+  function facets() {
+    var regs = {}, orgs = {}, i, j;
+    var blob = state.hits.map(function (x) { return x.ti + ' ' + x.su + ' ' + x.pa; }).join(' ');
+    for (i = 0; i < state.hits.length; i++) {
+      var p = state.hits[i].p || '其他';
+      regs[p] = (regs[p] || 0) + 1;
+    }
+    for (j = 0; j < FACET_ORGS.length; j++) {
+      var o = FACET_ORGS[j];
+      var c = (blob.match(new RegExp(rxEsc(o), 'g')) || []).length;
+      if (c) orgs[o] = c;
+    }
+    var regArr = Object.keys(regs).map(function (k) { return [k, regs[k]]; }).sort(function (a, b) { return b[1] - a[1]; });
+    var orgArr = Object.keys(orgs).map(function (k) { return [k, orgs[k]]; }).sort(function (a, b) { return b[1] - a[1]; }).slice(0, 8);
+    return { regs: regArr, orgs: orgArr };
+  }
+
+  /* ---------- 渲染 ---------- */
+  function groupHits() {
+    var g = {}, order = [], i;
+    for (i = 0; i < state.hits.length; i++) {
+      var it = state.hits[i];
+      var key = state.g === 'region' ? (it.p || '其他') : (it.no + '|' + it.d);
+      if (!g[key]) { g[key] = []; order.push(key); }
+      g[key].push(it);
+    }
+    if (state.g === 'region') {
+      order.sort(function (a, b) { return g[b].length - g[a].length; });
+    } else {
+      order.sort(function (a, b) { return a < b ? 1 : -1; });
+    }
+    return order.map(function (k) { return { key: k, list: g[k] }; });
+  }
+
+  function itemHTML(it, ts) {
+    var href = it.href + (it.id ? '#' + encodeURIComponent(it.id) : '');
+    var meta = [];
+    if (state.g === 'region' && it.no) {
+      meta.push('<span class="chip chip-issue">' + esc(it.no) + '</span>');
+      meta.push('<span class="chip">' + esc(it.d) + '</span>');
+    } else if (it.d && state.g !== 'issue') {
+      meta.push('<span class="chip">' + esc(it.d) + '</span>');
+    }
+    if (it.reg) meta.push('<span class="chip">' + emph(it.reg, ts) + '</span>');
+    if (it.st) meta.push('<span class="chip">' + esc(it.st.slice(0, 28)) + '</span>');
+    var kws = (it.kw || '').split(/[;；]/).map(txt).filter(Boolean).slice(0, 5);
+
+    var h = '<article class="hit" id="' + esc(it.id || ('h' + Math.random().toString(36).slice(2, 8))) + '">';
+    h += '<div class="hit-h"><span class="hit-id">' + esc(it.id || '—') + '</span>' +
+      '<a class="hit-tit" href="' + esc(href) + '">' + emph(it.ti, ts) + '</a></div>';
+    if (meta.length) h += '<div class="hit-meta">' + meta.join('') + '</div>';
+    if (!state.dense && it.su) h += '<p class="hit-sum">' + emph(it.su, ts) + '</p>';
+    var foot = [];
+    if (kws.length) foot.push('<span class="hit-kw">' + kws.map(function (k) { return '<i>' + emph(k, ts) + '</i>'; }).join('') + '</span>');
+    if (it.s1) foot.push('<span class="hit-src">' + esc(it.s1.slice(0, 40)) + '</span>');
+    foot.push('<a class="hit-go" href="' + esc(href) + '">原文 →</a>');
+    h += '<div class="hit-f">' + foot.join('') + '</div>';
+    h += '</article>';
+    return h;
+  }
+
+  function render() {
+    var q = txt(state.q);
+    var ts = terms(q);
+    var total = state.items.length;
+
+    if (!q) {
+      el.kicker.textContent = '往期检索';
+      el.tit.innerHTML = '检索全部往期条目';
+      el.sub.innerHTML = '共 <b>' + total + '</b> 条 · ' + state.issues.length + ' 期 · 输入关键词后，所有命中条目会汇总到本页（按期次或按区域分组）';
+      el.facets.innerHTML = '';
+      el.tools.style.display = 'none';
+      var sug = ['中车', '中国通号', '越南', '雅万高铁', '盾构', '签约', '阿尔斯通', '达卡'];
+      el.list.innerHTML = '<div class="res-empty"><div class="re-t">试试这些检索</div><div class="re-chips">' +
+        sug.map(function (s) { return '<a class="re-chip" href="?q=' + encodeURIComponent(s) + '">' + esc(s) + '</a>'; }).join('') +
+        '</div><p class="re-p">也可以直接输入国家、城市、企业名、条目编号（如 CT-44）或金额/里程等文本片段。</p></div>';
+      document.title = '往期检索 · 轨道出海日报';
+      return;
+    }
+
+    search();
+    var n = state.hits.length, groups = groupHits();
+    var issuesHit = {}, i;
+    for (i = 0; i < state.hits.length; i++) issuesHit[state.hits[i].no] = 1;
+    var nIssue = Object.keys(issuesHit).length;
+    var dates = state.hits.map(function (x) { return x.d; }).sort();
+
+    el.kicker.textContent = '检索汇总';
+    el.tit.innerHTML = '「' + esc(q) + '」<span class="res-num">' + n + ' 条</span>';
+    el.sub.innerHTML = n
+      ? '覆盖 <b>' + nIssue + '</b> 期 · ' + esc(dates[0]) + ' ~ ' + esc(dates[dates.length - 1]) +
+        ' · 全部往期 ' + total + ' 条中命中 ' + n + ' 条'
+      : '全部往期 ' + total + ' 条中没有匹配内容';
+    document.title = '「' + q + '」检索汇总 · 轨道出海日报';
+
+    var f = facets(), fh = '';
+    if (f.regs.length) {
+      fh += '<div class="fc-row"><span class="fc-l">区域</span>' + f.regs.map(function (r) {
+        return '<a class="fc" href="?q=' + encodeURIComponent(q) + '&g=region">' + esc(r[0]) + '<b>' + r[1] + '</b></a>';
+      }).join('') + '</div>';
+    }
+    if (f.orgs.length) {
+      fh += '<div class="fc-row"><span class="fc-l">主体</span>' + f.orgs.map(function (o) {
+        return '<a class="fc" href="?q=' + encodeURIComponent(o[0]) + '">' + esc(o[0]) + '<b>' + o[1] + '</b></a>';
+      }).join('') + '</div>';
+    }
+    el.facets.innerHTML = fh;
+
+    if (!n) {
+      el.tools.style.display = 'none';
+      el.list.innerHTML = '<div class="res-empty"><div class="re-t">没有找到相关内容</div>' +
+        '<p class="re-p">换个说法试试：减少关键词数量（当前为「与」匹配）、用简称（如「中车」而非「中国中车股份有限公司」）、或改用国家/城市名。</p>' +
+        '<div class="re-chips"><a class="re-chip" href="archive.html">← 返回往期归档</a></div></div>';
+      return;
+    }
+
+    el.tools.style.display = 'flex';
+    var html = '';
+    for (i = 0; i < groups.length; i++) {
+      var g = groups[i], list = g.list, head;
+      if (state.g === 'region') {
+        head = '<h2 class="grp-h"><span class="grp-k">' + esc(g.key) + '</span>' +
+          '<span class="grp-c">' + list.length + ' 条</span></h2>';
+      } else {
+        var parts = g.key.split('|');
+        head = '<h2 class="grp-h"><span class="grp-k">' + esc(parts[0]) + '</span>' +
+          '<span class="grp-d">' + esc(parts[1]) + '</span>' +
+          '<span class="grp-c">' + list.length + ' 条</span></h2>';
+      }
+      html += '<section class="grp">' + head + '<div class="grp-b">' +
+        list.map(function (it) { return itemHTML(it, ts); }).join('') + '</div></section>';
+    }
+    el.list.innerHTML = html;
+
+    if (location.hash) {
+      var t = document.getElementById(location.hash.slice(1));
+      if (t) {
+        t.scrollIntoView({ block: 'center' });
+        t.classList.add('flash');
+        setTimeout(function () { t.classList.remove('flash'); }, 2200);
+      }
+    }
+  }
+
+  /* ---------- 复制 Markdown ---------- */
+  function toMarkdown() {
+    var q = txt(state.q), groups = groupHits();
+    var out = ['# 「' + q + '」检索汇总', '', '> 共 ' + state.hits.length + ' 条 · ' +
+      groups.length + ' 组 · 来源：轨道出海日报往期归档（检索页）', ''];
+    groups.forEach(function (g) {
+      var head = state.g === 'region' ? g.key : g.key.replace('|', ' · ');
+      out.push('## ' + head + '（' + g.list.length + ' 条）', '');
+      g.list.forEach(function (it) {
+        out.push('- **' + (it.id || '—') + '** ' + it.ti);
+        if (it.reg) out.push('  - 区域：' + it.reg);
+        if (it.st) out.push('  - 阶段：' + it.st);
+        if (it.su) out.push('  - 摘要：' + it.su);
+        if (it.pg) out.push('  - 进度：' + it.pg);
+        if (it.s1) out.push('  - 来源：' + it.s1 + (it.u ? ' ' + it.u : ''));
+        out.push('  - 原文：' + location.origin + '/' + it.href + (it.id ? '#' + it.id : ''));
+      });
+      out.push('');
+    });
+    return out.join('\n');
+  }
+
+  function copyMd() {
+    var md = toMarkdown();
+    var done = function (ok) {
+      var b = document.getElementById('btn-copy');
+      var old = b.textContent;
+      b.textContent = ok ? '已复制 ' + state.hits.length + ' 条' : '复制失败，请手动选择';
+      setTimeout(function () { b.textContent = old; }, 1800);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(md).then(function () { done(true); }).catch(function () { fallback(md, done); });
+    } else { fallback(md, done); }
+  }
+  function fallback(md, done) {
+    var ta = document.createElement('textarea');
+    ta.value = md; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    try { done(document.execCommand('copy')); } catch (e) { done(false); }
+    document.body.removeChild(ta);
+  }
+
+  /* ---------- 事件 ---------- */
+  function setQuery(q, push) {
+    state.q = q;
+    if (el.input.value !== q) el.input.value = q;
+    var u = location.pathname + '?q=' + encodeURIComponent(q) + (state.g === 'region' ? '&g=region' : '');
+    try {
+      if (push) history.pushState({ q: q }, '', q ? u : location.pathname);
+      else history.replaceState({ q: q }, '', q ? u : location.pathname);
+    } catch (e) { }
+    render();
+  }
+
+  var timer = null;
+  el.form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    clearTimeout(timer);
+    setQuery(txt(el.input.value), true);
+  });
+  el.input.addEventListener('input', function () {
+    clearTimeout(timer);
+    el.clear.style.display = el.input.value ? 'block' : 'none';
+    timer = setTimeout(function () { setQuery(txt(el.input.value), false); }, 260);
+  });
+  el.clear.addEventListener('click', function () {
+    el.input.value = '';
+    el.clear.style.display = 'none';
+    setQuery('', true);
+    el.input.focus();
+  });
+  document.getElementById('seg-g').addEventListener('click', function (e) {
+    var b = e.target.closest('button');
+    if (!b) return;
+    Array.prototype.forEach.call(this.querySelectorAll('button'), function (x) { x.classList.remove('on'); });
+    b.classList.add('on');
+    state.g = b.getAttribute('data-g');
+    render();
+  });
+  document.getElementById('seg-d').addEventListener('click', function (e) {
+    var b = e.target.closest('button');
+    if (!b) return;
+    Array.prototype.forEach.call(this.querySelectorAll('button'), function (x) { x.classList.remove('on'); });
+    b.classList.add('on');
+    state.dense = b.getAttribute('data-d') === 'dense';
+    render();
+  });
+  document.getElementById('btn-copy').addEventListener('click', copyMd);
+  document.getElementById('btn-print').addEventListener('click', function () { window.print(); });
+
+  document.addEventListener('keydown', function (e) {
+    var tag = (document.activeElement && document.activeElement.tagName) || '';
+    var typing = tag === 'INPUT' || tag === 'TEXTAREA';
+    if ((e.key === 'k' || e.key === 'K') && (e.metaKey || e.ctrlKey)) {
+      e.preventDefault(); el.input.focus(); el.input.select();
+    } else if (e.key === '/' && !typing) {
+      e.preventDefault(); el.input.focus();
+    } else if (e.key === 'Escape' && typing) {
+      el.input.blur();
+    }
+  });
+  window.addEventListener('popstate', function () {
+    state.q = qs('q');
+    el.input.value = state.q;
+    render();
+  });
+
+  /* ---------- 启动 ---------- */
+  state.q = qs('q');
+  state.g = qs('g') === 'region' ? 'region' : 'issue';
+  el.input.value = state.q;
+  if (state.q) el.clear.style.display = 'block';
+  if (state.g === 'region') {
+    Array.prototype.forEach.call(document.querySelectorAll('#seg-g button'), function (b) {
+      b.classList.toggle('on', b.getAttribute('data-g') === 'region');
+    });
+  }
+  el.tit.textContent = '载入中…';
+  boot();
+})();
+
+</script>
+</body>
+</html>

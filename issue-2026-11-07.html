@@ -467,7 +467,7 @@ mark.srch-mark{background:#fff1a8;color:#111;padding:0 1px;border-radius:2px}
   var EXPECTED="f9a082556f5b9a0b162093a6a64fef36956469d0d587e4eee346f43462298bc1";
   var gateBox=document.getElementById('gate');
   function reveal(){ if(gateBox&&gateBox.parentNode) gateBox.parentNode.removeChild(gateBox); document.body.style.overflow=''; }
-  var GKEY='portal_unlocked_v3',GTTL=7*24*3600*1000; try{ var _gt=parseInt(localStorage.getItem(GKEY)||'0',10); if(_gt && (Date.now()-_gt)<GTTL){ reveal(); return; } }catch(e){}
+  var GKEY='portal_unlocked_v3',GTTL=0; try{ var _gt=parseInt(localStorage.getItem(GKEY)||'0',10); if(_gt && (Date.now()-_gt)<GTTL){ reveal(); return; } }catch(e){}
   document.body.style.overflow='hidden';
   function sha256Hex(str){
     return crypto.subtle.digest('SHA-256', new TextEncoder().encode(str))

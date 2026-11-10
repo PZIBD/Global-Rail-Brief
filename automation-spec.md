@@ -1,10 +1,11 @@
-# 轨道出海日报 · 云端编纂规范 automation-spec v2.2（2026-11-10 起生效）
+# 轨道出海日报 · 云端编纂规范 automation-spec v2.3（2026-11-10 起生效）
 
 > 本文件是《轨道出海日报》云端自动化的完整规范，由任务提示词在运行时拉取并严格执行。
 > 凭据（social.env / .deploy.env）与社媒采集命令（YouTube / X / FB）只存在于任务提示词中，本文件不含任何密钥。
 > 08:00 主任务执行全部章节；08:30 兜底补刊任务无社媒环节——跳过【1.5】与【7】，社媒漏斗行写「本次未采集社媒」。
 > 2026-11-10 修订：新增【2】信源优先级（T1/T2/T3）、硬校验⑭信源合规、收尾「信源构成」汇报。
 > v2.2（2026-11-10 下午）：①采集四态写实——平台失败/空占位禁止写成「X=0 窗口内无帖」；②社媒后缀硬校验——采用必标 [FB]/[X]/[YT]，计数入硬校验。
+> v2.3（2026-11-10 傍晚）：FB 监控主页由 16 页扩至 33 页，六区全国家覆盖、与中资所在国同权重（清单见【1.5】末），resultsLimit 100→150；FB 清单以本文件为唯一数据源，提示词与巡检均引用本清单。
 
 【常量】页面节点 8HfJr5vgOgyrZUs8DQbgG1；公开链接 https://workbuddy.link/p/8HfJr5vgOgyrZUs8DQbgG1；发布=import_html.py 覆写该节点（--node-block-id 8HfJr5vgOgyrZUs8DQbgG1）+publish_page.py，严禁新链接。基线：state=bwvUwWzm4FULx4mhyoL7sS、items=5hu65Z4FRfofjuiJKWmJRQ、sentiment=uILbx3ZGazK3tsfoGI1xkl（覆写时 id 不变）。版式模板＝固定链接当前线上页面的 CSS 与类名（蓝扁平单栏版式），结构与校验以【4 成稿】为准；rail-daily-1022.app.workbuddy.host 旧站已停用，不再作为版式来源。往期归档页=https://pzibd.github.io/Global-Rail-Brief/archive.html；检索汇总页=https://pzibd.github.io/Global-Rail-Brief/search.html（2026-11-09 起镜像仓库已由 xxuwuming-lang/rail-export-portal 迁移为 PZIBD/Global-Rail-Brief，旧域名 xxuwuming-lang.github.io 已 404，任何页面与脚本严禁再引用旧域名）。先加载 library 技能，确认 import_html/publish_page/get_download_link/upload_drive_file 四脚本可用。
 
@@ -16,6 +17,8 @@
 
 【1.5 社媒采集】（命令与凭据见任务提示词；本节为归一化规则）三份返回一律丢弃错误占位项（含 error 字段、url 为 /api/graphql 或 /photo/?、text 为空），只留真实帖子；非中英文帖须译成中文摘要，主体、金额、里程、时间按原文事实保留。归一为 {platform,author,published_at,text,url,metrics}，只留窗口内，写 /workspace/social.json 并记 sources；单平台失败只记录不中断。
 采集四态写实（v2.2，最高约束）：每平台状态只能取四值之一并如实写入 sources 与 state note——`ok(n)`＝HTTP 200 且返回体可解析；`error(原因)`＝HTTP 非 200 / curl 超时 / 返回体非法，须附一句原因；`noResults`＝HTTP 200 但返回体为合法空集或 {"noResults":true}；`skipped`＝凭据缺失。error 与 noResults 一律重试 1 次（间隔 30 秒）后按最终状态记录。**严禁把 error 或 noResults 写成「X=0，窗口内无帖」等正常零结果表述**；state.json note 必须按四态写实（如「X=0(error:curl timeout)」），且任一平台为 error/noResults 时编务声明须写「本期 X 源采集异常，数据可能缺失」。
+
+FB 监控主页清单（v2.3 定稿，33 页，六区全国家覆盖、与中资所在国同权重；提示词【1.5】③的 FB 串须与本清单逐字一致，巡检按本清单核零产出与 resultsLimit=150）。中东·独联体 4：qatarrail(卡塔尔)、SARSaudiRailway(沙特 SAR)、tcddtasimacilikgovtr(土耳其 TCDD)、EtihadRail(阿联酋)；东南亚 9：ktmberhad(马来 KTM)、keretaapikita(印尼 KAI)、DOTrPH(菲律宾交通部)、srt.thailand(泰国国铁)、duongsatvietnam(越南铁总)、smrt.singapore(新加坡 SMRT)、myrapid(马来 Rapid KL)、MRTMalaysia(马来 MRT Corp)、btsskytrain(曼谷 BTS)；拉美 9：MetroBogota(哥伦比亚波哥大)、metrodemedellin(哥伦比亚麦德林)、efe.chile(智利 EFE)、metrosantiago(智利圣地亚哥)、trenesargentinosop(阿根廷)、TrenMayaOficial(墨西哥玛雅铁路)、MetroCDMX(墨西哥城)、elmetrodepanama(巴拿马)、QuitoMetro(厄瓜多尔基多)；非洲 3：ReliKenya(肯尼亚)、Enreg(埃及 ENR)、prasagroupcorporate(南非 PRASA)；南亚·大洋洲 4：IndianRailways(印度)、PakistanRailways(巴基斯坦)、RailMinistryBD(孟加拉铁道部)、QueenslandRail(昆士兰)；跨区域·竞品 4：mavcsoport(匈牙利 MÁV)、mtrhk(中国香港 MTR)、Alstom、SiemensMobility（欧洲厂商仅作竞争参照，PR 类收录须标「仅作竞争参照」）。新增 19 页的验真依据：11 页由 Apify 实抓真实帖确认、8 页由官方来源（政府站点/Wikidata/官方 PDF）确认 vanity；验证须每批 ≤4 个 URL、批间隔 ≥5 秒，否则 FB 限流会整批返回 error 造成误判。待补验（风控解除后追加，暂不入清单）：RoyalRailwayCambodia、MyanmaRailways、UzbekRailways、GeorgianRailway、ktzh、TanzaniaRailwaysCorporation、EthiopianRailwayCorporation、NRCNigeria、SriLankaRailway、metrotrains(墨尔本)、transportnsw(悉尼)、oncf(摩洛哥)。
 
 【2 检索定级】六区（东南亚/中东·独联体/拉美/非洲/南亚·大洋洲/跨区域）WebSearch 查窗口内出海动态（招投标/新规划/展会/新产品，中标/签约/交付、中车通号中铁铁建中交、政策招标），检索词当地语言+英文双语。social.json 并入候选池，来源标 [YT]/[X]/[FB]。
 信源优先级（2026-11-10 修订，检索最高约束）：以一手信源为收录目标，优先级 T1＞T2＞T3——

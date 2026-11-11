@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>轨道出海日报 第8期（2026年11月11日）</title>
+<style>
+:root{--blue:#0a4ea3;--blue-d:#0b3d6b;--blue-l:#0b5fa5;--ink:#16202e;--mut:#5b6b7e;--line:#e8eef6;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'PingFang SC','Microsoft YaHei',sans-serif;background:#eef2f7;color:var(--ink);line-height:1.6;}
+.wrap{max-width:920px;margin:0 auto;padding:18px 16px 40px;}
+.page-nav{display:flex;justify-content:flex-end;gap:10px;margin-bottom:12px;}
+.nav-current{background:#0b2545;color:#fff;padding:7px 16px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none;}
+.nav-arch{background:#eef1f6;color:#42556e;border:1px solid #d5dde8;padding:7px 16px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none;}
+header.rd-header{background:linear-gradient(135deg,#0b3d6b,#0b5fa5);border-radius:14px;padding:22px 24px;color:#fff;box-shadow:0 8px 24px rgba(11,61,107,.25);}
+header.rd-header h1{margin:0;font-size:25px;font-weight:800;letter-spacing:.5px;}
+.rd-header .rd-date{font-size:14px;font-weight:400;opacity:.85;margin-left:8px;}
+.rd-sub{margin:8px 0 0;font-size:14px;opacity:.92;}
+.rd-meta{margin:10px 0 0;font-size:12.5px;opacity:.82;}
+.srch srch-page,.srch-page{margin:14px 0 0;}
+.srch-in{max-width:920px;}
+.srch-box{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #d5dde8;border-radius:12px;padding:9px 12px;box-shadow:0 2px 8px rgba(11,61,107,.06);}
+.srch-ico{width:18px;height:18px;color:#5b6b7e;flex:none;}
+.srch-input{flex:1;border:none;outline:none;font-size:14px;background:transparent;color:#16202e;}
+.srch-clear{border:none;background:#eef1f6;color:#5b6b7e;width:24px;height:24px;border-radius:50%;cursor:pointer;font-size:16px;line-height:1;}
+.srch-kbd{font-size:11px;color:#9aa7b6;border:1px solid #d5dde8;border-radius:4px;padding:1px 6px;}
+.srch-panel{margin-top:6px;background:#fff;border:1px solid #d5dde8;border-radius:10px;max-height:320px;overflow:auto;display:none;}
+.srch-panel.show{display:block;}
+.srch-panel .srch-it{padding:9px 12px;border-bottom:1px solid #eef2f7;cursor:pointer;}
+.srch-panel .srch-it:hover{background:#f3f8ff;}
+.srch-panel .srch-it b{color:#0a4ea3;}
+.rd-toc{background:#fff;border:1px solid #d5dde8;border-radius:12px;padding:11px 16px;margin:14px 0 0;font-size:13.5px;}
+.rd-toc b{color:#42556e;margin-right:6px;}
+.rd-toc a{color:#0a4ea3;text-decoration:none;margin:0 9px 0 0;white-space:nowrap;}
+.rd-toc a:hover{text-decoration:underline;}
+section#overview{margin:18px 0 0;}
+.overview{background:#fff;border:1px solid #d5dde8;border-left:5px solid var(--blue);border-radius:10px;padding:14px 16px;font-size:14.5px;line-height:1.8;color:#16202e;}
+.schema-note{font-size:12px;color:#5b6b7e;margin:10px 0 0;line-height:1.7;}
+details.part{margin:20px 0 0;scroll-margin-top:14px;}
+details.part>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;background:linear-gradient(180deg,#f5f9fe,#eaf1fa);border:1px solid #dbe6f4;border-left:5px solid #0a4ea3;border-radius:10px;padding:11px 16px;user-select:none;}
+summary:hover{background:#e4edfa;border-color:#c6d8ee;}
+summary::-webkit-details-marker{display:none;}
+summary::marker{content:"";}
+summary h2{margin:0;padding:0;border:none;flex:1;font-size:19px;line-height:1.45;color:#0a4ea3;font-weight:700;}
+.rcount{font-size:13px;font-weight:400;color:#5b6b7e;}
+.fold-ind{display:flex;align-items:center;gap:6px;font-size:12.5px;color:#42556e;background:#fff;border:1px solid #d5dde8;border-radius:14px;padding:2px 11px;white-space:nowrap;}
+.chev{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid #42556e;transition:transform .2s;}
+details.part[open] .chev{transform:rotate(180deg);}
+.fi-open{display:inline;}.fi-close{display:none;}
+details.part[open] .fi-open{display:none;}details.part[open] .fi-close{display:inline;}
+details.part[open]>summary{border-bottom-left-radius:0;border-bottom-right-radius:0;}
+.part-body{padding-top:10px;}
+.card{background:#fff;border:1px solid #e3ebf5;border-radius:10px;margin:0 0 12px;overflow:hidden;scroll-margin-top:14px;}
+.chead{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:linear-gradient(90deg,#eaf1fb,#f6f9fe);border-bottom:1px solid #e3ebf5;padding:9px 14px;}
+.cid{font-weight:800;color:#0a4ea3;font-size:14px;}
+.ccat{font-size:11px;background:#0a4ea3;color:#fff;padding:1px 8px;border-radius:10px;}
+.ctitle{font-size:14px;font-weight:600;color:#16202e;flex:1;min-width:200px;}
+.cbadge{font-size:11.5px;color:#42556e;background:#eef3fb;border:1px solid #dbe6f4;border-radius:10px;padding:1px 9px;}
+.frow{display:flex;border-bottom:1px solid #e8eef6;}
+.frow:last-child{border-bottom:none;}
+.fl{flex:0 0 108px;background:#eef3fb;color:#42556e;font-size:12.5px;padding:6px 10px;border-right:1px solid #e4ebf5;}
+.fv{flex:1;padding:6px 12px;font-size:13px;line-height:1.55;}
+.fv a{color:#0a4ea3;text-decoration:none;border-bottom:1px dotted #9db8d4;}
+.fv a:hover{color:#0b3d6b;border-bottom-color:#0b3d6b;}
+.frow.r-content .fv{padding:9px 14px;font-size:13.5px;line-height:1.78;min-height:72px;text-align:justify;}
+.frow .fv strong{font-weight:700;color:#111;}
+.frow.r-meta .fl{font-size:12px;}
+.frow.r-meta .fv{font-size:12px;line-height:1.45;color:#3d4a5c;padding:5px 12px;}
+.empty{color:#8b99a8;font-size:13.5px;padding:14px 4px;}
+.jump{color:#0a4ea3;}
+muted,.muted{color:#8b99a8;}
+p.muted{font-size:13px;color:#5b6b7e;line-height:1.7;margin:0 0 12px;}
+.po-legend{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px;}
+.po-legend .lg{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid #d5dde8;border-radius:16px;padding:5px 13px;font-size:12.5px;color:#42556e;cursor:pointer;}
+.po-legend .lg.on{background:#0b2545;color:#fff;border-color:#0b2545;}
+.po-legend .dot{width:9px;height:9px;border-radius:50%;display:inline-block;}
+.po-list{display:flex;flex-direction:column;gap:10px;}
+details.po{background:#fff;border:1px solid #e3ebf5;border-left:4px solid #7a899b;border-radius:9px;overflow:hidden;}
+details.po[data-s="pos"]{border-left-color:#c73a30;}
+details.po[data-s="poslean"]{border-left-color:#c96f14;}
+details.po[data-s="mixed"]{border-left-color:#c96f14;}
+details.po[data-s="neutral"]{border-left-color:#5b6b7e;}
+details.po[data-s="flat"]{border-left-color:#7a899b;}
+details.po[data-s="neg"]{border-left-color:#1e8e5a;}
+details.po>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:10px 14px;background:#fafcff;}
+details.po>summary::-webkit-details-marker{display:none;}
+.po-id{font-weight:800;color:#0a4ea3;font-size:13px;background:#eaf1fb;border-radius:6px;padding:2px 8px;}
+.po-main{flex:1;min-width:0;}
+.po-title{font-weight:700;font-size:14px;color:#16202e;}
+.po-sub{display:block;font-size:11.5px;color:#5b6b7e;margin-top:2px;}
+.po-focus{font-size:11px;color:#42556e;background:#fff4e6;border:1px solid #f0d9b5;border-radius:10px;padding:1px 9px;}
+.po-sent{font-size:11.5px;font-weight:700;color:#fff;border-radius:10px;padding:2px 10px;white-space:nowrap;}
+.s-pos{background:#c73a30;}.s-poslean{background:#c96f14;}.s-mixed{background:#c96f14;}.s-neutral{background:#5b6b7e;}.s-flat{background:#7a899b;}.s-neg{background:#1e8e5a;}
+details.po .chev{margin-left:4px;}
+.po-body{padding:6px 14px 12px;}
+.po-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px 22px;}
+.po-row{display:flex;gap:8px;padding:5px 0;border-bottom:1px dashed #eef2f7;font-size:12.5px;}
+.po-row.wide{grid-column:1 / -1;}
+.po-row .pl{flex:0 0 62px;color:#5b6b7e;}
+.po-row .pv{flex:1;color:#3d4a5c;}
+.po-row .pv a{color:#0a4ea3;text-decoration:none;border-bottom:1px dotted #9db8d4;}
+.po-hidden{display:none;}
+
+/* ---- 站内搜索（顶部检索条） ---- */
+.srch{font-family:inherit;color:#16202b}
+.srch-in{position:relative}
+.srch-box{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #dbe3ec;
+  border-radius:12px;padding:0 12px 0 14px;height:46px;box-shadow:0 1px 2px rgba(11,37,69,.05);
+  transition:border-color .15s,box-shadow .15s}
+.srch-box:focus-within{border-color:#0b5fa5;box-shadow:0 0 0 3px rgba(11,95,165,.10)}
+.srch-ico{flex:0 0 18px;width:18px;height:18px;color:#8a99a8}
+.srch-input{flex:1;min-width:0;border:0;outline:0;background:transparent;height:100%;
+  font-size:14.5px;font-family:inherit;color:#16202b}
+.srch-input::placeholder{color:#9aa8b6}
+.srch-input::-webkit-search-cancel-button{display:none}
+.srch-kbd{font-size:11px;color:#8a99a8;border:1px solid #dbe3ec;border-radius:5px;
+  padding:1px 6px;background:#f7fafc;line-height:1.5}
+.srch-clear{display:none;border:0;background:#eef1f6;color:#5b6b7e;width:22px;height:22px;
+  border-radius:50%;cursor:pointer;font-size:15px;line-height:1;padding:0;flex:0 0 22px}
+.srch-clear:hover{background:#e2e7ef;color:#15233b}
+.srch.on .srch-clear{display:block}
+.srch-stat{font-size:12.5px;color:#6b7a8c;padding:7px 2px 0;line-height:1.5}
+.srch-stat:empty{display:none}
+.srch-panel{display:none;position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:90;
+  background:#fff;border:1px solid #dbe3ec;border-radius:12px;box-shadow:0 16px 44px rgba(11,37,69,.16);
+  max-height:min(64vh,480px);overflow:auto;overscroll-behavior:contain}
+.srch.on .srch-panel.has{display:block}
+.srch-sum{padding:9px 16px;font-size:12.5px;color:#6b7a8c;border-bottom:1px solid #eef1f6;
+  background:#fbfcfe;position:sticky;top:0;z-index:1}
+.srch-item{display:block;padding:10px 16px;border-bottom:1px solid #f2f5f9;text-decoration:none;
+  color:inherit;cursor:pointer}
+.srch-item:last-child{border-bottom:0}
+.srch-item:hover,.srch-item.cur{background:#f2f7fd}
+.srch-item.cur{box-shadow:inset 3px 0 0 #0b5fa5}
+.srch-meta{display:flex;align-items:center;gap:8px;font-size:11.5px;color:#7b8899;margin-bottom:2px;
+  white-space:nowrap;overflow:hidden}
+.srch-id{font-family:Consolas,"SFMono-Regular",monospace;font-weight:700;color:#0a4ea3}
+.srch-tag{background:#eef3fb;color:#42556e;border-radius:4px;padding:0 6px}
+.srch-issue{background:#0b2545;color:#fff;border-radius:10px;padding:0 8px;font-weight:700}
+.srch-sub{overflow:hidden;text-overflow:ellipsis}
+.srch-tit{font-size:14px;font-weight:600;color:#15233b;line-height:1.45}
+.srch-snip{font-size:12.5px;color:#5b6b7e;margin-top:3px;line-height:1.55}
+.srch-snip em,.srch-tit em,.srch-sum em{font-style:normal;background:#fff1a8;color:#111;border-radius:2px;padding:0 1px}
+.srch-empty{padding:16px 16px;font-size:13px;color:#7b8899;line-height:1.7}
+.srch-empty b{color:#0a4ea3}
+mark.srch-mark{background:#fff1a8;color:#111;padding:0 1px;border-radius:2px}
+@keyframes srchFlash{0%{box-shadow:0 0 0 0 rgba(11,95,165,0)}12%{box-shadow:0 0 0 4px rgba(11,95,165,.42)}100%{box-shadow:0 0 0 0 rgba(11,95,165,0)}}
+.srch-flash{animation:srchFlash 1.9s ease}
+.srch-page{margin:0 0 14px}
+.srch-arch{max-width:1080px;margin:16px auto 0;padding:0 20px}
+@media(max-width:640px){
+  .srch-kbd{display:none}
+  .srch-box{height:44px}
+  .srch-input{font-size:16px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="page-nav">
+    <a class="nav-current" href="https://workbuddy.link/p/8HfJr5vgOgyrZUs8DQbgG1">最新一期</a>
+    <a class="nav-arch" href="https://pzibd.github.io/Global-Rail-Brief/archive.html">往期归档</a>
+  </div>
+  <header class="rd-header">
+    <h1>轨道出海日报 第8期 <span class="rd-date">2026年11月11日 星期三</span></h1>
+    <p class="rd-sub">海外市场情报 · 中国轨道交通/铁路装备出海每日监测</p>
+    <p class="rd-meta">监测窗口：2026-11-10 00:00 ~ 2026-11-11 00:00 (+0800)</p>
+  </header>
+  <div class="srch srch-page" id="srch"><div class="srch-in"><div class="srch-box"><svg class="srch-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20.2 20.2 16.6 16.6"></path></svg><input class="srch-input" type="text" autocomplete="off" spellcheck="false" aria-label="搜索本期内容" placeholder="搜索本期：关键词 / 国家 / 企业 / 条目编号，如 越南、中车、CT-44"><button class="srch-clear" type="button" aria-label="清空搜索">×</button><kbd class="srch-kbd">/</kbd></div><div class="srch-panel" role="listbox" aria-label="搜索结果"></div></div></div>
+  <div class="rd-toc"><b>目录：</b><a href="#overview">总览</a><a href="#part01">东南亚</a><a href="#part02">中东·独联体</a><a href="#part03">拉美</a><a href="#part04">非洲</a><a href="#part05">南亚·大洋洲</a><a href="#part06">跨区域</a><a href="#part07">舆情25条</a></div>
+  <section id="overview">
+    <div class="overview">本期六区共新增 10 条出海动态：东南亚2单（巴厘岛/ECRL）、中东·独联体2单（货车/土建）、拉美2单（波哥大/贝洛）、非洲2单（阿尔及利亚/埃塞）、南亚·大洋洲1单（印度参照）、跨区域1单（贝尔格莱德）；舆情25条持平。</div>
+    <p class="schema-note"><b>编号说明：</b>编号说明：CT＝城市轨道（地铁/轻轨/单轨等整车与系统）；RW＝干线铁路（国铁/城际/中吉乌等干线及中欧班列）；PL＝政策与前期（规划/招标/政策）；PR＝竞品与产品（欧洲厂商等竞品动态与新产品，仅作竞争参照）；PO＝舆情跟踪（在执项目舆情监测）。</p>
+  </section>
+  <details class="part" id="part01"><summary><h2>PART01 · 东南亚 <span class="rcount">（2 条）</span></h2><span class="fold-ind"><span class="chev"></span><span class="fi-open">展开</span><span class="fi-close">收起</span></span></summary><div class="part-body"><div class="card" id="RW-56"><div class="chead"><span class="cid">RW-56</span><span class="ccat">东南亚</span><span class="ctitle">印尼 KAI 规划巴厘岛铁路网约1.2亿美元</span><span class="cbadge">前期规划</span></div><div class="cbody"><div class="frow "><span class="fl">区域/国家/城市</span><span class="fv">东南亚 / 印度尼西亚 / 巴厘岛</span></div><div class="frow "><span class="fl">阶段</span><span class="fv">前期规划</span></div><div class="frow "><span class="fl">资讯</span><span class="fv">印尼 KAI 规划巴厘岛铁路网约1.2亿美元</span></div><div class="frow r-content"><span class="fl">内容</span><span class="fv">印尼国家铁路公司 KAI 总裁 Bobby Rasyidin <strong>2026-11-09</strong> 在总统府披露，公司已为巴厘岛轨道交通划拨 <strong>约2万亿印尼盾（约1.2亿美元）</strong> 预算，项目分 <strong>两阶段、工期约两年</strong>：一期连接伍拉·赖国际机场与 Legian，二期延伸至 Canggu，服务日均 <strong>15万人次</strong> 的机场—Canggu 走廊；9 月巴厘省、Badung 县与 KAI 已签署电池动力电车（ART）协议。（回溯：11-09）</span></div><div class="frow "><span class="fl">相关方</span><span class="fv">印尼国家铁路公司 KAI、普拉博沃总统</span></div><div class="frow "><span class="fl">关键词</span><span class="fv">巴厘岛;电池动力电车;国家预算;机场-Canggu</span></div><div class="frow "><span class="fl">进度/时间</span><span class="fv">2026-11-09 披露预算；拟2027年开工、两期两年</span></div><div class="frow "><span class="fl">竞品/交叉</span><span class="fv">—</span></div><div class="frow r-meta"><span class="fl">主源</span><span class="fv"><a href="https://www.thestar.com.my/aseanplus/aseanplus-news/2026/11/09/kai-plans-us120-million-railway-network-in-bali-to-ease-traffic-congestion" target="_blank" rel="noopener">The Star（引安塔拉通讯社 Antara），2026-11-09</a></span></div><div class="frow r-meta"><span class="fl">佐证源</span><span class="fv">安塔拉通讯社（Antara）官方口径、KAI 官方公告</span></div><div class="frow r-meta"><span class="fl">置信度</span><span class="fv">B（国家通讯社 Antara 官方一手，口径明确）</span></div><div class="frow r-meta"><span class="fl">语种/备注</span><span class="fv">印尼语 / 中文摘要</span></div></div></div><div class="card" id="RW-61"><div class="chead"><span class="cid">RW-61</span><span class="ccat">东南亚</span><span class="ctitle">马来西亚 ECRL 首阶段移交业主并启动试运营</span><span class="cbadge">系统移交</span></div><div class="cbody"><div class="frow "><span class="fl">区域/国家/城市</span><span class="fv">东南亚 / 马来西亚 / 哥打峇鲁-鹅唛</span></div><div class="frow "><span class="fl">阶段</span><span class="fv">系统移交/试运营</span></div><div class="frow "><span class="fl">资讯</span><span class="fv">马来西亚 ECRL 首阶段移交业主 MRL 并启动试运营</span></div><div class="frow r-content"><span class="fl">内容</span><span class="fv">马来西亚铁路衔接公司（MRL）2026-<strong>11-07</strong> 宣布，中交建（CCCECRL）将东海岸铁路 <strong>首阶段 523 公里（哥打峇鲁—鹅唛）</strong> 正式移交业主，同步启动试运营至 12-02；首班试运列车 07:00 自鹅唛出发，<strong>88 分钟</strong> 抵达关丹 KotaSAS，最高时速 160 公里，客运计划 <strong>12-12</strong> 开通，经济舱票价自 RM125 起。（回溯：11-07；跟进·上期#RW-50）</span></div><div class="frow "><span class="fl">相关方</span><span class="fv">马来西亚铁路衔接公司 MRL、中国交通建设（CCCECRL）</span></div><div class="frow "><span class="fl">关键词</span><span class="fv">ECRL;首阶段移交;试运营;12-12开通</span></div><div class="frow "><span class="fl">进度/时间</span><span class="fv">2026-11-07 移交+试运营启动；2026-12-12 客运开通</span></div><div class="frow "><span class="fl">竞品/交叉</span><span class="fv">中交建联营体；二期延伸至巴生港在建</span></div><div class="frow r-meta"><span class="fl">主源</span><span class="fv"><a href="https://www.bernama.com/en/general/news.php?id=2631410" target="_blank" rel="noopener">马来西亚国家通讯社 Bernama，2026-11-07</a></span></div><div class="frow r-meta"><span class="fl">佐证源</span><span class="fv">MRL 官方声明；YouTube 东铁试运营报道 [YT]</span></div><div class="frow r-meta"><span class="fl">置信度</span><span class="fv">A（业主官方 MRL + 国家通讯社 Bernama 双源互证）</span></div><div class="frow r-meta"><span class="fl">语种/备注</span><span class="fv">英语 / 中文摘要</span></div></div></div></div></details><details class="part" id="part02"><summary><h2>PART02 · 中东·独联体 <span class="rcount">（2 条）</span></h2><span class="fold-ind"><span class="chev"></span><span class="fi-open">展开</span><span class="fi-close">收起</span></span></summary><div class="part-body"><div class="card" id="RW-57"><div class="chead"><span class="cid">RW-57</span><span class="ccat">中东·独联体</span><span class="ctitle">阿联酋 Etihad Rail 与 CRRC 签 842 辆货车协议</span><span class="cbadge">签约</span></div><div class="cbody"><div class="frow "><span class="fl">区域/国家/城市</span><span class="fv">中东·独联体 / 阿联酋 / 全国路网</span></div><div class="frow "><span class="fl">阶段</span><span class="fv">签约</span></div><div class="frow "><span class="fl">资讯</span><span class="fv">阿联酋 Etihad Rail 与 CRRC 签订 842 辆货车协议</span></div><div class="frow r-content"><span class="fl">内容</span><span class="fv">阿联酋国家铁路公司 Etihad Rail <strong>2026-11-10</strong> 与中国中车（CRRC）签订协议，采购并投运 <strong>842 辆</strong> 新货车，车队规模将 <strong>增至逾 1000 辆</strong>（三倍），年货运能力 <strong>提升 8 倍至 5900 万吨</strong>；签约由 Etihad Rail CEO Shadi Malak 与中车长江集团副总裁王宏伟在谢赫·泽亚卜见证下完成，货车按 GCC 要求定制制动/信号/通信系统。</span></div><div class="frow "><span class="fl">相关方</span><span class="fv">Etihad Rail、中国中车 CRRC（长江集团）</span></div><div class="frow "><span class="fl">关键词</span><span class="fv">Etihad Rail;CRRC;842辆货车;年运力5900万吨</span></div><div class="frow "><span class="fl">进度/时间</span><span class="fv">2026-11-10 线上签约；随二期完工投运</span></div><div class="frow "><span class="fl">竞品/交叉</span><span class="fv">欧洲厂商未参与；纯中企供货</span></div><div class="frow r-meta"><span class="fl">主源</span><span class="fv"><a href="https://english.mubasher.info/news/3676583/Etihad-Rail-China-s-CRRC-ink-agreement-for-842-wagons" target="_blank" rel="noopener">Etihad Rail 官方新闻稿（经 Mubasher 发布），2026-11-10</a></span></div><div class="frow r-meta"><span class="fl">佐证源</span><span class="fv">Gulf Construction、Khaleej Times、Construction Week 报道</span></div><div class="frow r-meta"><span class="fl">置信度</span><span class="fv">A（业主官方一手新闻稿）</span></div><div class="frow r-meta"><span class="fl">语种/备注</span><span class="fv">英语 / 中文摘要</span></div></div></div><div class="card" id="RW-58"><div class="chead"><span class="cid">RW-58</span><span class="ccat">中东·独联体</span><span class="ctitle">阿联酋 Etihad Rail 授标中企联合体46亿迪拉姆土建合同</span><span class="cbadge">授标</span></div><div class="cbody"><div class="frow "><span class="fl">区域/国家/城市</span><span class="fv">中东·独联体 / 阿联酋 / 阿布扎比-迪拜</span></div><div class="frow "><span class="fl">阶段</span><span class="fv">授标</span></div><div class="frow "><span class="fl">资讯</span><span class="fv">阿联酋 Etihad Rail 授标中企联合体46亿迪拉姆土建合同</span></div><div class="frow r-content"><span class="fl">内容</span><span class="fv">阿联酋国家铁路开发商兼运营商 Etihad Rail 将 <strong>46 亿迪拉姆（约12.5亿美元）</strong> 土建与建筑工程合同授予一家<strong>中国合资公司</strong>，用于铁路项目二期，线路连接富查伊拉、豪尔费坎港与迪拜—沙迦边境路网；合同经阿联酋通讯社 WAM 报道，由主席谢赫·泽亚卜主持的董事会批准。（回溯：11-05）</span></div><div class="frow "><span class="fl">相关方</span><span class="fv">Etihad Rail、中国合资承包商（中企主导）</span></div><div class="frow "><span class="fl">关键词</span><span class="fv">Etihad Rail;二期土建;46亿迪拉姆;中企联合体</span></div><div class="frow "><span class="fl">进度/时间</span><span class="fv">2026-11-05 授标公布</span></div><div class="frow "><span class="fl">竞品/交叉</span><span class="fv">二期全长 605 公里（Ghuweifat—Fujairah）</span></div><div class="frow r-meta"><span class="fl">主源</span><span class="fv"><a href="https://www.seetao.com/m/details/11646.html" target="_blank" rel="noopener">见道网（引阿联酋通讯社 WAM），2026-11-05</a></span></div><div class="frow r-meta"><span class="fl">佐证源</span><span class="fv">阿联酋通讯社 WAM 官方口径</span></div><div class="frow r-meta"><span class="fl">置信度</span><span class="fv">A（国家通讯社 WAM 官方 + 行业媒体互证）</span></div><div class="frow r-meta"><span class="fl">语种/备注</span><span class="fv">中文 / 英语摘要</span></div></div></div></div></details><details class="part" id="part03"><summary><h2>PART03 · 拉美 <span class="rcount">（2 条）</span></h2><span class="fold-ind"><span class="chev"></span><span class="fi-open">展开</span><span class="fi-close">收起</span></span></summary><div class="part-body"><div class="card" id="CT-51"><div class="chead"><span class="cid">CT-51</span><span class="ccat">拉美</span><span class="ctitle">哥伦比亚波哥大地铁1号线首列车在华下线 30列年内运抵</span><span class="cbadge">车辆交付</span></div><div class="cbody"><div class="frow "><span class="fl">区域/国家/城市</span><span class="fv">拉美 / 哥伦比亚 / 波哥大</span></div><div class="frow "><span class="fl">阶段</span><span class="fv">车辆交付/建设</span></div><div class="frow "><span class="fl">资讯</span><span class="fv">哥伦比亚波哥大地铁1号线首列车在华下线 30列年内运抵</span></div><div class="frow r-content"><span class="fl">内容</span><span class="fv">波哥大地铁1号线（拉美最大单体交通 PPP、中国港湾牵头联营体建设、中车长客供车）<strong>首列列车在华下线交付</strong>，<strong>30 列</strong> 列车计划 <strong>2026 年内全部运抵</strong> 哥伦比亚；截至 9-30 项目整体进度 <strong>83.73%</strong>，总统德拉埃斯普利亚 9-02 试乘无人驾驶列车。每列 6 节编组、135 米、载客 1800 人，2028 年一季度商业运营。</span></div><div class="frow "><span class="fl">相关方</span><span class="fv">中国港湾联营体、中车长客（CRRC Changchun）、波哥大地铁公司</span></div><div class="frow "><span class="fl">关键词</span><span class="fv">波哥大地铁;中车长客;30列;2028运营</span></div><div class="frow "><span class="fl">进度/时间</span><span class="fv">首列下线交付；2026 年内 30 列运抵；2028Q1 商业运营</span></div><div class="frow "><span class="fl">竞品/交叉</span><span class="fv">中国技术/无人驾驶UTO 进入南美核心城市</span></div><div class="frow r-meta"><span class="fl">主源</span><span class="fv"><a href="https://www.ayesa.com/en/press/the-bogota-metro-reaches-a-historic-milestone-with-the-arrival-of-its-first-train-under-the-supervision-of-ayesa-engineering" target="_blank" rel="noopener">Ayesa 工程新闻稿，2026-11</a></span></div><div class="frow r-meta"><span class="fl">佐证源</span><span class="fv">中国驻哥伦比亚使馆经商处、见道网报道</span></div><div class="frow r-meta"><span class="fl">置信度</span><span class="fv">B（工程总包方新闻稿/行业媒体，二手转述项目进展）</span></div><div class="frow r-meta"><span class="fl">语种/备注</span><span class="fv">英语 / 中文摘要</span></div></div></div><div class="card" id="CT-52"><div class="chead"><span class="cid">CT-52</span><span class="ccat">拉美</span><span class="ctitle">巴西贝洛奥里藏特24列地铁列车首列下线（中车长客）</span><span class="cbadge">车辆交付</span></div><div class="cbody"><div class="frow "><span class="fl">区域/国家/城市</span><span class="fv">拉美 / 巴西 / 贝洛奥里藏特</span></div><div class="frow "><span class="fl">阶段</span><span class="fv">车辆交付</span></div><div class="frow "><span class="fl">资讯</span><span class="fv">巴西贝洛奥里藏特 24 列地铁列车首列下线</span></div><div class="frow r-content"><span class="fl">内容</span><span class="fv">中车长客（CRRC Changchun）为巴西贝洛奥里藏特（Belo Horizonte）地铁制造的 <strong>24 列（96 节）</strong> 列车首列在长春下线，合同 2024 年签署、总投资 <strong>逾 7 亿雷亚尔（约1.28亿美元）</strong>，首批 <strong>10 列计划 2026 年底</strong> 交付；列车配自动驾驶、实时监测与能量回收，服务该市两条地铁线，取代 1980 年代旧车。（区别于萨尔瓦多 10 列 PR-13，本批为贝洛奥里藏特独立项目；满足【8】②核查）</span></div><div class="frow "><span class="fl">相关方</span><span class="fv">中车长客 CRRC Changchun、贝洛奥里藏特地铁 Metro BH、米纳斯吉拉斯州政府</span></div><div class="frow "><span class="fl">关键词</span><span class="fv">贝洛奥里藏特;中车长客;24列;年底交付</span></div><div class="frow "><span class="fl">进度/时间</span><span class="fv">首列下线；2026 年底首批 10 列交付</span></div><div class="frow "><span class="fl">竞品/交叉</span><span class="fv">中车在巴西第三城（继里约、圣保罗）</span></div><div class="frow r-meta"><span class="fl">主源</span><span class="fv"><a href="https://peoplesdaily.pdnews.cn/business/er/30045094987" target="_blank" rel="noopener">人民日报英文客户端，2026-11</a></span></div><div class="frow r-meta"><span class="fl">佐证源</span><span class="fv">Railway Supply 报道</span></div><div class="frow r-meta"><span class="fl">置信度</span><span class="fv">B（主流媒体/行业媒体原文）</span></div><div class="frow r-meta"><span class="fl">语种/备注</span><span class="fv">英语 / 中文摘要</span></div></div></div></div></details><details class="part" id="part04"><summary><h2>PART04 · 非洲 <span class="rcount">（2 条）</span></h2><span class="fold-ind"><span class="chev"></span><span class="fi-open">展开</span><span class="fi-close">收起</span></span></summary><div class="part-body"><div class="card" id="RW-59"><div class="chead"><span class="cid">RW-59</span><span class="ccat">非洲</span><span class="ctitle">阿尔及利亚东部矿业铁路系统工程临授标 中企分获两标段</span><span class="cbadge">临时授标</span></div><div class="cbody"><div class="frow "><span class="fl">区域/国家/城市</span><span class="fv">非洲 / 阿尔及利亚 / 安纳巴-杰贝勒翁克</span></div><div class="frow "><span class="fl">阶段</span><span class="fv">临时授标</span></div><div class="frow "><span class="fl">资讯</span><span class="fv">阿尔及利亚东部矿业铁路系统工程临授标 中企分获两标段</span></div><div class="frow r-content"><span class="fl">内容</span><span class="fv">阿尔及利亚国家铁路投资局 <strong>2026-11-05</strong> 公布东部矿业铁路项目系统工程<strong>临时授标</strong>结果：标段 5.1 铁路信号、通信及能源系统工程由<strong>中国铁建（CRCC）联合体</strong>牵头（工期 18 个月），标段 5.2 接触网及电气化由<strong>中国土木（CCECC）联合体</strong>牵头（工期 20 个月）；线路全长约 422 公里，连接安纳巴港与杰贝勒翁克铁路主线及布莱德哈德巴磷矿支线，覆盖五省。（回溯：11-05）</span></div><div class="frow "><span class="fl">相关方</span><span class="fv">中国铁建 CRCC、中国土木 CCECC、阿尔及利亚国家铁路投资局</span></div><div class="frow "><span class="fl">关键词</span><span class="fv">阿尔及利亚;东部矿业铁路;CRCC;CCECC</span></div><div class="frow "><span class="fl">进度/时间</span><span class="fv">2026-11-05 临时授标；后续异议程序</span></div><div class="frow "><span class="fl">竞品/交叉</span><span class="fv">西线矿业铁路 950 公里 2026-02 通车（非洲首条沙漠重载铁路）</span></div><div class="frow r-meta"><span class="fl">主源</span><span class="fv"><a href="https://www.seetao.com/details/283119.html" target="_blank" rel="noopener">见道网（引阿尔及利亚国家铁路投资局公告），2026-11-05</a></span></div><div class="frow r-meta"><span class="fl">佐证源</span><span class="fv">阿尔及利亚国家铁路投资局官方临授标公告</span></div><div class="frow r-meta"><span class="fl">置信度</span><span class="fv">B（行业媒体引官方临授标，临时授标待异议）</span></div><div class="frow r-meta"><span class="fl">语种/备注</span><span class="fv">中文 / 英语摘要</span></div></div></div><div class="card" id="RW-60"><div class="chead"><span class="cid">RW-60</span><span class="ccat">非洲</span><span class="ctitle">埃塞俄比亚-吉布提铁路获中方1500万美元赠款补充工程</span><span class="cbadge">援外赠款</span></div><div class="cbody"><div class="frow "><span class="fl">区域/国家/城市</span><span class="fv">非洲 / 埃塞俄比亚 / 亚的斯亚贝巴</span></div><div class="frow "><span class="fl">阶段</span><span class="fv">援外赠款</span></div><div class="frow "><span class="fl">资讯</span><span class="fv">埃塞俄比亚-吉布提铁路获中方1500万美元赠款补充工程</span></div><div class="frow r-content"><span class="fl">内容</span><span class="fv">埃塞俄比亚与中国 <strong>2026-11-05</strong> 在亚的斯亚贝巴签署 <strong>1500 万美元</strong> 赠款协议，用于亚吉铁路（Ethio-Djibouti Railway）补充工程，提升运营效率与维护能力；资金经中国援外渠道，覆盖电力机车机电备件、专用轨料、站场配件及小型养护机械，并安排中方专家赴埃指导与培训。（回溯：11-05）</span></div><div class="frow "><span class="fl">相关方</span><span class="fv">埃塞俄比亚财政部、中国驻埃塞使馆、亚吉铁路运营方</span></div><div class="frow "><span class="fl">关键词</span><span class="fv">亚吉铁路;中国援外;1500万美元;运维提升</span></div><div class="frow "><span class="fl">进度/时间</span><span class="fv">2026-11-05 签约</span></div><div class="frow "><span class="fl">竞品/交叉</span><span class="fv">一带一路框架铁路运维合作</span></div><div class="frow r-meta"><span class="fl">主源</span><span class="fv"><a href="https://www.ena.et/web/eng/w/eng_9875885" target="_blank" rel="noopener">埃塞俄比亚国家通讯社 ENA，2026-11-05</a></span></div><div class="frow r-meta"><span class="fl">佐证源</span><span class="fv">Fana Media Corporation、Ethiopia7 报道</span></div><div class="frow r-meta"><span class="fl">置信度</span><span class="fv">A（国家通讯社 ENA 官方一手）</span></div><div class="frow r-meta"><span class="fl">语种/备注</span><span class="fv">英语 / 中文摘要</span></div></div></div></div></details><details class="part" id="part05"><summary><h2>PART05 · 南亚·大洋洲 <span class="rcount">（1 条）</span></h2><span class="fold-ind"><span class="chev"></span><span class="fi-open">展开</span><span class="fi-close">收起</span></span></summary><div class="part-body"><div class="card" id="PR-23"><div class="chead"><span class="cid">PR-23</span><span class="ccat">南亚·大洋洲</span><span class="ctitle">印度 Vande Bharat 卧铺列车 Alstom 获1.44亿欧元牵引部件合同</span><span class="cbadge">竞品参照</span></div><div class="cbody"><div class="frow "><span class="fl">区域/国家/城市</span><span class="fv">南亚·大洋洲 / 印度 / 钦奈</span></div><div class="frow "><span class="fl">阶段</span><span class="fv">竞品合同</span></div><div class="frow "><span class="fl">资讯</span><span class="fv">印度 Vande Bharat 卧铺列车 Alstom 获牵引部件合同</span></div><div class="frow r-content"><span class="fl">内容</span><span class="fv">法国阿尔斯通（Alstom）获印度铁路<strong>一体化客车厂（ICF 钦奈）</strong> <strong>1.44 亿欧元（约1.5亿美元）</strong> 合同，为 <strong>17 列 Vande Bharat 卧铺列车组（408 节）</strong> 提供 Mitrac 牵引与电气设备及五年维保；样机 2026-08 交付、批量生产 2027 年，最高时速 180 公里。（欧洲厂商，仅作竞争参照）</span></div><div class="frow "><span class="fl">相关方</span><span class="fv">阿尔斯通 Alstom、印度铁路 ICF</span></div><div class="frow "><span class="fl">关键词</span><span class="fv">Alstom;Vande Bharat;牵引部件;竞争参照</span></div><div class="frow "><span class="fl">进度/时间</span><span class="fv">2026-08 样机；2027 批量生产；2029 维保启动</span></div><div class="frow "><span class="fl">竞品/交叉</span><span class="fv">欧洲厂商全球竞品动态</span></div><div class="frow r-meta"><span class="fl">主源</span><span class="fv"><a href="https://www.railway-technology.com/?p=117897/" target="_blank" rel="noopener">Railway Technology，2026-11-10 [X]</a></span></div><div class="frow r-meta"><span class="fl">佐证源</span><span class="fv">经济时报（Economic Times）报道；X @AshishR98064945 推送 [X]</span></div><div class="frow r-meta"><span class="fl">置信度</span><span class="fv">B（行业媒体原文 + 社媒推送，欧洲厂商竞争参照）</span></div><div class="frow r-meta"><span class="fl">语种/备注</span><span class="fv">英语 / 中文摘要</span></div></div></div></div></details><details class="part" id="part06"><summary><h2>PART06 · 跨区域 <span class="rcount">（1 条）</span></h2><span class="fold-ind"><span class="chev"></span><span class="fi-open">展开</span><span class="fi-close">收起</span></span></summary><div class="part-body"><div class="card" id="PR-24"><div class="chead"><span class="cid">PR-24</span><span class="ccat">跨区域</span><span class="ctitle">塞尔维亚贝尔格莱德世博会铰接列车首车在华下线（中车）</span><span class="cbadge">产品交付</span></div><div class="cbody"><div class="frow "><span class="fl">区域/国家/城市</span><span class="fv">跨区域 / 塞尔维亚 / 贝尔格莱德</span></div><div class="frow "><span class="fl">阶段</span><span class="fv">车辆交付</span></div><div class="frow "><span class="fl">资讯</span><span class="fv">塞尔维亚贝尔格莱德世博会铰接列车首车在华下线</span></div><div class="frow r-content"><span class="fl">内容</span><span class="fv">塞尔维亚铁路公司（Srbija Voz）宣布，为 <strong>2027 年贝尔格莱德世博会</strong> 定制的铰接式列车<strong>首车在湖南长沙下线</strong>，首批列车预计 <strong>2026 年 11 月底运抵</strong> 塞尔维亚，经贝尔格莱德调试后投入世博园区—市区接驳；该合作属一带一路框架下中塞铁路装备互联互通项目。</span></div><div class="frow "><span class="fl">相关方</span><span class="fv">塞尔维亚铁路 Srbija Voz、中国中车 CRRC</span></div><div class="frow "><span class="fl">关键词</span><span class="fv">贝尔格莱德世博;中车;铰接列车;11月底运抵</span></div><div class="frow "><span class="fl">进度/时间</span><span class="fv">首车下线；2026-11 底运抵；2027 世博投用</span></div><div class="frow "><span class="fl">竞品/交叉</span><span class="fv">中塞铁路装备合作</span></div><div class="frow r-meta"><span class="fl">主源</span><span class="fv"><a href="https://m.toutiao.com/article/7698322314748625458" target="_blank" rel="noopener">塞尔维亚铁路 Srbija Voz 官方社媒（经今日头条转引），2026-11</a></span></div><div class="frow r-meta"><span class="fl">佐证源</span><span class="fv">一带一路铁路合作框架报道</span></div><div class="frow r-meta"><span class="fl">置信度</span><span class="fv">A（业主官方社媒一手，经聚合媒体转引溯源）</span></div><div class="frow r-meta"><span class="fl">语种/备注</span><span class="fv">中文 / 塞尔维亚语摘要</span></div></div></div></div></details>
+  <details class="part" id="part07"><summary><h2>PART07 · 舆情跟踪 <span class="rcount">（25 条 · 状态说明）</span></h2><span class="fold-ind"><span class="chev"></span><span class="fi-open">展开</span><span class="fi-close">收起</span></span></summary><div class="part-body"><p class="muted">本期对 25 个在执出海项目的社媒与公开舆情进行跟踪。状态判定分六档：正面 / 中性偏正 / 混合 / 中性 / 持平 / 负面。业主方官方运营类帖（票务、客流、服务）属有效舆情，已并入对应项目。</p><div class="po-legend" role="group"><button class="lg on" data-f="all" type="button">全部 25</button><button class="lg" data-f="中性" type="button"><span class="dot" style="background:#5b6b7e"></span>中性 1</button><button class="lg" data-f="持平" type="button"><span class="dot" style="background:#7a899b"></span>持平 24</button></div><div class="po-list"><details class="po" data-s="flat" id="PO-01"><summary><span class="po-id">PO-01</span><span class="po-main"><span class="po-title">蒙特雷单轨4号线</span><span class="po-sub">墨西哥 · 拉美 · 在运营</span></span><span class="po-focus">新闻宣传；乘客体验</span><span class="po-sent s-flat">持平</span><span class="chev"></span></summary><div class="po-body"><div class="po-grid"><div class="po-row"><span class="pl">日期</span><span class="pv">2026-11-09</span></div><div class="po-row wide"><span class="pl">近期动态</span><span class="pv">窗口内（11-09）无新增公开报道，状态持平。</span></div><div class="po-row wide"><span class="pl">备注</span><span class="pv">上期sentiment.csv缺失基线待建；本期舆情未逐项专项检索结论为初筛（仅随综合检索顺带覆盖） | 结转 2026-11-06（状态持平）；结转（故障自愈·台账补录）</span></div></div></div></details><details class="po" data-s="flat" id="PO-02"><summary><span class="po-id">PO-02</span><span class="po-main"><span class="po-title">蒙特雷单轨6号线</span><span class="po-sub">墨西哥 · 拉美 · 在执行</span></span><span class="po-focus">新闻宣传；安全事件；本地化与地缘</span><span class="po-sent s-flat">持平</span><span class="chev"></span></summary><div class="po-body"><div class="po-grid"><div class="po-row"><span class="pl">日期</span><span class="pv">2026-11-09</span></div><div class="po-row wide"><span class="pl">近期动态</span><span class="pv">窗口内（11-09）无新增公开报道，状态持平。</span></div><div class="po-row wide"><span class="pl">备注</span><span class="pv">同首行口径；注意§4A.5责任边界（原文未点名我方不得写成我方过错） | 结转 2026-11-06（状态持平）；结转（故障自愈·台账补录）</span></div></div></div></details><details class="po" data-s="flat" id="PO-03"><summary><span class="po-id">PO-03</span><span class="po-main"><span class="po-title">坎佩切数轨（DRT）</span><span class="po-sub">墨西哥 · 拉美 · 在执行</span></span><span class="po-focus">新闻宣传；新线延伸规划</span><span class="po-sent s-flat">持平</span><span class="chev"></span></summary><div class="po-body"><div class="po-grid"><div class="po-row"><span class="pl">日期</span><span class="pv">2026-11-09</span></div><div class="po-row wide"><span class="pl">近期动态</span><span class="pv">窗口内（11-09）无新增公开报道，状态持平。</span></div><div class="po-row wide"><span class="pl">备注</span><span class="pv">同首行口径；数轨=DRT（数字轨道胶轮电车） | 结转 2026-11-06（状态持平）；结转（故障自愈·台账补录）</span></div></div></div></details><details class="po" data-s="flat" id="PO-04"><summary><span class="po-id">PO-04</span><span class="po-main"><span class="po-title">圣保罗DRT</span><span class="po-sub">巴西 · 拉美 · 在执行</span></span><span class="po-focus">新闻宣传；乘客体验</span><span class="po-sent s-flat">持平</span><span class="chev"></span></summary><div class="po-body"><div class="po-grid"><div class="po-row"><span class="pl">日期</span><span class="pv">2026-11-09</span></div><div class="po-row wide"><span class="pl">近期动态</span><span class="pv">窗口内（11-09）无新增公开报道，状态持平。</span></div><div class="po-row wide"><span class="pl">备注</span><span class="pv">同首行口径 | 结转 2026-11-06（状态持平）；结转（故障自愈·台账补录）</span></div></div></div></details><details class="po" data-s="flat" id="PO-05"><summary><span class="po-id">PO-05</span><span class="po-main"><span class="po-title">库里提巴DRT</span><span class="po-sub">巴西 · 拉美 · 在执行</span></span><span class="po-focus">新闻宣传；财政与债务</span><span class="po-sent s-flat">持平</span><span class="chev"></span></summary><div class="po-body"><div class="po-grid"><div class="po-row"><span class="pl">日期</span><span class="pv">2026-11-09</span></div><div class="po-row wide"><span class="pl">近期动态</span><span class="pv">窗口内（11-09）无新增公开报道，状态持平。</span></div><div class="po-row wide"><span class="pl">备注</span><span class="pv">同首行口径 | 结转 2026-11-06（状态持平）；结转（故障自愈·台账补录）</span></div></div></div></details><details class="po" data-s="flat" id="PO-06"><summary><span class="po-id">PO-06</span><span class="po-main"><span class="po-title">马坦萨DRT</span><span class="po-sub">阿根廷 · 拉美 · 在执行</span></span><span class="po-focus">新闻宣传；财政与债务</span><span class="po-sent s-flat">持平</span><span class="chev"></span></summary><div class="po-body"><div class="po-grid"><div class="po-row"><span class="pl">日期</span><span class="pv">2026-11-09</span></div><div class="po-row wide"><span class="pl">近期动态</span><span class="pv">窗口内（11-09）无新增公开报道，状态持平。</span></div><div class="po-row wide"><span class="pl">备注</span><span class="pv">同首行口径 | 结转 2026-11-06（状态持平）；结转（故障自愈·台账补录）</span></div></div></div></details><details class="po" data-s="flat" id="PO-07"><summary><span class="po-id">PO-07</span><span class="po-main"><span class="po-title">罗萨里奥DRT</span><span class="po-sub">阿根廷 · 拉美 · 在执行</span></span><span class="po-focus">新闻宣传；新线延伸规划</span><span class="po-sent s-flat">持平</span><span class="chev"></span></summary><div class="po-body"><div class="po-grid"><div class="po-row"><span class="pl">日期</span><span class="pv">2026-11-09</span></div><div class="po-row wide"><span class="pl">近期动态</span><span class="pv">窗口内（11-09）无新增公开报道，状态持平。</span></div><div class="po-row wide"><span class="pl">备注</span><span class="pv">同首行口径 | 结转 2026-11-06（状态持平）；结转（故障自愈·台账补录）</span></div></div></div></details><details class="po" data-s="flat" id="PO-08"><summary><span class="po-id">PO-08</span><span class="po-main"><span class="po-title">阿根廷客车</span><span class="po-sub">阿根廷 · 拉美 · 在交付</span></span><span class="po-focus">新闻宣传；本地化与地缘</span><span class="po-sent s-flat">持平</span><span class="chev"></span></summary><div class="po-body"><div class="po-grid"><div class="po-row"><span class="pl">日期</span><span class="pv">2026-11-09</span></div><div class="po-row wide"><span class="pl">近期动态</span><span class="pv">窗口内（11-09）无新增公开报道，状态持平。</span></div><div class="po-row wide"><span class="pl">备注</span><span class="pv">同首行口径 | 结转 2026-11-06（状态持平）；结转（故障自愈·台账补录）</span></div></div></div></details><details class="po" data-s="flat" id="PO-09"><summary><span class="po-id">PO-09</span><span class="po-main"><span class="po-title">利雅得跨座式单轨</span><span class="po-sub">沙特 · 中东·独联体 · 在运营</span></span><span class="po-focus">乘客体验；新线延伸规划</span><span class="po-sent s-flat">持平</span><span class="chev"></span></summary><div class="po-body"><div class="po-grid"><div class="po-row"><span class="pl">日期</span><span class="pv">2026-11-09</span></div><div class="po-row wide"><span class="pl">近期动态</span><span class="pv">窗口内（11-09）无新增公开报道，状态持平。</span></div><div class="po-row wide"><span class="pl">备注</span><span class="pv">同首行口径；本期PR-01为利雅得地铁（非单轨）勿混淆 | 结转 2026-11-06（状态持平）；结转（故障自愈·台账补录）</span></div></div></div></details><details class="po" data-s="flat" id="PO-10"><summary><span class="po-id">PO-10</span><span class="po-main"><span class="po-title">香港机场三跑道APM</span><span class="po-sub">中国香港 · 中国香港 · 在执行</span></span><span class="po-focus">新闻宣传；进度</span><span class="po-sent s-flat">持平</span><span class="chev"></span></summary><div class="po-body"><div class="po-grid"><div class="po-row"><span class="pl">日期</span><span class="pv">2026-11-09</span></div><div class="po-row wide"><span class="pl">近期动态</span><span class="pv">窗口内（11-09）无新增公开报道，状态持平。</span></div><div class="po-row wide"><span class="pl">备注</span><span class="pv">同首行口径 | 结转 2026-11-06（状态持平）；结转（故障自愈·台账补录）</span></div></div></div></details><details class="po" data-s="flat" id="PO-11"><summary><span class="po-id">PO-11</span><span class="po-main"><span class="po-title">香港屯门轻轨LRV</span><span class="po-sub">中国香港 · 中国香港 · 在运营</span></span><span class="po-focus">乘客体验；安全事件</span><span class="po-sent s-flat">持平</span><span class="chev"></span></summary><div class="po-body"><div class="po-grid"><div class="po-row"><span class="pl">日期</span><span class="pv">2026-11-09</span></div><div class="po-row wide"><span class="pl">近期动态</span><span class="pv">窗口内（11-09）无新增公开报道，状态持平。</span></div><div class="po-row wide"><span class="pl">备注</span><span class="pv">同首行口径 | 结转 2026-11-06（状态持平）；结转（故障自愈·台账补录）</span></div></div></div></details><details class="po" data-s="flat" id="PO-12"><summary><span class="po-id">PO-12</span><span class="po-main"><span class="po-title">澳门轻轨改造（含横琴延伸）</span><span class="po-sub">中国澳门 · 中国澳门 · 在执行</span></span><span class="po-focus">新闻宣传；新线延伸规划</span><span class="po-sent s-flat">持平</span><span class="chev"></span></summary><div class="po-body"><div class="po-grid"><div class="po-row"><span class="pl">日期</span><span class="pv">2026-11-09</span></div><div class="po-row wide"><span class="pl">近期动态</span><span class="pv">窗口内（11-09）无新增公开报道，状态持平。</span></div><div class="po-row wide"><span class="pl">备注</span><span class="pv">同首行口径 | 结转 2026-11-06（状态持平）；结转（故障自愈·台账补录）</span></div></div></div></details><details class="po" data-s="flat" id="PO-13"><summary><span class="po-id">PO-13</span><span class="po-main"><span class="po-title">新加坡机场捷运APM</span><span class="po-sub">新加坡 · 东南亚 · 在运营</span></span><span class="po-focus">乘客体验；新闻宣传</span><span class="po-sent s-flat">持平</span><span class="chev"></span></summary><div class="po-body"><div class="po-grid"><div class="po-row"><span class="pl">日期</span><span class="pv">2026-11-09</span></div><div class="po-row wide"><span class="pl">近期动态</span><span class="pv">窗口内（11-09）无新增公开报道，状态持平。</span></div><div class="po-row wide"><span class="pl">备注</span><span class="pv">同首行口径 | 结转 2026-11-06（状态持平）；结转（故障自愈·台账补录）</span></div></div></div></details><details class="po" data-s="flat" id="PO-14"><summary><span class="po-id">PO-14</span><span class="po-main"><span class="po-title">孟买1号线</span><span class="po-sub">印度 · 南亚·大洋洲 · 在运营</span></span><span class="po-focus">财政与债务；乘客体验</span><span class="po-sent s-flat">持平</span><span class="chev"></span></summary><div class="po-body"><div class="po-grid"><div class="po-row"><span class="pl">日期</span><span class="pv">2026-11-09</span></div><div class="po-row wide"><span class="pl">近期动态</span><span class="pv">窗口内（11-09）无新增公开报道，状态持平。</span></div><div class="po-row wide"><span class="pl">备注</span><span class="pv">同首行口径；注意§4A.5：运营方债务问题非我方质量投诉但乘客或顺带质疑兼容性需单列我方关联 | 结转 2026-11-06（状态持平）；结转（故障自愈·台账补录）</span></div></div></div></details><details class="po" data-s="flat" id="PO-15"><summary><span class="po-id">PO-15</span><span class="po-main"><span class="po-title">德里诺伊达地铁</span><span class="po-sub">印度 · 南亚·大洋洲 · 在执行</span></span><span class="po-focus">新闻宣传；进度</span><span class="po-sent s-flat">持平</span><span class="chev"></span></summary><div class="po-body"><div class="po-grid"><div class="po-row"><span class="pl">日期</span><span class="pv">2026-11-09</span></div><div class="po-row wide"><span class="pl">近期动态</span><span class="pv">窗口内（11-09）无新增公开报道，状态持平。</span></div><div class="po-row wide"><span class="pl">备注</span><span class="pv">同首行口径 | 结转 2026-11-06（状态持平）；结转（故障自愈·台账补录）</span></div></div></div></details><details class="po" data-s="flat" id="PO-16"><summary><span class="po-id">PO-16</span><span class="po-main"><span class="po-title">班加罗尔二期地铁</span><span class="po-sub">印度 · 南亚·大洋洲 · 在执行</span></span><span class="po-focus">新闻宣传；新线延伸规划</span><span class="po-sent s-flat">持平</span><span class="chev"></span></summary><div class="po-body"><div class="po-grid"><div class="po-row"><span class="pl">日期</span><span class="pv">2026-11-09</span></div><div class="po-row wide"><span class="pl">近期动态</span><span class="pv">窗口内（11-09）无新增公开报道，状态持平。</span></div><div class="po-row wide"><span class="pl">备注</span><span class="pv">同首行口径 | 结转 2026-11-06（状态持平）；结转（故障自愈·台账补录）</span></div></div></div></details><details class="po" data-s="flat" id="PO-17"><summary><span class="po-id">PO-17</span><span class="po-main"><span class="po-title">第比利斯地铁</span><span class="po-sub">格鲁吉亚 · 中东·独联体 · 在执行</span></span><span class="po-focus">新闻宣传；财政与债务</span><span class="po-sent s-flat">持平</span><span class="chev"></span></summary><div class="po-body"><div class="po-grid"><div class="po-row"><span class="pl">日期</span><span class="pv">2026-11-09</span></div><div class="po-row wide"><span class="pl">近期动态</span><span class="pv">窗口内（11-09）无新增公开报道，状态持平。</span></div><div class="po-row wide"><span class="pl">备注</span><span class="pv">同首行口径；ttc.com.ge窗口内无更新（最新2026-06-17 REOI延期） | 结转 2026-11-06（状态持平）；结转（故障自愈·台账补录）</span></div></div></div></details><details class="po" data-s="flat" id="PO-18"><summary><span class="po-id">PO-18</span><span class="po-main"><span class="po-title">首都地铁（匿名辖区）</span><span class="po-sub">—（代号保密） · —（代号保密） · 在执行</span></span><span class="po-focus">新闻宣传；本地化与地缘；财政与债务</span><span class="po-sent s-flat">持平</span><span class="chev"></span></summary><div class="po-body"><div class="po-grid"><div class="po-row"><span class="pl">日期</span><span class="pv">2026-11-09</span></div><div class="po-row wide"><span class="pl">近期动态</span><span class="pv">窗口内（11-09）无新增公开报道，状态持平。</span></div><div class="po-row wide"><span class="pl">备注</span><span class="pv">代号已脱敏处理｜原结转 2026-11-09（持平）</span></div></div></div></details><details class="po" data-s="neutral" id="PO-19" open><summary><span class="po-id">PO-19</span><span class="po-main"><span class="po-title">Kenya SGR Passenger Coach</span><span class="po-sub">肯尼亚 · 非洲 · 在交付/在运营</span></span><span class="po-focus">新闻宣传；乘客体验</span><span class="po-sent s-neutral">中性</span><span class="chev"></span></summary><div class="po-body"><div class="po-grid"><div class="po-row"><span class="pl">定级</span><span class="pv">B（业主官方社媒口径，可信度中）</span></div><div class="po-row"><span class="pl">日期</span><span class="pv">2026-11-09</span></div><div class="po-row wide"><span class="pl">近期动态</span><span class="pv">窗口内（11-09）业主方 ReliKenya 官方账号持续发布票务预订、内罗毕中央站与货运服务运营推广帖，属常规运营类舆情，无重大节点。</span></div><div class="po-row wide"><span class="pl">主来源</span><span class="pv"><a href="https://www.facebook.com/ReliKenya/posts/pfbid022TJa8BBR6obQHjqkz4Ph4uANb1YQt4FgP8815pKFGYez7YyFb9gWXgEDcJTKSk4nl" target="_blank" rel="noopener">ReliKenya 官方 Facebook，2026-11-09</a></span></div><div class="po-row wide"><span class="pl">备注</span><span class="pv">更新（11-09 窗口内业主官方运营推广帖，判中性）｜原结转 2026-11-09（持平）</span></div></div></div></details><details class="po" data-s="flat" id="PO-20"><summary><span class="po-id">PO-20</span><span class="po-main"><span class="po-title">Nigeria Passenger Coach</span><span class="po-sub">尼日利亚 · 非洲 · 在交付/在运营</span></span><span class="po-focus">新闻宣传；进度</span><span class="po-sent s-flat">持平</span><span class="chev"></span></summary><div class="po-body"><div class="po-grid"><div class="po-row"><span class="pl">日期</span><span class="pv">2026-11-09</span></div><div class="po-row wide"><span class="pl">近期动态</span><span class="pv">窗口内（11-09）无新增公开报道，状态持平。</span></div><div class="po-row wide"><span class="pl">备注</span><span class="pv">同首行口径 | 结转 2026-11-06（状态持平）；结转（故障自愈·台账补录）</span></div></div></div></details><details class="po" data-s="flat" id="PO-21"><summary><span class="po-id">PO-21</span><span class="po-main"><span class="po-title">Turkmenistan Passenger Coach</span><span class="po-sub">土库曼斯坦 · 中东·独联体 · 在交付</span></span><span class="po-focus">新闻宣传；进度</span><span class="po-sent s-flat">持平</span><span class="chev"></span></summary><div class="po-body"><div class="po-grid"><div class="po-row"><span class="pl">日期</span><span class="pv">2026-11-09</span></div><div class="po-row wide"><span class="pl">近期动态</span><span class="pv">窗口内（11-09）无新增公开报道，状态持平。</span></div><div class="po-row wide"><span class="pl">备注</span><span class="pv">同首行口径 | 结转 2026-11-06（状态持平）；结转（故障自愈·台账补录）</span></div></div></div></details><details class="po" data-s="flat" id="PO-22"><summary><span class="po-id">PO-22</span><span class="po-main"><span class="po-title">Guinea Passenger Coaches</span><span class="po-sub">几内亚 · 非洲 · 在交付</span></span><span class="po-focus">新闻宣传；本地化与地缘</span><span class="po-sent s-flat">持平</span><span class="chev"></span></summary><div class="po-body"><div class="po-grid"><div class="po-row"><span class="pl">日期</span><span class="pv">2026-11-09</span></div><div class="po-row wide"><span class="pl">近期动态</span><span class="pv">窗口内（11-09）无新增公开报道，状态持平。</span></div><div class="po-row wide"><span class="pl">备注</span><span class="pv">同首行口径 | 结转 2026-11-06（状态持平）；结转（故障自愈·台账补录）</span></div></div></div></details><details class="po" data-s="flat" id="PO-23"><summary><span class="po-id">PO-23</span><span class="po-main"><span class="po-title">突尼斯动车组</span><span class="po-sub">突尼斯 · 非洲 · 在交付</span></span><span class="po-focus">新闻宣传；进度</span><span class="po-sent s-flat">持平</span><span class="chev"></span></summary><div class="po-body"><div class="po-grid"><div class="po-row"><span class="pl">日期</span><span class="pv">2026-11-09</span></div><div class="po-row wide"><span class="pl">近期动态</span><span class="pv">窗口内（11-09）无新增公开报道，状态持平。</span></div><div class="po-row wide"><span class="pl">备注</span><span class="pv">同首行口径 | 结转 2026-11-06（状态持平）；结转（故障自愈·台账补录）</span></div></div></div></details><details class="po" data-s="flat" id="PO-24"><summary><span class="po-id">PO-24</span><span class="po-main"><span class="po-title">马来西亚动力集中动车组</span><span class="po-sub">马来西亚 · 东南亚 · 在交付</span></span><span class="po-focus">新闻宣传；进度</span><span class="po-sent s-flat">持平</span><span class="chev"></span></summary><div class="po-body"><div class="po-grid"><div class="po-row"><span class="pl">日期</span><span class="pv">2026-11-09</span></div><div class="po-row wide"><span class="pl">近期动态</span><span class="pv">窗口内（11-09）无新增公开报道，状态持平。</span></div><div class="po-row wide"><span class="pl">备注</span><span class="pv">同首行口径 | 结转 2026-11-06（状态持平）；结转（故障自愈·台账补录）</span></div></div></div></details><details class="po" data-s="flat" id="PO-25"><summary><span class="po-id">PO-25</span><span class="po-main"><span class="po-title">万卡约—万卡韦利卡铁路（Tren Macho；用户口头代称按§4B.6落地）</span><span class="po-sub">秘鲁 · 拉美 · 在执行</span></span><span class="po-focus">新闻宣传；财政与债务；乘客体验</span><span class="po-sent s-flat">持平</span><span class="chev"></span></summary><div class="po-body"><div class="po-grid"><div class="po-row"><span class="pl">日期</span><span class="pv">2026-11-09</span></div><div class="po-row wide"><span class="pl">近期动态</span><span class="pv">窗口内（11-09）无新增公开报道，状态持平。</span></div><div class="po-row wide"><span class="pl">备注</span><span class="pv">项目名按§4B.6口径：用户写作秘鲁两万铁路＝万卡约—万卡韦利卡铁路（Tren Macho）非两洋铁路；同首行口径 | 结转 2026-11-06（状态持平）；结转（故障自愈·台账补录）</span></div></div></div></details></div></div></details>
+</div>
+<script>
+(function(){
+  function openAncestors(el){
+    try{
+      var d = el.closest ? el.closest('details') : null;
+      while(d){ if(d.tagName==='DETAILS'){ d.open=true; } var p=d.parentElement; d = p ? (p.closest?p.closest('details'):null) : null; }
+    }catch(e){}
+  }
+  document.addEventListener('click',function(e){
+    var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+    if(a){ var id=a.getAttribute('href').slice(1); try{ var t=document.getElementById(id); if(t) openAncestors(t); }catch(err){} }
+  });
+  window.addEventListener('hashchange',function(){
+    var id=location.hash.slice(1); try{ var t=document.getElementById(id); if(t) openAncestors(t); }catch(err){}
+  });
+})();
+</script>
+<script>/* 站内搜索 —— 当期页面版（注入到统一 <script> 内） */
+(function () {
+  var root = document.getElementById('srch');
+  if (!root || root.getAttribute('data-ready')) return;
+  root.setAttribute('data-ready', '1');
+
+  var input = root.querySelector('.srch-input');
+  var panel = root.querySelector('.srch-panel');
+  var clearBtn = root.querySelector('.srch-clear');
+  var idx = [], hits = [], sel = -1, marks = [], parents = [], timer = null;
+
+  function clean(s) { return (s || '').replace(/\s+/g, ' ').trim(); }
+  function low(s) { return clean(s).toLowerCase(); }
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+  function rxEsc(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+  function terms(q) { return low(q).split(/\s+/).filter(Boolean).slice(0, 6); }
+
+  /* ---------- 建立索引：条目卡片 + 一句话总览 + 舆情表行 ---------- */
+  function buildIndex() {
+    idx = [];
+    var n = 0, k;
+    var cards = document.querySelectorAll('.card[id]');
+    for (k = 0; k < cards.length; k++) {
+      var c = cards[k];
+      var idEl = c.querySelector('.cid');
+      var tEl = c.querySelector('.ctitle');
+      var regEl = c.querySelector('.frow .fv');
+      idx.push({
+        el: c, n: n++,
+        id: clean(idEl ? idEl.textContent : c.id),
+        title: clean(tEl ? tEl.textContent : ''),
+        sub: clean(regEl ? regEl.textContent : ''),
+        type: '条目',
+        raw: clean(c.textContent),
+        text: low(c.textContent)
+      });
+    }
+    var ov = document.querySelector('#overview .overview');
+    if (ov) {
+      idx.push({
+        el: ov, n: n++, id: '', title: '一句话总览', sub: '本期摘要', type: '总览',
+        raw: clean(ov.textContent), text: low(ov.textContent)
+      });
+    }
+    var rows = document.querySelectorAll('#part07 table tr');
+    for (k = 0; k < rows.length; k++) {
+      var tr = rows[k];
+      if (tr.querySelector('th')) continue;
+      var td = tr.querySelectorAll('td');
+      if (td.length < 4) continue;
+      idx.push({
+        el: tr, n: n++,
+        id: clean(td[0].textContent),
+        title: clean(td[1].textContent) + ' · ' + clean(td[2].textContent),
+        sub: clean(td[4] ? td[4].textContent : '') + (td[5] ? ' · ' + clean(td[5].textContent) : ''),
+        type: '舆情',
+        raw: clean(tr.textContent), text: low(tr.textContent)
+      });
+    }
+  }
+
+  /* ---------- 打分 ---------- */
+  function score(it, ts) {
+    var i, t;
+    for (i = 0; i < ts.length; i++) { if (it.text.indexOf(ts[i]) < 0) return -1; }
+    var s = 10, idn = low(it.id), titn = low(it.title);
+    for (i = 0; i < ts.length; i++) {
+      t = ts[i];
+      if (idn && idn === t) s += 140;
+      else if (idn && idn.indexOf(t) === 0) s += 70;
+      if (titn.indexOf(t) >= 0) s += 40;
+    }
+    if (it.type === '条目') s += 8;
+    return s;
+  }
+
+  /* ---------- 片段与高亮文字 ---------- */
+  function snippet(raw, ts) {
+    var l = raw.toLowerCase(), pos = -1, i, p;
+    for (i = 0; i < ts.length; i++) {
+      p = l.indexOf(ts[i]);
+      if (p >= 0 && (pos < 0 || p < pos)) pos = p;
+    }
+    if (pos < 0) pos = 0;
+    var st = Math.max(0, pos - 34), en = Math.min(raw.length, pos + 96);
+    return (st > 0 ? '…' : '') + raw.slice(st, en) + (en < raw.length ? '…' : '');
+  }
+  function emph(s, ts) {
+    var out = esc(s), i, t;
+    for (i = 0; i < ts.length; i++) {
+      t = rxEsc(esc(ts[i]));
+      if (!t) continue;
+      out = out.replace(new RegExp('(' + t + ')', 'gi'), '<em>$1</em>');
+    }
+    return out;
+  }
+
+  /* ---------- 页面内命中词高亮 ---------- */
+  function clearMarks() {
+    for (var i = 0; i < marks.length; i++) {
+      var m = marks[i], p = m.parentNode;
+      if (!p) continue;
+      p.replaceChild(document.createTextNode(m.textContent), m);
+      if (parents.indexOf(p) < 0) parents.push(p);
+    }
+    marks = [];
+    for (var j = 0; j < parents.length; j++) { try { parents[j].normalize(); } catch (e) {} }
+    parents = [];
+  }
+  function highlight(ts) {
+    clearMarks();
+    if (!ts.length) return;
+    var scopes = document.querySelectorAll('.card, #part07 table, #overview');
+    var nodes = [], s, w, n;
+    for (s = 0; s < scopes.length; s++) {
+      w = document.createTreeWalker(scopes[s], NodeFilter.SHOW_TEXT, null, false);
+      while ((n = w.nextNode())) {
+        var v = n.nodeValue;
+        if (!v || !v.trim()) continue;
+        var tag = n.parentNode && n.parentNode.nodeName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'MARK') continue;
+        var lv = v.toLowerCase(), hit = false;
+        for (var i = 0; i < ts.length; i++) { if (lv.indexOf(ts[i]) >= 0) { hit = true; break; } }
+        if (hit) nodes.push(n);
+      }
+    }
+    for (var q = 0; q < nodes.length && marks.length < 400; q++) {
+      var node = nodes[q], rest = node.nodeValue, frag = document.createDocumentFragment(), guard = 0;
+      while (guard++ < 60) {
+        var l2 = rest.toLowerCase(), best = -1, bl = 0;
+        for (var t2 = 0; t2 < ts.length; t2++) {
+          var pp = l2.indexOf(ts[t2]);
+          if (pp >= 0 && (best < 0 || pp < best)) { best = pp; bl = ts[t2].length; }
+        }
+        if (best < 0) { frag.appendChild(document.createTextNode(rest)); break; }
+        if (best > 0) frag.appendChild(document.createTextNode(rest.slice(0, best)));
+        var mk = document.createElement('mark');
+        mk.className = 'srch-mark';
+        mk.textContent = rest.substr(best, bl);
+        frag.appendChild(mk);
+        marks.push(mk);
+        rest = rest.slice(best + bl);
+        if (!rest) break;
+      }
+      if (node.parentNode) node.parentNode.replaceChild(frag, node);
+    }
+  }
+
+  /* ---------- 定位到结果 ---------- */
+  function go(it) {
+    if (!it || !it.el) return;
+    var p = it.el;
+    while (p) { if (p.tagName === 'DETAILS') p.open = true; p = p.parentElement; }
+    root.classList.remove('on');
+    var el = it.el;
+    requestAnimationFrame(function () {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      el.classList.remove('srch-flash');
+      void el.offsetWidth;
+      el.classList.add('srch-flash');
+      setTimeout(function () { el.classList.remove('srch-flash'); }, 1900);
+    });
+  }
+
+  /* ---------- 渲染 ---------- */
+  function render() {
+    var q = input.value, ts = terms(q);
+    hits = []; sel = -1;
+    panel.innerHTML = '';
+    if (!ts.length) { root.classList.remove('on'); clearMarks(); return; }
+
+    for (var i = 0; i < idx.length; i++) {
+      var s = score(idx[i], ts);
+      if (s >= 0) hits.push({ it: idx[i], s: s });
+    }
+    hits.sort(function (a, b) { return b.s - a.s || a.it.n - b.it.n; });
+    root.classList.add('on');
+
+    if (!hits.length) {
+      panel.innerHTML = '<div class="srch-empty">未找到与「' + esc(q) + '」相关的内容。<br>可尝试国家名、企业名或条目编号，如 <b>越南</b>、<b>中车</b>、<b>CT-44</b>。</div>';
+      panel.classList.add('has');
+      highlight(ts);
+      return;
+    }
+    var top = hits.slice(0, 40), html = '';
+    html += '<div class="srch-sum">共 ' + hits.length + ' 条命中' + (hits.length > 40 ? '（显示前 40 条）' : '') + ' · ↑↓ 选择 · Enter 定位 · Esc 关闭</div>';
+    for (var k = 0; k < top.length; k++) {
+      var it = top[k].it;
+      html += '<a class="srch-item' + (k === 0 ? ' cur' : '') + '" href="javascript:void(0)" data-ix="' + k + '">' +
+        '<div class="srch-meta"><span class="srch-tag">' + it.type + '</span>' +
+        (it.id ? '<span class="srch-id">' + esc(it.id) + '</span>' : '') +
+        (it.sub ? '<span class="srch-sub">' + esc(it.sub.slice(0, 34)) + '</span>' : '') + '</div>' +
+        '<div class="srch-tit">' + emph(it.title, ts) + '</div>' +
+        '<div class="srch-snip">' + emph(snippet(it.raw, ts), ts) + '</div></a>';
+    }
+    panel.innerHTML = html;
+    panel.classList.add('has');
+    sel = 0;
+    highlight(ts);
+  }
+
+  /* ---------- 事件 ---------- */
+  function setCur(i) {
+    var items = panel.querySelectorAll('.srch-item');
+    if (!items.length) return;
+    if (i < 0) i = items.length - 1;
+    if (i >= items.length) i = 0;
+    for (var k = 0; k < items.length; k++) items[k].classList.remove('cur');
+    items[i].classList.add('cur');
+    sel = i;
+    items[i].scrollIntoView({ block: 'nearest' });
+  }
+
+  input.addEventListener('input', function () {
+    clearTimeout(timer);
+    root.classList.toggle('on', !!input.value.trim());
+    timer = setTimeout(render, 140);
+  });
+
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowDown') { e.preventDefault(); setCur(sel + 1); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); setCur(sel - 1); }
+    else if (e.key === 'Enter') {
+      e.preventDefault();
+      var cur = panel.querySelector('.srch-item.cur');
+      if (cur) {
+        var ix = parseInt(cur.getAttribute('data-ix'), 10);
+        go(hits[ix].it);
+      }
+    } else if (e.key === 'Escape') {
+      input.value = ''; root.classList.remove('on'); clearMarks(); input.blur();
+    }
+  });
+
+  panel.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('.srch-item');
+    if (!a) return;
+    e.preventDefault();
+    var ix = parseInt(a.getAttribute('data-ix'), 10);
+    if (hits[ix]) go(hits[ix].it);
+  });
+
+  clearBtn.addEventListener('click', function () {
+    input.value = '';
+    root.classList.remove('on');
+    clearMarks();
+    input.focus();
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!root.contains(e.target)) root.classList.remove('on');
+  });
+
+  document.addEventListener('keydown', function (e) {
+    var tag = (document.activeElement && document.activeElement.tagName) || '';
+    var typing = tag === 'INPUT' || tag === 'TEXTAREA' || document.activeElement.isContentEditable;
+    if ((e.key === 'k' || e.key === 'K') && (e.metaKey || e.ctrlKey)) {
+      e.preventDefault(); input.focus(); input.select();
+    } else if (e.key === '/' && !typing) {
+      e.preventDefault(); input.focus();
+    }
+  });
+
+  buildIndex();
+})();
+</script>
+<div id="gate" style="position:fixed;inset:0;z-index:99999;background:linear-gradient(135deg,#0b2545,#13396b);display:flex;align-items:center;justify-content:center;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'PingFang SC','Microsoft YaHei',sans-serif;">
+  <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:34px 38px;width:340px;max-width:90vw;text-align:center;box-shadow:0 24px 70px rgba(0,0,0,.45);">
+    <div style="font-size:32px;margin-bottom:8px;">🔒</div>
+    <h2 style="color:#fff;margin:0 0 6px;font-size:20px;font-weight:800;">门户已加密</h2>
+    <p style="color:#9fb4d4;font-size:13px;margin:0 0 22px;">请输入访问密码以查看内容</p>
+    <input id="gate-pw" type="password" placeholder="访问密码" style="width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;font-size:15px;outline:none;box-sizing:border-box;">
+    <button id="gate-btn" style="width:100%;margin-top:14px;padding:12px;border:none;border-radius:10px;background:linear-gradient(135deg,#f0a500,#ffce5c);color:#0b2545;font-weight:800;font-size:15px;cursor:pointer;">进入门户</button>
+    <div id="gate-err" style="color:#ff8a8a;font-size:13px;margin-top:12px;min-height:18px;"></div>
+  </div>
+</div>
+<script>
+(function(){
+  var EXPECTED="f9a082556f5b9a0b162093a6a64fef36956469d0d587e4eee346f43462298bc1";
+  var gateBox=document.getElementById('gate');
+  function reveal(){ if(gateBox&&gateBox.parentNode) gateBox.parentNode.removeChild(gateBox); document.body.style.overflow=''; }
+  var GKEY='portal_unlocked_v3'; function gateToday(){ try{ return new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Shanghai'}).format(new Date()); }catch(e){ return new Date().toISOString().slice(0,10); } } try{ if(localStorage.getItem(GKEY)===gateToday()){ reveal(); return; } }catch(e){}
+  document.body.style.overflow='hidden';
+  function sha256Hex(str){
+    return crypto.subtle.digest('SHA-256', new TextEncoder().encode(str))
+      .then(function(buf){ return Array.prototype.map.call(new Uint8Array(buf), function(b){ return ('0'+b.toString(16)).slice(-2); }).join(''); });
+  }
+  function tryUnlock(){
+    var inp=document.getElementById('gate-pw'); var v=inp.value; if(!v){ return; }
+    sha256Hex(v).then(function(h){
+      if(h===EXPECTED){ try{localStorage.setItem(GKEY,gateToday());}catch(e){} reveal(); }
+      else { var e=document.getElementById('gate-err'); e.textContent='密码错误，请重试'; inp.style.borderColor='#ff8a8a'; inp.value=''; inp.focus(); }
+    }).catch(function(){ var e=document.getElementById('gate-err'); e.textContent='浏览器不支持加密，请换现代浏览器'; });
+  }
+  document.getElementById('gate-btn').addEventListener('click', tryUnlock);
+  document.getElementById('gate-pw').addEventListener('keydown', function(e){ if(e.key==='Enter') tryUnlock(); });
+  document.getElementById('gate-pw').focus();
+})();
+</script>
+</body>
+</html>

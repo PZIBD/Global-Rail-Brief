@@ -1,9 +1,9 @@
-# 轨道出海日报 · 云端编纂规范 automation-spec v2.2（2026-11-10 起生效；2026-11-12 修订）
+# 轨道出海日报 · 云端编纂规范 automation-spec v2.3（2026-11-10 起生效；2026-11-12 修订）
 
 > 本文件是《轨道出海日报》云端自动化的完整规范，由任务提示词在运行时拉取并严格执行。
 > 凭据（social.env / .deploy.env）与社媒采集命令（YouTube / X / FB）只存在于任务提示词中，本文件不含任何密钥。
 > 08:00 主任务执行全部章节；08:30 兜底补刊任务无社媒环节——跳过【1.5】与【7】，社媒漏斗行写「本次未采集社媒」。
-> 2026-11-10 修订：新增【2】信源优先级（T1/T2/T3）、硬校验⑭信源合规、收尾「信源构成」汇报。
+> 2026-11-12 v2.3：新增【2】检索覆盖强化（行业权威媒体直采词、月度招标日历必查、重大节点复核词、漏抓追责）。2026-11-10 v2.2：信源优先级（T1/T2/T3）、硬校验⑭⑮、收尾「信源构成」汇报。
 > 2026-11-12 修订：T3 扩展至行业聚合站（见道网、蔚蓝轨迹等）与门户转载页（同花顺/腾讯/新浪），主源禁用域名白黑名单；企业自有官方渠道首发归入 T1；硬校验⑭扩展为域名级检查；新增硬校验⑮台账完整性（防跨期重复与台账被覆写成残缺版本）。
 
 【常量】页面节点 8HfJr5vgOgyrZUs8DQbgG1；公开链接 https://workbuddy.link/p/8HfJr5vgOgyrZUs8DQbgG1；发布=import_html.py 覆写该节点（--node-block-id 8HfJr5vgOgyrZUs8DQbgG1）+publish_page.py，严禁新链接。基线：state=bwvUwWzm4FULx4mhyoL7sS、items=5hu65Z4FRfofjuiJKWmJRQ、sentiment=uILbx3ZGazK3tsfoGI1xkl（覆写时 id 不变）。版式模板＝固定链接当前线上页面的 CSS 与类名（蓝扁平单栏版式），结构与校验以【4 成稿】为准；rail-daily-1022.app.workbuddy.host 旧站已停用，不再作为版式来源。往期归档页=https://pzibd.github.io/Global-Rail-Brief/archive.html；检索汇总页=https://pzibd.github.io/Global-Rail-Brief/search.html（2026-11-09 起镜像仓库已由 xxuwuming-lang/rail-export-portal 迁移为 PZIBD/Global-Rail-Brief，旧域名 xxuwuming-lang.github.io 已 404，任何页面与脚本严禁再引用旧域名）。先加载 library 技能，确认 import_html/publish_page/get_download_link/upload_drive_file 四脚本可用。
@@ -23,6 +23,10 @@ T2 主流/行业媒体原文直采：Reuters、The National、Gulf Construction�
 T3 微信公众号、聚合号与转载站（仅作发现线索，禁止作主源；2026-11-12 扩展）：凡线索来自下列任一渠道，必须溯源到其标注的原始出处（T1/T2 原发布页）——① 微信公众号（含「轨道出海情报」「蔚蓝轨迹 Rail」等行业号）；② 行业聚合站（见道网 seetao.com / seetaoa.com、城市轨道交通网、轨道世界、Metro Rail News 中文转载页等）；③ 门户与财经站转载页（同花顺 m.10jqka.com.cn、腾讯新闻 news.qq.com / new.qq.com、新浪 sina.com.cn 的 roll/转载页、网易、搜狐等）。溯源成功→原始发布页作主源、聚合号最多作佐证源并标「线索源：xx（已溯源）」；溯源失败→该条置信度一律降 C，口径注写「二手转述，原始出处检索未果」，不得定 B。同一公众号/聚合站作为主源的条目每期全刊 ≤1 条，超出者要么溯源要么降 C；某区候选全部为转述且溯源失败时，宁可该区不出条（宁缺勿滥），只在汇报提示。
 **主源硬性要求（2026-11-12 新增）**：主源 URL 必须是原始发布页（zf/部委/通讯社/业主/企业官网域名，或 T2 媒体本站文章页）；**严禁**以下域名作主源：mp.weixin.qq.com（除企业自有官方账号首发并注明外）、10jqka.com.cn、qq.com/rain、sina.com.cn 转载页、seetao.com / seetaoa.com、sohu.com、163.com。转载页只能进「佐证源」。每条须能用一句话回答「这条消息最初是谁发的」。
 检索做法（落实优先级）：每区除常规措辞外，至少 1 组官方源定向检索词（如「KAI press release」「Ministry of Transport Thailand 公告」「Antara kereta api」「MRT Corp award」）；当期有条目国家必须做官方源直采尝试；溯源用原题关键词＋通讯社/业主名定向 WebSearch，或 WebFetch 原文页确认可访问。
+检索覆盖强化（2026-11-12 v2.3 新增，防漏抓）：每区除常规措辞与官方源定向词外，必须加做以下两类定向检索，命中即评估收录——
+① 行业权威媒体直采词：railfreight.com、railwaygazette.com、IRJ（railjournal.com）、Metro Report、BNamericas tender calendar（拉美区必做「BNamericas November tender calendar rail」类检索）、T21（墨西哥）、tendernews 类（如「site:railfreight.com 2026/11」或「rail freight corridor opens November 2026」）——此类为 T2 原文直采，优先于任何聚合号转述；
+② 重大节点复核词：每月月初（1–7 日）对投运/通车/开工类节点加做「railway opens/commissioned November 2026」「line inaugurated」与当月地区词组合检索（中亚必含 Kazakhstan Uzbekistan railway opens）；BNamericas 月度招标日历每月初必查一次（拉美区），从中提取铁路相关节点逐条核窗口。
+漏抓追责：每日出刊后，当日截图对比外部同类日刊（如蔚蓝轨迹 Rail 日报）发现的遗漏，次日出刊前须以「回溯」条目补齐并溯源一手源。
 地域排除：剔除中国大陆、美国、欧洲的项目条目；欧洲厂商（阿尔斯通/西门子/斯塔德勒等）全球竞品动态可作 PR 收录，必须标注"欧洲厂商，仅作竞争参照"。
 定级（手册 §6.1，2026-11-10 修订、2026-11-12 补充）：T1 官方一手源（含业主方/主管部门官方社媒，如 @SARSaudiRailway；含企业自有官方渠道首发）A；双源互证 A；T2 单源主流/行业媒体原文 B；微信公众号/聚合站/门户转载页转述未经溯源一律 C（必须留原始直链），溯源成功按原始出处定级；同事件口径冲突 D（写冲突说明）。非官方社媒未经溯源不得高于 C；社媒条目须在口径注标明账号性质。
 信源构成汇报（【6】收尾必附）：主源 T1 官方一手 x 条 / T2 主流行业媒体 y 条 / 公众号与聚合站转述已溯源 z 条 / 转述未溯源（C 级）w 条 / **聚合站或门户转载页作主源 t 条（目标恒为 0，非 0 须逐条说明原因）**；任一区主源全部为转述时，汇报中显式写「该区信源质量待改善」。

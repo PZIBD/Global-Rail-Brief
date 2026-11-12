@@ -1,4 +1,4 @@
-# 轨道出海日报 · 云端编纂规范 automation-spec v2.7（2026-11-10 起生效；2026-11-12 五次修订：竞品监测 → 竞品社媒 → 社媒词表重构为业主视角）
+# 轨道出海日报 · 云端编纂规范 automation-spec v2.8（2026-11-10 起生效；2026-11-12 六次修订：竞品监测 → 竞品社媒 → 社媒词表重构为业主视角 → 语种落盘与多语种扩词）
 
 > 本文件是《轨道出海日报》云端自动化的完整规范，由任务提示词在运行时拉取并严格执行。
 > 凭据（social.env / .deploy.env）与社媒采集命令（YouTube / X / FB）只存在于任务提示词中，本文件不含任何密钥。
@@ -14,32 +14,40 @@
 
 【1 窗口】窗口=D-1 全天，期号=$DATE。
 
-【1.5 社媒采集】（命令与凭据见任务提示词；词表见本节 1.5.1–1.5.3，为唯一权威版本，任务侧只存命令不存词表）三份返回一律丢弃错误占位项（含 error 字段、url 为 /api/graphql 或 /photo/?、text 为空），只留真实帖子；非中英文帖须译成中文摘要，主体、金额、里程、时间按原文事实保留。归一为 {platform,author,published_at,text,url,metrics}，只留窗口内，写 /workspace/social.json 并记 sources；单平台失败只记录不中断。
+【1.5 社媒采集】（命令与凭据见任务提示词；词表见本节 1.5.1–1.5.3，为唯一权威版本，任务侧只存命令不存词表）三份返回一律丢弃错误占位项（含 error 字段、url 为 /api/graphql 或 /photo/?、text 为空），只留真实帖子；非中英文帖须译成中文摘要，主体、金额、里程、时间按原文事实保留。归一为 {platform,author,published_at,text,url,metrics,**lang,lang_src**}，只留窗口内，写 /workspace/social.json 并记 sources；单平台失败只记录不中断。
+**语种判定与落盘（2026-11-12 v2.8 新增，每帖必填 lang）**：`lang` 取 BCP-47 或 ISO 639-1（如 en／ar／ru／pt-BR／id／th／es／ms），`lang_src` 注明来源，判定优先级按平台分别执行——①X：直接采信返回的 `lang` 字段（Twitter 官方分类器，标 `x-native`），**不得自行重判**，仅在其缺失时由正文判定并标 `guess`；②YouTube：依次取 `snippet.defaultAudioLanguage` → `snippet.defaultLanguage`（标 `yt-meta`），两者皆空则按标题文字脚本判定（标 `guess`），仍无法判定标 `unknown`；③FB：采集器无语言字段，由正文判定并标 `model`。lang 只记原文语言，中文摘要另存于译文字段，不得用译后语言覆盖 lang。**注意边界**：YouTube 只返回标题与描述，视频口播内容不可读（字幕下载需频道授权），因此其 lang 反映的是元数据语言而非音频语言；FB 的 media 项含 `ocrText`（图片内文字 OCR），涉及项目事实的图片帖须读取该字段，不得只看 text。
+【语种覆盖原则（同上，v2.8）】本刊社媒不设语言门槛：能读到即收录，读到即译；但**事实性字段（金额、里程、数量、日期）在二档语言（阿语／俄语／波斯语／乌尔都语／孟加拉语／缅甸语／泰米尔语／韩语／日语等）中须与官网稿或英文稿交叉核对**，单源且无法互证时在备注标「该语种单源，数字未二次核」。
 **社媒三平台词表与检索逻辑（2026-11-12 v2.7 重构：由中企视角转为业主一手视角）**
 平台分工（按内容形态匹配，不得互相替代）：
 － YouTube＝视频形态节点：投运／通车／首车下线／开工仪式／交付现场；
 － X＝短讯形态节点：招标公告、授标、签约、规划批复、部长表态（速度最快、一手性最强）；
 － FB＝业主运营动态：客流、票价、免费乘车、服务变更、停运、投诉（主要进 PART07 舆情）。
 **配比铁律**：中企词 ≤3 组；对应区域政府／铁路局／运营商（下称业主）词 ≥14 组；竞品词 ≥5 组。**业主词优先于中企词**——某区业主词命中即作该区首要候选，中企词仅作补充。严禁把社媒环节写成中企战报。
-**语种规则**：YouTube 支持本地语，业主词用「机构缩写＋本地语关键词」（如 KAI kereta api、SRT Thailand รถไฟ）；X 本地语命中率低，业主词用机构英文名（Etihad Rail、ONCF）；FB 不涉语种，按主页抓。
+**语种策略（2026-11-12 v2.8 重写）**：三平台对语言的适配方式不同，不得用同一套词打三处——①YouTube：**本地语效果最好**，业主词用「机构名／缩写＋本地语关键词」原样搜（如 KAI kereta api、SRT Thailand รถไฟ、الاتحاد للقطارات）；②X：本地语命中率低于英文，主请求一律用机构英文名（Etihad Rail、ONCF），本地语另开**独立请求**并用 `tweetLanguage` 过滤（见【1.5.2】分层请求），不得把本地语词混进主请求稀释英文配额；③FB：**按主页抓取、不支持关键词**，语言由主页自身决定（SAR、qrc 等阿语页会返回阿语正文），代码侧无需也不能按语言过滤，只做事后 lang 标注与翻译。新增业主词时按「该机构官方发布用什么语言」决定投哪一路，不要一律译成英文。
 **账号纪律**：只用本节列出的已核实账号；新增前须核实官方归属（官网 footer／新闻稿社交栏／Wikidata）；未核实的 handle 抓空不记失败，但漏掉已核实账号属漏抓。
-【1.5.1 YouTube 词表（19 组，逐词各跑一次，maxResults=15，结果为并集）】
-中企 3：CRRC train delivery｜China railway project｜中国 轨道交通 海外
-东南亚 4：KAI kereta api｜MRT Corp Malaysia｜SRT Thailand รถไฟ｜DOTr railway Philippines
-中东·独联体 4：Etihad Rail｜Saudi Arabia Railways｜Qatar Rail Doha Metro｜KTZ Kazakhstan railway
-拉美 3：Tren Maya｜Trenes Argentinos｜Metro de Bogotá
-非洲 3：ONCF Al Boraq｜Kenya Railways SGR｜Tanzania SGR
-南亚·大洋洲 2：Indian Railways｜Sydney Metro
-【1.5.2 X 词表与账号（19 条 searchTerms，maxItems=200，sort=Latest）】
+【1.5.1 YouTube 词表（28 组，逐词各跑一次，maxResults=15，结果为并集；28×100=2800 配额单位，日配额 10000 内）】
+中企 3（zh/en）：CRRC train delivery｜China railway project｜中国 轨道交通 海外
+东南亚 4（id/ms/th/en）：KAI kereta api｜MRT Corp Malaysia｜SRT Thailand รถไฟ｜DOTr railway Philippines
+中东 5（en＋ar，2026-11-12 加阿语）：Etihad Rail｜Saudi Arabia Railways｜Qatar Rail Doha Metro｜الاتحاد للقطارات｜الخطوط الحديدية السعودية
+独联体 4（en＋ru/uz/az，2026-11-12 加俄语系）：KTZ Kazakhstan railway｜Казахстанские железные дороги｜Узбекистон темир йўллари｜Azərbaycan Dəmir Yolları
+拉美 5（es＋pt，2026-11-12 加葡语）：Tren Maya｜Trenes Argentinos｜Metro de Bogotá｜Metrô de São Paulo｜CFM Moçambique
+非洲 3（fr/en）：ONCF Al Boraq｜Kenya Railways SGR｜Tanzania SGR
+南亚·大洋洲 4（en，2026-11-12 加巴基斯坦／孟加拉）：Indian Railways｜Pakistan Railways｜Bangladesh Railway｜Sydney Metro
+（说明：阿语两组为阿联酋 Etihad Rail 与沙特 SAR 官方名，卡塔尔阿语可由 X 分层请求覆盖；俄语系三组分别对应哈萨克 KTZ、乌兹别克、阿塞拜疆，均为其官方用语；葡语两组对应巴西圣保罗地铁与莫桑比克 CFM，均为中企重点市场。）
+【1.5.2 X 词表与账号（2026-11-12 v2.8 改为**三次独立请求**，sort=Latest，合计 maxItems 340）】
+**请求 A｜主请求（maxItems=200，不设 tweetLanguage，英文为主）**
 业主 9：Etihad Rail｜Saudi Arabia Railways｜Qatar Rail｜ONCF｜KAI kereta｜MRT Corp｜Indian Railways｜Kenya Railways｜TCDD
 阶段词 4（英文通用，专抓招标/投运/规划）：railway tender awarded｜metro line opened｜railway contract signed｜rail project approved
 竞品 4：Alstom OR Siemens Mobility order｜Hyundai Rotem OR Hitachi Rail contract｜Wabtec OR Progress Rail order｜Webuild OR Mota-Engil railway
 中企 2：CRRC｜China railway project
-twitterHandles 11 个（全部已核实）：中企与业主 6＝CRRC_global、ChinaRailways、SARSaudiRailway、QatarRail、RailMinIndia、Marmaraytcdd；竞品 5＝Alstom、SiemensMobility、HitachiRailENG、WabtecCorp、Webuild_Group
-【1.5.3 FB 主页清单（21 页，resultsLimit=150，onlyPostsNewerThan=D1）】
-业主/运营商 17：EtihadRail ktmberhad keretaapikita DOTrPH srt.thailand duongsatvietnam ReliKenya MetroBogota efe.chile trenesargentinosop TrenMayaOficial smrt.singapore mavcsoport mtrhk SARSaudiRailway qrc.official RailMinIndia
+**请求 B｜阿语（tweetLanguage="ar"，maxItems=80）**：الاتحاد للقطارات｜الخطوط الحديدية السعودية｜قطر للسكك الحديدية
+**请求 C｜俄语（tweetLanguage="ru"，maxItems=60）**：КТЖ｜Казахстанские железные дороги｜Узбекские железные дороги
+（B、C 的意义：阿语、俄语业主帖在英文主请求里会被英文帖挤出配额，必须按语种单开一路；两路合计 140 条，成本约 $0.06/日。三路结果按 url 合并去重，**不得因 B/C 为空就跳过不跑**，为空须在漏斗里写「该语种窗口内无业主帖」。）
+twitterHandles 12 个（全部已核实）：中企与业主 7＝CRRC_global、ChinaRailways、SARSaudiRailway、QatarRail、RailMinIndia、Marmaraytcdd、PakrailPK（巴基斯坦铁路）；竞品 5＝Alstom、SiemensMobility、HitachiRailENG、WabtecCorp、Webuild_Group
+【1.5.3 FB 主页清单（23 页，resultsLimit=170，onlyPostsNewerThan=D1；2026-11-12 由 21 页扩至 23 页，resultsLimit 150→170 保持每页约 7 条）】
+业主/运营商 19：EtihadRail ktmberhad keretaapikita DOTrPH srt.thailand duongsatvietnam ReliKenya MetroBogota efe.chile trenesargentinosop TrenMayaOficial smrt.singapore mavcsoport mtrhk SARSaudiRailway qrc.official RailMinIndia pakrail.gov.pk RailMinistryBD
 竞品 4：ALSTOM RollingOnRails global.kawasaki WebuildGroupOfficial
-（RollingOnRails＝Siemens Mobility 官方页，勿写回 SiemensMobility；SARSaudiRailway＝沙特铁路、qrc.official＝卡塔尔铁路、RailMinIndia＝印度铁道部）
+（RollingOnRails＝Siemens Mobility 官方页，勿写回 SiemensMobility；SARSaudiRailway＝沙特铁路、qrc.official＝卡塔尔铁路、RailMinIndia＝印度铁道部、pakrail.gov.pk＝巴基斯坦铁路（与官网域名同名的官方页）、RailMinistryBD＝孟加拉铁道部——孟加拉铁路总公司本身无确证官方页，故取其上级部门铁道部，该部为孟加拉铁路项目公告的实际发布口。）
 **定级与去重**：业主与政府部门官方账号发布的项目事实（招标公告、授标、签约、投运、规划批复）属 T1 一手，作主源定 A；竞品官方账号首发（首车下线、交付仪式、新厂投产、订单官宣）同属 T1，可作 PR 主源并在口径注写「<平台>官方账号首发」，标「仅作竞争参照」；社媒与官网稿并存时取官网稿为佐证源、社媒作首发源，只留一条；社媒条目须标 [YT]/[X]/[FB]，不受地域排除约束（竞品）。
 **零值说明**：某平台或某类账号采集为 0 时，社媒漏斗行须注明「该平台竞品账号窗口内无更新」或「账号不可用」，不得静默略过；三平台同 0 判为凭据或额度故障。
 
@@ -89,7 +97,7 @@ PO 路由：涉及 PO-01~25 在执项目的社媒信息（宣传/乘客体验/�
 ③ 目录条 div.rd-toc（白底圆角卡片，紧接蓝卡片之下）：<b>目录：</b> 后依次 8 个锚点链接——总览→#overview、东南亚→#part01、中东·独联体→#part02、拉美→#part03、非洲→#part04、南亚·大洋洲→#part05、跨区域→#part06、舆情25条→#part07（v3.15：不含编号说明链接与按区速查链接）；对应 details 必须带这些 id。
 ③.5 顶部搜索条（2026-11-06 v3.9 新增，每期必做）：在蓝卡片 header.rd-header 之后、目录条 div.rd-toc 之前插入搜索条，HTML 固定为：<div class="srch srch-page" id="srch"><div class="srch-in"><div class="srch-box"><svg class="srch-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20.2 20.2 16.6 16.6"></path></svg><input class="srch-input" type="text" autocomplete="off" spellcheck="false" aria-label="搜索本期内容" placeholder="搜索本期：关键词 / 国家 / 企业 / 条目编号，如 越南、中车、CT-44"><button class="srch-clear" type="button" aria-label="清空搜索">×</button><kbd class="srch-kbd">/</kbd></div><div class="srch-panel" role="listbox" aria-label="搜索结果"></div></div></div>。样式与脚本必须内联（保持单文件，不得外链引用）：curl -s https://pzibd.github.io/Global-Rail-Brief/search.css 的内容并入页面 <style>；curl -s https://pzibd.github.io/Global-Rail-Brief/search-issue.js 包裹为 <script> 放在折叠跳转脚本之后、</body> 之前（注意：密码门块必须位于所有脚本之后、紧贴 </body>，见「密码门规范」）；各重试≤3 次，仍失败则本期不带搜索条并在汇报标注「搜索条缺失」。该脚本实现：检索本期条目卡片/一句话总览/PART07 舆情行，结果面板（↑↓ 选择、Enter 定位、Esc 关闭）点击后自动逐层展开所在 details 祖先（含折叠的分区与 PO 条目）并滚动定位，页面内命中词黄色高亮，快捷键 / 与 Ctrl+K 聚焦；不得改动脚本逻辑。
 ④ 分区折叠（PART01–07，2026-11-06 v3.13 定稿，用原生 details 实现，不依赖脚本即可折叠）：七个分区一律写成 <details class="part" id="partNN"><summary><h2>PARTxx · 区域名 <span class="rcount">（N 条）</span></h2><span class="fold-ind"><span class="chev"></span><span class="fi-open">展开</span><span class="fi-close">收起</span></span></summary><div class="part-body">…内容…</div></details>（PART07 的 h2 为「PART07 · 舆情跟踪 <span class="rcount">（25 条 · 状态说明）</span>」，part-body 内放说明段 p.muted、po-legend 状态筛选与 po-list，见「PART07 规范」）。默认状态（v3.13 定稿）：七个分区一律不带 open 属性——全部默认收起，只显示标题栏（含展开/收起胶囊与条数徽标），用户点击或锚点跳转/搜索定位时才展开；空分区（part-body 内只有 <p class="empty">窗口内暂无新增（结转观察）</p>）同样收起。折叠 CSS：details.part{margin:20px 0 0;scroll-margin-top:14px}；details.part>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;background:linear-gradient(180deg,#f5f9fe,#eaf1fa);border:1px solid #dbe6f4;border-left:5px solid #0a4ea3;border-radius:10px;padding:11px 16px;user-select:none}；summary:hover{background:#e4edfa;border-color:#c6d8ee}；summary::-webkit-details-marker{display:none}；summary::marker{content:""}；summary h2{margin:0;padding:0;border:none;flex:1;font-size:19px;line-height:1.45;color:#0a4ea3;font-weight:700}；.rcount{font-size:13px;font-weight:400;color:#5b6b7e}；.fold-ind{display:flex;align-items:center;gap:6px;font-size:12.5px;color:#42556e;background:#fff;border:1px solid #d5dde8;border-radius:14px;padding:2px 11px;white-space:nowrap}；.chev{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid #42556e;transition:transform .2s}；details.part[open] .chev{transform:rotate(180deg)}；.fi-open 显示/.fi-close 隐藏，details[open] 时反之；details.part[open]>summary{border-bottom-left-radius:0;border-bottom-right-radius:0}；.part-body{padding-top:10px}。另加极简脚本（放在最后一个 details 之后、密码门之前）：点击任何 href^="#" 链接或 hashchange 时，取目标元素 closest('details') 逐层 open=true，并 try/catch 包裹 querySelector（卡片 id 含「·」等字符时容错），保证从目录条/搜索结果跳到已折叠分区时自动展开；脚本失效不影响手动点击展开。
-卡片规范（2026-11-06 v3.8 定稿、v3.16 修订加粗规则，每期必做，所有 PART01–06 卡片统一）：每张卡片 = chead（span.cid 编号 / span.ccat 类别 / span.ctitle 标题 / span.cbadge 置信度短语）+ cbody 12 行标签-内容表（div.frow = span.fl 标签 + span.fv 内容），标签依次为：①区域/国家/城市（region / country / city 用「/」相连）②阶段 ③资讯（一句话资讯标题，即 project）④内容（100–200 字新闻事实摘要——只搬运原文中的事实、时间、金额、主体、里程与进展，符合新闻原意；不做评估、评价、展望与推断；金额未披露时如实写「金额未披露」；该行 div.frow 加 class="frow r-content"；加粗：摘要中用 <strong> 加粗 2–4 处关键事实，优先级为金额、日期、里程/数量、承建/签约主体、明确的未披露说明，单处加粗尽量 ≤15 字，不得整段加粗、不得加粗形容词与背景信息）⑤相关方（中企主体名、关键金额或核心业主，纯文本）⑥关键词（3–5 个，从类型/主体/金额/事件中自行提炼，分号分隔，如「运营扩能；车辆运用；2027」，纯文本）⑦进度/时间（关键日期节点或签约/开工/投运动作，纯文本）⑧竞品/交叉（核心判断短语或竞品关键事实，纯文本）⑨主源（必须为真实可访问的超链接：<a href="真实URL">来源名，日期</a>；URL 结尾不得带 .md 尾巴，若源文本无 URL 则不得虚构链接；该行加 class="frow r-meta"）⑩佐证源（有 URL 则同样超链接；无 URL 写来源名与互证情况，不带外层括号；加 r-meta）⑪置信度（与 cbadge 一致，如「B（主流媒体/行业媒体，可信度中）」；加 r-meta）⑫语种/备注（加 r-meta）。卡片内不放分隔空行。
+卡片规范（2026-11-06 v3.8 定稿、v3.16 修订加粗规则，每期必做，所有 PART01–06 卡片统一）：每张卡片 = chead（span.cid 编号 / span.ccat 类别 / span.ctitle 标题 / span.cbadge 置信度短语）+ cbody 12 行标签-内容表（div.frow = span.fl 标签 + span.fv 内容），标签依次为：①区域/国家/城市（region / country / city 用「/」相连）②阶段 ③资讯（一句话资讯标题，即 project）④内容（100–200 字新闻事实摘要——只搬运原文中的事实、时间、金额、主体、里程与进展，符合新闻原意；不做评估、评价、展望与推断；金额未披露时如实写「金额未披露」；该行 div.frow 加 class="frow r-content"；加粗：摘要中用 <strong> 加粗 2–4 处关键事实，优先级为金额、日期、里程/数量、承建/签约主体、明确的未披露说明，单处加粗尽量 ≤15 字，不得整段加粗、不得加粗形容词与背景信息）⑤相关方（中企主体名、关键金额或核心业主，纯文本）⑥关键词（3–5 个，从类型/主体/金额/事件中自行提炼，分号分隔，如「运营扩能；车辆运用；2027」，纯文本）⑦进度/时间（关键日期节点或签约/开工/投运动作，纯文本）⑧竞品/交叉（核心判断短语或竞品关键事实，纯文本）⑨主源（必须为真实可访问的超链接：<a href="真实URL">来源名，日期</a>；URL 结尾不得带 .md 尾巴，若源文本无 URL 则不得虚构链接；该行加 class="frow r-meta"）⑩佐证源（有 URL 则同样超链接；无 URL 写来源名与互证情况，不带外层括号；加 r-meta）⑪置信度（与 cbadge 一致，如「B（主流媒体/行业媒体，可信度中）」；加 r-meta）⑫语种/备注（2026-11-12 v2.8：语种部分须写成「中文语种名（原语 lang）」，如「阿拉伯语（ar）」「葡萄牙语（pt-BR）」「印尼语（id）」；**社媒条目必须取自 social.json 的 lang 字段，不得凭印象填写**，网页源条目按原文实际语言写并在无法确定时写「语种待核」；语种后用「 / 中文摘要」再接原有备注，如「俄语（ru） / 中文摘要；业主官方账号首发，仅作竞争参照」；加 r-meta）。卡片内不放分隔空行。
 加粗铁律（2026-11-06 v3.16 定稿）：整张卡片只有④「内容」行允许 <strong>（2–4 处）；其余 11 行——区域/国家/城市、阶段、资讯、相关方、关键词、进度/时间、竞品/交叉、主源、佐证源、置信度、语种/备注——一律纯文本，不得出现任何 <strong>（去粗留字，不得整段加粗也不得局部加粗）。加粗一律为黑色 <strong>，样式 .frow .fv strong{font-weight:700;color:#111}。
 卡片 CSS：.frow{display:flex;border-bottom:1px solid #e8eef6}；.frow:last-child{border-bottom:none}；.fl{flex:0 0 108px;background:#eef3fb;color:#42556e;font-size:12.5px;padding:6px 10px;border-right:1px solid #e4ebf5}；.fv{flex:1;padding:6px 12px;font-size:13px;line-height:1.55}；.fv a{color:#0a4ea3;text-decoration:none;border-bottom:1px dotted #9db8d4}；.fv a:hover{color:#0b3d6b;border-bottom-color:#0b3d6b}；内容行加宽加高：.frow.r-content .fv{padding:9px 14px;font-size:13.5px;line-height:1.78;min-height:72px;text-align:justify}；加粗样式（黑色，v3.8 定稿）：.frow .fv strong{font-weight:700;color:#111}；末四行小字紧凑：.frow.r-meta .fl{font-size:12px}；.frow.r-meta .fv{font-size:12px;line-height:1.45;color:#3d4a5c;padding:5px 12px}。卡片内禁止平铺 issue_date/id/category 等台账原始字段名（台账字段仍全量写入 items CSV）。
 密码门规范（2026-11-09 定稿、15:20 更新为每日输一次免输，每期必做，适用于本期 index.html/issue 页与重写后的 archive.html）：每个页面必须在 </body> 之前（所有脚本之后）包含统一访问密码门，全部内联，不得外链、不得省略、不得改动常量。结构：<div id="gate" style="position:fixed;inset:0;z-index:99999;background:linear-gradient(135deg,#0b2545,#13396b);display:flex;align-items:center;justify-content:center;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'PingFang SC','Microsoft YaHei',sans-serif;"> 内含卡片（🔒 图标、h2「门户已加密」、p「请输入访问密码以查看内容」、<input id="gate-pw" type="password" placeholder="访问密码">、<button id="gate-btn">进入门户</button>、<div id="gate-err"></div>）</div>；其后内联脚本：EXPECTED="f9a082556f5b9a0b162093a6a64fef36956469d0d587e4eee346f43462298bc1"（密码的 SHA-256，严禁在任何输出中写明文密码）、GKEY='portal_unlocked_v3'；免输逻辑（2026-11-09 15:20 用户定稿，每日输一次）：脚本内定义 gateToday()＝new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Shanghai'}).format(new Date())（取北京时间当日日期串 YYYY-MM-DD），载入时 localStorage.getItem(GKEY)===gateToday() 则直接 reveal（当日已输过密码，全天免输，跨零点重新要求输入）；输入哈希===EXPECTED 时 localStorage.setItem(GKEY,gateToday()) 并移除遮罩；严禁使用 GTTL 时间戳秒数比对（7 天免输的旧逻辑已废除，严禁回归）。该门块可直接 curl -s https://pzibd.github.io/Global-Rail-Brief/index.html 提取其中 <div id="gate"> 起至其随附 </script> 为止的片段原样复用（推荐，避免手写出错）。
@@ -111,7 +119,8 @@ PART07 规范（2026-11-06 v3.13 定稿：外壳改为 details.part#part07 默�
 【7 社媒利用率（2026-11-09 新增，每期必做；兜底补刊任务无社媒环节时跳过本节）】
 社媒裁定顺序（替代"不够成条就丢"）：每条 FB/X/YT 内容依次判——① 能否作舆情：服务变更/停运/事故/客流里程碑/票价与免费乘车/乘客投诉/工期表态/延伸规划 → 能则并入 PART07 对应 PO 项，按五档判定；② 有无实质项目事实：中标/签约/交付/开工/投运/金额/里程/数量/主体 → 有则成 CT 或 RW 条目；③ 两者皆无（节日贺帖、招聘、企业形象、旅游推广、纯活动宣传）才弃用。业主方官方号的运营类帖（如新时刻表、免费乘车、客流里程碑）虽不构成项目条目，但属有效舆情，必须按①归入 PART07，不得因"没项目事实"整条丢弃。
 弃用必须归类计数，严禁静默丢弃。在【6】收尾输出末尾追加一段「社媒漏斗」：
-社媒漏斗：采集 FB n1 / X n2 / YT n3 条；采用 舆情 a 条、条目 b 条；弃用 c 条（节日贺帖 x、企业形象与招聘 y、旅游与活动推广 z、无实质事实 w、重复 v）；采用编号：CT-xx、RW-xx、PO-xx。
+社媒漏斗：采集 FB n1 / X n2 / YT n3 条（X 三路拆分：主请求 m1／阿语 m2／俄语 m3）；语种分布 ar a1、ru a2、pt a3、id a4、th a5、es a6、ms a7、vi a8、zh a9、en a10、其他 a11；采用 舆情 aa 条、条目 bb 条；弃用 cc 条（节日贺帖 x、企业形象与招聘 y、旅游与活动推广 z、无实质事实 w、重复 v）；采用编号：CT-xx、RW-xx、PO-xx。
+（语种分布按 social.json 的 lang 字段统计，不得凭印象填；阿语、俄语两路产出为 0 时须注明「该语种窗口内无业主帖」，不得省略该字段。）
 若某平台采集 0 条，在漏斗后追加一句判断：三平台同为 0 → 怀疑凭据或额度失效；单平台为 0 且另两个正常 → 窗口内无帖。
 漏斗行须并入竞品维度（v2.6）：在同段末尾追加「竞品账号采集 n 条（YT a／X b／FB c），采用 PR x 条、并入舆情 y 条、弃用 z 条（原因）」；竞品账号采集为 0 时按【1.5】零值说明写明原因（账号窗口内无更新／账号不可用），不得因「竞品不是中企」而不采。
 

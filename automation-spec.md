@@ -25,22 +25,22 @@
 **配比铁律**：中企词 ≤3 组；对应区域政府／铁路局／运营商（下称业主）词 ≥14 组；竞品词 ≥5 组。**业主词优先于中企词**——某区业主词命中即作该区首要候选，中企词仅作补充。严禁把社媒环节写成中企战报。
 **语种策略（2026-11-12 v2.8 重写）**：三平台对语言的适配方式不同，不得用同一套词打三处——①YouTube：**本地语效果最好**，业主词用「机构名／缩写＋本地语关键词」原样搜（如 KAI kereta api、SRT Thailand รถไฟ、الاتحاد للقطارات）；②X：本地语命中率低于英文，主请求一律用机构英文名（Etihad Rail、ONCF），本地语另开**独立请求**并用 `tweetLanguage` 过滤（见【1.5.2】分层请求），不得把本地语词混进主请求稀释英文配额；③FB：**按主页抓取、不支持关键词**，语言由主页自身决定（SAR、qrc 等阿语页会返回阿语正文），代码侧无需也不能按语言过滤，只做事后 lang 标注与翻译。新增业主词时按「该机构官方发布用什么语言」决定投哪一路，不要一律译成英文。
 **账号纪律**：只用本节列出的已核实账号；新增前须核实官方归属（官网 footer／新闻稿社交栏／Wikidata）；未核实的 handle 抓空不记失败，但漏掉已核实账号属漏抓。
-【1.5.1 YouTube 词表（28 组，逐词各跑一次，maxResults=15，结果为并集；28×100=2800 配额单位，日配额 10000 内）】
+【1.5.1 YouTube 词表（30 组，逐词各跑一次，maxResults=15，结果为并集；30×100=3000 配额单位，日配额 10000 内）】
 中企 3（zh/en）：CRRC train delivery｜China railway project｜中国 轨道交通 海外
 东南亚 4（id/ms/th/en）：KAI kereta api｜MRT Corp Malaysia｜SRT Thailand รถไฟ｜DOTr railway Philippines
-中东 5（en＋ar，2026-11-12 加阿语）：Etihad Rail｜Saudi Arabia Railways｜Qatar Rail Doha Metro｜الاتحاد للقطارات｜الخطوط الحديدية السعودية
+中东·北非 7（en＋ar＋fr，2026-11-12 加阿语与北非）：Etihad Rail｜Saudi Arabia Railways｜Qatar Rail Doha Metro｜الاتحاد للقطارات｜الخطوط الحديدية السعودية｜السكك الحديدية المصرية｜SNTF Algérie
 独联体 4（en＋ru/uz/az，2026-11-12 加俄语系）：KTZ Kazakhstan railway｜Казахстанские железные дороги｜Узбекистон темир йўллари｜Azərbaycan Dəmir Yolları
 拉美 5（es＋pt，2026-11-12 加葡语）：Tren Maya｜Trenes Argentinos｜Metro de Bogotá｜Metrô de São Paulo｜CFM Moçambique
 非洲 3（fr/en）：ONCF Al Boraq｜Kenya Railways SGR｜Tanzania SGR
 南亚·大洋洲 4（en，2026-11-12 加巴基斯坦／孟加拉）：Indian Railways｜Pakistan Railways｜Bangladesh Railway｜Sydney Metro
-（说明：阿语两组为阿联酋 Etihad Rail 与沙特 SAR 官方名，卡塔尔阿语可由 X 分层请求覆盖；俄语系三组分别对应哈萨克 KTZ、乌兹别克、阿塞拜疆，均为其官方用语；葡语两组对应巴西圣保罗地铁与莫桑比克 CFM，均为中企重点市场。）
+（说明：阿语三组分别对应阿联酋 Etihad Rail、沙特 SAR、埃及国家铁路 ENR（السكك الحديدية المصرية）；SNTF Algérie 为阿尔及利亚国家铁路运输公司法语名，其投资 agency ANESRIF 在 X 主请求覆盖；俄语系三组对应哈萨克 KTZ、乌兹别克、阿塞拜疆；葡语两组对应巴西圣保罗地铁与莫桑比克 CFM；均为中企重点或活跃市场。）
 【1.5.2 X 词表与账号（2026-11-12 v2.8 改为**三次独立请求**，sort=Latest，合计 maxItems 340）】
-**请求 A｜主请求（maxItems=200，不设 tweetLanguage，英文为主）**
-业主 9：Etihad Rail｜Saudi Arabia Railways｜Qatar Rail｜ONCF｜KAI kereta｜MRT Corp｜Indian Railways｜Kenya Railways｜TCDD
+**请求 A｜主请求（maxItems=200，不设 tweetLanguage，英文/法文为主）**
+业主 11（2026-11-12 下午加埃及、阿尔及利亚）：Etihad Rail｜Saudi Arabia Railways｜Qatar Rail｜ONCF｜KAI kereta｜MRT Corp｜Indian Railways｜Kenya Railways｜TCDD｜Egyptian National Railways｜ANESRIF railway
 阶段词 4（英文通用，专抓招标/投运/规划）：railway tender awarded｜metro line opened｜railway contract signed｜rail project approved
 竞品 4：Alstom OR Siemens Mobility order｜Hyundai Rotem OR Hitachi Rail contract｜Wabtec OR Progress Rail order｜Webuild OR Mota-Engil railway
 中企 2：CRRC｜China railway project
-**请求 B｜阿语（tweetLanguage="ar"，maxItems=80）**：الاتحاد للقطارات｜الخطوط الحديدية السعودية｜قطر للسكك الحديدية
+**请求 B｜阿语（tweetLanguage="ar"，maxItems=80）**：الاتحاد للقطارات｜الخطوط الحديدية السعودية｜قطر للسكك الحديدية｜السكك الحديدية المصرية｜الشركة الوطنية للنقل بالسكك الحديدية
 **请求 C｜俄语（tweetLanguage="ru"，maxItems=60）**：КТЖ｜Казахстанские железные дороги｜Узбекские железные дороги
 （B、C 的意义：阿语、俄语业主帖在英文主请求里会被英文帖挤出配额，必须按语种单开一路；两路合计 140 条，成本约 $0.06/日。三路结果按 url 合并去重，**不得因 B/C 为空就跳过不跑**，为空须在漏斗里写「该语种窗口内无业主帖」。）
 twitterHandles 12 个（全部已核实）：中企与业主 7＝CRRC_global、ChinaRailways、SARSaudiRailway、QatarRail、RailMinIndia、Marmaraytcdd、PakrailPK（巴基斯坦铁路）；竞品 5＝Alstom、SiemensMobility、HitachiRailENG、WabtecCorp、Webuild_Group

@@ -31,6 +31,32 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,Bl
 .empty{max-width:1080px;margin:40px auto;padding:0 20px;color:var(--sub);text-align:center}
 footer{max-width:1080px;margin:0 auto;padding:26px 20px 50px;color:#8a98a8;font-size:13px;border-top:1px solid var(--line);text-align:center}
 footer a{color:var(--blue);text-decoration:none}
+/*ARCH-CAL*/
+.cal-wrap{max-width:1080px;margin:0 auto;padding:0 20px 56px}
+.cal-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:26px;margin-top:6px}
+.cal-head h2{margin:0;font-size:19px;color:var(--navy);font-weight:800}
+.cal-head p{margin:0;color:var(--sub);font-size:13px}
+.cal-month{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px 18px;margin-top:16px;box-shadow:0 6px 18px rgba(11,37,69,.05)}
+.cal-mh{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.cal-mh b{font-size:15px;color:var(--ink);font-weight:800}
+.cal-mh span{font-size:11.5px;color:#42618a;background:#eef3fb;border-radius:20px;padding:1px 9px}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:7px}
+.cal-wd{font-size:11.5px;color:#9aa8b6;text-align:center;padding-bottom:2px;font-weight:600}
+.cal-cell{display:flex;align-items:center;justify-content:center;min-height:46px;border-radius:10px;font-size:14px;color:#c3ccd8;background:#fafbfd;text-decoration:none;position:relative;line-height:1}
+.cal-cell.is-empty{background:transparent}
+.cal-cell.has{background:#eef4fb;border:1px solid #cfdff0;color:#0b2545;font-weight:700;cursor:pointer;transition:.15s}
+.cal-cell.has b{font-weight:800}
+.cal-cell.has:hover{background:var(--blue);border-color:var(--blue);color:#fff;transform:translateY(-1px);box-shadow:0 8px 18px rgba(27,110,194,.28)}
+.cal-cell.has i{position:absolute;bottom:5px;left:50%;margin-left:-2px;width:4px;height:4px;border-radius:50%;background:var(--blue)}
+.cal-cell.has:hover i{background:#fff}
+.cal-cell.is-new{box-shadow:inset 0 0 0 2px var(--amber)}
+.cal-cell.is-new i{background:var(--amber)}
+.cal-legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;font-size:12px;color:#7b8899}
+.cal-legend i.lg{display:inline-block;width:10px;height:10px;border-radius:3px;background:#fafbfd;border:1px solid #e6ebf2;margin-right:6px;vertical-align:-1px}
+.cal-legend i.lg-on{background:#eef4fb;border-color:#cfdff0}
+.cal-legend i.lg-new{background:#eef4fb;border-color:#cfdff0;box-shadow:inset 0 0 0 2px var(--amber)}
+@media(max-width:640px){.cal-grid{gap:4px}.cal-cell{min-height:40px;font-size:13px}.cal-month{padding:14px 12px 16px}.cal-head{padding-top:20px}}
+/*/ARCH-CAL*/
 </style>
 <!--SRCH-CSS--><style>
 
@@ -111,7 +137,7 @@ mark.srch-mark{background:#fff1a8;color:#111;padding:0 1px;border-radius:2px}
   </div>
 </div>
 <!--/SRCH-HTML-->
-<div class="wrap">
+<div class="wrap" id="cards">
   <a class="card" href="issue-2026-11-16.html">
     <div class="meta"><span class="no">第 13 期</span><span class="dt">2026-11-16</span></div>
     <h2>六区新增3条出海动态——菲律宾EDSA巴士招标、墨西哥帕丘卡中车首列交付、埃及开罗地铁阿尔斯通投运</h2>
@@ -174,8 +200,6 @@ mark.srch-mark{background:#fff1a8;color:#111;padding:0 1px;border-radius:2px}
     <div class="meta"><span class="no">第 1 期</span><span class="dt">2026-11-04</span></div>
     <h2>社媒三平台全量返回（FB 22条去噪），实质新增3条：CT-41、CT-42、RW-35</h2><p>本期为定时自动化出刊，覆盖监测窗口 2026-11-03 00:00 ~ 11-04 00:00。社媒三平台采集并去噪：YouTube=1条、X=0条、Facebook=22条（ktmberhad:7、DOTrPH:7、ReliKenya:4 等13个主页全量覆盖）；窗口内实质新增出海条目3条，其余区域以持平结转既有台账活跃项目，全量台账（111+条）比对去重无重复…</p><div class="more">阅读此期 →</div></a>
   </div>
-
-<footer>中国轨道交通出海动态 · 自动出刊门户 ｜ <a href="index.html">返回最新一期</a></footer>
 <!--SRCH-JS--><script>
 /* 站内搜索 —— 往期归档页版（期次筛选 + 跳转检索汇总页） */
 (function () {
@@ -463,7 +487,80 @@ mark.srch-mark{background:#fff1a8;color:#111;padding:0 1px;border-radius:2px}
   readMetas();
 })();
 </script>
-<!--/SRCH-JS--><div id="gate" style="position:fixed;inset:0;z-index:99999;background:linear-gradient(135deg,#0b2545,#13396b);display:flex;align-items:center;justify-content:center;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'PingFang SC','Microsoft YaHei',sans-serif;">
+<!--/SRCH-JS--><!--ARCH-CAL-JS-->
+<script>
+(function(){
+  var RECENT = 6;                     /* 上方展示的最新期数，改这一个数字即可 */
+  var grid = document.getElementById('cards');
+  if(!grid || document.getElementById('archCal')) return;
+  var cards = [].slice.call(grid.querySelectorAll('a.card'));
+  var items = [];
+  cards.forEach(function(a){
+    var m = /issue-(\d{4})-(\d{2})-(\d{2})\.html/.exec(a.getAttribute('href') || '');
+    if(!m) return;
+    var noEl = a.querySelector('.no'), h2 = a.querySelector('h2');
+    items.push({ el:a, y:+m[1], mo:+m[2], d:+m[3],
+      no: noEl ? noEl.textContent.replace(/\s+/g,'') : '',
+      title: h2 ? h2.textContent.trim() : '',
+      href: a.getAttribute('href') });
+  });
+  if(!items.length) return;
+
+  /* 1) 卡片只保留最新 RECENT 期（其余交给日历） */
+  items.forEach(function(o,i){ if(i >= RECENT && o.el.parentNode) o.el.parentNode.removeChild(o.el); });
+
+  /* 2) 标题下的说明改写 */
+  var hp = document.querySelector('.head p');
+  if(hp) hp.textContent = '共 ' + items.length + ' 期 · 上方为最新 ' +
+    Math.min(RECENT, items.length) + ' 期，更早的请在下方日历中按日期查看';
+
+  /* 3) 按月分组，最新月份在前 */
+  var months = {}, order = [];
+  items.forEach(function(o){
+    var k = o.y + '-' + (o.mo < 10 ? '0' + o.mo : o.mo);
+    if(!months[k]){ months[k] = { y:o.y, mo:o.mo, list:[] }; order.push(k); }
+    months[k].list.push(o);
+  });
+  order.sort().reverse();
+
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
+
+  var html = '<div class="cal-head"><h2>日历索引</h2><p>按月查看全部往期，点击日期直接跳转当期</p></div>';
+  order.forEach(function(k){
+    var g = months[k], map = {};
+    g.list.forEach(function(o){ map[o.d] = o; });
+    var startWd = (new Date(g.y, g.mo - 1, 1).getDay() + 6) % 7;   /* 周一为首列 */
+    var days = new Date(g.y, g.mo, 0).getDate();
+    var cells = '';
+    for(var i = 0; i < startWd; i++) cells += '<span class="cal-cell is-empty"></span>';
+    for(var d = 1; d <= days; d++){
+      var o = map[d];
+      if(o){
+        var isNew = items.indexOf(o) < RECENT;
+        cells += '<a class="cal-cell has' + (isNew ? ' is-new' : '') + '" href="' + esc(o.href) +
+                 '" title="' + esc(o.no + ' · ' + o.title) + '"><b>' + d + '</b><i></i></a>';
+      } else {
+        cells += '<span class="cal-cell"><b>' + d + '</b></span>';
+      }
+    }
+    html += '<div class="cal-month"><div class="cal-mh"><b>' + g.y + ' 年 ' + g.mo + ' 月</b><span>' +
+      g.list.length + ' 期</span></div><div class="cal-grid">' +
+      '<span class="cal-wd">一</span><span class="cal-wd">二</span><span class="cal-wd">三</span>' +
+      '<span class="cal-wd">四</span><span class="cal-wd">五</span><span class="cal-wd">六</span>' +
+      '<span class="cal-wd">日</span>' + cells + '</div></div>';
+  });
+  html += '<div class="cal-legend"><span><i class="lg lg-on"></i>有出刊（点击跳转）</span>' +
+          '<span><i class="lg lg-new"></i>最新 ' + RECENT + ' 期</span>' +
+          '<span><i class="lg"></i>当日未出刊</span></div>';
+
+  var sec = document.createElement('section');
+  sec.className = 'cal-wrap'; sec.id = 'archCal';
+  sec.innerHTML = html;
+  grid.parentNode.insertBefore(sec, grid.nextSibling);
+})();
+</script>
+<!--/ARCH-CAL-JS-->
+<div id="gate" style="position:fixed;inset:0;z-index:99999;background:linear-gradient(135deg,#0b2545,#13396b);display:flex;align-items:center;justify-content:center;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'PingFang SC','Microsoft YaHei',sans-serif;">
   <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:34px 38px;width:340px;max-width:90vw;text-align:center;box-shadow:0 24px 70px rgba(0,0,0,.45);">
     <div style="font-size:32px;margin-bottom:8px;">🔒</div>
     <h2 style="color:#fff;margin:0 0 6px;font-size:20px;font-weight:800;">门户已加密</h2>

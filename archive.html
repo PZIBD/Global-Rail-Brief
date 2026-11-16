@@ -36,26 +36,36 @@ footer a{color:var(--blue);text-decoration:none}
 .cal-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:26px;margin-top:6px}
 .cal-head h2{margin:0;font-size:19px;color:var(--navy);font-weight:800}
 .cal-head p{margin:0;color:var(--sub);font-size:13px}
-.cal-month{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px 18px;margin-top:16px;box-shadow:0 6px 18px rgba(11,37,69,.05)}
-.cal-mh{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-.cal-mh b{font-size:15px;color:var(--ink);font-weight:800}
-.cal-mh span{font-size:11.5px;color:#42618a;background:#eef3fb;border-radius:20px;padding:1px 9px}
+.cal-month{position:relative;background:#fff;border:1px solid var(--line);border-radius:16px;padding:0 18px 18px;margin-top:16px;box-shadow:0 8px 26px rgba(11,37,69,.06);overflow:hidden}
+.cal-month::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,#0b2545,#1b6ec2 55%,#f0a500)}
+.cal-mh{display:flex;align-items:center;gap:12px;padding:18px 2px 14px}
+.cal-big{font-size:30px;font-weight:900;color:var(--navy);line-height:1;letter-spacing:-1px}
+.cal-mtxt{display:flex;flex-direction:column;line-height:1.25}
+.cal-mtxt b{font-size:13px;color:var(--ink);font-weight:700}
+.cal-mtxt i{font-style:normal;font-size:10.5px;color:#9aa8b6;letter-spacing:.8px;text-transform:uppercase}
+.cal-cnt{margin-left:auto;font-size:11.5px;color:#3d5a80;background:#eef4fb;border-radius:20px;padding:3px 10px;font-weight:700}
+.cal-week{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;background:#eef3fa;border-radius:10px;padding:8px 0;margin-bottom:9px}
+.cal-wd{font-size:12px;color:#3d5a80;text-align:center;font-weight:700;letter-spacing:.6px}
+.cal-wd.we{color:#c07a00}
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:7px}
-.cal-wd{font-size:11.5px;color:#9aa8b6;text-align:center;padding-bottom:2px;font-weight:600}
-.cal-cell{display:flex;align-items:center;justify-content:center;min-height:46px;border-radius:10px;font-size:14px;color:#c3ccd8;background:#fafbfd;text-decoration:none;position:relative;line-height:1}
-.cal-cell.is-empty{background:transparent}
-.cal-cell.has{background:#eef4fb;border:1px solid #cfdff0;color:#0b2545;font-weight:700;cursor:pointer;transition:.15s}
+.cal-cell{display:flex;align-items:center;justify-content:center;min-height:46px;border-radius:11px;font-size:14px;color:#c8d2de;background:transparent;text-decoration:none;position:relative;line-height:1;transition:background .16s,color .16s,transform .16s,box-shadow .16s,border-color .16s}
+.cal-cell b{font-weight:600}
+.cal-cell.is-empty{min-height:46px}
+.cal-cell.has{background:#fff;border:1px solid #dbe7f5;color:var(--navy);font-weight:700;cursor:pointer;box-shadow:0 1px 2px rgba(11,37,69,.05)}
 .cal-cell.has b{font-weight:800}
-.cal-cell.has:hover{background:var(--blue);border-color:var(--blue);color:#fff;transform:translateY(-1px);box-shadow:0 8px 18px rgba(27,110,194,.28)}
-.cal-cell.has i{position:absolute;bottom:5px;left:50%;margin-left:-2px;width:4px;height:4px;border-radius:50%;background:var(--blue)}
-.cal-cell.has:hover i{background:#fff}
-.cal-cell.is-new{box-shadow:inset 0 0 0 2px var(--amber)}
-.cal-cell.is-new i{background:var(--amber)}
-.cal-legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;font-size:12px;color:#7b8899}
-.cal-legend i.lg{display:inline-block;width:10px;height:10px;border-radius:3px;background:#fafbfd;border:1px solid #e6ebf2;margin-right:6px;vertical-align:-1px}
-.cal-legend i.lg-on{background:#eef4fb;border-color:#cfdff0}
-.cal-legend i.lg-new{background:#eef4fb;border-color:#cfdff0;box-shadow:inset 0 0 0 2px var(--amber)}
-@media(max-width:640px){.cal-grid{gap:4px}.cal-cell{min-height:40px;font-size:13px}.cal-month{padding:14px 12px 16px}.cal-head{padding-top:20px}}
+.cal-cell.has i{position:absolute;bottom:6px;left:50%;margin-left:-2.5px;width:5px;height:5px;border-radius:50%;background:var(--blue);opacity:.85}
+.cal-cell.has:hover{background:linear-gradient(135deg,#1b6ec2,#0b5fa5);border-color:transparent;color:#fff;transform:translateY(-2px);box-shadow:0 10px 20px rgba(27,110,194,.32)}
+.cal-cell.has:hover i{background:#fff;opacity:1}
+.cal-cell.is-new{border-color:#f5c871;background:#fffdf7}
+.cal-cell.is-new i{background:var(--amber);opacity:1}
+.cal-cell.is-today{box-shadow:inset 0 0 0 2px #1b6ec2}
+.cal-cell.is-today.has{box-shadow:inset 0 0 0 2px #1b6ec2,0 1px 2px rgba(11,37,69,.05)}
+.cal-legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:16px;font-size:12px;color:#7b8899}
+.cal-legend span{display:inline-flex;align-items:center}
+.cal-legend i.lg{display:inline-block;width:12px;height:12px;border-radius:4px;background:#fff;border:1px solid #dbe7f5;margin-right:7px}
+.cal-legend i.lg-new{background:#fffdf7;border-color:#f5c871}
+.cal-legend i.lg-today{background:#fff;border-color:#1b6ec2;box-shadow:inset 0 0 0 2px #1b6ec2}
+@media(max-width:640px){.cal-grid,.cal-week{gap:4px}.cal-cell,.cal-cell.is-empty{min-height:40px;font-size:13px}.cal-month{padding:0 12px 14px}.cal-big{font-size:24px}.cal-mh{padding:14px 2px 12px}.cal-head{padding-top:20px}}
 /*/ARCH-CAL*/
 </style>
 <!--SRCH-CSS--><style>
@@ -524,6 +534,10 @@ mark.srch-mark{background:#fff1a8;color:#111;padding:0 1px;border-radius:2px}
   order.sort().reverse();
 
   function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
+  var EN = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var WD = [['一',0],['二',0],['三',0],['四',0],['五',0],['六',1],['日',1]];
+  var today = '';
+  try{ today = new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Shanghai'}).format(new Date()); }catch(e){}
 
   var html = '<div class="cal-head"><h2>日历索引</h2><p>按月查看全部往期，点击日期直接跳转当期</p></div>';
   order.forEach(function(k){
@@ -531,27 +545,32 @@ mark.srch-mark{background:#fff1a8;color:#111;padding:0 1px;border-radius:2px}
     g.list.forEach(function(o){ map[o.d] = o; });
     var startWd = (new Date(g.y, g.mo - 1, 1).getDay() + 6) % 7;   /* 周一为首列 */
     var days = new Date(g.y, g.mo, 0).getDate();
+    var pad = function(n){ return n < 10 ? '0' + n : '' + n; };
     var cells = '';
     for(var i = 0; i < startWd; i++) cells += '<span class="cal-cell is-empty"></span>';
     for(var d = 1; d <= days; d++){
-      var o = map[d];
+      var o = map[d], isToday = today === g.y + '-' + pad(g.mo) + '-' + pad(d);
       if(o){
-        var isNew = items.indexOf(o) < RECENT;
-        cells += '<a class="cal-cell has' + (isNew ? ' is-new' : '') + '" href="' + esc(o.href) +
-                 '" title="' + esc(o.no + ' · ' + o.title) + '"><b>' + d + '</b><i></i></a>';
+        var cls = 'cal-cell has' + (items.indexOf(o) < RECENT ? ' is-new' : '') + (isToday ? ' is-today' : '');
+        cells += '<a class="' + cls + '" href="' + esc(o.href) + '" title="' +
+                 esc(o.no + ' · ' + o.title) + '"><b>' + d + '</b><i></i></a>';
       } else {
-        cells += '<span class="cal-cell"><b>' + d + '</b></span>';
+        cells += '<span class="cal-cell' + (isToday ? ' is-today' : '') + '"><b>' + d + '</b></span>';
       }
     }
-    html += '<div class="cal-month"><div class="cal-mh"><b>' + g.y + ' 年 ' + g.mo + ' 月</b><span>' +
-      g.list.length + ' 期</span></div><div class="cal-grid">' +
-      '<span class="cal-wd">一</span><span class="cal-wd">二</span><span class="cal-wd">三</span>' +
-      '<span class="cal-wd">四</span><span class="cal-wd">五</span><span class="cal-wd">六</span>' +
-      '<span class="cal-wd">日</span>' + cells + '</div></div>';
+    var wdHtml = '';
+    WD.forEach(function(w){ wdHtml += '<span class="cal-wd' + (w[1] ? ' we' : '') + '">' + w[0] + '</span>'; });
+    html += '<div class="cal-month">' +
+      '<div class="cal-mh"><span class="cal-big">' + g.mo + '</span>' +
+      '<span class="cal-mtxt"><b>' + g.y + ' 年</b><i>' + EN[g.mo - 1] + '</i></span>' +
+      '<span class="cal-cnt">' + g.list.length + ' 期</span></div>' +
+      '<div class="cal-week">' + wdHtml + '</div>' +
+      '<div class="cal-grid">' + cells + '</div></div>';
   });
-  html += '<div class="cal-legend"><span><i class="lg lg-on"></i>有出刊（点击跳转）</span>' +
-          '<span><i class="lg lg-new"></i>最新 ' + RECENT + ' 期</span>' +
-          '<span><i class="lg"></i>当日未出刊</span></div>';
+  html += '<div class="cal-legend"><span><i class="lg lg-new"></i>最新 ' + RECENT + ' 期</span>' +
+          '<span><i class="lg"></i>更早往期（点击跳转）</span>' +
+          '<span><i class="lg lg-today"></i>今日</span>' +
+          '<span>灰色＝当日未出刊</span></div>';
 
   var sec = document.createElement('section');
   sec.className = 'cal-wrap'; sec.id = 'archCal';

@@ -6,6 +6,8 @@
 > 2026-11-12 v2.3：新增【2】检索覆盖强化（行业权威媒体直采词、月度招标日历必查、重大节点复核词、漏抓追责）。2026-11-10 v2.2：信源优先级（T1/T2/T3）、硬校验⑭⑮、收尾「信源构成」汇报。
 > 2026-11-12 修订：T3 扩展至行业聚合站（见道网、蔚蓝轨迹等）与门户转载页（同花顺/腾讯/新浪），主源禁用域名白黑名单；企业自有官方渠道首发归入 T1；硬校验⑭扩展为域名级检查；新增硬校验⑮台账完整性（防跨期重复与台账被覆写成残缺版本）。
 
+【并发编辑纪律（2026-11-16 新增，多窗口协作用）】本文件可能被多个会话同时修改。动手前必须先 `curl -s https://raw.githubusercontent.com/PZIBD/Global-Rail-Brief/main/automation-spec.md` 拉取最新版并逐字节比对本地副本；**禁止用旧副本整文件覆盖**（2026-11-16 已发生一次：v3.4 版式修订基于旧 v2.9 覆写，v2.10 词表全丢）。合并原则：版本号就高、条款就全，不得删除他人新增的词表、硬校验与配色；每次改动在标题行递增版本号并注明基线（如「基于 v2.10＋v3.4」），推送后回报字节数与 commit id。
+
 【常量】页面节点 8HfJr5vgOgyrZUs8DQbgG1；公开链接 https://workbuddy.link/p/8HfJr5vgOgyrZUs8DQbgG1；发布=import_html.py 覆写该节点（--node-block-id 8HfJr5vgOgyrZUs8DQbgG1）+publish_page.py，严禁新链接。基线：state=bwvUwWzm4FULx4mhyoL7sS、items=5hu65Z4FRfofjuiJKWmJRQ、sentiment=uILbx3ZGazK3tsfoGI1xkl（覆写时 id 不变）。版式模板＝固定链接当前线上页面的 CSS 与类名（蓝扁平单栏版式），结构与校验以【4 成稿】为准；rail-daily-1022.app.workbuddy.host 旧站已停用，不再作为版式来源。往期归档页=https://pzibd.github.io/Global-Rail-Brief/archive.html；检索汇总页=https://pzibd.github.io/Global-Rail-Brief/search.html（2026-11-09 起镜像仓库已由 xxuwuming-lang/rail-export-portal 迁移为 PZIBD/Global-Rail-Brief，旧域名 xxuwuming-lang.github.io 已 404，任何页面与脚本严禁再引用旧域名）。先加载 library 技能，确认 import_html/publish_page/get_download_link/upload_drive_file 四脚本可用。
 
 【期号基准（2026-11-09 重编号，必须遵守）】第1期=2026-11-04，期号 N=(DATE−2026-11-04)天数+1。2026-10-26~2026-11-03 共九期（原第1–9期）已于 2026-11-09 下架：归档页与检索索引中均不得出现其条目，严禁把它们重新写回归档列表或 search-index.json，也不得参与期号计算。

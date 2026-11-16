@@ -1,4 +1,4 @@
-# 轨道出海日报 · 云端编纂规范 automation-spec v2.9（2026-11-10 起生效；2026-11-13 修订：社媒凭据自检、四态必写、窗口日口径、人工补录三基线同写；硬校验⑰计数对齐 v2.8 词表）
+# 轨道出海日报 · 云端编纂规范 automation-spec v2.10（2026-11-10 起生效；2026-11-16 修订：对照外部同类日刊漏抓清单补检索词——土耳其部长表态、墨西哥机车招标、印度城轨批次、开罗地铁/内罗毕通勤，YT 36 组、X 主请求 27 条；2026-11-13 v2.9：凭据自检、四态必写、窗口日口径、人工补录三基线同写）
 
 > 本文件是《轨道出海日报》云端自动化的完整规范，由任务提示词在运行时拉取并严格执行。
 > 凭据（social.env / .deploy.env）与社媒采集命令（YouTube / X / FB）只存在于任务提示词中，本文件不含任何密钥。
@@ -25,20 +25,20 @@
 **配比铁律**：中企词 ≤3 组；对应区域政府／铁路局／运营商（下称业主）词 ≥14 组；竞品词 ≥5 组。**业主词优先于中企词**——某区业主词命中即作该区首要候选，中企词仅作补充。严禁把社媒环节写成中企战报。
 **语种策略（2026-11-12 v2.8 重写）**：三平台对语言的适配方式不同，不得用同一套词打三处——①YouTube：**本地语效果最好**，业主词用「机构名／缩写＋本地语关键词」原样搜（如 KAI kereta api、SRT Thailand รถไฟ、الاتحاد للقطارات）；②X：本地语命中率低于英文，主请求一律用机构英文名（Etihad Rail、ONCF），本地语另开**独立请求**并用 `tweetLanguage` 过滤（见【1.5.2】分层请求），不得把本地语词混进主请求稀释英文配额；③FB：**按主页抓取、不支持关键词**，语言由主页自身决定（SAR、qrc 等阿语页会返回阿语正文），代码侧无需也不能按语言过滤，只做事后 lang 标注与翻译。新增业主词时按「该机构官方发布用什么语言」决定投哪一路，不要一律译成英文。
 **账号纪律**：只用本节列出的已核实账号；新增前须核实官方归属（官网 footer／新闻稿社交栏／Wikidata）；未核实的 handle 抓空不记失败，但漏掉已核实账号属漏抓。
-【1.5.1 YouTube 词表（30 组，逐词各跑一次，maxResults=15，结果为并集；30×100=3000 配额单位，日配额 10000 内）】
+【1.5.1 YouTube 词表（36 组，逐词各跑一次，maxResults=15，结果为并集；36×100=3600 配额单位，日配额 10000 内）】
 中企 3（zh/en）：CRRC train delivery｜China railway project｜中国 轨道交通 海外
 东南亚 4（id/ms/th/en）：KAI kereta api｜MRT Corp Malaysia｜SRT Thailand รถไฟ｜DOTr railway Philippines
-中东·北非 7（en＋ar＋fr，2026-11-12 加阿语与北非）：Etihad Rail｜Saudi Arabia Railways｜Qatar Rail Doha Metro｜الاتحاد للقطارات｜الخطوط الحديدية السعودية｜السكك الحديدية المصرية｜SNTF Algérie
+中东·北非·土耳其 9（en＋ar＋fr＋tr，2026-11-16 加土耳其与开罗地铁）：Etihad Rail｜Saudi Arabia Railways｜Qatar Rail Doha Metro｜الاتحاد للقطارات｜الخطوط الحديدية السعودية｜السكك الحديدية المصرية｜SNTF Algérie｜TCDD YHT high speed rail｜مترو القاهرة
 独联体 4（en＋ru/uz/az，2026-11-12 加俄语系）：KTZ Kazakhstan railway｜Казахстанские железные дороги｜Узбекистон темир йўллари｜Azərbaycan Dəmir Yolları
-拉美 5（es＋pt，2026-11-12 加葡语）：Tren Maya｜Trenes Argentinos｜Metro de Bogotá｜Metrô de São Paulo｜CFM Moçambique
-非洲 3（fr/en）：ONCF Al Boraq｜Kenya Railways SGR｜Tanzania SGR
-南亚·大洋洲 4（en，2026-11-12 加巴基斯坦／孟加拉）：Indian Railways｜Pakistan Railways｜Bangladesh Railway｜Sydney Metro
-（说明：阿语三组分别对应阿联酋 Etihad Rail、沙特 SAR、埃及国家铁路 ENR（السكك الحديدية المصرية）；SNTF Algérie 为阿尔及利亚国家铁路运输公司法语名，其投资 agency ANESRIF 在 X 主请求覆盖；俄语系三组对应哈萨克 KTZ、乌兹别克、阿塞拜疆；葡语两组对应巴西圣保罗地铁与莫桑比克 CFM；均为中企重点或活跃市场。）
+拉美 6（es＋pt，2026-11-16 加墨西哥客运）：Tren Maya｜Trenes Argentinos｜Metro de Bogotá｜Metrô de São Paulo｜CFM Moçambique｜tren de pasajeros México
+非洲 4（fr/en，2026-11-16 加内罗毕通勤）：ONCF Al Boraq｜Kenya Railways SGR｜Tanzania SGR｜Nairobi commuter rail KRC
+南亚·大洋洲 6（en，2026-11-16 加印度城轨批次）：Indian Railways｜Pakistan Railways｜Bangladesh Railway｜Sydney Metro｜Chennai Metro Phase 2｜Delhi NCR metro project
+（说明：阿语三组分别对应阿联酋 Etihad Rail、沙特 SAR、埃及国家铁路 ENR（السكك الحديدية المصرية）；مترو القاهرة＝开罗地铁（业主为国家隧道局 NAT，与 ENR 分属两套机构，两条都要盯）；TCDD YHT＝土耳其国家铁路高铁品牌词，土耳其部长表态/高铁延伸类新闻多经土耳其媒体首发；tren de pasajeros México 覆盖墨客运铁路重启与招标节点；Nairobi commuter rail KRC 覆盖内罗毕通勤升级（塔兰塔体育场连接线等）；Chennai Metro Phase 2 与 Delhi NCR metro project 覆盖印度城轨批次（金奈 2 期制造、古尔冈 GMRL 等都会区城轨）。）
 【1.5.2 X 词表与账号（2026-11-12 v2.8 改为**三次独立请求**，sort=Latest，合计 maxItems 340）】
 **请求 A｜主请求（maxItems=200，不设 tweetLanguage，英文/法文为主）**
-业主 11（2026-11-12 下午加埃及、阿尔及利亚）：Etihad Rail｜Saudi Arabia Railways｜Qatar Rail｜ONCF｜KAI kereta｜MRT Corp｜Indian Railways｜Kenya Railways｜TCDD｜Egyptian National Railways｜ANESRIF railway
-阶段词 4（英文通用，专抓招标/投运/规划）：railway tender awarded｜metro line opened｜railway contract signed｜rail project approved
-竞品 4：Alstom OR Siemens Mobility order｜Hyundai Rotem OR Hitachi Rail contract｜Wabtec OR Progress Rail order｜Webuild OR Mota-Engil railway
+业主 16（2026-11-16 加 5 条：开罗地铁、内罗毕通勤、土耳其高铁、印度城轨合同、墨西哥铁路招标）：Etihad Rail｜Saudi Arabia Railways｜Qatar Rail｜ONCF｜KAI kereta｜MRT Corp｜Indian Railways｜Kenya Railways｜TCDD｜Egyptian National Railways｜ANESRIF railway｜Cairo Metro｜Nairobi commuter rail｜Turkey high speed rail｜India metro contract｜Mexico rail tender
+阶段词 5（英文通用，专抓招标/投运/规划；2026-11-16 加机车车辆招标词）：railway tender awarded｜metro line opened｜railway contract signed｜rail project approved｜rolling stock tender awarded
+竞品 4（动词必须覆盖全谱，见【2.6②】）：Alstom OR Siemens Mobility (order OR contract OR delivery OR production)｜Hyundai Rotem OR Hitachi Rail contract OR delivery｜Wabtec OR Progress Rail order OR locomotive｜Webuild OR Mota-Engil railway
 中企 2：CRRC｜China railway project
 **请求 B｜阿语（tweetLanguage="ar"，maxItems=80）**：الاتحاد للقطارات｜الخطوط الحديدية السعودية｜قطر للسكك الحديدية｜السكك الحديدية المصرية｜الشركة الوطنية للنقل بالسكك الحديدية
 **请求 C｜俄语（tweetLanguage="ru"，maxItems=60）**：КТЖ｜Казахстанские железные дороги｜Узбекские железные дороги
@@ -59,7 +59,7 @@ T3 微信公众号、聚合号与转载站（仅作发现线索，禁止作主�
 **主源硬性要求（2026-11-12 新增）**：主源 URL 必须是原始发布页（zf/部委/通讯社/业主/企业官网域名，或 T2 媒体本站文章页）；**严禁**以下域名作主源：mp.weixin.qq.com（除企业自有官方账号首发并注明外）、10jqka.com.cn、qq.com/rain、sina.com.cn 转载页、seetao.com / seetaoa.com、sohu.com、163.com。转载页只能进「佐证源」。每条须能用一句话回答「这条消息最初是谁发的」。
 检索做法（落实优先级）：每区除常规措辞外，至少 1 组官方源定向检索词（如「KAI press release」「Ministry of Transport Thailand 公告」「Antara kereta api」「MRT Corp award」）；当期有条目国家必须做官方源直采尝试；溯源用原题关键词＋通讯社/业主名定向 WebSearch，或 WebFetch 原文页确认可访问。
 检索覆盖强化（2026-11-12 v2.3 新增，防漏抓）：每区除常规措辞与官方源定向词外，必须加做以下两类定向检索，命中即评估收录——
-① 行业权威媒体直采词：railfreight.com、railwaygazette.com、IRJ（railjournal.com）、Metro Report、BNamericas tender calendar（拉美区必做「BNamericas November tender calendar rail」类检索）、T21（墨西哥）、tendernews 类（如「site:railfreight.com 2026/11」或「rail freight corridor opens November 2026」）——此类为 T2 原文直采，优先于任何聚合号转述；
+① 行业权威媒体直采词：railfreight.com、railwaygazette.com、IRJ（railjournal.com）、Metro Report、BNamericas tender calendar（拉美区必做「BNamericas November tender calendar rail」类检索）、T21（墨西哥）、Anadolu Agency（aa.com.tr，土耳其/中东欧区必做「Anadolu railway Türkiye」类检索——土耳其部长表态与高铁延伸类新闻几乎全部经 AA 或土媒首发）、Rail Analysis India（railanalysis.in，南亚城轨批次直采——印度地铁订单/车辆段/制造节点多经其首发）、Daily News Egypt 或 Ahram Online（埃及城轨）、墨西哥铁路招标必加「ARTF licitación ferrocarril México」（墨铁路运输监管机构为客运招标发布口）——此类为 T2 原文直采，优先于任何聚合号转述；
 ② 重大节点复核词：每月月初（1–7 日）对投运/通车/开工类节点加做「railway opens/commissioned November 2026」「line inaugurated」与当月地区词组合检索（中亚必含 Kazakhstan Uzbekistan railway opens）；BNamericas 月度招标日历每月初必查一次（拉美区），从中提取铁路相关节点逐条核窗口。
 漏抓追责：每日出刊后，当日截图对比外部同类日刊（如蔚蓝轨迹 Rail 日报）发现的遗漏，次日出刊前须以「回溯」条目补齐并溯源一手源。
 窗口判定补充（2026-11-12 v2.3）：条目的**报道/发布时间**落在窗口内即视为窗口内新闻，即使事件发生日早于窗口 7 天以上（属窗口内首次披露或首次进入中文视野），仍须收录并标「回溯：事件日期」；不得仅凭事件日期早而丢弃——但同一事件如台账已有记录，仍按去重与跟进规则处理，不得重复成条。
@@ -67,7 +67,7 @@ T3 微信公众号、聚合号与转载站（仅作发现线索，禁止作主�
 定级（手册 §6.1，2026-11-10 修订、2026-11-12 补充）：T1 官方一手源（含业主方/主管部门官方社媒，如 @SARSaudiRailway；含企业自有官方渠道首发）A；双源互证 A；T2 单源主流/行业媒体原文 B；微信公众号/聚合站/门户转载页转述未经溯源一律 C（必须留原始直链），溯源成功按原始出处定级；同事件口径冲突 D（写冲突说明）。非官方社媒未经溯源不得高于 C；社媒条目须在口径注标明账号性质。
 信源构成汇报（【6】收尾必附）：主源 T1 官方一手 x 条 / T2 主流行业媒体 y 条 / 公众号与聚合站转述已溯源 z 条 / 转述未溯源（C 级）w 条 / **聚合站或门户转载页作主源 t 条（目标恒为 0，非 0 须逐条说明原因）**；任一区主源全部为转述时，汇报中显式写「该区信源质量待改善」。
 【2.5 漏抓对账（每期出刊前必做，2026-11-12 v2.4 新增）】目的：在不把聚合号当来源的前提下，用行业媒体头条做"补漏网"，专治"规则都对、检索词没覆盖"的漏抓。
-① 头部扫描（固定 4 组 + 站点定向，非主题限定）：出刊前各检索 1 次——「rail freight news <DATE>」「railway tender awarded <月份> 2026」「metro OR light rail opening <月份> 2026」「<区域词> railway project <月份> 2026」；并加做 site:railfreight.com、site:railwaygazette.com、site:railjournal.com、site:t21.us 与 BNamericas 月度招标日历页检索。
+① 头部扫描（固定 4 组 + 站点定向，非主题限定）：出刊前各检索 1 次——「rail freight news <DATE>」「railway tender awarded <月份> 2026」「metro OR light rail opening <月份> 2026」「<区域词> railway project <月份> 2026」；并加做 site:railfreight.com、site:railwaygazette.com、site:railjournal.com、site:t21.us、site:railanalysis.in、site:aa.com.tr、site:dailynewsegypt.com 与 BNamericas 月度招标日历页检索。
 ② 逐条比对：扫描所得标题逐条对照本期候选池与 items 台账——已收则跳过；未收且属六区范围、且报道日期在窗口内（判定见【2】窗口判定补充）者必须评估补录，并按 T1/T2 溯源，禁止直接引用聚合号原文。
 ③ 未收必须给理由：未补录的每一条在收尾写明归类（旧闻超窗／与台账重复／区域排除／无实质事实／纯推广），不得静默略过。
 ④ 外部线索：用户或外部同类日刊（如蔚蓝轨迹 Rail 日报）给出的具体条目，逐条核对并在收尾输出「外部线索 n 条／已收 x／未收 y（原因）」；确认漏抓的当期内以「回溯」条目补齐并重新出刊（覆写固定链接，不新建链接）。
@@ -79,7 +79,7 @@ T3 微信公众号、聚合号与转载站（仅作发现线索，禁止作主�
 － 日韩：Hitachi Rail、Kawasaki Heavy Industries（车辆与重工）、Mitsubishi Heavy、Hyundai Rotem、Woojin、Dawonsys；综合商社（三菱商事/丸红/住友/双日，常见于新兴市场 PPP 牵头方）；
 － 北美：Wabtec（含原 GE 机车业务）、Progress Rail、Greenbrier、Trinity；
 － 工程承包与咨询：Webuild、Salini、Mota-Engil、FCC、Acciona、Gülermak、Limak、Doğuş、L&T、Egis、Systra。
-② 定向检索（每期固定执行，英文为主，≥8 组）："Kawasaki Heavy Industries rolling stock order 2026"、"Hyundai Rotem contract award 2026"、"Hitachi Rail contract 2026"、"Wabtec locomotive order 2026"、"Alstom contract award <月份> 2026"、"Siemens Mobility contract <月份> 2026"、"CAF OR Talgo OR Stadler order 2026"、"Webuild OR Salini OR Mota-Engil railway contract 2026"；每组可叠加当期区域词（Southeast Asia / Middle East / Latin America / Africa）收紧。
+② 定向检索（每期固定执行，英文为主，≥8 组）："Kawasaki Heavy Industries rolling stock order 2026"、"Hyundai Rotem contract award 2026"、"Hitachi Rail contract 2026"、"Wabtec locomotive order 2026"、"Alstom contract award <月份> 2026"、"Siemens Mobility contract <月份> 2026"、"CAF OR Talgo OR Stadler order 2026"、"Webuild OR Salini OR Mota-Engil railway contract 2026"；每组可叠加当期区域词（Southeast Asia / Middle East / Latin America / Africa）收紧。**动词全谱（2026-11-16 补，防漏抓制造/交付类节点）**：竞品词不得只盯 order/contract——必须另跑或合并覆盖 delivery、production start、rollout、handover、inauguration 动词（教训：11-12 金奈地铁 2 期阿尔斯通 96 列「启动生产」因只搜 order 而漏抓）；印度城轨批次常经 Rail Analysis India 首发，须加做一组「Alstom OR Siemens Mobility OR Hyundai Rotem India metro」。
 ③ 收录判据（竞品不受地域排除约束）：出现中标/签约/框架协议、交付/首车下线/投运、新厂或产线投资、技术路线变更、订单取消或退出某市场、重大合资或并购，即作 PR 收录；事件发生在欧洲/日韩/北美本土市场同样可收，口径注写「<地区>本土市场，仅作竞争参照」。
 ④ 配额与汇报：每期 PR 条目中非中企竞品应 ≥1/3（当期候选足够时）；汇报新增「竞品覆盖」一行——本期竞品 x 条（欧洲 a／日韩 b／北美 c／承包咨询 d），覆盖厂商：…；若为 0 或不足，必须写明原因（窗口内确无动态／仅有付费墙／检索受阻），不得沉默。
 ⑤ 中企条目中"击败某竞品"的表述仍写入卡片「竞品/交叉」行，但不得以此替代竞品的独立条目。
@@ -106,7 +106,7 @@ PART07 规范（2026-11-06 v3.13 定稿：外壳改为 details.part#part07 默�
 硬校验：①页面 section 数==1（仅 overview；严禁出现 section#schema、「二、编号说明」独立板块、section#quick 按区速查或任何「一、/二、/三、」中文序号标题）+ details.part 数==7（part01–part07）、卡片数==本期条目数；②每张卡片 id 与条目编号一一对应、全部跳转锚点有目标无死链；③PART07 为 details.part 折叠面板内嵌可展开舆情列表（v3.13）：details.part#part07 存在且不带 open（默认收起）、summary 含 h2 与 rcount 徽标；div.po-legend 存在且含「全部 N」胶囊、details.po 恰 25 个且 id 与 PO 编号一一对应、每个 summary 含 po-id/po-title/po-sent、状态胶囊类名与文本一致、非持平条目带 open、来源字段为真实 <a> 超链接；全篇不得出现旧式 15 列宽舆情表（<table> 含 monitor_focus/sentiment 或中文表头「监测重点」即为不合格）；④台账列数与线上基线 CSV 实际列数一致（不擅自增删列）；⑤YL 代号零泄漏，grep 零命中才放行；⑥禁止句式跟随原文洗稿；⑦页头三要素齐全（page-nav 双胶囊、rd-header 仅监测窗口、rd-toc 目录条 8 链无死链——不含编号说明与按区速查）；⑧无页脚（2026-11-09 v3.17）：全篇零 <footer> 标签、零「云端官方发布」「固定公开链接」字样页脚行（出现即为旧版式残留，不合格）；每张卡片 12 行标签齐全、行序正确、无分隔空行，「内容」为 100–200 字事实摘要（只搬运不评价）且该行带 r-content、内含 2–4 个 <strong>；除该行外其余 11 行（区域/阶段/资讯/相关方/关键词/进度·时间/竞品·交叉/主源/佐证源/置信度/语种备注）必须零 <strong>（非内容行出现任何加粗即不合格，v3.16 定稿；统计时用 <strong[ >] 宽松匹配，精确 <strong> 会漏判），加粗样式为黑色（.frow .fv strong{font-weight:700;color:#111}，不得用深蓝 #0b3f7d），主源/佐证源/置信度/语种备注四行带 r-meta 小字样式，「主源」必须含至少 1 个真实超链接、「关键词」3–5 个；⑨七个分区均为 details.part、summary 内 h2 与条数徽标完整、全部默认收起（标签不带 open 属性，v3.13）且点击/锚点跳转/搜索定位可正常展开、卡片与 po-list 全部在对应 part-body 内且折叠后布局不错乱、无锚点死链；⑩顶部搜索条（v3.9）：id="srch" 存在且位于 rd-header 与 rd-toc 之间，.srch-input/.srch-panel/.srch-box/.srch-ico 齐全，页面内联搜索 CSS（.srch-box 样式）与内联搜索脚本（含 getElementById('srch')），CSS/JS 均不得以外链 <link>/<script src> 引用，搜索条缺失或外链引用报异常；⑪一句话总览（v3.14）与编号说明（v3.15）：div.overview 为 40–120 字单句、只含新增条数与区域分布（不含条目编号/金额/来源等级/回溯标注/社媒统计），总览区无「定级说明」图例；p.schema-note 小字存在于 div.overview 之后（12px 灰字、CT/RW/PL/PR/PO 五条以分号相连、无 <table>），section#schema 与「二、编号说明」残留即不合格；⑫期号（2026-11-09 重编号）：h1 期号必须按第1期=2026-11-04 计算，归档页与检索索引中的历史期号必须与本条一致，不得出现 2026-10-26 起算的期号（如第10–16期）；⑬密码门（2026-11-09，含 15:20 每日免输更新）：成稿页面含 id="gate"、input#gate-pw、button#gate-btn、EXPECTED="f9a082556f5b9a0b162093a6a64fef36956469d0d587e4eee346f43462298bc1"、GKEY='portal_unlocked_v3'、每日免输逻辑（脚本含 gateToday 与 'Asia/Shanghai' 当日日期比对）六要素，缺失任一或常量被改动（尤其不得出现 GTTL=7*24*3600*1000 的 7 天免输旧逻辑）即不合格；全篇不得出现旧密码哈希 4033ee5a 开头的值，不得出现明文密码；⑭信源合规（2026-11-10 新增、2026-11-12 扩展）：逐张卡片检查主源 URL 域名——出现 mp.weixin.qq.com（企业自有官方账号首发且备注注明者除外）、10jqka.com.cn、qq.com/rain、sina.com.cn 转载页、seetao.com / seetaoa.com、sohu.com、163.com 的，即为不合格，必须溯源至原发布页或降 C；聚合站/公众号仅可出现在「佐证源/语种备注」并标「线索源：xx（已溯源）」。复核方法：grep 全篇统计上述域名在主源行中的命中数，应为 0（企业自有官方账号 ≤1 条且备注「企业官方首发」）。
 ⑮台账完整性（2026-11-12 新增，防重复与丢数）：出刊前必须校验 items 台账覆盖全部在架期——按 issue_date 分组，上一期（DATE−1 且当期有出刊）必须存在记录、且组数 ≥ 归档页期数；若历史期整段缺失（如仅剩早期旧期 + 当日），判定台账被覆写成残缺版本，须先用 search-index.json 与归档期面重建历史记录、合并后再出刊，否则去重失效会导致跨期重复条目。每期写入后校验：总条数 == 上期总条数 + 本期新增数，且本期条目 id 不与任何历史 id 复用。
 ⑯漏抓对账（2026-11-12 v2.4）：收尾必须含「对账」行（扫描 M 条／补录 k 条／未收 j 条及原因分类）；用户或外部日刊给出的具体线索必须逐条给出已收/未收结论，确认漏抓未在当期补齐即不合格。
-⑰竞品监测（2026-11-12 v2.5，v2.6 扩展至社媒，v2.7 改为业主视角配比）：收尾必须含「竞品覆盖」行；每期须能出示【2.6①】四组竞品至少各 1 组定向检索的执行痕迹（检索词+结果），PR 条目为 0 且未说明原因即不合格；竞品条目被标注为「仅作竞争参照」后方可入刊；**社媒须出示三平台完整执行痕迹——YouTube 跑满【1.5.1】30 组词（中企 3 组、业主 ≥14 组、竞品 ≥5 组）、X 跑满【1.5.2】21 条 searchTerms＋三次请求（主/阿语/俄语）与 12 个 handles、FB 覆盖【1.5.3】23 页（resultsLimit=170）；任一平台缺跑、某区域业主词未执行、或采集为 0 且未按零值说明给出原因，均判不合格；中企词超过 3 组（把社媒做成中企战报）同样不合格**。
+⑰竞品监测（2026-11-12 v2.5，v2.6 扩展至社媒，v2.7 改为业主视角配比）：收尾必须含「竞品覆盖」行；每期须能出示【2.6①】四组竞品至少各 1 组定向检索的执行痕迹（检索词+结果），PR 条目为 0 且未说明原因即不合格；竞品条目被标注为「仅作竞争参照」后方可入刊；**社媒须出示三平台完整执行痕迹——YouTube 跑满【1.5.1】36 组词（中企 3 组、业主 ≥14 组、竞品 ≥5 组）、X 跑满【1.5.2】27 条 searchTerms＋三次请求（主/阿语/俄语）与 12 个 handles、FB 覆盖【1.5.3】23 页（resultsLimit=170）；任一平台缺跑、某区域业主词未执行、或采集为 0 且未按零值说明给出原因，均判不合格；中企词超过 3 组（把社媒做成中企战报）同样不合格**。
 ⑱**凭据自检（2026-11-13 新增，防社媒静默断供）**：进入【1.5】前先验凭据——`curl -s -o /dev/null -w "%{http_code}" "https://api.apify.com/v2/users/me?token=$APIFY_TOKEN"` 必须为 200；返回 401/403 即判凭据失效，立即在 state 写 `social_states.X=error(401)`、note 声明「社媒数据缺失」，并中止出刊或按降级声明出刊，**严禁把采集失败写成 X=0／窗口内无帖**。YouTube 同理：search.list 返回 error 时记 `error(原因)`，只有 HTTP 200 且结构合法才可记 noResults。提示词中的凭据段是唯一写入点，任何提示词重写都必须原样保留 APIFY_TOKEN／YT_API_KEY，不得回退旧值。
 ⑲**四态必写（2026-11-13）**：state.social_states 与 note 必须写入当期三平台实测四态（ok(n)／error(原因)／noResults／skipped）与当期漏斗（采集/采用/弃用），不得沿用上期值；同时 state.updated_at 必须改为当期出刊时间（若 updated_at 仍是上期，说明 state 未被当期覆盖，判不合格）。
 ⑳**窗口日口径（2026-11-13）**：PART07「近期动态」与状态说明的括注一律写窗口日（D-1 全天，如窗口 11-12 即写「窗口内（11-12）」），不得写期号日（如 11-13）。

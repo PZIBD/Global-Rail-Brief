@@ -524,7 +524,7 @@ mark.srch-mark{background:#fff1a8;color:#111;padding:0 1px;border-radius:2px}
 <!--/SRCH-JS--><!--ARCH-CAL-JS-->
 <script>
 (function(){
-  var RECENT = 6;                     /* 上方展示的最新期数，改这一个数字即可 */
+  var RECENT = 3;                     /* 上方展示的最新期数，改这一个数字即可 */
   var grid = document.getElementById('cards');
   if(!grid || document.getElementById('archCal')) return;
   var cards = [].slice.call(grid.querySelectorAll('a.card'));
@@ -546,7 +546,7 @@ mark.srch-mark{background:#fff1a8;color:#111;padding:0 1px;border-radius:2px}
   /* 2) 标题下的说明改写 */
   var hp = document.querySelector('.head p');
   if(hp) hp.textContent = '共 ' + items.length + ' 期 · 上方为最新 ' +
-    Math.min(RECENT, items.length) + ' 期，更早的请在下方日历中按日期查看';
+    Math.min(RECENT, items.length) + ' 期，更早的请在上方轨道日历中按日期查看';
 
   /* 3) 按月分组，最新月份在前 */
   var months = {}, order = [];
@@ -563,7 +563,7 @@ mark.srch-mark{background:#fff1a8;color:#111;padding:0 1px;border-radius:2px}
   var today = '';
   try{ today = new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Shanghai'}).format(new Date()); }catch(e){}
 
-  var html = '<div class="cal-head"><h2>日历索引</h2><p>按月查看全部往期，点击日期直接跳转当期</p></div>';
+  var html = '<div class="cal-head"><h2>轨道日历</h2><p>按月查看全部往期，点击日期直接跳转当期</p></div>';
   order.forEach(function(k){
     var g = months[k], map = {};
     g.list.forEach(function(o){ map[o.d] = o; });
@@ -599,7 +599,7 @@ mark.srch-mark{background:#fff1a8;color:#111;padding:0 1px;border-radius:2px}
   var sec = document.createElement('section');
   sec.className = 'cal-wrap'; sec.id = 'archCal';
   sec.innerHTML = html;
-  grid.parentNode.insertBefore(sec, grid.nextSibling);
+  grid.parentNode.insertBefore(sec, grid);
 })();
 </script>
 <!--/ARCH-CAL-JS-->

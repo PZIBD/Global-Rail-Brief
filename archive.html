@@ -545,7 +545,7 @@ mark.srch-mark{background:#fff1a8;color:#111;padding:0 1px;border-radius:2px}
 
   /* 2) 标题下的说明改写 */
   var hp = document.querySelector('.head p');
-  if(hp) hp.textContent = '共 ' + items.length + ' 期 · 上方为最新 ' +
+  if(hp) hp.textContent = '共 ' + items.length + ' 期 · 仅显示最新 ' +
     Math.min(RECENT, items.length) + ' 期，更早的请在上方轨道日历中按日期查看';
 
   /* 3) 按月分组，最新月份在前 */

@@ -1,4 +1,4 @@
-# 轨道出海日报 · 云端编纂规范 automation-spec v2.14（2026-11-10 起生效；2026-11-13 修订：社媒凭据自检、四态必写、窗口日口径、人工补录三基线同写；硬校验⑰计数对齐 v2.8 词表；2026-11-19 修订：PO 清单修订——删除 PO-08 阿根廷客车、PO-09 更名利雅得KAFD金融城单轨、PO-25 转机会跟踪，舆情跟踪 25→24 条；2026-11-20 修订：按官方项目表对齐——PO-04 复名圣保罗DRT、PO-05/06/07 转机会跟踪、PO-25 转正、新增 PO-26~31 六条；历史项目补录新增 PO-32/33，舆情跟踪 24→32 条；2026-11-23 修订：回溯补录自动重发——【2.5】⑥ 新增 state.backfill_pending 触发器，复盘落库即自动渲染重发，【0 幂等】增加对应豁免分支）
+# 轨道出海日报 · 云端编纂规范 automation-spec v2.15（2026-11-10 起生效；2026-11-13 修订：社媒凭据自检、四态必写、窗口日口径、人工补录三基线同写；硬校验⑰计数对齐 v2.8 词表；2026-11-19 修订：PO 清单修订——删除 PO-08 阿根廷客车、PO-09 更名利雅得KAFD金融城单轨、PO-25 转机会跟踪，舆情跟踪 25→24 条；2026-11-20 修订：按官方项目表对齐——PO-04 复名圣保罗DRT、PO-05/06/07 转机会跟踪、PO-25 转正、新增 PO-26~31 六条；历史项目补录新增 PO-32/33，舆情跟踪 24→32 条；2026-11-23 修订：回溯补录自动重发——【2.5】⑥ 新增 state.backfill_pending 触发器，复盘落库即自动渲染重发，【0 幂等】增加对应豁免分支；2026-11-23 修订 v2.15：社媒链路重构（P-003/P-007）——【1.5】新增候选池双闸（账号闸＋事实闸），非官方账号与无事实节点内容降级 PART07，词表仍全量执行；账号扩充（P-006）——【1.5.2】请求 A 业主词 11→13、handles 12→14，【1.5.3】FB 23→24 页；硬校验⑰计数同步）
 
 
 
@@ -31,6 +31,8 @@
 
 
 【1.5 社媒采集】（命令与凭据见任务提示词；词表见本节 1.5.1–1.5.3，为唯一权威版本，任务侧只存命令不存词表）三份返回一律丢弃错误占位项（含 error 字段、url 为 /api/graphql 或 /photo/?、text 为空），只留真实帖子；非中英文帖须译成中文摘要，主体、金额、里程、时间按原文事实保留。归一为 {platform,author,published_at,text,url,metrics,**lang,lang_src**}，只留窗口内，写 /workspace/social.json 并记 sources；单平台失败只记录不中断。
+
+**候选池双闸（2026-11-23 v2.15 新增，P-003/P-007；解决「社媒有量无质」：11-23 采集 254 条入刊 0 条，20 期中社媒主源 6 条全部来自官方账号首发）**：①**账号闸**——仅官方账号的帖子可进项目候选池，即【1.5.1–1.5.3】清单内已核实账号，及检索中经官方自证新发现的账号（按【1.5.2】账号纪律核实）；非官方账号（铁路科普、旅游打卡、粉丝站、运营客服类）命中词表的内容**不进候选池**，一律只写 PART07 舆情；②**事实闸**——官方帖须含事实节点词（开通/通车/投运/签约/授标/招标/融资/送电/开工/交付/批复/并购等）才进候选池；无事实节点的官方帖（科普、客流播报、票价与服务提醒）只进 PART07。词表仍按【1.5.1–1.5.3】全量执行（硬校验⑰不变），但其作用域调整为：发现官方账号新帖＋供给 PART07 舆情素材，不再由词表命中直接生成项目条目。效果目标：社媒主源条目 0 条/日 → 1–3 条/日，且多为 T1 可定 A。
 
 **语种判定与落盘（2026-11-12 v2.8 新增，每帖必填 lang）**：`lang` 取 BCP-47 或 ISO 639-1（如 en／ar／ru／pt-BR／id／th／es／ms），`lang_src` 注明来源，判定优先级按平台分别执行——①X：直接采信返回的 `lang` 字段（Twitter 官方分类器，标 `x-native`），**不得自行重判**，仅在其缺失时由正文判定并标 `guess`；②YouTube：依次取 `snippet.defaultAudioLanguage` → `snippet.defaultLanguage`（标 `yt-meta`），两者皆空则按标题文字脚本判定（标 `guess`），仍无法判定标 `unknown`；③FB：采集器无语言字段，由正文判定并标 `model`。lang 只记原文语言，中文摘要另存于译文字段，不得用译后语言覆盖 lang。**注意边界**：YouTube 只返回标题与描述，视频口播内容不可读（字幕下载需频道授权），因此其 lang 反映的是元数据语言而非音频语言；FB 的 media 项含 `ocrText`（图片内文字 OCR），涉及项目事实的图片帖须读取该字段，不得只看 text。
 
@@ -74,7 +76,7 @@
 
 **请求 A｜主请求（maxItems=200，不设 tweetLanguage，英文/法文为主）**
 
-业主 11（2026-11-12 下午加埃及、阿尔及利亚）：Etihad Rail｜Saudi Arabia Railways｜Qatar Rail｜ONCF｜KAI kereta｜MRT Corp｜Indian Railways｜Kenya Railways｜TCDD｜Egyptian National Railways｜ANESRIF railway
+业主 13（2026-11-23 v2.15 加 BMRCL、KTMB，此前 2026-11-12 下午加埃及、阿尔及利亚）：Etihad Rail｜Saudi Arabia Railways｜Qatar Rail｜ONCF｜KAI kereta｜MRT Corp｜Indian Railways｜Kenya Railways｜TCDD｜Egyptian National Railways｜ANESRIF railway｜BMRCL Namma Metro｜KTM Berhad KTMB
 
 阶段词 4（英文通用，专抓招标/投运/规划）：railway tender awarded｜metro line opened｜railway contract signed｜rail project approved
 
@@ -88,15 +90,15 @@
 
 （B、C 的意义：阿语、俄语业主帖在英文主请求里会被英文帖挤出配额，必须按语种单开一路；两路合计 140 条，成本约 $0.06/日。三路结果按 url 合并去重，**不得因 B/C 为空就跳过不跑**，为空须在漏斗里写「该语种窗口内无业主帖」。）
 
-twitterHandles 12 个（全部已核实）：中企与业主 7＝CRRC_global、ChinaRailways、SARSaudiRailway、QatarRail、RailMinIndia、Marmaraytcdd、PakrailPK（巴基斯坦铁路）；竞品 5＝Alstom、SiemensMobility、HitachiRailENG、WabtecCorp、Webuild_Group
+twitterHandles 14 个（全部已核实；2026-11-23 v2.15 由 12 扩至 14，P-006）：中企与业主 9＝CRRC_global、ChinaRailways、SARSaudiRailway、QatarRail、RailMinIndia、Marmaraytcdd、PakrailPK（巴基斯坦铁路）、OfficialBMRCL（班加罗尔地铁 BMRCL 官方，2026-11-23 核实：BMRCL 官方 WhatsApp 频道社媒栏自列 x.com/officialbmrcl，官网 english.bmrc.co.in）、ktm_berhad（马来亚铁路 KTMB 官方，2026-11-23 核实：ktmb.com.my 官方 FAQ PDF 列明）；竞品 5＝Alstom、SiemensMobility、HitachiRailENG、WabtecCorp、Webuild_Group
 
-【1.5.3 FB 主页清单（23 页，resultsLimit=170，onlyPostsNewerThan=D1；2026-11-12 由 21 页扩至 23 页，resultsLimit 150→170 保持每页约 7 条）】
+【1.5.3 FB 主页清单（24 页，resultsLimit=170，onlyPostsNewerThan=D1；2026-11-12 由 21 页扩至 23 页，resultsLimit 150→170 保持每页约 7 条；2026-11-23 v2.15 由 23 页扩至 24 页，P-006）】
 
-业主/运营商 19：EtihadRail ktmberhad keretaapikita DOTrPH srt.thailand duongsatvietnam ReliKenya MetroBogota efe.chile trenesargentinosop TrenMayaOficial smrt.singapore mavcsoport mtrhk SARSaudiRailway qrc.official RailMinIndia pakrail.gov.pk RailMinistryBD
+业主/运营商 20：EtihadRail ktmberhad keretaapikita DOTrPH srt.thailand duongsatvietnam ReliKenya MetroBogota efe.chile trenesargentinosop TrenMayaOficial smrt.singapore mavcsoport mtrhk SARSaudiRailway qrc.official RailMinIndia pakrail.gov.pk RailMinistryBD BMRCL
 
 竞品 4：ALSTOM RollingOnRails global.kawasaki WebuildGroupOfficial
 
-（RollingOnRails＝Siemens Mobility 官方页，勿写回 SiemensMobility；SARSaudiRailway＝沙特铁路、qrc.official＝卡塔尔铁路、RailMinIndia＝印度铁道部、pakrail.gov.pk＝巴基斯坦铁路（与官网域名同名的官方页）、RailMinistryBD＝孟加拉铁道部——孟加拉铁路总公司本身无确证官方页，故取其上级部门铁道部，该部为孟加拉铁路项目公告的实际发布口。）
+（BMRCL＝班加罗尔地铁 BMRCL 官方页，2026-11-23 核实：BMRCL 官方 WhatsApp 频道社媒栏自列 facebook.com/BMRCL；KTMB 的 FB 页 ktmberhad 原已在此列，本次仅补其 X 账号；RollingOnRails＝Siemens Mobility 官方页，勿写回 SiemensMobility；SARSaudiRailway＝沙特铁路、qrc.official＝卡塔尔铁路、RailMinIndia＝印度铁道部、pakrail.gov.pk＝巴基斯坦铁路（与官网域名同名的官方页）、RailMinistryBD＝孟加拉铁道部——孟加拉铁路总公司本身无确证官方页，故取其上级部门铁道部，该部为孟加拉铁路项目公告的实际发布口。）
 
 **定级与去重**：业主与政府部门官方账号发布的项目事实（招标公告、授标、签约、投运、规划批复）属 T1 一手，作主源定 A；竞品官方账号首发（首车下线、交付仪式、新厂投产、订单官宣）同属 T1，可作 PR 主源并在口径注写「<平台>官方账号首发」，标「仅作竞争参照」；社媒与官网稿并存时取官网稿为佐证源、社媒作首发源，只留一条；社媒条目须标 [YT]/[X]/[FB]，不受地域排除约束（竞品）。
 
@@ -221,7 +223,7 @@ PART07 规范（2026-11-06 v3.13 定稿：外壳改为 details.part#part07 默�
 
 ⑯漏抓对账（2026-11-12 v2.4）：收尾必须含「对账」行（扫描 M 条／补录 k 条／未收 j 条及原因分类）；用户或外部日刊给出的具体线索必须逐条给出已收/未收结论，确认漏抓未在当期补齐即不合格。
 
-⑰竞品监测（2026-11-12 v2.5，v2.6 扩展至社媒，v2.7 改为业主视角配比）：收尾必须含「竞品覆盖」行；每期须能出示【2.6①】四组竞品至少各 1 组定向检索的执行痕迹（检索词+结果），PR 条目为 0 且未说明原因即不合格；竞品条目被标注为「仅作竞争参照」后方可入刊；**社媒须出示三平台完整执行痕迹——YouTube 跑满【1.5.1】30 组词（中企 3 组、业主 ≥14 组、竞品 ≥5 组）、X 跑满【1.5.2】21 条 searchTerms＋三次请求（主/阿语/俄语）与 12 个 handles、FB 覆盖【1.5.3】23 页（resultsLimit=170）；任一平台缺跑、某区域业主词未执行、或采集为 0 且未按零值说明给出原因，均判不合格；中企词超过 3 组（把社媒做成中企战报）同样不合格**。
+⑰竞品监测（2026-11-12 v2.5，v2.6 扩展至社媒，v2.7 改为业主视角配比）：收尾必须含「竞品覆盖」行；每期须能出示【2.6①】四组竞品至少各 1 组定向检索的执行痕迹（检索词+结果），PR 条目为 0 且未说明原因即不合格；竞品条目被标注为「仅作竞争参照」后方可入刊；**社媒须出示三平台完整执行痕迹——YouTube 跑满【1.5.1】30 组词（中企 3 组、业主 ≥14 组、竞品 ≥5 组）、X 跑满【1.5.2】23 条 searchTerms＋三次请求（主/阿语/俄语）与 14 个 handles、FB 覆盖【1.5.3】24 页（resultsLimit=170）；任一平台缺跑、某区域业主词未执行、或采集为 0 且未按零值说明给出原因，均判不合格；中企词超过 3 组（把社媒做成中企战报）同样不合格**。
 
 ⑱**凭据自检（2026-11-13 新增，防社媒静默断供）**：进入【1.5】前先验凭据——`curl -s -o /dev/null -w "%{http_code}" "https://api.apify.com/v2/users/me?token=$APIFY_TOKEN"` 必须为 200；返回 401/403 即判凭据失效，立即在 state 写 `social_states.X=error(401)`、note 声明「社媒数据缺失」，并中止出刊或按降级声明出刊，**严禁把采集失败写成 X=0／窗口内无帖**。YouTube 同理：search.list 返回 error 时记 `error(原因)`，只有 HTTP 200 且结构合法才可记 noResults。提示词中的凭据段是唯一写入点，任何提示词重写都必须原样保留 APIFY_TOKEN／YT_API_KEY，不得回退旧值。
 
